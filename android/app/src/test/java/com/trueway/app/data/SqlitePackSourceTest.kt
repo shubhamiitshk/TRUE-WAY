@@ -27,6 +27,7 @@ class SqlitePackSourceTest {
         val queries = listOf(
             "Mahabodhi", "महाबोधि", "Mahabodhi Mandir", "Nalanda", "नालंदा",
             "Griddhakuta", "Temple 3", "Venu Vana", "Sonbhandar",
+            "Gridhakoot", "Swarnabhandar", "Mahabodi",
         )
         for (q in queries) {
             val expected = demo.search(q).firstOrNull()?.placeId

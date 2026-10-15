@@ -166,7 +166,7 @@ class SqlitePackSource(
                     arrayOf<Any?>(match, limit.coerceAtLeast(1)),
                 ).forEach { ids += it["place_id"] as String }
             }
-            // 3. Phonetic expansion fallback if slots remain
+            // 3. Phonetic expansion fallback if slots remain (FTS5 + deterministic skeleton scan)
             if (ids.size < limit) {
                 val skeletonMatch = toFtsSkeletonMatch(q)
                 if (skeletonMatch != null && skeletonMatch != match) {
@@ -179,6 +179,24 @@ class SqlitePackSource(
                             "ORDER BY bm25(place_search) LIMIT ?",
                         arrayOf<Any?>(skeletonMatch, limit.coerceAtLeast(1)),
                     ).forEach { ids += it["place_id"] as String }
+                }
+                val querySkeleton = IndicPhoneticNormalizer.toSkeleton(q.lowercase())
+                val querySkeletonTokens = querySkeleton.split(" ").filter { it.isNotBlank() }
+                if (ids.size < limit && querySkeleton.isNotEmpty()) {
+                    for (p in all()) {
+                        if (p.placeId in ids) continue
+                        val haystackRaw = buildString {
+                            append(p.canonicalName.lowercase()).append(' ')
+                            p.aliases.forEach { append(it.lowercase()).append(' ') }
+                        }
+                        val haystackSkeleton = IndicPhoneticNormalizer.toSkeleton(haystackRaw)
+                        if (haystackSkeleton.contains(querySkeleton) ||
+                            (querySkeletonTokens.isNotEmpty() && querySkeletonTokens.all { tok -> haystackSkeleton.contains(tok) })
+                        ) {
+                            ids += p.placeId
+                            if (ids.size >= limit) break
+                        }
+                    }
                 }
             }
             ids.take(limit.coerceAtLeast(1)).mapNotNull { get(it) }

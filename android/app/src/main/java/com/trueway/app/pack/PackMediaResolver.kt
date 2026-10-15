@@ -66,8 +66,16 @@ class PackMediaResolver(
     private val bundledAssetChecker: BundledAssetChecker,
     private val requireProductionClearedOrigin: Boolean = false
 ) {
-    private val manifestCache = ConcurrentHashMap<String, ParsedPackManifest>()
-    private val verifiedStampCache = ConcurrentHashMap<String, VerifiedFileStamp>()
+    companion object {
+        private val manifestCache = ConcurrentHashMap<String, ParsedPackManifest>()
+        private val verifiedStampCache = ConcurrentHashMap<String, VerifiedFileStamp>()
+
+        fun evictSharedPackCache(packDir: File) {
+            val prefix = runCatching { packDir.canonicalPath }.getOrDefault(packDir.absolutePath)
+            manifestCache.keys.removeIf { it.startsWith(prefix) }
+            verifiedStampCache.keys.removeIf { it.startsWith(prefix) }
+        }
+    }
 
     constructor(
         context: Context,
@@ -85,9 +93,7 @@ class PackMediaResolver(
     )
 
     fun evictPackCache(packDir: File) {
-        val prefix = runCatching { packDir.canonicalPath }.getOrDefault(packDir.absolutePath)
-        manifestCache.keys.removeIf { it.startsWith(prefix) }
-        verifiedStampCache.keys.removeIf { it.startsWith(prefix) }
+        evictSharedPackCache(packDir)
     }
 
     fun resolve(relativePath: String, activePackDir: File?): ResolvedMedia {

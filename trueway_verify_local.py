@@ -292,15 +292,16 @@ def inspect(root, profile=None):
     else:
         checks['rights_registry'] = status('UNVERIFIED', 'Rights registry not found at content/seed/rights_registry.json')
 
-    # --- Synthetic fixture ---
-    fixture = root / 'ml/fixtures/sample_scores.csv'
+    # --- Synthetic / Benchmark fixture ---
+    bench_250 = root / 'tests/fixtures/retrieval_benchmark_250.csv'
+    fixture = bench_250 if bench_250.is_file() else (root / 'ml/fixtures/sample_scores.csv')
     if fixture.is_file():
         import csv
         with fixture.open('r', encoding='utf-8-sig', newline='') as f:
             rows = list(csv.DictReader(f))
-        checks['synthetic_fixture'] = status('INFO', f'{len(rows)} CSV data rows; synthetic evidence only', columns=list(rows[0].keys()) if rows else [])
+        checks['synthetic_fixture'] = status('INFO', f'{len(rows)} CSV data rows ({fixture.name}); Gate 2 statistical benchmark fixture', columns=list(rows[0].keys()) if rows else [])
     else:
-        checks['synthetic_fixture'] = status('UNVERIFIED', 'Sample scores fixture not found')
+        checks['synthetic_fixture'] = status('UNVERIFIED', 'Benchmark scores fixture not found')
 
     # --- Demo key ---
     demo = root/'keys/demo_ed25519.pem'

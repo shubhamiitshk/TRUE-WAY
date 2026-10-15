@@ -1,6 +1,6 @@
 {
   "project_root": "C:\\Users\\sumit\\OneDrive\\Desktop\\True-Way",
-  "checked_at_utc": "2026-10-14T20:31:24+00:00",
+  "checked_at_utc": "2026-10-15T05:25:02+00:00",
   "profile": "production",
   "checks": {
     "jvm_tests": {
@@ -150,13 +150,13 @@
       ],
       "parse_errors": [],
       "source_newer_than_test_report": false,
-      "newest_test_xml_utc": "2026-10-14T20:09:32+00:00"
+      "newest_test_xml_utc": "2026-10-15T05:23:16+00:00"
     },
     "apk": {
       "status": "PASS",
-      "summary": "app-debug.apk, 96.53 MiB",
+      "summary": "app-debug.apk, 96.80 MiB",
       "path": "android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
-      "apk_modified_utc": "2026-10-14T20:13:26+00:00",
+      "apk_modified_utc": "2026-10-15T05:24:46+00:00",
       "older_than_source": false,
       "zip_corrupt_member": null,
       "audio_asset_count": 20,
@@ -316,9 +316,9 @@
     },
     "offline_audio_assets": {
       "status": "REVIEW",
-      "summary": "60 packaged audio files (20 in APK, 40 in packs), expected up to 20 tracks for 10 POIs x EN/HI; mapping & player unverified",
+      "summary": "40 packaged audio files (20 in APK, 20 in packs), expected up to 20 tracks for 10 POIs x EN/HI; mapping & player unverified",
       "apk_audio_count": 20,
-      "pack_audio_count": 40,
+      "pack_audio_count": 20,
       "audio_assets": [
         "assets/audio/bodhi_tree_guide.ogg",
         "assets/audio/bodhi_tree_guide_hi.ogg",
@@ -359,65 +359,9 @@
         "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide.ogg",
         "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide_hi.ogg",
         "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide_hi.ogg",
-        "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide.ogg",
         "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide_hi.ogg"
       ],
       "inspected_pack_components": [
-        {
-          "path": "dist\\bihar.twpkg\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 20,
-          "audio_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide_hi.ogg"
-          ],
-          "raster_count": 6,
-          "raster_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_1880s_beglar.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_1915_spooner.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
-          ]
-        },
         {
           "path": "dist\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
           "type": "twpkg_archive",
@@ -514,46 +458,10 @@
     },
     "then_now_images": {
       "status": "REVIEW",
-      "summary": "210 packaged raster images overall (198 in APK, 12 in packs). Target is 3 comparison pairs consisting of 6 images total (3 historic + 3 modern); rights require separate human proof.",
+      "summary": "204 packaged raster images overall (198 in APK, 6 in packs). Target is 3 comparison pairs consisting of 6 images total (3 historic + 3 modern); rights require separate human proof.",
       "apk_raster_count": 198,
-      "pack_raster_count": 12,
+      "pack_raster_count": 6,
       "inspected_pack_components": [
-        {
-          "path": "dist\\bihar.twpkg\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 20,
-          "audio_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide_hi.ogg"
-          ],
-          "raster_count": 6,
-          "raster_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_1880s_beglar.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_1915_spooner.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
-          ]
-        },
         {
           "path": "dist\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
           "type": "twpkg_archive",
@@ -650,44 +558,8 @@
     },
     "offline_pack_components": {
       "status": "INFO",
-      "summary": "9 pack components inspected (40 audio, 12 raster files)",
+      "summary": "8 pack components inspected (20 audio, 6 raster files)",
       "components": [
-        {
-          "path": "dist\\bihar.twpkg\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 20,
-          "audio_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/bodhi_tree_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/cyclopean_wall_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/great_buddha_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/griddhakuta_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/mahabodhi_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_mahavihara_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_monastery1_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/nalanda_temple3_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/sonbhandar_guide_hi.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide.ogg",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:audio/vajrasana_guide_hi.ogg"
-          ],
-          "raster_count": 6,
-          "raster_files": [
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_1880s_beglar.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/mahabodhi_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_1915_spooner.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/nalanda_temple3_2026_conserved.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
-            "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
-          ]
-        },
         {
           "path": "dist\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
           "type": "twpkg_archive",
@@ -806,7 +678,7 @@
     },
     "synthetic_fixture": {
       "status": "INFO",
-      "summary": "18 CSV data rows; synthetic evidence only",
+      "summary": "250 CSV data rows (retrieval_benchmark_250.csv); Gate 2 statistical benchmark fixture",
       "columns": [
         "query_id",
         "query_kind",
@@ -857,8 +729,8 @@
       "demo_signing_key (PASS)"
     ],
     "reviews": [
-      "offline_audio_assets (REVIEW): 60 packaged audio files (20 in APK, 40 in packs), expected up to 20 tracks for 10 POIs x EN/HI; mapping & player unverified",
-      "then_now_images (REVIEW): 210 packaged raster images overall (198 in APK, 12 in packs). Target is 3 comparison pairs consisting of 6 images total (3 historic + 3 modern); rights require separate human proof.",
+      "offline_audio_assets (REVIEW): 40 packaged audio files (20 in APK, 20 in packs), expected up to 20 tracks for 10 POIs x EN/HI; mapping & player unverified",
+      "then_now_images (REVIEW): 204 packaged raster images overall (198 in APK, 6 in packs). Target is 3 comparison pairs consisting of 6 images total (3 historic + 3 modern); rights require separate human proof.",
       "audio_player_source (REVIEW): Static source hints show MediaPlayer integration; inspect actual playback with instrumented/device tests",
       "rights_registry (REVIEW): Rights registry verified (26 registered assets: 20 TTS_PRELIMINARY, 3 PUBLIC_DOMAIN_ARCHIVAL, 3 FIELD_CLEARED_PRODUCTION; 0 SYNTHETIC_DEV)"
     ]

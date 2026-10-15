@@ -201,7 +201,7 @@ fun PacksScreen(
             style = MaterialTheme.typography.titleMedium,
         )
         Text(
-            text = "Run a comprehensive on-device audit across all 8 TrueWay layers (Corpus, FTS Index, Vision Model, Essentials, Audio Stories, Curated Walks, Site Compliance, Privacy Sandbox). Verifies zero-network functionality prior to departure.",
+            text = "Run a comprehensive on-device audit across all 10 TrueWay layers (Corpus, FTS Index, Vision Model, Essentials, Audio Stories, Curated Walks, Site Compliance, Privacy Sandbox, Geodesic Proximity, Phonetic & Media Trust Boundary). Verifies zero-network functionality prior to departure.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -238,7 +238,7 @@ fun PacksScreen(
                             color = if (report.overallReady) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
                         )
                         Text(
-                            text = "8/8 components operational with 0 network dependencies.",
+                            text = "${report.results.count { it.status == DiagnosticStatus.PASSED }}/${report.results.size} components operational with 0 network dependencies.",
                             style = MaterialTheme.typography.bodySmall,
                             color = if (report.overallReady) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
                         )
