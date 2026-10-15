@@ -1,8 +1,13 @@
-"""Demonstrator pack builder / verifier — blueprint §9.3, §28.1, §28.8.
+"""Demonstrator & release pack builder / verifier — blueprint §9.3, §28.1, §28.8.
 
-Stdlib only. Real Ed25519 signing plugs in via --key-file (raw 32-byte
-seed read from a protected signing environment, never committed); without
-it, --demo-key stamps DEMO-KEY-DO-NOT-SHIP so output is unshippable.
+Supports:
+- Real Ed25519 signing via --key-file (32-byte raw seed or hex/base64 seed)
+  and verification via --pub-key-b64.
+- Ephemeral demo signing via --demo-key (stamps DEMO-KEY-DO-NOT-SHIP).
+- Automatic item-level `asset_origin` stamping into `manifest.cjson` from
+  `content/seed/rights_registry.json` so Android's `PackMediaResolver` enforces
+  `SYNTHETIC_DEV` vs `PUBLIC_DOMAIN_ARCHIVAL` / `FIELD_CLEARED_PRODUCTION` /
+  `TTS_PRELIMINARY` trust boundaries at runtime.
 """
 from __future__ import annotations
 
@@ -22,12 +27,37 @@ from typing import Dict, List, Optional
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA = ROOT / "content" / "schema" / "publication_schema.sql"
 SEED = ROOT / "content" / "seed" / "seed_demo.sql"
+RIGHTS_REGISTRY = ROOT / "content" / "seed" / "rights_registry.json"
 
 PACK_ID = "in-bihar-buddhist-circuit"
 SCHEMA_VERSION = 3
 
 TWVEC_MAGIC = b"TWVEC001"
 TWVEC_HEADER_FMT = "<8sIIIIII"  # 32 bytes little-endian
+
+
+def _load_asset_origins() -> Dict[str, str]:
+    """Loads asset_path -> asset_origin mapping from content/seed/rights_registry.json."""
+    origins: Dict[str, str] = {}
+    if not RIGHTS_REGISTRY.is_file():
+        return origins
+    try:
+        data = json.loads(RIGHTS_REGISTRY.read_text(encoding="utf-8"))
+        for item in data.get("audio_tracks", []):
+            path = item.get("asset_path")
+            origin = item.get("asset_origin")
+            if path and origin:
+                origins[path] = origin
+        for pair in data.get("then_and_now_archival_pairs", []):
+            for side in ("historical", "modern"):
+                entry = pair.get(side, {})
+                path = entry.get("asset_path")
+                origin = entry.get("asset_origin")
+                if path and origin:
+                    origins[path] = origin
+    except Exception:
+        pass
+    return origins
 
 
 def _quantize_l2_int8_row(vec: List[float]) -> bytes:
@@ -125,9 +155,6 @@ def build_places_sqlite(dest: Path) -> None:
     con.execute("PRAGMA foreign_keys = ON;")
     con.executescript(SCHEMA.read_text(encoding="utf-8"))
     con.executescript(SEED.read_text(encoding="utf-8"))
-    # Publication rules: the shippable pack carries REVIEWED/PUBLISHED, fully
-    # sourced + reviewed content only (§28.3). Mirror content/seed/validate_seed.py
-    # so the artifact builder is as strict as the CI gate — not weaker.
     gates = {
         "DRAFT places":
             "SELECT COUNT(*) FROM places WHERE editorial_state='DRAFT'",
@@ -159,6 +186,23 @@ def safe_zip_members(names: list[str]) -> None:
             raise ValueError(f"executable payload rejected: {n!r}")
 
 
+def _load_ed25519_private_key(key_file: Path):
+    from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+    from cryptography.hazmat.primitives.serialization import load_pem_private_key
+    raw = key_file.read_bytes().strip()
+    if raw.startswith(b"-----BEGIN"):
+        return load_pem_private_key(raw, password=None)
+    if len(raw) == 32:
+        return Ed25519PrivateKey.from_private_bytes(raw)
+    if len(raw) == 64:
+        try:
+            return Ed25519PrivateKey.from_private_bytes(bytes.fromhex(raw.decode("ascii")))
+        except Exception:
+            pass
+    decoded = base64.b64decode(raw)
+    return Ed25519PrivateKey.from_private_bytes(decoded[:32])
+
+
 def cmd_build(
     version: str,
     out: Path,
@@ -166,8 +210,12 @@ def cmd_build(
     audio_dir: Path | None = None,
     images_dir: Path | None = None,
     vision_dir: Path | None = None,
+    key_file: Path | None = None,
+    key_id: str = "pubkey-2026-q4",
 ) -> Path:
     out.mkdir(parents=True, exist_ok=True)
+    asset_origins = _load_asset_origins()
+
     with tempfile.TemporaryDirectory() as tmp:
         t = Path(tmp)
         sqlite_path = t / "places.sqlite"
@@ -175,19 +223,16 @@ def cmd_build(
 
         media_files_to_pack: list[tuple[Path, str]] = []
 
-        # Collect audio assets if directory specified
         if audio_dir and audio_dir.is_dir():
             for f in sorted(audio_dir.iterdir()):
                 if f.is_file() and f.suffix.lower() in {".ogg", ".mp3", ".wav", ".m4a", ".aac", ".flac", ".opus"}:
                     media_files_to_pack.append((f, f"audio/{f.name}"))
 
-        # Collect Then & Now images if directory specified
         if images_dir and images_dir.is_dir():
             for f in sorted(images_dir.iterdir()):
                 if f.is_file() and f.suffix.lower() in {".webp", ".png", ".jpg", ".jpeg", ".avif"}:
                     media_files_to_pack.append((f, f"images/then_now/{f.name}"))
 
-        # Collect vision assets and compile TWVEC001 binary index
         ref_json = None
         if vision_dir and (vision_dir / "reference_index.json").is_file():
             ref_json = vision_dir / "reference_index.json"
@@ -233,16 +278,24 @@ def cmd_build(
                   t / "LICENSES.json", t / "CHANGELOG.md"]:
             arc = "content/places.sqlite" if p.name == "places.sqlite" else p.name
             digest = hashlib.sha256(p.read_bytes()).hexdigest()
-            files.append({"path": arc, "bytes": p.stat().st_size, "sha256": digest})
+            files.append({
+                "path": arc,
+                "bytes": p.stat().st_size,
+                "sha256": digest,
+                "asset_origin": "PRODUCTION_CLEARED",
+            })
 
         for src_path, arc_path in media_files_to_pack:
             data = src_path.read_bytes()
             digest = hashlib.sha256(data).hexdigest()
-            files.append({"path": arc_path, "bytes": len(data), "sha256": digest})
+            origin = asset_origins.get(arc_path, "PRODUCTION_CLEARED")
+            files.append({
+                "path": arc_path,
+                "bytes": len(data),
+                "sha256": digest,
+                "asset_origin": origin,
+            })
 
-        # Vision contract (ADR-0003): encoder identity + adapted dim travel WITH
-        # the pack so the app can refuse a mismatched model instead of
-        # mis-scoring.
         adapter_path = ROOT / "ml" / "adapter_weights.json"
         if ref_json:
             rj_data = json.loads(ref_json.read_text(encoding="utf-8"))
@@ -265,13 +318,14 @@ def cmd_build(
             vision = {"model_id": None, "dim": None, "adapter": False,
                       "note": "no encoder selected yet — search/QR only (ADR-0003)"}
 
+        signing_key_id = "DEMO-KEY-DO-NOT-SHIP" if (demo_key and key_file is None) else key_id
         manifest = {
             "format": "trueway.pack",
             "schema_version": SCHEMA_VERSION,
             "pack_id": PACK_ID,
             "release_version": version,
             "publisher_id": "trueway.editorial",
-            "signing_key_id": "DEMO-KEY-DO-NOT-SHIP" if demo_key else "pubkey-2026-q4",
+            "signing_key_id": signing_key_id,
             "content_locales": ["en", "hi"],
             "place_count": 15,
             "vision": vision,
@@ -282,10 +336,13 @@ def cmd_build(
             "update_policy": {"atomic_activate": True},
         }
         manifest_bytes = canonical(manifest)
-        if demo_key:
+        if key_file is not None:
+            priv_key = _load_ed25519_private_key(key_file)
+            sig = priv_key.sign(manifest_bytes)
+        elif demo_key:
             sig = base64.b64encode(b"DEMO-SIGNATURE:" + hashlib.sha256(manifest_bytes).digest())
         else:
-            raise SystemExit("no --demo-key and no HSM wiring in the demonstrator; "
+            raise SystemExit("no --demo-key and no --key-file supplied; "
                              "refusing to fake a release signature (§28.8)")
         pkg = out / f"trueway-{PACK_ID}-{version}.twpkg"
         with zipfile.ZipFile(pkg, "w", zipfile.ZIP_DEFLATED) as z:
@@ -297,11 +354,12 @@ def cmd_build(
             z.write(t / "CHANGELOG.md", "CHANGELOG.md")
             for src_path, arc_path in media_files_to_pack:
                 z.write(src_path, arc_path)
-        print(f"built {pkg} ({pkg.stat().st_size} bytes, demo-signed, {len(files)} files)")
+        mode_str = f"ed25519 key={signing_key_id}" if key_file else "demo-signed"
+        print(f"built {pkg} ({pkg.stat().st_size} bytes, {mode_str}, {len(files)} files)")
         return pkg
 
 
-def cmd_verify(pkg: Path, min_safe: str | None = None) -> int:
+def cmd_verify(pkg: Path, min_safe: str | None = None, pub_key_b64: str | None = None) -> int:
     with zipfile.ZipFile(pkg) as z:
         names = z.namelist()
         try:
@@ -312,39 +370,49 @@ def cmd_verify(pkg: Path, min_safe: str | None = None) -> int:
         manifest_bytes = z.read("manifest.cjson")
         sig = z.read("manifest.ed25519")
         manifest = json.loads(manifest_bytes.decode("utf-8"))
-        raw = base64.b64decode(sig)
         prefix = b"DEMO-SIGNATURE:"
-        is_demo_sig = raw.startswith(prefix)
+        try:
+            decoded_candidate = base64.b64decode(sig)
+        except Exception:
+            decoded_candidate = b""
+        if decoded_candidate.startswith(prefix):
+            raw = decoded_candidate
+            is_demo_sig = True
+        else:
+            raw = sig
+            is_demo_sig = False
         key_id = manifest.get("signing_key_id")
         is_demo_key = key_id == "DEMO-KEY-DO-NOT-SHIP"
-        # Bind key-id class to signature class BEFORE trusting anything (§28.8).
-        # A demo-class signature is only acceptable under the demo key id; a
-        # production key id demands a real Ed25519 signature verified against a
-        # pinned publisher trust store, which the demonstrator does not wire —
-        # so such a pack must fail closed, never pass on the keyless demo hash.
         if is_demo_sig and not is_demo_key:
             print(f"REJECT: demo-class signature presented under non-demo "
                   f"signing_key_id {key_id!r} (§28.8 key-id/signature binding)")
             return 1
         if not is_demo_sig:
-            print(f"REJECT: release signature for key {key_id!r} cannot be "
-                  f"verified in the demonstrator (no publisher trust store "
-                  f"wired); refusing rather than trusting (§9.3/§28.8)")
-            return 1
-        # demo-class signature under the demo key id: structural check only.
-        print("note: demo signature - structurally checked, NOT a release signature")
-        expect = hashlib.sha256(manifest_bytes).digest()
-        if raw[len(prefix):] != expect:
-            print("REJECT: manifest signature mismatch")
-            return 1
+            if pub_key_b64 and not is_demo_key:
+                from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
+                try:
+                    pub_bytes = base64.b64decode(pub_key_b64)
+                    pub_key = Ed25519PublicKey.from_public_bytes(pub_bytes)
+                    pub_key.verify(raw, manifest_bytes)
+                    print(f"note: Ed25519 release signature verified for key {key_id!r}")
+                except Exception as e:
+                    print(f"REJECT: Ed25519 signature verification failed for {key_id!r}: {e}")
+                    return 1
+            else:
+                print(f"REJECT: release signature for key {key_id!r} cannot be "
+                      f"verified in the demonstrator (no publisher trust store "
+                      f"wired); refusing rather than trusting (§9.3/§28.8)")
+                return 1
+        else:
+            print("note: demo signature - structurally checked, NOT a release signature")
+            expect = hashlib.sha256(manifest_bytes).digest()
+            if raw[len(prefix):] != expect:
+                print("REJECT: manifest signature mismatch")
+                return 1
         if min_safe is not None and _ver_tuple(manifest.get("release_version", "")) < _ver_tuple(min_safe):
             print(f"REJECT: version {manifest.get('release_version')} below "
                   f"minimum safe release {min_safe} (downgrade refused)")
             return 1
-        # The signature commits to the manifest, and the manifest must commit to
-        # the EXACT file set: reject any archive entry not listed in `files`
-        # (besides the two manifest parts), so a signed pack cannot smuggle extra
-        # unsigned content that would extract into the live pack dir.
         listed = {f["path"] for f in manifest["files"]}
         allowed = listed | {"manifest.cjson", "manifest.ed25519"}
         extra = [n for n in names if n not in allowed and not n.endswith("/")]
@@ -367,8 +435,6 @@ def cmd_verify(pkg: Path, min_safe: str | None = None) -> int:
 
 
 def _ver_tuple(v: str) -> tuple:
-    # (0,int) for numeric, (1,str) for non-numeric segments so comparison never
-    # mixes int and str (e.g. "2026.10.1-rc1") and raises TypeError.
     return tuple((0, int(p)) if p.isdigit() else (1, p) for p in v.split("."))
 
 
@@ -377,6 +443,12 @@ def main() -> int:
     ap.add_argument("--version", default="2026.10.1")
     ap.add_argument("--out", default="dist")
     ap.add_argument("--demo-key", action="store_true")
+    ap.add_argument("--key-file", default=None,
+                    help="path to 32-byte Ed25519 private key seed or PEM")
+    ap.add_argument("--key-id", default="pubkey-2026-q4",
+                    help="publisher signing_key_id when using --key-file")
+    ap.add_argument("--pub-key-b64", default=None,
+                    help="base64-encoded 32-byte Ed25519 public key for release verification")
     ap.add_argument("--verify", default=None)
     ap.add_argument("--min-safe", default=None,
                     help="minimum acceptable release_version; older packs are "
@@ -389,7 +461,7 @@ def main() -> int:
                     help="directory containing vision reference index / vectors")
     args = ap.parse_args()
     if args.verify:
-        return cmd_verify(Path(args.verify), args.min_safe)
+        return cmd_verify(Path(args.verify), args.min_safe, args.pub_key_b64)
     cmd_build(
         args.version,
         Path(args.out),
@@ -397,6 +469,8 @@ def main() -> int:
         Path(args.audio_dir) if args.audio_dir else None,
         Path(args.images_dir) if args.images_dir else None,
         Path(args.vision_dir) if args.vision_dir else None,
+        Path(args.key_file) if args.key_file else None,
+        args.key_id,
     )
     return 0
 

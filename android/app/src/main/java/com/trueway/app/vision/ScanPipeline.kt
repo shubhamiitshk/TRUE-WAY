@@ -75,7 +75,8 @@ fun runScanBlocking(appContext: Context, file: File, maxSidePx: Int = 512): Scan
                         placeId = scanOutcome.placeId,
                         score = scanOutcome.score.toDouble(),
                         margin = 0.05,
-                        supporters = 1
+                        supporters = 1,
+                        distinguishingHint = scanOutcome.distinguishingHint.ifBlank { null }
                     )
                     val runnerUpScore = scanOutcome.runnerUpPlaceId?.let {
                         listOf(PlaceScore(it, (scanOutcome.score - 0.05).toDouble(), 0.0, 1))
@@ -87,13 +88,15 @@ fun runScanBlocking(appContext: Context, file: File, maxSidePx: Int = 512): Scan
                         placeId = scanOutcome.primaryPlaceId,
                         score = 0.75,
                         margin = scanOutcome.scoreDelta.toDouble(),
-                        supporters = 1
+                        supporters = 1,
+                        distinguishingHint = scanOutcome.primaryHint.ifBlank { null }
                     )
                     val secondaryScore = PlaceScore(
                         placeId = scanOutcome.secondaryPlaceId,
                         score = (0.75 - scanOutcome.scoreDelta).toDouble(),
                         margin = 0.0,
-                        supporters = 1
+                        supporters = 1,
+                        distinguishingHint = scanOutcome.secondaryHint.ifBlank { null }
                     )
                     RankDecision.Uncertain(
                         reason = UnknownReason.AMBIGUOUS_LOOKALIKES,

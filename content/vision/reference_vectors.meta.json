@@ -1,0 +1,103 @@
+{
+  "format": "TWVEC001",
+  "model_id": "mobileclip-s0-v1",
+  "model_crc32": 2086045817,
+  "dim": 512,
+  "prototypes": [
+    {
+      "place_id": "in-bihar-bodhgaya-mahabodhi",
+      "parent_place_id": null,
+      "viewpoint_tag": "shikhara-east-facade",
+      "distinguishing_hint": "55m pyramidal main temple spire and central courtyard"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-bodhi-tree",
+      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
+      "viewpoint_tag": "bodhi-tree-canopy",
+      "distinguishing_hint": "Sacred fig tree adjacent to the western wall of temple"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-vajrasana",
+      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
+      "viewpoint_tag": "diamond-throne-slab",
+      "distinguishing_hint": "Polished sandstone slab marking the seat of enlightenment"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-animesh-lochan",
+      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
+      "viewpoint_tag": "unblinking-gaze-stupa",
+      "distinguishing_hint": "Northeast brick chaitya where Buddha stood gazing at the Bodhi tree"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-mucalinda",
+      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
+      "viewpoint_tag": "serpent-lake-pavilion",
+      "distinguishing_hint": "Rectangular tank with central snake king statue sheltering Buddha"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-great-buddha",
+      "parent_place_id": null,
+      "viewpoint_tag": "daibutsu-colossal-statue",
+      "distinguishing_hint": "25-meter seated sandstone Buddha unveiled in 1989"
+    },
+    {
+      "place_id": "in-bihar-rajgir-vultures-peak",
+      "parent_place_id": null,
+      "viewpoint_tag": "peak-platform-shrine",
+      "distinguishing_hint": "Natural rock precipice with ancient brick stupa remains"
+    },
+    {
+      "place_id": "in-bihar-rajgir-venu-vana",
+      "parent_place_id": null,
+      "viewpoint_tag": "bamboo-grove-lake",
+      "distinguishing_hint": "Bamboo park and historical bathing tank"
+    },
+    {
+      "place_id": "in-bihar-rajgir-cyclopean-wall",
+      "parent_place_id": null,
+      "viewpoint_tag": "unmortared-stone-rampart",
+      "distinguishing_hint": "Ancient 40km undressed massive stone fortification"
+    },
+    {
+      "place_id": "in-bihar-rajgir-shanti-stupa",
+      "parent_place_id": null,
+      "viewpoint_tag": "white-peace-pagoda",
+      "distinguishing_hint": "Modern white dome pagoda on Ratnagiri hill with golden Buddha statues"
+    },
+    {
+      "place_id": "in-bihar-rajgir-sonbhandar",
+      "parent_place_id": null,
+      "viewpoint_tag": "rock-cut-chamber-facade",
+      "distinguishing_hint": "Ancient twin rock-cut chambers with polished interiors"
+    },
+    {
+      "place_id": "in-bihar-nalanda-mahavihara",
+      "parent_place_id": null,
+      "viewpoint_tag": "archaeological-corridor",
+      "distinguishing_hint": "Red brick monastic university complex spanning 14 hectares"
+    },
+    {
+      "place_id": "in-bihar-nalanda-temple-03",
+      "parent_place_id": "in-bihar-nalanda-mahavihara",
+      "viewpoint_tag": "towering-stupa-corner-facets",
+      "distinguishing_hint": "Imposing multi-layered stupa with surviving stucco figures"
+    },
+    {
+      "place_id": "in-bihar-nalanda-monastery-01",
+      "parent_place_id": "in-bihar-nalanda-mahavihara",
+      "viewpoint_tag": "central-courtyard-cells",
+      "distinguishing_hint": "Double-story quadrangle with monastic cells and central chaitya"
+    },
+    {
+      "place_id": "in-bihar-nalanda-museum",
+      "parent_place_id": null,
+      "viewpoint_tag": "museum-entrance-portico",
+      "distinguishing_hint": "Archaeological repository housing Pala-period bronzes and sculptures"
+    }
+  ],
+  "negative_labels": [
+    "modern-brick-wall",
+    "unrelated-tourist-crowd",
+    "monastery-garden-tree"
+  ]
+}

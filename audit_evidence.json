@@ -1,11 +1,11 @@
 {
   "project_root": "C:\\Users\\sumit\\OneDrive\\Desktop\\True-Way",
-  "checked_at_utc": "2026-10-15T05:25:02+00:00",
+  "checked_at_utc": "2026-10-15T05:59:21+00:00",
   "profile": "production",
   "checks": {
     "jvm_tests": {
       "status": "PASS",
-      "summary": "117 tests / 20 suites; 0 failures; 0 errors; 0 skipped",
+      "summary": "118 tests / 20 suites; 0 failures; 0 errors; 0 skipped",
       "suites": [
         {
           "file": "TEST-com.trueway.app.data.AudioStoriesTest.xml",
@@ -121,7 +121,7 @@
         },
         {
           "file": "TEST-com.trueway.app.touchpoint.TouchpointTest.xml",
-          "tests": 10,
+          "tests": 11,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -150,13 +150,13 @@
       ],
       "parse_errors": [],
       "source_newer_than_test_report": false,
-      "newest_test_xml_utc": "2026-10-15T05:23:16+00:00"
+      "newest_test_xml_utc": "2026-10-15T05:58:12+00:00"
     },
     "apk": {
       "status": "PASS",
-      "summary": "app-debug.apk, 96.80 MiB",
+      "summary": "app-debug.apk, 96.90 MiB",
       "path": "android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
-      "apk_modified_utc": "2026-10-15T05:24:46+00:00",
+      "apk_modified_utc": "2026-10-15T05:58:54+00:00",
       "older_than_source": false,
       "zip_corrupt_member": null,
       "audio_asset_count": 20,
@@ -184,12 +184,6 @@
       ],
       "raster_asset_count": 198,
       "raster_assets": [
-        "assets/images/then_now/mahabodhi_1880s_beglar.webp",
-        "assets/images/then_now/mahabodhi_2026_conserved.webp",
-        "assets/images/then_now/nalanda_temple3_1915_spooner.webp",
-        "assets/images/then_now/nalanda_temple3_2026_conserved.webp",
-        "assets/images/then_now/rajgir_wall_1906_marshall.webp",
-        "assets/images/then_now/rajgir_wall_2026_conserved.webp",
         "res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
         "res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
         "res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png",
@@ -283,7 +277,13 @@
         "res/drawable-mdpi-v4/notification_bg_low_normal.9.png",
         "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
         "res/drawable-mdpi-v4/notification_bg_normal.9.png",
-        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
+        "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
+        "res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
+        "res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
+        "res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
       ],
       "likely_heritage_media": [
         "assets/audio/bodhi_tree_guide.ogg",
@@ -397,62 +397,6 @@
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
           ]
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\bad-signature.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\downgrade.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\forged-prodkey.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\traversal.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\truncated-sqlite.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unknown-key.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unlisted-entry.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
         }
       ]
     },
@@ -497,68 +441,12 @@
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
           ]
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\bad-signature.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\downgrade.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\forged-prodkey.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\traversal.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\truncated-sqlite.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unknown-key.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unlisted-entry.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
         }
       ]
     },
     "offline_pack_components": {
       "status": "INFO",
-      "summary": "8 pack components inspected (20 audio, 6 raster files)",
+      "summary": "1 pack components inspected (20 audio, 6 raster files)",
       "components": [
         {
           "path": "dist\\trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg",
@@ -595,62 +483,6 @@
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_1906_marshall.webp",
             "trueway-in-bihar-buddhist-circuit-2026.10.1.twpkg:images/then_now/rajgir_wall_2026_conserved.webp"
           ]
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\bad-signature.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\downgrade.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\forged-prodkey.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\traversal.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\truncated-sqlite.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unknown-key.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
-        },
-        {
-          "path": "tests\\fixtures\\hostile\\unlisted-entry.twpkg",
-          "type": "twpkg_archive",
-          "audio_count": 0,
-          "audio_files": [],
-          "raster_count": 0,
-          "raster_files": []
         }
       ]
     },

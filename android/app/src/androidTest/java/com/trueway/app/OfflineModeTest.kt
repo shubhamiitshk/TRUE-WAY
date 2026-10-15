@@ -41,7 +41,7 @@ class OfflineModeTest {
 
         val mahabodhi = PlaceRepository.get("in-bihar-bodhgaya-mahabodhi")
         assertNotNull("Mahabodhi must exist in offline catalog", mahabodhi)
-        assertEquals("Temple", mahabodhi?.category)
+        assertEquals("temple-complex", mahabodhi?.category)
         assertTrue(mahabodhi?.canonicalName?.contains("Mahabodhi") == true)
     }
 
@@ -71,7 +71,7 @@ class OfflineModeTest {
     fun offlineDiagnosticReportRunsCompletelyOffline() {
         val report = OfflineDiagnostic.runDiagnostic(context)
         assertNotNull(report)
-        assertTrue("Diagnostic report must contain 9 verified offline layers", report.results.size >= 9)
+        assertTrue("Diagnostic report must contain 10 verified offline layers", report.results.size >= 10)
         assertTrue("All layers should be ready for offline use", report.overallReady)
     }
 

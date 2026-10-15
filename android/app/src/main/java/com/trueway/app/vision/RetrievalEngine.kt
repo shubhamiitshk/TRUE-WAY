@@ -16,6 +16,7 @@ data class RefVector(
     val placeId: String,
     val assetId: String,
     val values: FloatArray,
+    val distinguishingHint: String? = null,
 )
 
 /** Place-level aggregated score with evidence for the decision. */
@@ -29,6 +30,8 @@ data class PlaceScore(
     /** Matching reference asset IDs (§28.5 Candidate.matchingReferenceAssetIds),
      *  best-first — recorded for QA provenance, not shown to users. */
     val assetIds: List<String> = emptyList(),
+    /** Optional curatorial architectural cue disambiguating sibling structures. */
+    val distinguishingHint: String? = null,
 )
 
 /** How an identity was derived (§28.5 EvidenceKind) — recorded for QA. */
@@ -81,7 +84,8 @@ object RetrievalEngine {
         val sorted = byPlace.entries.map { (placeId, hits) ->
             val top = hits.sortedByDescending { it.second }
             val score = top.take(2).map { it.second }.average()
-            PlaceAgg(placeId, score, hits.size, top.map { it.first.assetId })
+            val hint = top.firstNotNullOfOrNull { it.first.distinguishingHint?.takeIf { h -> h.isNotBlank() } }
+            PlaceAgg(placeId, score, hits.size, top.map { it.first.assetId }, hint)
         }.sortedByDescending { it.score }
         // Margin is defined on the winner only: best minus runner-up. A SOLE
         // candidate has no competitor, so its margin is unbounded (not zero) —
@@ -90,7 +94,7 @@ object RetrievalEngine {
         return sorted.mapIndexed { i, a ->
             val runnerUp = sorted.getOrNull(i + 1)?.score
             val margin = if (i == 0) runnerUp?.let { a.score - it } ?: Double.POSITIVE_INFINITY else 0.0
-            PlaceScore(a.placeId, a.score, margin, a.supporters, a.assetIds)
+            PlaceScore(a.placeId, a.score, margin, a.supporters, a.assetIds, a.distinguishingHint)
         }
     }
 
@@ -99,6 +103,7 @@ object RetrievalEngine {
         val score: Double,
         val supporters: Int,
         val assetIds: List<String>,
+        val distinguishingHint: String? = null,
     )
 
     /**

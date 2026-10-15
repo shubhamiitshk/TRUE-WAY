@@ -288,8 +288,10 @@ private fun ResultCard(
                 is RankDecision.Uncertain -> UnknownCopy(
                     title = stringResource(R.string.scan_unknown_title),
                     body = stringResource(R.string.scan_unknown_body),
-                    alternatives = d.alternatives.mapNotNull {
-                        PlaceRepository.get(it.placeId)?.canonicalName?.let { name -> it.placeId to name }
+                    alternatives = d.alternatives.mapNotNull { alt ->
+                        PlaceRepository.get(alt.placeId)?.canonicalName?.let { name ->
+                            Triple(alt.placeId, name, alt.distinguishingHint)
+                        }
                     },
                     onOpenPlace = onOpenPlace,
                 )
@@ -359,6 +361,14 @@ private fun MatchCopy(
         style = MaterialTheme.typography.titleLarge,
         textAlign = TextAlign.Center,
     )
+    decision.place.distinguishingHint?.takeIf { it.isNotBlank() }?.let { hint ->
+        Text(
+            "Visual cue: $hint",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.Center,
+        )
+    }
     Text(
         stringResource(R.string.scan_match_body),
         style = MaterialTheme.typography.bodyMedium,
@@ -368,16 +378,26 @@ private fun MatchCopy(
         onClick = { onOpenPlace(place.placeId) },
         modifier = Modifier.fillMaxWidth(),
     ) { Text(stringResource(R.string.scan_view_card)) }
-    val alts = decision.alternatives.mapNotNull {
-        PlaceRepository.get(it.placeId)?.let { p -> it.placeId to p.canonicalName }
+    val alts = decision.alternatives.mapNotNull { alt ->
+        PlaceRepository.get(alt.placeId)?.let { p -> Triple(alt.placeId, p.canonicalName, alt.distinguishingHint) }
     }
     if (alts.isNotEmpty()) {
         Text(
             stringResource(R.string.scan_alternatives_title),
             style = MaterialTheme.typography.titleSmall,
         )
-        alts.forEach { (id, name) ->
-            androidx.compose.material3.TextButton(onClick = { onOpenPlace(id) }) { Text(name) }
+        alts.forEach { (id, name, hint) ->
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                androidx.compose.material3.TextButton(onClick = { onOpenPlace(id) }) { Text(name) }
+                if (!hint.isNullOrBlank()) {
+                    Text(
+                        hint,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
         }
     }
 }
@@ -387,13 +407,23 @@ private fun MatchCopy(
 private fun UnknownCopy(
     title: String,
     body: String,
-    alternatives: List<Pair<String, String>>,
+    alternatives: List<Triple<String, String, String?>>,
     onOpenPlace: (String) -> Unit,
 ) {
     Text(title, style = MaterialTheme.typography.headlineSmall, textAlign = TextAlign.Center)
     Text(body, style = MaterialTheme.typography.bodyLarge, textAlign = TextAlign.Center)
-    alternatives.forEach { (id, name) ->
-        androidx.compose.material3.TextButton(onClick = { onOpenPlace(id) }) { Text(name) }
+    alternatives.forEach { (id, name, hint) ->
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            androidx.compose.material3.TextButton(onClick = { onOpenPlace(id) }) { Text(name) }
+            if (!hint.isNullOrBlank()) {
+                Text(
+                    "Visual cue: $hint",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                )
+            }
+        }
     }
 }
 

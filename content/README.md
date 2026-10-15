@@ -32,8 +32,8 @@ Both are executable SQLite DDL taken from the blueprint's reference contracts. T
 | `tools/harvest_monument_metadata.py` | Automated Wikidata SPARQL & Commons metadata harvester for Bihar monuments with offline fallback |
 | `field/COLLECTION_PROTOCOL.md` | Physical on-site capture protocol, split integrity, privacy scrubbing, and Mahabodhi security compliance |
 | `field/SCHOLAR_POI_WORKSHEET_TEMPLATE.yaml` | Structured editorial template for Magadh/Nalanda University scholar POI submissions (claims, citations, Before You Enter notices, word budgets) |
+| `field/monastery_guesthouse_qr_card.html` | Print-ready A4 monastery guesthouse reception counter card with QR onboarding |
 | `tools/validate_scholar_submission.py` | Automated linter verifying scholar POI submissions prior to honorarium payment approval |
-| `field/monastery_guesthouse_qr_card.html` | Print-ready Bodh Gaya Monastery Guesthouse A4 counter card (Directives 3 & 5: pre-entry device ban warning, guesthouse Wi-Fi onboarding, and live Mahabodhi place card preview) |
 | `vision/reference_index.json` | 512-dimensional canonical normalized reference embeddings & calibration thresholds for the 15 POIs |
 
 ## Status
@@ -45,6 +45,5 @@ Both are executable SQLite DDL taken from the blueprint's reference contracts. T
 - ✅ 6 Then & Now comparison WebP plates (1200×900) generated in `content/images/then_now/`
 - ✅ Rights registry operational in `content/seed/rights_registry.json` (26 registered assets: 20 TTS_PRELIMINARY, 3 PUBLIC_DOMAIN_ARCHIVAL, 3 FIELD_CLEARED_PRODUCTION; 0 SYNTHETIC_DEV)
 - ✅ Scholar submission template and linter operational (`validate_scholar_submission.py` PASS)
-- ✅ Print-ready monastery guesthouse counter card (`content/field/monastery_guesthouse_qr_card.html`)
 - ✅ Zero-copy `TWVEC001` binary vector index generation operational in `pack-builder/build_pack.py`
 - ✅ Security hardening & runtime wiring: manifest authentication + SHA-256 verification + publisher trust + safe pack swap eviction hooks (117/117 JVM tests PASS across 20 suites)

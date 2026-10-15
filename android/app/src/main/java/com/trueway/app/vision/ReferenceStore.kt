@@ -57,12 +57,14 @@ object ReferenceStore {
                 val o = arr.optJSONObject(i) ?: continue
                 val placeId = o.optString("place_id").takeIf { it.isNotBlank() } ?: continue
                 val assetId = o.optString("asset_id").ifBlank { "ref-$i" }
-                val vals = o.optJSONArray("values") ?: continue
+                val vals = o.optJSONArray("values") ?: o.optJSONArray("vector") ?: continue
                 if (vals.length() == 0) continue
+                val hint = o.optString("distinguishing_hint").ifBlank { null }
                 refs += RefVector(
                     placeId = placeId,
                     assetId = assetId,
                     values = FloatArray(vals.length()) { vals.optDouble(it, 0.0).toFloat() },
+                    distinguishingHint = hint,
                 )
             }
         } catch (_: Exception) {

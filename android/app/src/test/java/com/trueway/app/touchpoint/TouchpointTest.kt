@@ -166,4 +166,26 @@ class TouchpointTest {
             tempDir.deleteRecursively()
         }
     }
+
+    @Test
+    fun bundledAssetsTouchIssuersMatchesFixtureTrustStore() {
+        val assetCandidates = listOf(
+            java.io.File("src/main/assets/touch_issuers.json"),
+            java.io.File("android/app/src/main/assets/touch_issuers.json"),
+            java.io.File("../app/src/main/assets/touch_issuers.json"),
+        )
+        val assetFile = assetCandidates.firstOrNull { it.isFile }
+        if (assetFile != null) {
+            val bundledIssuers = TouchpointVerifier.parseTrustStore(assetFile.readText())
+            val fixtureIssuers = trust()
+            assertEquals(fixtureIssuers.size, bundledIssuers.size)
+            assertEquals(fixtureIssuers[0].issuerId, bundledIssuers[0].issuerId)
+            assertEquals(fixtureIssuers[0].keyId, bundledIssuers[0].keyId)
+            org.junit.Assert.assertArrayEquals(
+                "Bundled assets/touch_issuers.json public key must match QR fixture trust_store.json",
+                fixtureIssuers[0].pubkey,
+                bundledIssuers[0].pubkey,
+            )
+        }
+    }
 }

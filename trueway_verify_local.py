@@ -131,7 +131,7 @@ def inspect(root, profile=None):
 
     twpkg_files = []
     for candidate in root.glob('**/*.twpkg'):
-        cand_str = str(candidate).replace('\\', '/')
+        cand_str = '/' + str(candidate.relative_to(root)).replace('\\', '/') + '/'
         if any(ign in cand_str for ign in ('/.git/', '/android/app/build/', '/android/build/', '/tests/fixtures/hostile/')):
             continue
         if candidate.is_file():

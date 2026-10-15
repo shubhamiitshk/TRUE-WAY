@@ -201,7 +201,7 @@ fun PacksScreen(
             style = MaterialTheme.typography.titleMedium,
         )
         Text(
-            text = "Run a comprehensive on-device audit across all 10 TrueWay layers (Corpus, FTS Index, Vision Model, Essentials, Audio Stories, Curated Walks, Site Compliance, Privacy Sandbox, Geodesic Proximity, Phonetic & Media Trust Boundary). Verifies zero-network functionality prior to departure.",
+            text = "Run a comprehensive on-device audit across all 10 TrueWay layers (Corpus, FTS Index, Vision Model, Essentials, Audio Stories, Curated Walks, Site Compliance, Privacy Sandbox, Geodesic Proximity, Phonetic & Media Trust). Verifies zero-network functionality prior to departure.",
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )

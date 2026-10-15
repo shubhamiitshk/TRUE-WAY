@@ -62,7 +62,8 @@ def base_payload(**over) -> dict:
 
 def main() -> None:
     priv = Ed25519PrivateKey.generate()
-    pub = priv.public_key().public_bytes_raw()
+    from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
+    pub = priv.public_key().public_bytes(Encoding.Raw, PublicFormat.Raw)
     forged_priv = Ed25519PrivateKey.generate()  # valid key, NOT in trust store
 
     good = envelope(base_payload(), priv)
@@ -88,7 +89,23 @@ def main() -> None:
             "status": "DEMO",
         }],
     }, indent=1))
-    print("wrote demo + expired + forged + unknown-issuer envelopes and trust_store.json")
+    # Automatically sync trust_store.json and fixtures to Android assets & test resources
+    root_dir = HERE.parent.parent.parent
+    app_assets_trust = root_dir / "android/app/src/main/assets/touch_issuers.json"
+    if app_assets_trust.parent.is_dir():
+        app_assets_trust.write_text((HERE / "trust_store.json").read_text(encoding="utf-8"), encoding="utf-8")
+    test_res_qr = root_dir / "android/app/src/test/resources/qr"
+    if test_res_qr.is_dir():
+        for fn in (
+            "demo_touchpoint_envelope.json",
+            "demo_touchpoint_qr.txt",
+            "expired_touchpoint_envelope.json",
+            "forged_touchpoint_envelope.json",
+            "unknownissuer_touchpoint_envelope.json",
+            "trust_store.json",
+        ):
+            (test_res_qr / fn).write_text((HERE / fn).read_text(encoding="utf-8"), encoding="utf-8")
+    print("wrote demo + expired + forged + unknown-issuer envelopes and synced trust_store.json to Android assets & test resources")
     print("DO NOT commit any private key — none was written (ephemeral, in-memory only).")
 
 
