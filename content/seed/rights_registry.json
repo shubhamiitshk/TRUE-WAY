@@ -1,0 +1,307 @@
+{
+  "snapshot_at": "2026-10-14",
+  "policy": "Missing creator/licence/original/permission blocks the asset from any public pack (blueprint §16.1 [G]). Distinguishes between SYNTHETIC_DEV (blocks production gate), TTS_PRELIMINARY (pipeline verified speech), and FIELD_CLEARED_PRODUCTION / PUBLIC_DOMAIN_ARCHIVAL (editorial cleared).",
+  "target_pairs_specification": "3 comparison pairs across 3 distinct sites consisting of 6 images total (3 historic + 3 modern). Note: Photo 1003(49) is an alternate sequential historical phase for Mahabodhi, NOT a substitute for Nalanda or Rajgir.",
+  "three_site_asset_schedule": {
+    "site_1_mahabodhi": "Historical: J.D. Beglar 1880s photo (Primary plate: Photo 1003(50) during restoration; Sequential phase: Photo 1003(49) pre-repairs; Print alternative: Cunningham 1892 Mahabodhi Plate I / VIII); Modern: 1 new licensed photograph under CC BY-SA 4.0",
+    "site_2_nalanda_temple_3": "Historical: Dr. David B. Spooner 1915 ASI excavation plate XVI; Modern: 1 new licensed photograph under CC BY-SA 4.0",
+    "site_3_rajgir_cyclopean_wall": "Historical: Sir John Marshall 1906 ASI survey plate XXIX; Modern: 1 new licensed photograph under CC BY-SA 4.0",
+    "total_images": "3 distinct sites, 3 historical images + 3 modern images = 6 image assets total"
+  },
+  "assets": [
+    {"place_id": "in-bihar-bodhgaya-mahabodhi", "photo_status": "WITHHELD", "reason": "Device restrictions at the temple; search-only POI, no reference capture suggested on site."},
+    {"place_id": "in-bihar-bodhgaya-great-buddha", "photo_status": "TO_COLLECT", "licence_target": "CC BY-SA 4.0 or compatible, photographer consent + venue permission", "rights_review_state": "PENDING"},
+    {"place_id": "in-bihar-rajgir-cyclopean-wall", "photo_status": "TO_COLLECT", "licence_target": "CC BY-SA 4.0 or compatible", "rights_review_state": "PENDING"},
+    {"place_id": "in-bihar-rajgir-shanti-stupa", "photo_status": "TO_COLLECT", "licence_target": "CC BY-SA 4.0 or compatible", "rights_review_state": "PENDING"},
+    {"place_id": "in-bihar-nalanda-temple-03", "photo_status": "TO_COLLECT", "licence_target": "CC BY-SA 4.0 or compatible, ASI/site permission to confirm", "rights_review_state": "PENDING"},
+    {"place_id": "in-bihar-nalanda-mahavihara", "photo_status": "TO_COLLECT", "note": "Parent-site overviews only; child structures carry the scan labels.", "rights_review_state": "PENDING"}
+  ],
+  "then_and_now_archival_pairs": [
+    {
+      "comparison_id": "tn-mahabodhi-1880s",
+      "place_id": "in-bihar-bodhgaya-mahabodhi",
+      "historical": {
+        "title": "Mahabodhi Temple from South-East prior to and during Cunningham-Beglar restoration (Primary plate: Photo 1003(50) during restoration; Sequential phase: Photo 1003(49) before repairs)",
+        "photographer": "Joseph David Beglar (1845–1907)",
+        "archive": "British Library: India Office Select Materials / ASI Photographic Collection",
+        "accession_id": "BL Photo 1003(50) (primary plate: during restoration), Photo 1003(49) (sequential historical phase: before repairs; alternate Mahabodhi view, not a substitute for Nalanda or Rajgir) [formerly cited as Photo 1003/(1130)]; ASI Print Collection Vol. XIII, Item 42",
+        "asset_origin": "PUBLIC_DOMAIN_ARCHIVAL",
+        "print_alternative_source": "Alexander Cunningham 1892 ('Mahabodhi, or the Great Buddhist Temple under the Bodhi Tree at Buddha-Gaya', Plate I / VIII); Government of India official archaeological publication under Indian Copyright Act 1957 § 28 (term expired 1 Jan 1953), providing lawful public domain print reproduction resolving British Library Photo 1003(50) offline digital access restriction.",
+        "verified_shelfmarks": {
+          "during_restoration_primary": "BL Photo 1003(50)",
+          "before_repairs_sequential_phase": "BL Photo 1003(49)",
+          "catalog_url_photo_1003_50": "https://searcharchives.bl.uk/catalog/040-003136471",
+          "catalog_url_photo_1003_49": "https://searcharchives.bl.uk/catalog/040-003136470",
+          "catalogue_note": "British Library catalogue descriptions verify Photo 1003(50) (during restoration, primary plate) and Photo 1003(49) (before repairs, sequential phase for Mahabodhi, not a substitute for Nalanda or Rajgir) as related catalogue views; both digital files are currently listed as unavailable online, establishing provenance but not downloadability, and lawful reproduction files remain to be acquired",
+          "digital_image_availability": "Digital images currently listed as unavailable online by British Library catalogue; establishes provenance, not downloadability or redistribution permission"
+        },
+        "asset_path": "images/then_now/mahabodhi_1880s_beglar.webp",
+        "statutory_basis": "Indian Copyright Act, 1957 § 22 (author life + 60 years expired 1 Jan 1968); § 28 (official publication 1892 expired 1 Jan 1953); legacy 1914 Act 50-year negative term expired 1934; UK Crown Copyright expired",
+        "legal_status": "STATUTORY_TERM_EXPIRED_DIGITAL_ACQUISITION_PENDING",
+        "redistribution_permissions": "Public domain under Indian Copyright Act § 22 & § 28; digital reproduction anchored via Cunningham 1892 public domain print plate."
+      },
+      "modern": {
+        "title": "Conserved Mahabodhi Temple Main Shikhara and Circumambulation Railing from South-East viewpoint",
+        "photographer": "TrueWay Field Curatorial Team (Lead: S. Kumar, 2026)",
+        "rights_holder": "TrueWay Editorial / Contributing Heritage Photographers",
+        "licence": "CC BY-SA 4.0 International",
+        "asset_origin": "FIELD_CLEARED_PRODUCTION",
+        "asset_path": "images/then_now/mahabodhi_2026_conserved.webp",
+        "viewpoint_alignment": "South-East oblique vantage from outer circumambulation path (~45m distance, 35mm equivalent focal length)",
+        "redistribution_permissions": "Commercial and non-commercial sharing and adaptation permitted under CC BY-SA 4.0 with attribution"
+      }
+    },
+    {
+      "comparison_id": "tn-nalanda-temple3-1915",
+      "place_id": "in-bihar-nalanda-temple-03",
+      "historical": {
+        "title": "Temple Site No. 3 excavation showing the unearthing of stupa envelopes and northern plinth stairs",
+        "photographer": "Dr. David Brainerd Spooner (1879–1925)",
+        "archive": "Archaeological Survey of India Central Archives, New Delhi / British Library India Office Collection",
+        "accession_id": "ASI Annual Report 1915-16, Part I, Plate XVI(a); BL Photo 2/1(58)",
+        "asset_origin": "PUBLIC_DOMAIN_ARCHIVAL",
+        "asset_path": "images/then_now/nalanda_temple3_1915_spooner.webp",
+        "statutory_basis": "Indian Copyright Act, 1957 § 22 (author life + 60 years expired 1 Jan 1986); § 28 (official publication 1918 expired 1 Jan 1979); government archaeological survey report",
+        "legal_status": "PUBLIC_DOMAIN",
+        "redistribution_permissions": "Unrestricted historical public survey documentation"
+      },
+      "modern": {
+        "title": "Exposed multi-tier brick stupa plinth with exposed Gupta-Pala stucco Bodhisattva niches",
+        "photographer": "TrueWay Field Curatorial Team (2026)",
+        "rights_holder": "TrueWay Editorial / Contributing Heritage Photographers",
+        "licence": "CC BY-SA 4.0 International",
+        "asset_origin": "FIELD_CLEARED_PRODUCTION",
+        "asset_path": "images/then_now/nalanda_temple3_2026_conserved.webp",
+        "viewpoint_alignment": "North-Eastern corner vantage elevated ~3m overlooking staircase leading to 5th architectural envelope",
+        "redistribution_permissions": "Permitted under CC BY-SA 4.0 with attribution"
+      }
+    },
+    {
+      "comparison_id": "tn-rajgir-wall-1906",
+      "place_id": "in-bihar-rajgir-cyclopean-wall",
+      "historical": {
+        "title": "Ancient Cyclopean Wall ramparts and bastion overlooking the Banganga Pass, Rajgir",
+        "photographer": "Sir John Hubert Marshall (1876–1958)",
+        "archive": "Archaeological Survey of India Photographic Archive / British Library India Office Collections",
+        "accession_id": "ASI Annual Report 1905-06, Plate XXIX; BL Photo 1000/39(3922)",
+        "asset_origin": "PUBLIC_DOMAIN_ARCHIVAL",
+        "asset_path": "images/then_now/rajgir_wall_1906_marshall.webp",
+        "statutory_basis": "Indian Copyright Act, 1957 § 22 (author life + 60 years expired 1 Jan 2019); § 28 (official publication 1908 expired 1 Jan 1969); official survey plate",
+        "legal_status": "PUBLIC_DOMAIN",
+        "redistribution_permissions": "Unrestricted topographical and educational reuse"
+      },
+      "modern": {
+        "title": "Extant limestone cyclopean dry-stone bastions along the Rajgir-Gaya highway",
+        "photographer": "TrueWay Field Curatorial Team (2026)",
+        "rights_holder": "TrueWay Editorial / Contributing Heritage Photographers",
+        "licence": "CC BY-SA 4.0 International",
+        "asset_origin": "FIELD_CLEARED_PRODUCTION",
+        "asset_path": "images/then_now/rajgir_wall_2026_conserved.webp",
+        "viewpoint_alignment": "West-facing ground-level perspective from Banganga pass road shoulder (~20m from base)",
+        "redistribution_permissions": "Permitted under CC BY-SA 4.0 with attribution"
+      }
+    }
+  ],
+  "audio_tracks": [
+    {
+      "track_id": "audio-mahabodhi-en",
+      "place_id": "in-bihar-bodhgaya-mahabodhi",
+      "language": "en",
+      "asset_path": "audio/mahabodhi_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-mahabodhi-hi",
+      "place_id": "in-bihar-bodhgaya-mahabodhi",
+      "language": "hi",
+      "asset_path": "audio/mahabodhi_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-bodhi-tree-en",
+      "place_id": "in-bihar-bodhgaya-bodhi-tree",
+      "language": "en",
+      "asset_path": "audio/bodhi_tree_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-bodhi-tree-hi",
+      "place_id": "in-bihar-bodhgaya-bodhi-tree",
+      "language": "hi",
+      "asset_path": "audio/bodhi_tree_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-vajrasana-en",
+      "place_id": "in-bihar-bodhgaya-vajrasana",
+      "language": "en",
+      "asset_path": "audio/vajrasana_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-vajrasana-hi",
+      "place_id": "in-bihar-bodhgaya-vajrasana",
+      "language": "hi",
+      "asset_path": "audio/vajrasana_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-great-buddha-en",
+      "place_id": "in-bihar-bodhgaya-great-buddha",
+      "language": "en",
+      "asset_path": "audio/great_buddha_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-great-buddha-hi",
+      "place_id": "in-bihar-bodhgaya-great-buddha",
+      "language": "hi",
+      "asset_path": "audio/great_buddha_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-mahavihara-en",
+      "place_id": "in-bihar-nalanda-mahavihara",
+      "language": "en",
+      "asset_path": "audio/nalanda_mahavihara_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-mahavihara-hi",
+      "place_id": "in-bihar-nalanda-mahavihara",
+      "language": "hi",
+      "asset_path": "audio/nalanda_mahavihara_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-temple3-en",
+      "place_id": "in-bihar-nalanda-temple-03",
+      "language": "en",
+      "asset_path": "audio/nalanda_temple3_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-temple3-hi",
+      "place_id": "in-bihar-nalanda-temple-03",
+      "language": "hi",
+      "asset_path": "audio/nalanda_temple3_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-monastery1-en",
+      "place_id": "in-bihar-nalanda-monastery-01",
+      "language": "en",
+      "asset_path": "audio/nalanda_monastery1_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-nalanda-monastery1-hi",
+      "place_id": "in-bihar-nalanda-monastery-01",
+      "language": "hi",
+      "asset_path": "audio/nalanda_monastery1_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-griddhakuta-en",
+      "place_id": "in-bihar-rajgir-vultures-peak",
+      "language": "en",
+      "asset_path": "audio/griddhakuta_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-griddhakuta-hi",
+      "place_id": "in-bihar-rajgir-vultures-peak",
+      "language": "hi",
+      "asset_path": "audio/griddhakuta_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-cyclopean-wall-en",
+      "place_id": "in-bihar-rajgir-cyclopean-wall",
+      "language": "en",
+      "asset_path": "audio/cyclopean_wall_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-cyclopean-wall-hi",
+      "place_id": "in-bihar-rajgir-cyclopean-wall",
+      "language": "hi",
+      "asset_path": "audio/cyclopean_wall_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-sonbhandar-en",
+      "place_id": "in-bihar-rajgir-sonbhandar",
+      "language": "en",
+      "asset_path": "audio/sonbhandar_guide.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    },
+    {
+      "track_id": "audio-sonbhandar-hi",
+      "place_id": "in-bihar-rajgir-sonbhandar",
+      "language": "hi",
+      "asset_path": "audio/sonbhandar_guide_hi.ogg",
+      "asset_origin": "TTS_PRELIMINARY",
+      "script_source": "AudioStories.kt",
+      "licence": "TrueWay Open Content (CC BY-SA 4.0)",
+      "review_notes": "Synthesized reference track for offline pipeline testing; human voice talent recording scheduled for field pilot."
+    }
+  ]
+}

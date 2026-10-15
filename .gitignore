@@ -1,0 +1,46 @@
+# Gradle
+.gradle/
+build/
+local.properties
+captures/
+*.apk
+*.aab
+*.hprof
+
+# IDE
+.idea/
+*.iml
+.vscode/
+!.vscode/tasks.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Signing / secrets — never commit
+*.keystore
+*.jks
+*.p12
+*.pem
+.env
+site-partners/**/credentials*
+
+# Python (server / pack-builder / ml)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ML weights + conversion workdirs — fetched/built on demand, never committed
+# (rights review required before any weight ships in-app, ADR-0003)
+ml/models/
+*.onnx
+*.tflite
+calibration_image_sample_data_*.npy
+
+# Node (tooling, if introduced)
+node_modules/
+
+# Generated hostile test fixtures (reproduced via tests/fixtures/hostile/make_hostile.py)
+tests/fixtures/hostile/*.twpkg
+tests/fixtures/hostile/work/

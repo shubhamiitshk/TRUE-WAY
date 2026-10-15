@@ -1,0 +1,9 @@
+{
+  "keys": [
+    {
+      "key_id": "pubkey-2026-q4",
+      "pubkey_b64": "REPLACE_WITH_BASE64_ENCODED_32_BYTE_ED25519_PUBLIC_KEY",
+      "description": "TrueWay Publisher Signing Key — Q4 2026"
+    }
+  ]
+}

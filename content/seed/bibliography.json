@@ -1,0 +1,42 @@
+{
+  "snapshot_at": "2026-10-09",
+  "note": "Source registry behind source_id in seed_demo.sql. Rights pointers are editorial tracking, not legal advice; counsel confirms before beta (blueprint §16).",
+  "sources": [
+    {
+      "source_id": "src-unesco-1056",
+      "title": "Mahabodhi Temple Complex at Bodh Gaya — World Heritage listing",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1056",
+      "rights_id": "rights-unesco-text-fairuse-check",
+      "accessed_at": "2026-10-09",
+      "covers": ["Mahabodhi listing", "5th-6th c. dating", "Ashokan attribution", "enlightenment association"]
+    },
+    {
+      "source_id": "src-unesco-1502",
+      "title": "Archaeological Site of Nalanda Mahavihara — World Heritage listing",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1502",
+      "rights_id": "rights-unesco-text-fairuse-check",
+      "accessed_at": "2026-10-09",
+      "covers": ["Nalanda listing", "stupas/shrines/viharas scope"]
+    },
+    {
+      "source_id": "src-bihar-mahabodhi",
+      "title": "Mahabodhi Temple — visitor listing (device rules)",
+      "publisher": "Bihar Tourism",
+      "url": "https://tourism.bihar.gov.in/en/destinations/gaya/mahabodhi-temple",
+      "rights_id": "rights-bihar-tourism-facts",
+      "accessed_at": "2026-10-09",
+      "covers": ["device prohibition notice"]
+    },
+    {
+      "source_id": "src-wikidata-scaffold",
+      "title": "Wikidata entity identifiers / coordinates scaffold",
+      "publisher": "Wikidata contributors (CC0 structured data)",
+      "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+      "rights_id": "rights-cc0",
+      "accessed_at": "2026-10-09",
+      "covers": ["candidate IDs, approximate coordinates; accuracy NOT assumed, editorial check required"]
+    }
+  ]
+}

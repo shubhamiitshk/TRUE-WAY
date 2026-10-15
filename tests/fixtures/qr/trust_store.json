@@ -1,0 +1,11 @@
+{
+ "note": "DEMO trust store. Release keys are pinned via signed trust-store update (\u00a79.3).",
+ "issuers": [
+  {
+   "issuer_id": "trueway.editorial",
+   "key_id": "touch-issuer-demo-1",
+   "pubkey_b64u": "FgJ6S2HWGxMpn3S0z_5ESrshXlaAokkOzUYJ232g-Xo",
+   "status": "DEMO"
+  }
+ ]
+}

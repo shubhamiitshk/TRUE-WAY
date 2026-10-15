@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TrueWay</string>
+
+    <!-- Navigation (blueprint §6.7) -->
+    <string name="nav_explore">Explore</string>
+    <string name="nav_scan">Scan</string>
+    <string name="nav_saved">Saved</string>
+    <string name="nav_downloads">Packs</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Scan permission gate microcopy (blueprint §19.3, §19.4, F009) -->
+    <string name="scan_site_advisory_title">Check site rules before scanning</string>
+    <string name="scan_site_advisory_body">Some sites prohibit cameras and electronic devices. View this guide only where devices are allowed. If cameras are not permitted here, you can still search every place by name.</string>
+    <string name="scan_site_advisory_continue">Allow camera access</string>
+    <string name="scan_site_advisory_no_camera">Find by name instead</string>
+    <string name="scan_permission_rationale_title">TrueWay uses your camera for one photo</string>
+    <string name="scan_permission_rationale_body">The photo stays on this device. It is used to match your image against places you have downloaded — it is never uploaded.</string>
+    <string name="scan_permission_request">Continue</string>
+    <string name="scan_denied_title">Camera access is off</string>
+    <string name="scan_denied_body">You can turn on camera access in system settings, or search for a place by name — scanning is optional.</string>
+    <string name="scan_denied_open_settings">Open settings</string>
+    <string name="scan_blocked_body">Camera permission was permanently denied. Scanning is unavailable, but search, packs and saved places still work offline.</string>
+    <string name="scan_capture">Capture photo</string>
+    <string name="scan_retake">Retake</string>
+    <string name="scan_preview_cd">Camera preview</string>
+    <string name="scan_capture_cd">Capture photo button</string>
+    <string name="scan_requesting_permission">Requesting camera access…</string>
+    <string name="scan_flash_cd">Toggle flash mode</string>
+    <string name="scan_flash_auto">Flash: Auto</string>
+    <string name="scan_flash_on">Flash: On</string>
+    <string name="scan_flash_off">Flash: Off</string>
+
+    <!-- Scan result states (blueprint §7.4, §19.3, F002/F010) -->
+    <string name="scan_matching">Matching against your downloaded places…</string>
+    <string name="scan_match_title">Likely match</string>
+    <string name="scan_match_body">Compare with the alternatives below before deciding.</string>
+    <string name="scan_view_card">View history card</string>
+    <string name="scan_alternatives_title">Also consider</string>
+    <string name="scan_uncalibrated_title">Recognition isn\'t calibrated yet</string>
+    <string name="scan_uncalibrated_body">Your downloaded places don\'t include a tested recognition setup. Search by name instead — your history guide works fully offline.</string>
+    <string name="scan_error_title">Couldn\'t process this photo</string>
+    <string name="scan_error_body">Try retaking it where photography is allowed, or search by name instead.</string>
+
+    <!-- Signed site codes (blueprint §11, §19.3, F014) -->
+    <string name="qr_scan_instead">Scan a site code instead</string>
+    <string name="qr_title">Scan a site code</string>
+    <string name="qr_hint">Point at an official TrueWay plate. Only TrueWay codes are read — web links never open.</string>
+    <string name="qr_verified_title">Verified site code</string>
+    <string name="qr_verified_body">Signed by %1$s. Check the plate matches this place before continuing:</string>
+    <string name="qr_serial">Plate %1$s</string>
+    <string name="qr_mismatch">Wrong place on the plate? Tell staff on site, and search by name.</string>
+    <string name="qr_unknown_place_title">Verified code, place not installed</string>
+    <string name="qr_unknown_place_body">This code belongs to pack %1$s, which isn\'t on this device. No story was invented — search your installed places instead.</string>
+    <string name="qr_unverified_title">This code could not be verified</string>
+    <string name="qr_unverified_body">You can search the place by name instead.</string>
+    <string name="qr_expired_body">This code has expired. Search the place by name instead.</string>
+    <string name="scan_no_model_title">Photo captured on this device</string>
+    <string name="scan_no_model_body">Recognition is not installed yet. When the vision model and a region pack are added, this photo will be matched against your downloaded places — never against the internet.</string>
+    <string name="scan_unknown_title">No reliable match in your downloaded places</string>
+    <string name="scan_unknown_body">We couldn\'t reliably match this photo to your downloaded places. You can search by name or browse nearby places instead.</string>
+
+    <!-- Explore (blueprint §19.3) -->
+    <string name="explore_title">Explore</string>
+    <string name="explore_search_hint">Search places and aliases</string>
+    <string name="explore_no_pack_title">This area isn\'t in your offline pack yet</string>
+    <string name="explore_no_pack_body">Browse installed content, or add a pack while you\'re connected. Search runs entirely on this device.</string>
+    <string name="explore_no_results">No installed place matches your search.</string>
+    <string name="explore_demo_body">15-place Bihar demonstrator installed on this device: Bodh Gaya, Rajgir and Nalanda summaries with sources. Search runs entirely offline — try “Mahabodhi”, “महाबोधि”, “Nalanda” or “Griddhakuta”.</string>
+    <string name="explore_clear_search">Clear search</string>
+    <string name="explore_voice_search">Voice search (coming soon)</string>
+    <string name="explore_clear_filters">Clear category filter</string>
+    <string name="explore_recent_title">Recent</string>
+
+    <!-- Saved (blueprint F007) -->
+    <string name="saved_title">Saved</string>
+    <string name="saved_empty_title">Your discoveries will appear here</string>
+    <string name="saved_empty_body">Save a place or write a note from any history card. Saved notes stay on this device — no account, no upload.</string>
+    <string name="saved_local_badge">Stored only on this device</string>
+    <string name="saved_missing_place">Saved place (content not installed)</string>
+    <string name="saved_delete_cd">Delete this saved entry</string>
+
+    <!-- Packs / downloads (blueprint §19.5, F001) -->
+    <string name="packs_title">Downloads</string>
+    <string name="packs_empty_title">No region pack installed</string>
+    <string name="packs_empty_body">Download a destination pack to read sourced history, search places and use the scanner offline. Each pack shows its size, languages and licences before you download.</string>
+    <string name="packs_status_not_installed">Not installed</string>
+    <string name="packs_row_knowledge">History and sources</string>
+    <string name="packs_row_scanner">Scanner model</string>
+    <string name="packs_row_map">Offline map</string>
+    <string name="packs_row_audio">Audio narration</string>
+    <string name="packs_test_offline_hint">Available after a pack is installed: opens a known stored card with no network.</string>
+
+    <!-- Settings / trust (blueprint F015, §15) -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_privacy_title">Privacy</string>
+    <string name="settings_privacy_body">TrueWay has no account and uploads nothing: photos, notes and scan results never leave this device.</string>
+    <string name="settings_permissions_title">Permissions</string>
+    <string name="settings_permissions_body">Camera: explained at point of use. Location: optional and requested in context. Microphone: only for future voice search, if enabled.</string>
+    <string name="settings_language_title">Language</string>
+    <string name="settings_language_body">English. Hindi content ships with the first region pack.</string>
+    <string name="settings_about_title">About</string>
+    <string name="settings_about_body">TrueWay feasibility build. Not legal, safety or archaeological certification. Sources and review dates appear on every history card.</string>
+    <string name="settings_clear_scans_title">Delete captured scan photos</string>
+    <string name="settings_clear_scans_body">Removes every photo captured by the scanner from this device.</string>
+    <string name="settings_clear_scans_action">Delete photos</string>
+    <string name="settings_scans_deleted">Captured scan photos deleted</string>
+    <string name="settings_scans_delete_failed">No captured photos to delete</string>
+    <string name="settings_delete_all_title">Delete all private data</string>
+    <string name="settings_delete_all_body">Removes everything private from this device in one tap: scanner photos, journal notes, unlocked achievements and consent choices. This cannot be undone.</string>
+    <string name="settings_delete_all_action">Delete all private data</string>
+    <string name="settings_all_deleted">All private data deleted from this device</string>
+
+    <!-- Explore essentials (F011) + packs changelog/self-test (F013/F015) -->
+    <string name="essentials_title">Offline essentials</string>
+    <string name="essentials_verified">Last checked %1$s — may have changed</string>
+    <string name="packs_test_offline_action">Test offline: open a stored card</string>
+    <string name="packs_changelog_title">What changed in this content</string>
+
+    <!-- Pack import outcomes (F006, §19.3) -->
+    <string name="packs_active_version">Active pack: Bihar Buddhist Circuit %1$s</string>
+    <string name="packs_import_action">Import a pack file from this device</string>
+    <string name="packs_importing">Verifying pack…</string>
+    <string name="packs_import_ok">Pack %1$s active: %2$d places, signed by %3$s. Your previous pack was kept until this one verified.</string>
+    <string name="packs_reject_signature">The pack failed integrity checks and wasn\'t activated. Your previous pack is safe.</string>
+    <string name="packs_reject_publisher">Unknown publisher (%1$s). The pack wasn\'t activated.</string>
+    <string name="packs_reject_digest">A pack file was corrupt. The pack wasn\'t activated.</string>
+    <string name="packs_reject_unsafe">The pack contained an unsafe file path and was rejected: %1$s.</string>
+    <string name="packs_reject_unlisted">The pack contained a file not covered by its signed manifest and was rejected: %1$s.</string>
+    <string name="packs_reject_downgrade">This pack is older than your installed release and was refused.</string>
+    <string name="packs_reject_format">This file isn\'t a TrueWay pack. Nothing was changed.</string>
+    <string name="packs_reject_size">The pack is too large to stage safely on this device.</string>
+    <string name="packs_reject_storage">Not enough free storage to install this pack safely. Your previous pack is safe; free up space and try again.</string>
+    <string name="packs_reject_io">The pack couldn\'t be installed (storage error). Your previous pack is safe.</string>
+    <string name="packs_remove_pack_action">Remove pack (revert to bundled demo)</string>
+    <string name="packs_pack_removed">Region pack removed. Bundled demonstrator is now active.</string>
+    <string name="offline_badge_no_pack">No pack installed</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_offline_title">Works fully offline</string>
+    <string name="onboarding_offline_body">Download a region pack once. After that, search, stories, trails and scanning all work with no internet.</string>
+    <string name="onboarding_offline_highlight">Airplane-mode ready: zero network calls in the read path.</string>
+    <string name="onboarding_scan_title">Point, capture, understand</string>
+    <string name="onboarding_scan_body">Photograph a supported monument and TrueWay matches it on-device against your downloaded pack.</string>
+    <string name="onboarding_scan_highlight">Unknown is a first-class answer — no match means no fabrication.</string>
+    <string name="onboarding_qr_title">Site codes you can trust</string>
+    <string name="onboarding_qr_body">Scan official TrueWay plates. Every code is signature-checked before any story opens.</string>
+    <string name="onboarding_qr_highlight">Web links never open from a scan. Only verified TrueWay codes work.</string>
+    <string name="onboarding_privacy_title">Private by design</string>
+    <string name="onboarding_privacy_body">No account. Photos and notes never leave this device. Delete everything in one tap.</string>
+    <string name="onboarding_privacy_highlight">Your journal lives in a separate private file — deleting a pack never deletes notes.</string>
+    <string name="onboarding_trust_title">Every claim shows its source</string>
+    <string name="onboarding_trust_body">Documented, interpretation, tradition and contested readings are labelled — never flattened into fact.</string>
+    <string name="onboarding_trust_highlight">If evidence is weak, TrueWay says so instead of inventing history.</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Start exploring</string>
+    <string name="onboarding_skip">Skip intro</string>
+</resources>

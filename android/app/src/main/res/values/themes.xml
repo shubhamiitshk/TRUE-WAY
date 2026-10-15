@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Stone/ivory background with charcoal action bar; Compose supplies the
+         full palette (blueprint §19.1). No ActionBar in either theme. -->
+    <style name="Theme.TrueWay" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/stone_ivory</item>
+        <item name="android:statusBarColor">@color/stone_ivory</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/stone_ivory</item>
+    </style>
+</resources>

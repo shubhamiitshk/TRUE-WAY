@@ -1,0 +1,12 @@
+{
+  "scheme": "trueway.touchpoint",
+  "version": 1,
+  "issuer_id": "trueway.editorial",
+  "key_id": "touch-issuer-key-1",
+  "touchpoint_id": "demo-nalanda-museum-entry",
+  "place_id": "in-bihar-nalanda-museum",
+  "pack_id": "in-bihar-buddhist-circuit",
+  "issued_at": "2026-10-10T00:00:00Z",
+  "expires_at": null,
+  "human_label": "Nalanda Archaeological Museum — entry (DEMO FIXTURE, unsigned)"
+}

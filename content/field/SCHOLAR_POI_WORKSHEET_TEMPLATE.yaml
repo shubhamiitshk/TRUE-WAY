@@ -1,0 +1,104 @@
+# TrueWay Scholar POI Submission Worksheet Template
+# Version: 1.0 (Bodh Gaya - Rajgir - Nalanda Heritage Corridor)
+#
+# INSTRUCTIONS FOR RESEARCHERS & POSTGRADUATE SCHOLARS:
+# 1. Fill out one worksheet per Point of Interest (POI) or monument structure.
+# 2. Every statement of fact must be classified under TrueWay's Epistemic Framework:
+#    - DOCUMENTED: Physical in-situ epigraphy, published archaeological reports (ASI/Cunningham/Marshall).
+#    - INTERPRETATION: Scholarly consensus or academic hypothesis with named historian source.
+#    - TRADITION: Living devotional tradition, oral history, or pilgrimage folklore.
+#    - CONTESTED: Actively disputed historical attribution or dating between recognized scholars.
+# 3. All submissions must pass the automated validator before honorarium release:
+#    python content/tools/validate_scholar_submission.py <path_to_worksheet.yaml>
+
+metadata:
+  scholar_name: "Dr. Ananya Sharma"
+  affiliation: "Department of Historical Studies, Nalanda University"
+  submission_date: "2026-10-15"
+  honorarium_tier: "INR_3500"  # Options: INR_2000 (standard), INR_3500 (complex/epigraphic), INR_5000 (flagship)
+  lead_reviewer: "TrueWay Field Editorial Board"
+
+place:
+  place_id: "in-bihar-nalanda-temple-03" # Format: in-bihar-{corridor}-{monument-slug}
+  canonical_name: "Nalanda Temple Site No. 3"
+  
+  # Multilingual Aliases (Devanagari \u0900-\u097F is strictly mandatory for 'hi')
+  aliases:
+    hi: "नालंदा मंदिर संख्या ३"
+    hi-Latn: "Nalanda Mandir Sankhya Teen"
+    sa: "नालन्दा महाविहार स्तूप मन्दिरम्"
+    pi: "Nālandā Thūpa Cetīya"
+
+  # Geographic Coordinates (Strictly validated to Bihar Buddhist Corridor: 24.0 <= lat <= 26.5, 84.0 <= lon <= 86.5)
+  coordinates:
+    latitude: 25.1358
+    longitude: 85.4439
+    elevation_meters: 67.0
+
+  corridor: "NALANDA" # Options: BODH_GAYA, RAJGIR, NALANDA, PATNA, VAISHALI
+  visitor_mode: "PHOTO_SUPPORTED" # Options: PHOTO_SUPPORTED, SEARCH_ONLY, QR_PARTNER, TRAIL_STOP, TEXT_REFERENCE_ONLY
+
+before_you_enter:
+  site_jurisdiction: "ASI" # Options: ASI, BTMC, STATE_TOURISM, MUNICIPAL
+  device_regulations: "PHOTOGRAPHY_ALLOWED_NO_DRONES" # Options: PHONES_STRICTLY_BANNED, PHOTOGRAPHY_ALLOWED_NO_DRONES, DEVICES_PERMITTED
+  cloakroom_available: true
+  shoe_removal_required: false
+  ascent_safety_hazard: true
+  advisories:
+    - "Exposed brick steps become extremely hot during summer midday; wear protective socks."
+    - "Keep strictly to timber boardwalks to prevent erosion of 6th-century stucco sculptures."
+    - "Drones and high-tripod commercial camera gear strictly prohibited without prior ASI Director-General permit."
+
+claims:
+  - claim_id: "CLM-NAL-0301"
+    claim_type: "DOCUMENTED"
+    claim_text: "Temple 3 consists of seven successive architectural envelopes built directly over one another from the Gupta period (5th century CE) through the Pala period (11th century CE)."
+    sources:
+      - author: "Spooner, Dr. David B."
+        title: "Excavations at Nalanda"
+        publication_year: 1916
+        citation_detail: "Archaeological Survey of India Annual Report 1915-16, Part I, pp. 33-38, Plate XVI"
+      - author: "Ghosh, A."
+        title: "Nalanda"
+        publication_year: 1965
+        citation_detail: "Archaeological Survey of India Guidebook (6th ed.), pp. 14-19"
+
+  - claim_id: "CLM-NAL-0302"
+    claim_type: "DOCUMENTED"
+    claim_text: "The fifth architectural stratum reveals high-relief stucco images of the Buddha and Bodhisattvas (including Avalokiteshvara and Manjushri) displaying classical Gupta artistic idioms."
+    sources:
+      - author: "Cunningham, Sir Alexander"
+        title: "Report of Tours in Bundelkhand and Malwa, and in the Central Provinces"
+        publication_year: 1880
+        citation_detail: "Archaeological Survey of India Reports, Vol. I & III, pp. 28-36"
+
+  - claim_id: "CLM-NAL-0303"
+    claim_type: "TRADITION"
+    claim_text: "Tibetan and Chinese pilgrim chronicles record that this stupa-temple enshrines relics of Shariputra (Sariputta), the foremost disciple of Gautama Buddha in wisdom, who was born and attained parinirvana in nearby Kalapinaka/Nalaka village."
+    sources:
+      - author: "Xuanzang (trans. Samuel Beal)"
+        title: "Si-Yu-Ki: Buddhist Records of the Western World"
+        publication_year: 1884
+        citation_detail: "Trubner Oriental Series, Book IX, pp. 175-177"
+      - author: "Taranatha (trans. Chimpa & Chattopadhyaya)"
+        title: "History of Buddhism in India"
+        publication_year: 1970
+        citation_detail: "Indian Institute of Advanced Study, Simla, Chapter 18, pp. 102-105"
+
+audio_narrative_scripts:
+  english_script: >
+    Welcome to Temple Site Number 3, the monumental icon of Nalanda Mahavihara. Standing before
+    this colossal brick tower, you are witnessing twelve hundred years of devotion encased in
+    concentric layers of terracotta. Rather than dismantling older sanctums, Buddhist architects over
+    seven successive eras simply encased the existing structure within a larger brick shell.
+    As you examine the northern corner of the fifth envelope, look closely at the exquisite stucco
+    Bodhisattvas. These five-foot figures survive from the sixth century, their serene downcast eyes
+    and flowing drapery representing the pinnacle of classical Gupta sculptural craftsmanship.
+  hindi_script: >
+    नालंदा महाविहार के भव्य मंदिर संख्या ३ में आपका स्वागत है। आपके समक्ष स्थित यह विशाल ईंटों का स्तूप
+    बारह सौ वर्षों की निरंतर साधना और निर्माण परंपरा का जीवंत प्रमाण है। प्राचीन काल में पुराने मंदिर को
+    तोड़ने के बजाय, विभिन्न कालखंडों के शिल्पकारों ने इसके ऊपर सात क्रमिक परतों का निर्माण किया।
+    इसके पांचवें स्तर पर बनी गुप्तकालीन गच प्रतिमाओं को ध्यान से देखें—यहाँ बोधिसत्व अवलोकितेश्वर की
+    शांत और करुणामयी मुद्रा भारतीय शास्त्रीय मूर्तिकला का अनुपम उदाहरण प्रस्तुत करती है।
+  pronunciation_ipa: "/naːlənˈdaː ˈtɛmpəl naɪn/ (Hindi: [naːlən̪d̪aː mən̪d̪ɪr])"
+  estimated_duration_seconds: 95

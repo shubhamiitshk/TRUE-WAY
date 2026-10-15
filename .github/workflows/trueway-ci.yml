@@ -1,0 +1,51 @@
+name: TrueWay Offline & Release Gate CI
+
+on:
+  push:
+    branches: [ main, master, "feature/**" ]
+  pull_request:
+
+jobs:
+  verify-trueway-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: gradle
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python validation dependencies
+        run: python -m pip install pyyaml cryptography
+
+      - name: Gate 0 — Validate SQL Seed & Scholar Worksheet Template
+        run: |
+          python content/seed/validate_seed.py
+          python content/tools/validate_scholar_submission.py content/field/SCHOLAR_POI_WORKSHEET_TEMPLATE.yaml
+
+      - name: Gate 2 (G03) — Verify 250-Query Open-Set Benchmark (Clopper-Pearson <= 5%)
+        run: |
+          python ml/evaluate_retrieval.py --input tests/fixtures/retrieval_benchmark_250.csv --threshold 0.72
+
+      - name: Gate 1 — Run Android JVM Unit Tests & Compile Instrumented Suites
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew testDebugUnitTest compileDebugAndroidTestKotlin assembleDebug assembleDebugAndroidTest --no-daemon
+
+      - name: Gate 3 & Production Audit — Build Pack & Run trueway_verify_local.py Across All 4 Profiles
+        run: |
+          python pack-builder/build_pack.py --version 2026.10.1 --out dist --demo-key --audio-dir content/audio --images-dir content/images/then_now --vision-dir content/vision
+          python trueway_verify_local.py . --profile p0-core --strict
+          python trueway_verify_local.py . --profile p1a-audio --strict
+          python trueway_verify_local.py . --profile p1a-archive --strict
+          python trueway_verify_local.py . --profile production --strict --json-out audit_evidence.json

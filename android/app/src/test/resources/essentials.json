@@ -1,0 +1,13 @@
+{
+  "snapshot_at": "2026-10-09",
+  "call_caveat": "Saved for reference. Calling still needs mobile network coverage.",
+  "freshness_note": "Opening information was last checked on the date shown and may have changed.",
+  "contacts": [
+    {"label": "All-in-one emergency helpline (India)", "value": "112", "last_verified": "2026-10-09"},
+    {"label": "Incredible India tourist helpline", "value": "1363", "last_verified": "2026-10-09"}
+  ],
+  "advice": [
+    {"title": "Site etiquette", "body": "Follow current on-site notices. At the Mahabodhi complex, mobile phones, cameras and electronic gadgets are listed as prohibited — use TrueWay before entry or only where devices are allowed.", "last_verified": "2026-10-09"},
+    {"title": "Heat and hill walks", "body": "Rajgir ascents need water, daylight margin and confirmed route access. Offline seasonal notes are generic awareness, not a live weather window.", "last_verified": "2026-10-09"}
+  ]
+}

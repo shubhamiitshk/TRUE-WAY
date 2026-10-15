@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Camera is optional hardware: devices without cameras must still install
+         and use the no-camera routes (blueprint F009). -->
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false" />
+
+    <!-- Explained at point of use (blueprint §19.4) by the Scan permission gate. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Reserved for user-initiated pack download/update only (blueprint F006).
+         No recognition, reading, search or journaling path may use it (§8.1). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TrueWay">
+        <!-- allowBackup=false: the private journal (user_journal.sqlite) and
+             consent_choices must never be auto-uploaded to Google Drive.
+             Blueprint §15 "no invisible upload" [G] + §28.4 "avoid accidental
+             backup/export". Any future selective backup must still exclude the
+             private DB via android:dataExtractionRules. -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>
