@@ -2,6 +2,7 @@ package com.trueway.app.vision
 
 import android.content.Context
 import com.trueway.app.pack.PrefsActivePackStore
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 
@@ -9,21 +10,64 @@ import java.io.File
  * Pack-side reference index loader (blueprint §9.4 `vision/` component,
  * §28.3 `reference_embeddings`).
  *
- * Asset format (`assets/reference_index.json`, gitignored until the pack
- * builder emits real adapted vectors):
+ * Asset format (`vision/reference_vectors.meta.json`):
  * ```json
  * {
- *   "model_id": "mobileclip-s0+diag-adapter",
- *   "refs": [{"place_id": "...", "asset_id": "...", "values": [0.01, ...]}],
- *   "calibration": {"accept_threshold": 0.62, "min_margin": 0.04}
+ *   "format": "TWVEC002",
+ *   "model_id": "mobileclip-s0-v1",
+ *   "model_sha256": "…",
+ *   "dim": 512,
+ *   "storage": "float32",
+ *   "places": [{"place_id": "…", "parent_place_id": null, "viewpoint_tag": "…",
+ *               "distinguishing_hint": "…", "prototype_start": 0, "prototype_count": 3}],
+ *   "negatives": [{"label": "…"}],
+ *   "calibration": {"accept_threshold": 0.62, "relative_threshold": 0.12,
+ *                   "hard_negative_margin": 0.06, "sibling_margin": 0.04,
+ *                   "min_margin": 0.05, "top_k_mean": 2,
+ *                   "calibrator": {"a": 12.4, "b": -7.1}}
  * }
  * ```
+ * The legacy TWVEC001 metadata (`prototypes[]` + `negative_labels[]`) is still
+ * parsed so packs built by earlier versions keep importing.
+ *
  * Missing asset, corrupt JSON, or zero usable refs → [ReferenceIndex.Empty]:
  * the scanner reports "not in your offline pack", never a fabricated match.
  * Present refs but absent calibration → [ReferenceIndex.Uncalibrated]:
  * ranking runs for diagnostics only; the UI must NOT present candidate names.
  */
-data class PackCalibration(val acceptThreshold: Double, val minMargin: Double)
+/**
+ * Calibration carried by the pack.
+ *
+ * [acceptThreshold] and [minMargin] are the legacy absolute gate. The newer
+ * fields carry the RELATIVE gate and the fitted calibrator; a pack that only
+ * has the legacy pair is still usable through the JSON path, but the binary
+ * path refuses to run without a complete calibration (§3 principle 2 — the
+ * scanner must not present a name it cannot calibrate).
+ */
+data class PackCalibration(
+    val acceptThreshold: Double,
+    val minMargin: Double,
+    val relativeThreshold: Double = Double.NaN,
+    val hardNegativeMargin: Double = Double.NaN,
+    val siblingMargin: Double = Double.NaN,
+    val topKMean: Int = 2,
+    val calibrator: ScoreCalibrator = ScoreCalibrator.DISABLED,
+) {
+    /** Complete calibration, or null when the pack only carries the legacy pair. */
+    fun toVisionCalibration(): VisionCalibration? {
+        if (relativeThreshold.isNaN() || hardNegativeMargin.isNaN() || siblingMargin.isNaN()) return null
+        return VisionCalibration(
+            acceptThreshold = acceptThreshold,
+            relativeThreshold = relativeThreshold,
+            hardNegativeMargin = hardNegativeMargin,
+            siblingMargin = siblingMargin,
+            minMargin = minMargin,
+            topKMean = topKMean,
+            calibrator = calibrator,
+            source = "pack",
+        )
+    }
+}
 
 sealed interface ReferenceIndex {
     data object Empty : ReferenceIndex
@@ -38,6 +82,12 @@ sealed interface ReferenceIndex {
         val packId: String? = null,
     ) : ReferenceIndex
 }
+
+/** A binary index together with the metadata it was loaded with. */
+data class LoadedVectorIndex(
+    val index: BinaryVectorIndex,
+    val meta: VectorIndexMeta,
+)
 
 object ReferenceStore {
     const val ASSET = "reference_index.json"
@@ -78,9 +128,18 @@ object ReferenceStore {
         val accept = cal?.optDouble("accept_threshold", Double.NaN)?.takeIf { !it.isNaN() }
         val margin = cal?.optDouble("min_margin", Double.NaN)?.takeIf { !it.isNaN() }
         return if (accept != null && margin != null) {
+            val full = VisionCalibration.parse(cal)
             ReferenceIndex.Ready(
                 refs = refs,
-                calibration = PackCalibration(accept, margin),
+                calibration = PackCalibration(
+                    acceptThreshold = accept,
+                    minMargin = margin,
+                    relativeThreshold = full?.relativeThreshold ?: Double.NaN,
+                    hardNegativeMargin = full?.hardNegativeMargin ?: Double.NaN,
+                    siblingMargin = full?.siblingMargin ?: Double.NaN,
+                    topKMean = full?.topKMean ?: 2,
+                    calibrator = full?.calibrator ?: ScoreCalibrator.DISABLED,
+                ),
                 modelId = root.optString("model_id").ifBlank { null },
                 packId = packId,
             )
@@ -90,10 +149,79 @@ object ReferenceStore {
     }
 
     /**
-     * Attempts to mmap a TWVEC001 zero-copy binary vector index if present in [activePackDir].
+     * Parses the binary index metadata. Understands both TWVEC002 (current,
+     * float32, one-or-more references per place) and TWVEC001 (legacy INT8,
+     * exactly one reference per place).
+     */
+    fun parseVectorIndexMeta(json: String): VectorIndexMeta? {
+        val root = try {
+            JSONObject(json)
+        } catch (_: Exception) {
+            return null
+        }
+        val places = mutableListOf<PrototypeRecord>()
+        val newFormat = root.optJSONArray("places")
+        if (newFormat != null) {
+            for (i in 0 until newFormat.length()) {
+                val o = newFormat.optJSONObject(i) ?: continue
+                val placeId = o.optString("place_id").takeIf { it.isNotBlank() } ?: continue
+                places += PrototypeRecord(
+                    placeId = placeId,
+                    parentPlaceId = o.optString("parent_place_id", "").ifEmpty { null },
+                    viewpointTag = o.optString("viewpoint_tag", "default"),
+                    distinguishingHint = o.optString("distinguishing_hint", ""),
+                    prototypeStart = o.optInt("prototype_start", i),
+                    prototypeCount = o.optInt("prototype_count", 1).coerceAtLeast(1),
+                )
+            }
+        } else {
+            val legacy = root.optJSONArray("prototypes")
+            if (legacy != null) {
+                for (i in 0 until legacy.length()) {
+                    val o = legacy.optJSONObject(i) ?: continue
+                    val placeId = o.optString("place_id").takeIf { it.isNotBlank() } ?: continue
+                    places += PrototypeRecord(
+                        placeId = placeId,
+                        parentPlaceId = o.optString("parent_place_id", "").ifEmpty { null },
+                        viewpointTag = o.optString("viewpoint_tag", "default"),
+                        distinguishingHint = o.optString("distinguishing_hint", ""),
+                        prototypeStart = i,
+                        prototypeCount = 1,
+                    )
+                }
+            }
+        }
+        if (places.isEmpty()) return null
+        val negatives = mutableListOf<String>()
+        val negArr: JSONArray? = root.optJSONArray("negatives")
+        if (negArr != null) {
+            for (i in 0 until negArr.length()) {
+                val o = negArr.optJSONObject(i)
+                negatives += o?.optString("label") ?: "neg-$i"
+            }
+        } else {
+            val legacyNeg = root.optJSONArray("negative_labels")
+            if (legacyNeg != null) {
+                for (i in 0 until legacyNeg.length()) negatives += legacyNeg.optString(i)
+            }
+        }
+        val scale = root.optJSONObject("local_scale")
+        return VectorIndexMeta(
+            places = places,
+            negativeLabels = negatives,
+            calibration = VisionCalibration.parse(root.optJSONObject("calibration")),
+            modelId = root.optString("model_id").ifBlank { null },
+            modelSha256 = root.optString("model_sha256").ifBlank { null },
+            localScaleK = scale?.optInt("k", 10) ?: 10,
+            localScaleCount = scale?.optInt("count", 0) ?: 0,
+        )
+    }
+
+    /**
+     * Attempts to mmap a zero-copy binary vector index if present in [activePackDir].
      * Returns null if files are absent or invalid, allowing graceful fallback to JSON index.
      */
-    fun loadBinaryIfPresent(activePackDir: File?): BinaryVectorIndex? {
+    fun loadBinaryIfPresent(activePackDir: File?): LoadedVectorIndex? {
         if (activePackDir == null || !activePackDir.exists()) return null
         val candidates = listOf(
             File(activePackDir, "vision/reference_vectors.bin") to File(activePackDir, "vision/reference_vectors.meta.json"),
@@ -105,23 +233,13 @@ object ReferenceStore {
         )
         for ((binFile, metaFile) in candidates) {
             if (binFile.isFile && metaFile.isFile) {
-                return runCatching {
-                    val root = JSONObject(metaFile.readText(Charsets.UTF_8))
-                    val arr = root.getJSONArray("prototypes")
-                    val protos = ArrayList<PrototypeRecord>(arr.length())
-                    for (i in 0 until arr.length()) {
-                        val item = arr.getJSONObject(i)
-                        protos.add(
-                            PrototypeRecord(
-                                placeId = item.getString("place_id"),
-                                parentPlaceId = item.optString("parent_place_id", "").ifEmpty { null },
-                                viewpointTag = item.optString("viewpoint_tag", "default"),
-                                distinguishingHint = item.optString("distinguishing_hint", "")
-                            )
-                        )
-                    }
-                    BinaryVectorIndex.mmapReadOnly(binFile, protos)
+                val loaded = runCatching {
+                    val meta = parseVectorIndexMeta(metaFile.readText(Charsets.UTF_8))
+                        ?: return null
+                    val index = BinaryVectorIndex.mmapReadOnly(binFile, meta)
+                    LoadedVectorIndex(index, meta)
                 }.getOrNull()
+                if (loaded != null) return loaded
             }
         }
         return null

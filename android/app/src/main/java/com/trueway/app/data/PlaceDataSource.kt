@@ -44,6 +44,13 @@ interface SqlRunner {
 
 class DemoCorpusSource : PlaceDataSource {
     private val byId: Map<String, Place> = DemoCorpus.places.associateBy { it.placeId }
+    private val haystackSkeletonById: Map<String, String> = DemoCorpus.places.associate { p ->
+        val haystackRaw = buildString {
+            append(p.canonicalName.lowercase()).append(' ')
+            p.aliases.forEach { append(it.lowercase()).append(' ') }
+        }
+        p.placeId to IndicPhoneticNormalizer.toSkeleton(haystackRaw)
+    }
 
     override fun get(placeId: String): Place? = byId[placeId]
 
@@ -77,11 +84,7 @@ class DemoCorpusSource : PlaceDataSource {
                 continue
             }
             if (querySkeleton.isNotEmpty()) {
-                val haystackRaw = buildString {
-                    append(nameLower).append(' ')
-                    p.aliases.forEach { append(it.lowercase()).append(' ') }
-                }
-                val haystackSkeleton = IndicPhoneticNormalizer.toSkeleton(haystackRaw)
+                val haystackSkeleton = haystackSkeletonById[p.placeId].orEmpty()
                 if (haystackSkeleton.contains(querySkeleton) ||
                     (querySkeletonTokens.isNotEmpty() && querySkeletonTokens.all { tok -> haystackSkeleton.contains(tok) })
                 ) {
@@ -98,6 +101,38 @@ class SqlitePackSource(
     private val runner: SqlRunner,
 ) : PlaceDataSource {
     private val path: String = dbFile.absolutePath
+
+    companion object {
+        private val whitespaceRegex = Regex("\\s+")
+    }
+
+    private val haystackSkeletonEntries: List<Pair<String, String>> by lazy {
+        if (!dbFile.exists()) return@lazy emptyList()
+        try {
+            val rows = runner.query(
+                path,
+                "SELECT p.place_id AS place_id, p.canonical_name AS canonical_name, a.alias_text AS alias_text " +
+                    "FROM places p LEFT JOIN place_aliases a ON a.place_id = p.place_id " +
+                    "WHERE p.editorial_state IN ('REVIEWED','PUBLISHED') " +
+                    "ORDER BY p.canonical_name, a.alias_text",
+                emptyArray(),
+            )
+            val grouped = linkedMapOf<String, StringBuilder>()
+            for (r in rows) {
+                val pid = r["place_id"] as? String ?: continue
+                val sb = grouped.getOrPut(pid) {
+                    StringBuilder().append((r["canonical_name"] as? String).orEmpty().lowercase()).append(' ')
+                }
+                val alias = r["alias_text"] as? String
+                if (!alias.isNullOrBlank()) {
+                    sb.append(alias.lowercase()).append(' ')
+                }
+            }
+            grouped.map { (pid, sb) -> pid to IndicPhoneticNormalizer.toSkeleton(sb.toString()) }
+        } catch (_: Exception) {
+            emptyList()
+        }
+    }
 
     override fun get(placeId: String): Place? {
         if (!dbFile.exists()) return null
@@ -183,17 +218,12 @@ class SqlitePackSource(
                 val querySkeleton = IndicPhoneticNormalizer.toSkeleton(q.lowercase())
                 val querySkeletonTokens = querySkeleton.split(" ").filter { it.isNotBlank() }
                 if (ids.size < limit && querySkeleton.isNotEmpty()) {
-                    for (p in all()) {
-                        if (p.placeId in ids) continue
-                        val haystackRaw = buildString {
-                            append(p.canonicalName.lowercase()).append(' ')
-                            p.aliases.forEach { append(it.lowercase()).append(' ') }
-                        }
-                        val haystackSkeleton = IndicPhoneticNormalizer.toSkeleton(haystackRaw)
+                    for ((placeId, haystackSkeleton) in haystackSkeletonEntries) {
+                        if (placeId in ids) continue
                         if (haystackSkeleton.contains(querySkeleton) ||
                             (querySkeletonTokens.isNotEmpty() && querySkeletonTokens.all { tok -> haystackSkeleton.contains(tok) })
                         ) {
-                            ids += p.placeId
+                            ids += placeId
                             if (ids.size >= limit) break
                         }
                     }
@@ -211,16 +241,16 @@ class SqlitePackSource(
      * no-match instead of a syntax error or altered semantics.
      */
     internal fun toFtsMatch(q: String): String? {
-        val tokens = q.split("\\s+".toRegex()).map { it.replace("\"", "").trim() }
+        val tokens = q.split(whitespaceRegex).map { it.replace("\"", "").trim() }
             .filter { it.isNotEmpty() }
         if (tokens.isEmpty()) return null
         return tokens.joinToString(" AND ") { "\"$it\"*" }
     }
 
     internal fun toFtsSkeletonMatch(q: String): String? {
-        val rawTokens = q.split("\\s+".toRegex()).map { it.replace("\"", "").trim() }.filter { it.isNotEmpty() }
+        val rawTokens = q.split(whitespaceRegex).map { it.replace("\"", "").trim() }.filter { it.isNotEmpty() }
         val skeletonTokens = IndicPhoneticNormalizer.toSkeleton(q)
-            .split("\\s+".toRegex())
+            .split(whitespaceRegex)
             .map { it.replace("\"", "").trim() }
             .filter { it.length >= 2 }
         val combined = (rawTokens + skeletonTokens).distinct()

@@ -61,7 +61,7 @@ def wcosine(a: list[float], b: list[float], w: list[float]) -> float:
 
 def load_queries(p: Path):
     rows = list(csv.DictReader(p.open(encoding="utf-8")))
-    dims = [c for c in rows[0].keys() if c.startswith("v")]
+    dims = [c for c in rows[0].keys() if c.startswith("v") and c[1:].isdigit()]
     out = []
     for r in rows:
         out.append({
@@ -75,7 +75,7 @@ def load_queries(p: Path):
 
 def load_refs(p: Path):
     rows = list(csv.DictReader(p.open(encoding="utf-8")))
-    dims = [c for c in rows[0].keys() if c.startswith("v")]
+    dims = [c for c in rows[0].keys() if c.startswith("v") and c[1:].isdigit()]
     return {r["place_id"]: l2([float(r[c]) for c in dims]) for r in rows}, len(dims)
 
 

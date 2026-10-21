@@ -64,8 +64,12 @@ import com.trueway.app.audio.AudioStoryController
 import com.trueway.app.data.AudioStoriesCorpus
 import com.trueway.app.data.BeforeYouEnterData
 import com.trueway.app.data.ClaimType
+import com.trueway.app.data.HeritageInsightsCorpus
 import com.trueway.app.data.HeritagePassportCorpus
+import com.trueway.app.data.InsightLens
+import com.trueway.app.data.PlaceInsightProfile
 import com.trueway.app.data.PlaceRepository
+import com.trueway.app.data.QaResolution
 import com.trueway.app.data.ThenAndNowCorpus
 import com.trueway.app.journal.JournalGraph
 import com.trueway.app.pack.PackMediaResolver
@@ -77,13 +81,15 @@ import java.io.File
 import java.io.IOException
 
 /**
- * Sourced historical card (blueprint v3.0 F004, §10.4, §19.1; P0.5 Before You Enter; P1A Audio, Walks, Then & Now, Share).
+ * Sourced historical card (blueprint v3.0 F004, §10.4, §19.1; P0.5 Before You Enter; P1A Audio, Walks, Then & Now, Share; P1B Insights & Offline Q&A).
  * Layout:
  * - Title & metadata
  * - Before You Enter banner (if restricted or briefed)
  * - Phonetic pronunciation guide
  * - Visitor notices
+ * - Offline Heritage Insights & Audience Lenses (Traveller / What to Spot On-Site / Scholar + Timeline)
  * - Sourced claims with visible claim-type badges & inline sources
+ * - Ask Offline (Deterministic Citation-Grounded Q&A with Abstention)
  * - Offline Audio Story with transcript expander
  * - Then & Now archival documentation
  * - Save discovery & collect Heritage Passport Stamp
@@ -101,6 +107,7 @@ fun PlaceDetailScreen(
     val context = LocalContext.current
     val place = remember(placeId) { PlaceRepository.get(placeId) }
     val briefing = remember(placeId) { BeforeYouEnterData.get(placeId) }
+    val insightProfile = remember(placeId) { HeritageInsightsCorpus.get(placeId) }
     val audioStory = remember(placeId) { AudioStoriesCorpus.get(placeId) }
     val thenAndNow = remember(placeId) { ThenAndNowCorpus.get(placeId) }
     val passportStamp = remember(placeId) { HeritagePassportCorpus.get(placeId) }
@@ -192,6 +199,12 @@ fun PlaceDetailScreen(
             }
         }
 
+        // P1B Offline Heritage Insights & Audience Lenses (Traveller / What to Spot / Scholar)
+        if (insightProfile != null) {
+            HeritageInsightsSection(profile = insightProfile)
+            HorizontalDivider()
+        }
+
         // Sourced Claims
         Text("Verified Historical Claims", style = MaterialTheme.typography.titleMedium)
         place.claims.forEach { claim ->
@@ -210,6 +223,26 @@ fun PlaceDetailScreen(
         }
 
         HorizontalDivider()
+
+        // P1B Deterministic Offline Q&A ("Ask Offline About This Site")
+        if (insightProfile != null) {
+            OfflineQaSection(placeId = place.placeId, profile = insightProfile)
+            HorizontalDivider()
+        }
+
+        // P1B Study Lite (F116): Claim-Linked Epistemic Knowledge Check
+        val studyCard = remember(placeId) { HeritageInsightsCorpus.studyCardFor(placeId) }
+        if (studyCard != null) {
+            StudyLiteSection(card = studyCard)
+            HorizontalDivider()
+        }
+
+        // P1B F103: On-Site Signs & ASI Plaque Terms at This Monument
+        val placeSigns = remember(placeId) { com.trueway.app.data.SignboardGlossary.forPlace(placeId) }
+        if (placeSigns.isNotEmpty()) {
+            PlaceSignboardSection(signs = placeSigns)
+            HorizontalDivider()
+        }
 
         // P1A #1: Offline Audio Story & Transcript
         if (audioStory != null) {
@@ -861,9 +894,13 @@ private fun ThenAndNowSection(tn: com.trueway.app.data.ArchivalComparison) {
 
 /** Formatting utility for public share cards */
 private fun formatShareCard(place: com.trueway.app.data.Place): String = buildString {
+    val insight = HeritageInsightsCorpus.get(place.placeId)
     append("TRUEWAY HERITAGE CARD\n")
     append("━━━━━━━━━━━━━━━━━━━━━\n")
     append("${place.canonicalName} (${place.category})\n")
+    if (insight != null) {
+        append("Key Insight: ${insight.quickTakeawayEn}\n")
+    }
     append("Visitor guidance: ${place.visitorNotice}\n\n")
     append("VERIFIED HISTORICAL CLAIMS:\n")
     place.claims.forEach { c ->
@@ -878,6 +915,460 @@ private fun claimTypeLegend(): String = buildString {
     append("Badges: ")
     append(ClaimType.entries.joinToString(" · ") { it.name })
     append(". Tradition and contested readings are never stated as documented fact.")
+}
+
+/**
+ * P1B Offline Heritage Insights & Audience Lenses (F104 / F109):
+ * - Traveller Guide (EN / HI): Essential explanation of why the site matters.
+ * - What to Spot On-Site (F104): Concrete architectural & visual elements to observe right now.
+ * - Scholar Lens (F109): Archaeological, epigraphic, and chronological timeline milestones.
+ */
+@Composable
+private fun HeritageInsightsSection(profile: PlaceInsightProfile) {
+    var selectedLens by remember { mutableStateOf(InsightLens.TRAVELLER) }
+    var selectedLang by remember { mutableStateOf("en") }
+
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(
+                        Icons.Outlined.Shield,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                    Text("Offline Site Insights & Guide", style = MaterialTheme.typography.titleSmall)
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                    FilterChip(
+                        selected = selectedLang == "en",
+                        onClick = { selectedLang = "en" },
+                        label = { Text("EN") },
+                    )
+                    FilterChip(
+                        selected = selectedLang == "hi",
+                        onClick = { selectedLang = "hi" },
+                        label = { Text("हिं") },
+                    )
+                }
+            }
+
+            // Quick Takeaway Banner
+            Surface(
+                color = MaterialTheme.colorScheme.primaryContainer,
+                shape = MaterialTheme.shapes.small,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Column(modifier = Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text(
+                        text = if (selectedLang == "hi") "मुख्य सार (Quick Takeaway)" else "Quick Takeaway (Zero Internet)",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
+                    Text(
+                        text = if (selectedLang == "hi") profile.quickTakeawayHi else profile.quickTakeawayEn,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
+                }
+            }
+
+            // Audience Lens Switcher (Traveller / What to Spot / Scholar)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                InsightLens.entries.forEach { lens ->
+                    FilterChip(
+                        selected = selectedLens == lens,
+                        onClick = { selectedLens = lens },
+                        label = { Text(lens.label) },
+                    )
+                }
+            }
+
+            when (selectedLens) {
+                InsightLens.TRAVELLER -> {
+                    Surface(
+                        color = MaterialTheme.colorScheme.surface,
+                        shape = MaterialTheme.shapes.small,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Text(
+                                text = if (selectedLang == "hi") "यात्री मार्गदर्शिका (Traveller Explanation)" else "Traveller Explanation",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                            Text(
+                                text = if (selectedLang == "hi") profile.travellerNarrativeHi else profile.travellerNarrativeEn,
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
+                        }
+                    }
+                }
+                InsightLens.ARCHITECTURE -> {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text(
+                            text = "What to Look For On-Site (Architectural Spotter):",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                        profile.whatToSpotOnSite.forEachIndexed { idx, item ->
+                            Surface(
+                                color = MaterialTheme.colorScheme.surface,
+                                shape = MaterialTheme.shapes.small,
+                                modifier = Modifier.fillMaxWidth(),
+                            ) {
+                                Column(
+                                    modifier = Modifier.padding(12.dp),
+                                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                                ) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        Text(
+                                            text = "${idx + 1}. ${item.featureTitle}",
+                                            style = MaterialTheme.typography.titleSmall,
+                                            color = MaterialTheme.colorScheme.primary,
+                                            modifier = Modifier.weight(1f),
+                                        )
+                                        AssistChip(onClick = {}, label = { Text(item.claimType.name) })
+                                    }
+                                    Text(
+                                        text = "Where to look: ${item.whereToLook}",
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                    Text(
+                                        text = item.explanation,
+                                        style = MaterialTheme.typography.bodySmall,
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+                InsightLens.SCHOLAR -> {
+                    Surface(
+                        color = MaterialTheme.colorScheme.surface,
+                        shape = MaterialTheme.shapes.small,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                            Text(
+                                text = "Archaeological & Epigraphic Context",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                            Text(
+                                text = profile.scholarContextEn,
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                            if (profile.timeline.isNotEmpty()) {
+                                HorizontalDivider()
+                                Text(
+                                    text = "Chronological Timeline",
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                                profile.timeline.forEach { step ->
+                                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                                        Row(
+                                            horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                            verticalAlignment = Alignment.CenterVertically,
+                                        ) {
+                                            Text(
+                                                text = step.eraLabel,
+                                                style = MaterialTheme.typography.labelMedium,
+                                                color = MaterialTheme.colorScheme.primary,
+                                            )
+                                            Text(
+                                                text = "[${step.claimType.name}]",
+                                                style = MaterialTheme.typography.labelSmall,
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                            )
+                                        }
+                                        Text(
+                                            text = step.summary,
+                                            style = MaterialTheme.typography.bodySmall,
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Deterministic Citation-Grounded Offline Q&A (Blueprint v3.0 §2 & §7; Strategic §1.1 Tier 1).
+ * Answers traveller questions offline from verified pack claims and FAQs; abstains on live or unsupported queries.
+ */
+@Composable
+private fun OfflineQaSection(placeId: String, profile: PlaceInsightProfile) {
+    var questionInput by remember(placeId) { mutableStateOf("") }
+    var qaLang by remember { mutableStateOf("en") }
+    val resolution = remember(placeId, questionInput) {
+        HeritageInsightsCorpus.askOffline(placeId, questionInput)
+    }
+
+    Surface(
+        color = MaterialTheme.colorScheme.surface,
+        tonalElevation = 2.dp,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text("Ask Offline About This Place", style = MaterialTheme.typography.titleSmall)
+                    Text(
+                        "Citation-grounded offline Q&A · Abstains on unverified or live queries",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                FilterChip(
+                    selected = qaLang == "hi",
+                    onClick = { qaLang = if (qaLang == "en") "hi" else "en" },
+                    label = { Text(if (qaLang == "hi") "हिन्दी" else "EN / हिं") },
+                )
+            }
+
+            // Curated Question Chips for one-tap offline answers
+            if (profile.faqs.isNotEmpty()) {
+                Text(
+                    text = "Tap a common visitor question or type below:",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                profile.faqs.forEach { faq ->
+                    val qText = if (qaLang == "hi") faq.questionHi else faq.questionEn
+                    OutlinedButton(
+                        onClick = { questionInput = qText },
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(qText, style = MaterialTheme.typography.bodySmall)
+                    }
+                }
+            }
+
+            androidx.compose.material3.OutlinedTextField(
+                value = questionInput,
+                onValueChange = { questionInput = it },
+                label = { Text("Ask an offline question (e.g., age, architecture, rules)...") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+            )
+
+            when (val res = resolution) {
+                is QaResolution.Answered -> {
+                    res.matchedFaqs.forEach { faq ->
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant,
+                            shape = MaterialTheme.shapes.small,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(12.dp),
+                                verticalArrangement = Arrangement.spacedBy(6.dp),
+                            ) {
+                                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                                    AssistChip(onClick = {}, label = { Text(faq.claimType.name) })
+                                    AssistChip(onClick = {}, label = { Text("Verified FAQ") })
+                                }
+                                Text(
+                                    text = if (qaLang == "hi") faq.questionHi else faq.questionEn,
+                                    style = MaterialTheme.typography.titleSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                                Text(
+                                    text = if (qaLang == "hi") faq.answerHi else faq.answerEn,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                )
+                                Text(
+                                    text = "Source: ${faq.sourceTitle} · reviewed ${faq.reviewedAt}",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        }
+                    }
+                    if (res.matchedFaqs.isEmpty() && res.relatedClaims.isNotEmpty()) {
+                        Surface(
+                            color = MaterialTheme.colorScheme.surfaceVariant,
+                            shape = MaterialTheme.shapes.small,
+                            modifier = Modifier.fillMaxWidth(),
+                        ) {
+                            Column(
+                                modifier = Modifier.padding(12.dp),
+                                verticalArrangement = Arrangement.spacedBy(6.dp),
+                            ) {
+                                Text(
+                                    text = "Matched Verified Claims in Offline Pack:",
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                                res.relatedClaims.forEach { cl ->
+                                    Text("• [${cl.type}] ${cl.text} (${cl.sourceTitle})", style = MaterialTheme.typography.bodySmall)
+                                }
+                            }
+                        }
+                    }
+                }
+                is QaResolution.Abstained -> {
+                    Surface(
+                        color = MaterialTheme.colorScheme.errorContainer,
+                        shape = MaterialTheme.shapes.small,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(6.dp),
+                        ) {
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Icon(
+                                    Icons.Outlined.Warning,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.onErrorContainer,
+                                )
+                                Text(
+                                    text = "Honest Offline Abstention",
+                                    style = MaterialTheme.typography.titleSmall,
+                                    color = MaterialTheme.colorScheme.onErrorContainer,
+                                )
+                            }
+                            Text(
+                                text = res.reason,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onErrorContainer,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * P1B Study Lite (F116): Claim-linked interactive epistemic self-check card.
+ * Helps travellers and students verify DOCUMENTED vs TRADITION vs CONTESTED claims offline.
+ */
+@Composable
+private fun StudyLiteSection(card: com.trueway.app.data.StudyLiteCard) {
+    var selectedIdx by remember(card.cardId) { mutableStateOf<Int?>(null) }
+    var lang by remember { mutableStateOf("en") }
+    val options = if (lang == "hi") card.optionsHi else card.optionsEn
+
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    AssistChip(onClick = {}, label = { Text("Study Lite · ${card.claimType.name}") })
+                }
+                FilterChip(
+                    selected = lang == "hi",
+                    onClick = { lang = if (lang == "en") "hi" else "en" },
+                    label = { Text(if (lang == "hi") "हिन्दी" else "EN / हिं") },
+                )
+            }
+
+            Text(
+                text = if (lang == "hi") card.promptHi else card.promptEn,
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.primary,
+            )
+
+            options.forEachIndexed { idx, optionText ->
+                val isSelected = selectedIdx == idx
+                OutlinedButton(
+                    onClick = { selectedIdx = idx },
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(
+                        text = "${if (isSelected) "● " else "○ "}$optionText",
+                        style = MaterialTheme.typography.bodySmall,
+                    )
+                }
+            }
+
+            if (selectedIdx != null) {
+                val isCorrect = selectedIdx == card.correctOptionIndex
+                Surface(
+                    color = if (isCorrect) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.errorContainer,
+                    shape = MaterialTheme.shapes.small,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(
+                        modifier = Modifier.padding(10.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                    ) {
+                        Text(
+                            text = if (isCorrect) "✓ Verified Epistemic Reading [${card.claimType.name}]"
+                            else "× Note Epistemic Distinction — Review Verified Evidence [${card.claimType.name}]",
+                            style = MaterialTheme.typography.labelMedium,
+                            color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
+                        )
+                        Text(
+                            text = if (lang == "hi") card.explanationHi else card.explanationEn,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
+                        )
+                        Text(
+                            text = "Source: ${card.sourceTitle} (${card.sourceId})",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = if (isCorrect) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onErrorContainer,
+                        )
+                    }
+                }
+            }
+        }
+    }
 }
 
 /** Save-to-journal row + note dialog (F007 / P1A Passport Stamp). */
@@ -945,3 +1436,84 @@ private fun SaveDiscoveryRow(placeId: String, passportStampTitle: String?) {
         )
     }
 }
+
+/**
+ * P1B F103 — On-Site Visitor Signs & ASI Plaque Terms for a specific monument.
+ */
+@Composable
+private fun PlaceSignboardSection(signs: List<com.trueway.app.data.SignboardTermEntry>) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = MaterialTheme.shapes.medium,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(14.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = "On-Site Signs & Plaque Terms (${signs.size})",
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.weight(1f),
+                )
+                TextButton(onClick = { expanded = !expanded }) {
+                    Text(if (expanded) "Hide ▲" else "Decode Signs ▼")
+                }
+            }
+            Text(
+                text = "Decode Hindi/Devanagari notice boards and ASI architectural terms found at this site without internet.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (expanded) {
+                signs.forEach { term ->
+                    Surface(
+                        color = MaterialTheme.colorScheme.surface,
+                        shape = MaterialTheme.shapes.small,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(10.dp),
+                            verticalArrangement = Arrangement.spacedBy(4.dp),
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = term.scriptDevanagari,
+                                    style = MaterialTheme.typography.titleSmall,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                AssistChip(onClick = {}, label = { Text(term.claimType.name) })
+                            }
+                            Text(
+                                text = "${term.englishTitle} (${term.transliteration})",
+                                style = MaterialTheme.typography.labelMedium,
+                            )
+                            Text(
+                                text = term.meaningEn,
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                            Text(
+                                text = term.meaningHi,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

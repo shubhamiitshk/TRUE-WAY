@@ -10,6 +10,17 @@
     <!-- Explained at point of use (blueprint §19.4) by the Scan permission gate. -->
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- Optional COARSE location, used only as a soft prior for visual place
+         recognition (blueprint §7.4: "use it as a soft prior and record whether
+         the result was based mainly on visual or location evidence"). Coarse
+         only, last-known fix only, no background tracking, no listener, and
+         the scan path works identically without it. Declared optional so a
+         device without GPS still installs and scans. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+
     <!-- Reserved for user-initiated pack download/update only (blueprint F006).
          No recognition, reading, search or journaling path may use it (§8.1). -->
     <uses-permission android:name="android.permission.INTERNET" />

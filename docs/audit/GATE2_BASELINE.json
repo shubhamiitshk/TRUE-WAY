@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-10-21T22:40:00Z",
+  "note": "Recorded Gate-2 metrics for the VERIFIED, source-grouped, subject-stratified corpus (12 visually identifiable vision classes; 3 places are search-only because a photograph of them is not separable from their surroundings). The gallery, the calibration and the benchmark are extracted with the DEPLOYED encoder artefact, and the decision rule applies the CSLS hubness correction, so the shipped model and the reference vectors no longer disagree. The split is REPRODUCIBLE: the same corpus always produces the same split. CI fails on a REGRESSION against this baseline. The ABSOLUTE release gate (Gate 2 / G03) is still OUTSTANDING on the two criteria that need a larger corpus: the Clopper-Pearson bound at the effective n, and the number of independent KNOWN series in the test split.",
+  "effective_n_note": "effective_n counts INDEPENDENT SUBJECT SERIES (photographs of the same monument from the same visit are near-duplicates of each other and are not independent trials).",
+  "encoder": {
+    "artefact": "ml/models/s0/mci_s0_fp16.tflite",
+    "chosen_by": "ml/convert_encoder.py (measured, not estimated)",
+    "ort_vs_tflite_cos": 1.0,
+    "export_shape_cos_on_real_photographs": 0.999933,
+    "gallery_extracted_with_this_artefact": true
+  },
+  "decision_rule": {
+    "csls": true,
+    "csls_k": 10,
+    "note": "Cross-domain Similarity Local Scaling: s'(q,v) = 2 s(q,v) - r_k(q) - r_k(v). It removes the hubness of the embedding space - the handful of gallery vectors that are close to everything, which are exactly what turn a lookalike into a confident false accept. The local density of every gallery vector ships in the index."
+  },
+  "outstanding": [
+    "certify a <= 5 % false-accept rate: 3 of 91 independent negative subject series fail (3.3 %), whose Clopper-Pearson 95 % upper bound is 8.30 % - a certificate needs ZERO failures at an effective n of at least 59",
+    "collect >= 150 INDEPENDENT known subject series in the test split (currently 41)",
+    "collect >= 10 independent reference photographs per vision class, from different photographers and visits",
+    "reduce the abstention rate on true matches (31.7 % against a <= 30 % target)",
+    "run the field benchmark on physical hardware in the Bodh Gaya / Nalanda corridor"
+  ],
+  "metrics": {
+    "top1_accuracy": 0.9106,
+    "top3_recall": 0.9675,
+    "accepted_set_precision": 1.0,
+    "coverage": 0.6829,
+    "abstention_known": 0.3171,
+    "far_point": 0.0153,
+    "far_photo_point": 0.033,
+    "far_cp95_upper_at_effective_n": 0.083,
+    "effective_n_known": 41,
+    "effective_n_unknown": 91,
+    "total_known": 123,
+    "total_unknown": 196
+  }
+}

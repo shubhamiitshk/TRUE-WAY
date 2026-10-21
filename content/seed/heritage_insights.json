@@ -1,0 +1,145 @@
+{
+  "schema": "trueway.heritage_insights.v1",
+  "pack_id": "in-bihar-buddhist-circuit",
+  "reviewed_at": "2026-10-12",
+  "locales": ["en", "hi"],
+  "features": ["F103_SIGNBOARD_DECODER", "F104_ARCHITECTURAL_SPOTTER", "F109_AUDIENCE_LENSES", "F116_STUDY_LITE", "OFFLINE_EXTRACTIVE_QA"],
+  "place_count": 15,
+  "places": [
+    {
+      "place_id": "in-bihar-bodhgaya-mahabodhi",
+      "quick_takeaway_en": "UNESCO World Heritage brick temple (5th–6th c. CE Late Gupta fabric on a 3rd c. BCE Mauryan foundation) marking the site of the Buddha's Awakening.",
+      "quick_takeaway_hi": "यूनेस्को विश्व धरोहर ईंट मंदिर (5वीं-6वीं शताब्दी गुप्तकालीन संरचना, 3री शताब्दी ईसा पूर्व मौर्यकालीन आधार), जो भगवान बुद्ध की ज्ञान प्राप्ति का पवित्र स्थल है।",
+      "spotter_count": 3,
+      "faq_count": 3,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-unesco-1056"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-bodhi-tree",
+      "quick_takeaway_en": "Sacred Ficus religiosa (Peepal) west of the Mahabodhi sanctum, revered as the direct botanical descendant of the tree under which Siddhartha Gautama attained Enlightenment.",
+      "quick_takeaway_hi": "महाबोधि गर्भगृह के पश्चिम में स्थित पवित्र पीपल वृक्ष (अश्वत्थ), जिसे उस मूल बोधि वृक्ष का वंशज माना जाता है जिसके नीचे सिद्धार्थ गौतम को संबोधि प्राप्त हुई।",
+      "spotter_count": 2,
+      "faq_count": 2,
+      "study_lite_claim_type": "TRADITION",
+      "source_id": "src-unesco-1056"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-vajrasana",
+      "quick_takeaway_en": "Polished grey Chunar sandstone slab (c. 250 BCE, Mauryan era) placed by Emperor Ashoka at the exact spot of the Buddha's meditation beneath the Bodhi Tree.",
+      "quick_takeaway_hi": "बोधि वृक्ष के नीचे सम्राट अशोक द्वारा लगभग 250 ईसा पूर्व स्थापित चमकदार चुनार बलुआ पत्थर की शिला (हीरा सिंहासन), जो महाबोधि परिसर का सबसे प्राचीन दिनांकित पुरावशेष है।",
+      "spotter_count": 2,
+      "faq_count": 2,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-unesco-1056"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-animesh-lochan",
+      "quick_takeaway_en": "Brick spire shrine northeast of Mahabodhi Temple marking the traditional spot where the Buddha stood for seven days in 'unblinking gratitude' gazing at the Bodhi Tree.",
+      "quick_takeaway_hi": "महाबोधि मंदिर के उत्तर-पूर्व में स्थित ईंटों का चैत्य, जहाँ बौद्ध परंपरा के अनुसार बुद्ध ने बोधि प्राप्ति के दूसरे सप्ताह में बिना पलक झपकाए बोधि वृक्ष को निहारा था।",
+      "spotter_count": 1,
+      "faq_count": 1,
+      "study_lite_claim_type": "TRADITION",
+      "source_id": "src-unesco-1056"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-mucalinda",
+      "quick_takeaway_en": "Sacred lotus tank south of the main shrine, associated in Buddhist tradition with the sixth week after Awakening when the Naga king Mucalinda sheltered the meditating Buddha.",
+      "quick_takeaway_hi": "मुख्य मंदिर के दक्षिण में स्थित पवित्र सरोवर, जहाँ परंपरा के अनुसार छठे सप्ताह में नागराज मुचलिंद ने ध्यानस्थ बुद्ध की तूफान से रक्षा की थी।",
+      "spotter_count": 1,
+      "faq_count": 1,
+      "study_lite_claim_type": "TRADITION",
+      "source_id": "src-unesco-1056"
+    },
+    {
+      "place_id": "in-bihar-bodhgaya-great-buddha",
+      "quick_takeaway_en": "Monumental 24.3-meter (80-foot) seated statue of the Buddha in Dhyana Mudra, consecrated in 1989 and constructed from pink Chunar sandstone and red granite blocks.",
+      "quick_takeaway_hi": "ध्यान मुद्रा में भगवान बुद्ध की 80 फीट (24.3 मीटर) ऊँची भव्य प्रतिमा, जिसका निर्माण लाल ग्रेनाइट और चुनार बलुआ पत्थर से 1989 में हुआ।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-rajgir-vultures-peak",
+      "quick_takeaway_en": "Natural rocky crag in the Rajgir hills revered in Buddhist tradition as a primary retreat of the Buddha and setting of the Heart Sutra and Lotus Sutra discourses.",
+      "quick_takeaway_hi": "राजगीर की पहाड़ियों में स्थित प्राकृतिक शिला-शिखर, जो बौद्ध परंपरा में बुद्ध के प्रमुख वर्षावास और प्रज्ञापारमिता एवं सद्धर्मपुण्डरीक सूत्र के उपदेश स्थल के रूप में पूजनीय है।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "TRADITION",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-rajgir-venu-vana",
+      "quick_takeaway_en": "Tranquil bamboo grove park in Rajgir, identified in Buddhist tradition as Veluvana Kalandakanivapa—the first monastic residence (arama) gifted to the Buddhist Sangha by King Bimbisara.",
+      "quick_takeaway_hi": "राजगीर का शांत बांस वन उद्यान, जिसे बौद्ध परंपरा में राजा बिम्बिसार द्वारा संघ को दान किए गए प्रथम विहार 'वेणुवन कलन्दकनिवाप' के रूप में पहचाना जाता है।",
+      "spotter_count": 1,
+      "faq_count": 1,
+      "study_lite_claim_type": "TRADITION",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-rajgir-cyclopean-wall",
+      "quick_takeaway_en": "Monumental ~40 km ring of dry-stone fortifications crowning the hills around the Rajgir valley, constructed from massive undressed quartzite boulders without mortar.",
+      "quick_takeaway_hi": "राजगीर घाटी की पहाड़ियों के शिखर पर बिना गारे के विशाल अनगढ़ पत्थरों से निर्मित लगभग 40 किमी लंबी प्राचीन किलेबंदी।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "INTERPRETATION",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-rajgir-shanti-stupa",
+      "quick_takeaway_en": "Gleaming white 1969 marble-clad Peace Pagoda crowning Ratnagiri Hill (400 m elevation), featuring four gilded statues representing the four life stages of the Buddha.",
+      "quick_takeaway_hi": "रत्नागिरी पहाड़ी (400 मीटर ऊँचाई) के शिखर पर 1969 में निर्मित श्वेत विश्व शांति स्तूप, जिसके चारों दिशाओं में बुद्ध के जीवन के चार चरणों की स्वर्णिम प्रतिमाएँ हैं।",
+      "spotter_count": 1,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-rajgir-sonbhandar",
+      "quick_takeaway_en": "Two rock-cut caves carved into the southern cliff of Vaibhara Hill (3rd–4th c. CE inscriptional evidence, with earlier Mauryan/Jain architectural parallels and contested folklore).",
+      "quick_takeaway_hi": "वैभारगिरि पहाड़ी की दक्षिणी चट्टान में तराशी गई दो गुफाएँ (3री-4थी शताब्दी के अभिलेखीय साक्ष्य, जैन मुनि वैरदेव का शिलालेख और लोककथाएँ)।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "CONTESTED",
+      "source_id": "src-wikidata-scaffold"
+    },
+    {
+      "place_id": "in-bihar-nalanda-mahavihara",
+      "quick_takeaway_en": "UNESCO World Heritage archaeological complex spanning 23 hectares; an organized residential monastic university active continuously from the 5th to late 12th/13th centuries CE.",
+      "quick_takeaway_hi": "23 हेक्टेयर में फैला यूनेस्को विश्व धरोहर पुरातात्विक परिसर; 5वीं से 12वीं/13वीं शताब्दी ईस्वी तक निरंतर सक्रिय रहा आवासीय महाविहार विश्वविद्यालय।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-unesco-1502"
+    },
+    {
+      "place_id": "in-bihar-nalanda-temple-03",
+      "quick_takeaway_en": "Tallest standing monument at Nalanda (~31 meters high), evolved through seven successive construction stages from a small 6th-century brick stupa into a grand terraced shrine.",
+      "quick_takeaway_hi": "नालंदा का सबसे ऊँचा स्मारक (~31 मीटर), जो एक छोटे स्तूप के ऊपर सात क्रमिक निर्माण चरणों में विकसित हुआ।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-unesco-1502"
+    },
+    {
+      "place_id": "in-bihar-nalanda-monastery-01",
+      "quick_takeaway_en": "Principal residential quadrangle (vihara) of Nalanda, featuring nine superimposed construction levels, monk dormitory cells, an octagonal well, and a central teaching platform.",
+      "quick_takeaway_hi": "नालंदा का सबसे प्रमुख आवासीय चतुष्कोणीय विहार, जिसमें नौ निर्माण स्तर, भिक्षु कक्ष, अष्टकोणीय कुआँ और व्याख्यान मंच मौजूद हैं।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-unesco-1502"
+    },
+    {
+      "place_id": "in-bihar-nalanda-museum",
+      "quick_takeaway_en": "Site archaeological museum founded in 1917 across from Nalanda Mahavihara, housing 13,000+ excavated Pala bronzes, Gupta stone sculptures, royal terracotta seals, and carbonized rice.",
+      "quick_takeaway_hi": "नालंदा महाविहार के सामने 1917 में स्थापित पुरातात्विक संग्रहालय, जहाँ उत्खनन से प्राप्त पालकालीन कांस्य मूर्तियाँ, राजकीय मुहरें और जले हुए चावल के दाने संरक्षित हैं।",
+      "spotter_count": 2,
+      "faq_count": 1,
+      "study_lite_claim_type": "DOCUMENTED",
+      "source_id": "src-wikidata-scaffold"
+    }
+  ]
+}

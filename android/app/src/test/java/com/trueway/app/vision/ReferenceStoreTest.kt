@@ -131,8 +131,8 @@ class ReferenceStoreTest {
 
             val binIndex = ReferenceStore.loadBinaryIfPresent(tempDir)
             org.junit.Assert.assertNotNull(binIndex)
-            assertEquals(4, binIndex!!.dim)
-            assertEquals(1, binIndex.numPrototypes)
+            assertEquals(4, binIndex!!.index.dim)
+            assertEquals(1, binIndex.index.numPrototypes)
         } finally {
             tempDir.deleteRecursively()
         }

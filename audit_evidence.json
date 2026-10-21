@@ -1,11 +1,11 @@
 {
-  "project_root": "C:\\Users\\sumit\\OneDrive\\Desktop\\True-Way",
-  "checked_at_utc": "2026-10-15T05:59:21+00:00",
+  "project_root": "C:\\Users\\PLEXTEK\\Desktop\\TRUE-WAY",
+  "checked_at_utc": "2026-10-21T04:16:56+00:00",
   "profile": "production",
   "checks": {
     "jvm_tests": {
       "status": "PASS",
-      "summary": "118 tests / 20 suites; 0 failures; 0 errors; 0 skipped",
+      "summary": "140 tests / 25 suites; 0 failures; 0 errors; 0 skipped",
       "suites": [
         {
           "file": "TEST-com.trueway.app.data.AudioStoriesTest.xml",
@@ -31,6 +31,13 @@
         {
           "file": "TEST-com.trueway.app.data.EssentialsTest.xml",
           "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "file": "TEST-com.trueway.app.data.HeritageInsightsTest.xml",
+          "tests": 5,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -66,6 +73,13 @@
         {
           "file": "TEST-com.trueway.app.data.PlaceRepositoryTest.xml",
           "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "file": "TEST-com.trueway.app.data.SignboardGlossaryTest.xml",
+          "tests": 3,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -128,7 +142,21 @@
         },
         {
           "file": "TEST-com.trueway.app.vision.BinaryVectorIndexTest.xml",
-          "tests": 6,
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "file": "TEST-com.trueway.app.vision.DecisionParityTest.xml",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "file": "TEST-com.trueway.app.vision.GeoPriorTest.xml",
+          "tests": 4,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -146,17 +174,24 @@
           "failures": 0,
           "errors": 0,
           "skipped": 0
+        },
+        {
+          "file": "TEST-com.trueway.app.vision.VisionCalibrationTest.xml",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
         }
       ],
       "parse_errors": [],
       "source_newer_than_test_report": false,
-      "newest_test_xml_utc": "2026-10-15T05:58:12+00:00"
+      "newest_test_xml_utc": "2026-10-21T04:16:40+00:00"
     },
     "apk": {
       "status": "PASS",
-      "summary": "app-debug.apk, 96.90 MiB",
+      "summary": "app-debug.apk, 108.02 MiB",
       "path": "android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
-      "apk_modified_utc": "2026-10-15T05:58:54+00:00",
+      "apk_modified_utc": "2026-10-21T04:16:46+00:00",
       "older_than_source": false,
       "zip_corrupt_member": null,
       "audio_asset_count": 20,
@@ -184,6 +219,12 @@
       ],
       "raster_asset_count": 198,
       "raster_assets": [
+        "assets/images/then_now/mahabodhi_1880s_beglar.webp",
+        "assets/images/then_now/mahabodhi_2026_conserved.webp",
+        "assets/images/then_now/nalanda_temple3_1915_spooner.webp",
+        "assets/images/then_now/nalanda_temple3_2026_conserved.webp",
+        "assets/images/then_now/rajgir_wall_1906_marshall.webp",
+        "assets/images/then_now/rajgir_wall_2026_conserved.webp",
         "res/drawable-hdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
         "res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
         "res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png",
@@ -277,13 +318,7 @@
         "res/drawable-mdpi-v4/notification_bg_low_normal.9.png",
         "res/drawable-mdpi-v4/notification_bg_low_pressed.9.png",
         "res/drawable-mdpi-v4/notification_bg_normal.9.png",
-        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png",
-        "res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png",
-        "res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png",
-        "res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png",
-        "res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_015.png",
-        "res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
-        "res/drawable-xhdpi-v4/abc_btn_radio_to_on_mtrl_015.png"
+        "res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
       ],
       "likely_heritage_media": [
         "assets/audio/bodhi_tree_guide.ogg",
@@ -510,7 +545,7 @@
     },
     "synthetic_fixture": {
       "status": "INFO",
-      "summary": "250 CSV data rows (retrieval_benchmark_250.csv); Gate 2 statistical benchmark fixture",
+      "summary": "287 CSV data rows (retrieval_benchmark_250.csv); Gate 2 statistical benchmark fixture",
       "columns": [
         "query_id",
         "query_kind",
@@ -521,8 +556,17 @@
         "top3_hit",
         "split",
         "photographer",
-        "visit"
+        "visit",
+        "source_photo_id",
+        "source_subject_id",
+        "rel_score",
+        "neg_score",
+        "runner_up_place_id"
       ]
+    },
+    "vision_index": {
+      "status": "PASS",
+      "summary": "TWVEC002 float32 index: 12 places, 133 reference vectors, 99 negatives, dim=512, calibration complete, encoder bound (fdc9719ac527…)"
     },
     "demo_signing_key": {
       "status": "INFO",
@@ -546,7 +590,8 @@
       "then_now_images",
       "offline_pack_components",
       "audio_player_source",
-      "rights_registry"
+      "rights_registry",
+      "vision_index"
     ],
     "can_review_checks": [
       "synthetic_fixture",
@@ -558,6 +603,7 @@
       "apk (PASS)",
       "offline_pack_components (PASS)",
       "synthetic_fixture (PASS)",
+      "vision_index (PASS)",
       "demo_signing_key (PASS)"
     ],
     "reviews": [

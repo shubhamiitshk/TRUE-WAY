@@ -1,251 +1,473 @@
-query_id,query_kind,place_id,correct_place_id,score,margin,top3_hit,split,photographer,visit
-q-known-001,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-002,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-003,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-004,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-005,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-006,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-007,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-008,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-009,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-010,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-011,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-012,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-013,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-014,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-015,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-016,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-017,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-018,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-019,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-020,known,in-bihar-bodhgaya-bodhi-tree,in-bihar-bodhgaya-bodhi-tree,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-021,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-022,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-023,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-024,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-025,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-026,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-027,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-028,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-029,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-030,known,in-bihar-bodhgaya-vajrasana,in-bihar-bodhgaya-vajrasana,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-031,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-032,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-033,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-034,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-035,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-036,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-037,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-038,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-039,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-040,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-animesh-lochan,0.76,0.01,1,test,surveyor-1,corridor-visit-2
-q-known-041,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-042,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-043,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-044,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-045,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-046,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-047,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-048,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-049,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-050,known,in-bihar-bodhgaya-mucalinda-lake,in-bihar-bodhgaya-mucalinda-lake,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-051,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-052,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-053,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-054,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-055,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-056,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-057,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-058,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-059,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-060,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-061,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-062,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-063,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-064,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-065,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-066,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-067,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-068,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-069,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-070,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-071,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-072,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-073,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-074,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-075,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-076,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-077,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-078,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-079,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-080,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-temple-03,0.76,0.01,1,test,surveyor-1,corridor-visit-3
-q-known-081,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-082,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-083,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-084,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-085,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-086,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-087,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-088,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-089,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-090,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-091,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-092,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-093,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-094,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-095,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-096,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-097,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-098,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-099,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-100,known,in-bihar-nalanda-monastery-04,in-bihar-nalanda-monastery-04,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-101,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-102,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-103,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-104,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-105,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-106,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-107,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-108,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-109,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-110,known,in-bihar-nalanda-museum,in-bihar-nalanda-museum,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-111,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-112,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-113,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-114,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-115,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-116,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-117,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-118,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-119,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-120,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-vultures-peak,0.76,0.01,1,test,surveyor-1,corridor-visit-1
-q-known-121,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-122,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-123,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-124,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-125,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-126,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-127,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-128,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-129,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-130,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-131,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-132,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-133,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-134,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-135,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-known-136,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.82,0.08,1,test,surveyor-2,corridor-visit-2
-q-known-137,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.84,0.08,1,test,surveyor-3,corridor-visit-3
-q-known-138,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.87,0.08,1,test,surveyor-4,corridor-visit-1
-q-known-139,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.90,0.08,1,test,surveyor-5,corridor-visit-2
-q-known-140,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.92,0.08,1,test,surveyor-1,corridor-visit-3
-q-known-141,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.82,0.08,1,test,surveyor-2,corridor-visit-1
-q-known-142,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.84,0.08,1,test,surveyor-3,corridor-visit-2
-q-known-143,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.87,0.08,1,test,surveyor-4,corridor-visit-3
-q-known-144,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.90,0.08,1,test,surveyor-5,corridor-visit-1
-q-known-145,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.92,0.08,1,test,surveyor-1,corridor-visit-2
-q-known-146,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.82,0.08,1,test,surveyor-2,corridor-visit-3
-q-known-147,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.84,0.08,1,test,surveyor-3,corridor-visit-1
-q-known-148,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.87,0.08,1,test,surveyor-4,corridor-visit-2
-q-known-149,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.90,0.08,1,test,surveyor-5,corridor-visit-3
-q-known-150,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.92,0.08,1,test,surveyor-1,corridor-visit-1
-q-neg-001-brick_wall,unknown,in-bihar-bodhgaya-mahabodhi,,0.40,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-002-foliage_tree,unknown,in-bihar-bodhgaya-bodhi-tree,,0.41,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-003-souvenir_stall,unknown,in-bihar-bodhgaya-vajrasana,,0.42,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-004-tourist_crowd,unknown,in-bihar-bodhgaya-animesh-lochan,,0.43,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-005-road_signage,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.44,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-006-brick_wall,unknown,in-bihar-bodhgaya-great-buddha,,0.45,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-007-foliage_tree,unknown,in-bihar-nalanda-mahavihara,,0.46,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-008-souvenir_stall,unknown,in-bihar-nalanda-temple-03,,0.47,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-009-tourist_crowd,unknown,in-bihar-nalanda-monastery-01,,0.48,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-010-road_signage,unknown,in-bihar-nalanda-monastery-04,,0.49,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-011-brick_wall,unknown,in-bihar-nalanda-museum,,0.50,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-012-foliage_tree,unknown,in-bihar-rajgir-vultures-peak,,0.51,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-013-souvenir_stall,unknown,in-bihar-rajgir-shanti-stupa,,0.52,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-014-tourist_crowd,unknown,in-bihar-rajgir-venu-vana,,0.53,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-015-road_signage,unknown,in-bihar-rajgir-cyclopean-wall,,0.54,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-016-brick_wall,unknown,in-bihar-rajgir-sonbhandar,,0.55,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-017-foliage_tree,unknown,in-bihar-bodhgaya-mahabodhi,,0.56,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-018-souvenir_stall,unknown,in-bihar-bodhgaya-bodhi-tree,,0.57,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-019-tourist_crowd,unknown,in-bihar-bodhgaya-vajrasana,,0.58,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-020-road_signage,unknown,in-bihar-bodhgaya-animesh-lochan,,0.59,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-021-brick_wall,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.60,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-022-foliage_tree,unknown,in-bihar-bodhgaya-great-buddha,,0.61,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-023-souvenir_stall,unknown,in-bihar-nalanda-mahavihara,,0.62,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-024-tourist_crowd,unknown,in-bihar-nalanda-temple-03,,0.63,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-025-road_signage,unknown,in-bihar-nalanda-monastery-01,,0.64,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-026-brick_wall,unknown,in-bihar-nalanda-monastery-04,,0.65,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-027-foliage_tree,unknown,in-bihar-nalanda-museum,,0.66,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-028-souvenir_stall,unknown,in-bihar-rajgir-vultures-peak,,0.67,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-029-tourist_crowd,unknown,in-bihar-rajgir-shanti-stupa,,0.68,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-030-road_signage,unknown,in-bihar-rajgir-venu-vana,,0.69,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-031-brick_wall,unknown,in-bihar-rajgir-cyclopean-wall,,0.40,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-032-foliage_tree,unknown,in-bihar-rajgir-sonbhandar,,0.41,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-033-souvenir_stall,unknown,in-bihar-bodhgaya-mahabodhi,,0.42,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-034-tourist_crowd,unknown,in-bihar-bodhgaya-bodhi-tree,,0.43,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-035-road_signage,unknown,in-bihar-bodhgaya-vajrasana,,0.44,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-036-brick_wall,unknown,in-bihar-bodhgaya-animesh-lochan,,0.45,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-037-foliage_tree,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.46,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-038-souvenir_stall,unknown,in-bihar-bodhgaya-great-buddha,,0.47,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-039-tourist_crowd,unknown,in-bihar-nalanda-mahavihara,,0.48,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-040-road_signage,unknown,in-bihar-nalanda-temple-03,,0.49,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-041-brick_wall,unknown,in-bihar-nalanda-monastery-01,,0.50,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-042-foliage_tree,unknown,in-bihar-nalanda-monastery-04,,0.51,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-043-souvenir_stall,unknown,in-bihar-nalanda-museum,,0.73,0.01,0,test,surveyor-3,negative-sweep-1
-q-neg-044-tourist_crowd,unknown,in-bihar-rajgir-vultures-peak,,0.53,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-045-road_signage,unknown,in-bihar-rajgir-shanti-stupa,,0.54,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-046-brick_wall,unknown,in-bihar-rajgir-venu-vana,,0.55,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-047-foliage_tree,unknown,in-bihar-rajgir-cyclopean-wall,,0.56,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-048-souvenir_stall,unknown,in-bihar-rajgir-sonbhandar,,0.57,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-049-tourist_crowd,unknown,in-bihar-bodhgaya-mahabodhi,,0.58,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-050-road_signage,unknown,in-bihar-bodhgaya-bodhi-tree,,0.59,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-051-brick_wall,unknown,in-bihar-bodhgaya-vajrasana,,0.60,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-052-foliage_tree,unknown,in-bihar-bodhgaya-animesh-lochan,,0.61,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-053-souvenir_stall,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.62,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-054-tourist_crowd,unknown,in-bihar-bodhgaya-great-buddha,,0.63,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-055-road_signage,unknown,in-bihar-nalanda-mahavihara,,0.64,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-056-brick_wall,unknown,in-bihar-nalanda-temple-03,,0.65,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-057-foliage_tree,unknown,in-bihar-nalanda-monastery-01,,0.66,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-058-souvenir_stall,unknown,in-bihar-nalanda-monastery-04,,0.67,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-059-tourist_crowd,unknown,in-bihar-nalanda-museum,,0.68,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-060-road_signage,unknown,in-bihar-rajgir-vultures-peak,,0.69,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-061-brick_wall,unknown,in-bihar-rajgir-shanti-stupa,,0.40,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-062-foliage_tree,unknown,in-bihar-rajgir-venu-vana,,0.41,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-063-souvenir_stall,unknown,in-bihar-rajgir-cyclopean-wall,,0.42,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-064-tourist_crowd,unknown,in-bihar-rajgir-sonbhandar,,0.43,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-065-road_signage,unknown,in-bihar-bodhgaya-mahabodhi,,0.44,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-066-brick_wall,unknown,in-bihar-bodhgaya-bodhi-tree,,0.45,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-067-foliage_tree,unknown,in-bihar-bodhgaya-vajrasana,,0.46,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-068-souvenir_stall,unknown,in-bihar-bodhgaya-animesh-lochan,,0.47,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-069-tourist_crowd,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.48,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-070-road_signage,unknown,in-bihar-bodhgaya-great-buddha,,0.49,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-071-brick_wall,unknown,in-bihar-nalanda-mahavihara,,0.50,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-072-foliage_tree,unknown,in-bihar-nalanda-temple-03,,0.51,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-073-souvenir_stall,unknown,in-bihar-nalanda-monastery-01,,0.52,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-074-tourist_crowd,unknown,in-bihar-nalanda-monastery-04,,0.53,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-075-road_signage,unknown,in-bihar-nalanda-museum,,0.54,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-076-brick_wall,unknown,in-bihar-rajgir-vultures-peak,,0.55,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-077-foliage_tree,unknown,in-bihar-rajgir-shanti-stupa,,0.56,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-078-souvenir_stall,unknown,in-bihar-rajgir-venu-vana,,0.57,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-079-tourist_crowd,unknown,in-bihar-rajgir-cyclopean-wall,,0.58,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-080-road_signage,unknown,in-bihar-rajgir-sonbhandar,,0.59,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-081-brick_wall,unknown,in-bihar-bodhgaya-mahabodhi,,0.60,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-082-foliage_tree,unknown,in-bihar-bodhgaya-bodhi-tree,,0.61,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-083-souvenir_stall,unknown,in-bihar-bodhgaya-vajrasana,,0.62,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-084-tourist_crowd,unknown,in-bihar-bodhgaya-animesh-lochan,,0.63,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-085-road_signage,unknown,in-bihar-bodhgaya-mucalinda-lake,,0.64,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-086-brick_wall,unknown,in-bihar-bodhgaya-great-buddha,,0.65,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-087-foliage_tree,unknown,in-bihar-nalanda-mahavihara,,0.66,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-088-souvenir_stall,unknown,in-bihar-nalanda-temple-03,,0.67,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-089-tourist_crowd,unknown,in-bihar-nalanda-monastery-01,,0.68,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-090-road_signage,unknown,in-bihar-nalanda-monastery-04,,0.69,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-091-brick_wall,unknown,in-bihar-nalanda-museum,,0.40,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-092-foliage_tree,unknown,in-bihar-rajgir-vultures-peak,,0.41,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-093-souvenir_stall,unknown,in-bihar-rajgir-shanti-stupa,,0.42,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-094-tourist_crowd,unknown,in-bihar-rajgir-venu-vana,,0.43,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-095-road_signage,unknown,in-bihar-rajgir-cyclopean-wall,,0.44,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-096-brick_wall,unknown,in-bihar-rajgir-sonbhandar,,0.45,0.04,0,test,surveyor-4,negative-sweep-2
-q-neg-097-foliage_tree,unknown,in-bihar-bodhgaya-mahabodhi,,0.46,0.04,0,test,surveyor-1,negative-sweep-1
-q-neg-098-souvenir_stall,unknown,in-bihar-bodhgaya-bodhi-tree,,0.47,0.04,0,test,surveyor-2,negative-sweep-2
-q-neg-099-tourist_crowd,unknown,in-bihar-bodhgaya-vajrasana,,0.48,0.04,0,test,surveyor-3,negative-sweep-1
-q-neg-100-road_signage,unknown,in-bihar-bodhgaya-animesh-lochan,,0.49,0.04,0,test,surveyor-4,negative-sweep-2
+query_id,query_kind,place_id,correct_place_id,score,margin,top3_hit,split,photographer,visit,source_photo_id,source_subject_id,rel_score,neg_score,runner_up_place_id
+q-known-001,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,-0.0508,0.5963,1,test,verified,commons:038794c10cfdea14,commons:038794c10cfdea14,"rohit14400|mahabodhi temple complex (morning), bodhgaya",0.1355,-0.1863,in-bihar-bodhgaya-animesh-lochan
+q-known-002,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0509,0.6343,1,test,verified,commons:071b8fe6bd69f537,commons:071b8fe6bd69f537,sumitsurai|mahabodhi temple complex - bodh gaya,0.2262,-0.1753,in-bihar-bodhgaya-animesh-lochan
+q-known-003,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-mahabodhi,-0.3556,0.1558,0,test,verified,commons:293af778ba210e48,commons:293af778ba210e48,sumitsurai|mahabodhi temple complex - bodh gaya,-0.3062,-0.0494,in-bihar-nalanda-temple-03
+q-known-004,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0810,0.2910,1,test,verified,commons:4728735bc138c3ad,commons:4728735bc138c3ad,sumitsurai|mahabodhi temple complex - bodh gaya,0.3414,-0.2604,in-bihar-bodhgaya-animesh-lochan
+q-known-005,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,-0.0719,0.0013,1,test,verified,commons:53751573620681d1,commons:53751573620681d1,sumitsurai|mahabodhi temple complex - bodh gaya,0.2038,-0.2757,in-bihar-bodhgaya-animesh-lochan
+q-known-006,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0075,0.4437,1,test,verified,commons:74980b168c1d3da9,commons:74980b168c1d3da9,"rohit14400|mahabodhi temple with stupas, bodhgaya",0.2246,-0.2171,in-bihar-bodhgaya-animesh-lochan
+q-known-007,known,in-bihar-rajgir-shanti-stupa,in-bihar-bodhgaya-mahabodhi,-0.1064,0.0635,0,test,verified,commons:74b7df44c9b0fcc5,commons:74b7df44c9b0fcc5,sumitsurai|mahabodhi temple south wall,-0.2380,0.1315,in-bihar-rajgir-vultures-peak
+q-known-008,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0208,0.3893,1,test,verified,commons:7c02e47266f66a56,commons:7c02e47266f66a56,renamed user expsittacine|mahabodhi temple - main sikhara,0.0997,-0.0789,in-bihar-bodhgaya-animesh-lochan
+q-known-009,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0316,0.4829,1,test,verified,commons:8629e718634b589f,commons:8629e718634b589f,"rohit14400|mahabodhi temple with stupas, bodhgaya",0.2137,-0.1821,in-bihar-bodhgaya-animesh-lochan
+q-known-010,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.1827,0.7521,1,test,verified,commons:97f88090a141de17,commons:97f88090a141de17,"rohit14400|mahabodhi temple complex (morning), bodhgaya",0.4736,-0.2909,in-bihar-bodhgaya-animesh-lochan
+q-known-011,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0362,0.5746,1,test,verified,commons:b50e8cdd997220ef,commons:b50e8cdd997220ef,sumitsurai|mahabodhi temple complex - bodh gaya,0.2823,-0.2461,in-bihar-bodhgaya-animesh-lochan
+q-known-012,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3367,0.6653,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6947,-0.3580,in-bihar-bodhgaya-mahabodhi
+q-known-013,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3332,0.6934,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6809,-0.3477,in-bihar-bodhgaya-mahabodhi
+q-known-014,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3914,0.7730,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.7587,-0.3673,in-bihar-bodhgaya-mahabodhi
+q-known-015,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3132,0.6106,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.7153,-0.4021,in-bihar-bodhgaya-mahabodhi
+q-known-016,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3634,0.7018,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.7739,-0.4104,in-bihar-bodhgaya-mahabodhi
+q-known-017,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.2857,0.5834,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6740,-0.3883,in-bihar-bodhgaya-mahabodhi
+q-known-018,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3198,0.6307,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.7281,-0.4083,in-bihar-bodhgaya-mahabodhi
+q-known-019,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.2998,0.5748,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6911,-0.3913,in-bihar-bodhgaya-mahabodhi
+q-known-020,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3788,0.7642,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6632,-0.2844,in-bihar-bodhgaya-mahabodhi
+q-known-021,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.3617,0.7273,1,test,verified,commons:8777f3f96d0c2596,commons:8777f3f96d0c2596,sumitsurai|animesh lochan chaitya - bodh gaya,0.6366,-0.2749,in-bihar-bodhgaya-mahabodhi
+q-known-022,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.2030,0.3062,1,test,verified,commons:0eb2cbfe21467fb0,commons:0eb2cbfe21467fb0,rohit14400|mucalinda lake at mahabodhi temple,0.5139,-0.3109,in-bihar-rajgir-venu-vana
+q-known-023,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.2712,0.3502,1,test,verified,commons:0eb2cbfe21467fb0,commons:0eb2cbfe21467fb0,rohit14400|mucalinda lake at mahabodhi temple,0.4582,-0.1869,in-bihar-rajgir-venu-vana
+q-known-024,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.2765,0.4352,1,test,verified,commons:3b81c843eaf74b8d,commons:3b81c843eaf74b8d,sturm|in bodhgaya 0906 (50),0.5444,-0.2679,in-bihar-rajgir-venu-vana
+q-known-025,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.1197,0.0591,1,test,verified,commons:3b81c843eaf74b8d,commons:3b81c843eaf74b8d,sturm|in bodhgaya 0906 (50),0.3288,-0.2091,in-bihar-rajgir-venu-vana
+q-known-026,known,in-bihar-nalanda-mahavihara,in-bihar-bodhgaya-mucalinda,-0.4052,0.1420,0,test,verified,commons:58a026643f3f5ca4,commons:58a026643f3f5ca4,"djampa|nirajsharma4, mucalinda lake, bodh gaya",-0.4133,0.0081,in-bihar-rajgir-sonbhandar
+q-known-027,known,in-bihar-rajgir-sonbhandar,in-bihar-bodhgaya-mucalinda,-0.4111,0.0396,0,test,verified,commons:58a026643f3f5ca4,commons:58a026643f3f5ca4,"djampa|nirajsharma4, mucalinda lake, bodh gaya",-0.3390,-0.0721,in-bihar-nalanda-monastery-01
+q-known-028,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.2466,0.8070,1,test,verified,commons:653b656c7ae2ca00,commons:653b656c7ae2ca00,whitehatguru|mucalinda protecting buddha,0.5296,-0.2830,in-bihar-rajgir-vultures-peak
+q-known-029,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.2368,0.7465,1,test,verified,commons:653b656c7ae2ca00,commons:653b656c7ae2ca00,whitehatguru|mucalinda protecting buddha,0.4475,-0.2107,in-bihar-rajgir-vultures-peak
+q-known-030,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.3012,0.6380,1,test,verified,commons:7af9b7eee4beb49e,commons:7af9b7eee4beb49e,ivecos|mucalinda lake.bodhgaya,0.5463,-0.2451,in-bihar-rajgir-venu-vana
+q-known-031,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.3231,0.5403,1,test,verified,commons:7af9b7eee4beb49e,commons:7af9b7eee4beb49e,ivecos|mucalinda lake.bodhgaya,0.5593,-0.2362,in-bihar-rajgir-venu-vana
+q-known-032,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1518,0.4083,1,test,verified,commons:025ca85df709b1ca,commons:025ca85df709b1ca,raceradi|80 ft buddha statue gaya bihar,0.1168,0.0350,in-bihar-rajgir-shanti-stupa
+q-known-033,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.5264,0.9642,1,test,verified,commons:12678428e37f51e6,commons:12678428e37f51e6,panoramio upload bot|80 feet buddha statue rear view - panoramio,0.6841,-0.1577,in-bihar-rajgir-shanti-stupa
+q-known-034,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.4467,0.9664,1,test,verified,commons:17b9d3eff643e514,commons:17b9d3eff643e514,panoramio upload bot|80 feet buddha statue - panoramio,0.5961,-0.1494,in-bihar-bodhgaya-mahabodhi
+q-known-035,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.5286,0.8955,1,test,verified,commons:267ca2ac71e9ecfe,commons:267ca2ac71e9ecfe,panoramio upload bot|80 feet buddha statue - panoramio,0.6163,-0.0877,in-bihar-rajgir-shanti-stupa
+q-known-036,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1657,0.3744,1,test,verified,commons:318e67b73b3ab810,commons:318e67b73b3ab810,andy king50|80 feet buddha statue,0.0736,0.0921,in-bihar-rajgir-shanti-stupa
+q-known-037,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1980,0.4420,1,test,verified,commons:4e8472f57bdddade,commons:4e8472f57bdddade,panoramio upload bot|80 feet buddha statue - panoramio,0.0740,0.1240,in-bihar-rajgir-shanti-stupa
+q-known-038,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2044,0.4497,1,test,verified,commons:50a2460d75497247,commons:50a2460d75497247,panoramio upload bot|80 feet buddha statue - panoramio,0.1105,0.0939,in-bihar-rajgir-shanti-stupa
+q-known-039,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2326,0.4553,1,test,verified,commons:559db1c8d43e8a41,commons:559db1c8d43e8a41,panoramio upload bot|80 feet buddha statue - panoramio,0.1334,0.0993,in-bihar-rajgir-shanti-stupa
+q-known-040,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2099,0.4373,1,test,verified,commons:885063d925bfbfab,commons:885063d925bfbfab,panoramio upload bot|80 feet buddha statue - panoramio,0.1137,0.0962,in-bihar-rajgir-shanti-stupa
+q-known-041,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1554,0.2787,1,test,verified,commons:89fe86b7cfec4298,commons:89fe86b7cfec4298,panoramio upload bot|80 feet buddha statue - panoramio,-0.0368,0.1922,in-bihar-rajgir-shanti-stupa
+q-known-042,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1759,0.4516,1,test,verified,commons:9293b6c4c3a95c33,commons:9293b6c4c3a95c33,panoramio upload bot|80 feet buddha statue - panoramio,0.1611,0.0147,in-bihar-rajgir-shanti-stupa
+q-known-043,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2222,0.3816,1,test,verified,commons:a992149552ef58c3,commons:a992149552ef58c3,panoramio upload bot|80 feet buddha statue - panoramio,0.0244,0.1978,in-bihar-rajgir-shanti-stupa
+q-known-044,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.0308,0.2869,1,test,verified,commons:b5f240e8bd0e75ea,commons:b5f240e8bd0e75ea,curlybunboho|80ft tall,0.2524,-0.2216,in-bihar-bodhgaya-mucalinda
+q-known-045,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1708,0.3409,1,test,verified,commons:c19106219a774675,commons:c19106219a774675,panoramio upload bot|80 feet buddha statue - panoramio,0.0115,0.1593,in-bihar-rajgir-shanti-stupa
+q-known-046,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.1752,0.3052,1,test,verified,commons:c3ef1b6ffff4dc7e,commons:c3ef1b6ffff4dc7e,panoramio upload bot|80 feet buddha statue - panoramio,-0.0023,0.1775,in-bihar-rajgir-shanti-stupa
+q-known-047,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.4611,0.9154,1,test,verified,commons:e8d8af02baedaefb,commons:e8d8af02baedaefb,panoramio upload bot|80 feet buddha statue - panoramio,0.6126,-0.1515,in-bihar-rajgir-shanti-stupa
+q-known-048,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2168,0.4616,1,test,verified,commons:f17a8075eb628b55,commons:f17a8075eb628b55,panoramio upload bot|80 feet buddha statue - panoramio,0.1114,0.1054,in-bihar-rajgir-shanti-stupa
+q-known-049,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.2083,0.4392,1,test,verified,commons:fe8e4e1d6bc783ef,commons:fe8e4e1d6bc783ef,panoramio upload bot|80 feet buddha statue - panoramio,0.0674,0.1409,in-bihar-rajgir-shanti-stupa
+q-known-050,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,-0.0453,0.3654,1,test,verified,commons:66d6e833bf5a9f0f,commons:66d6e833bf5a9f0f,fountain posters|vulturepeak,0.0686,-0.1139,in-bihar-bodhgaya-mahabodhi
+q-known-051,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,-0.0208,0.4004,1,test,verified,commons:66d6e833bf5a9f0f,commons:66d6e833bf5a9f0f,fountain posters|vulturepeak,0.0511,-0.0718,in-bihar-rajgir-venu-vana
+q-known-052,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.1123,0.3873,1,test,verified,commons:703dcb11532493f4,commons:703dcb11532493f4,renamed user expsittacine|rajgir - 043 natural rock,0.0430,0.0693,in-bihar-rajgir-cyclopean-wall
+q-known-053,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.0723,0.3353,1,test,verified,commons:703dcb11532493f4,commons:703dcb11532493f4,renamed user expsittacine|rajgir - 043 natural rock,-0.0024,0.0747,in-bihar-rajgir-cyclopean-wall
+q-known-054,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.0847,0.5190,1,test,verified,commons:8a3c3bbff0c1cb5f,commons:8a3c3bbff0c1cb5f,panoramio upload bot|mulakandha kuti rajgir india - panoramio,0.1855,-0.1008,in-bihar-bodhgaya-mahabodhi
+q-known-055,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.1224,0.5151,1,test,verified,commons:9fab492d35b9fa90,commons:9fab492d35b9fa90,panoramio upload bot|mulakandha kuti rajgir india - panoramio,0.2902,-0.1679,in-bihar-rajgir-venu-vana
+q-known-056,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.1758,0.5375,1,test,verified,commons:ad11583ed47da09e,commons:ad11583ed47da09e,oo91|rajgir 17 vulture peak - gridhakuta,0.0230,0.1528,in-bihar-rajgir-venu-vana
+q-known-057,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,-0.0534,0.2824,1,test,verified,commons:d370ddb1e721e182,commons:d370ddb1e721e182,amikaksh|vulture peak carvings,0.0848,-0.1382,in-bihar-bodhgaya-great-buddha
+q-known-058,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.1796,0.7797,1,test,verified,commons:d98f2a381194116e,commons:d98f2a381194116e,panoramio upload bot|mulakandha kuti rajgir india - panoramio,0.3594,-0.1798,in-bihar-rajgir-venu-vana
+q-known-059,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,-0.0285,0.3506,1,test,verified,commons:faa15bda3fc317bf,commons:faa15bda3fc317bf,panoramio upload bot|mulakandha kuti rajgir india - panoramio,0.1788,-0.2073,in-bihar-bodhgaya-mahabodhi
+q-known-060,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.4161,0.5467,1,test,verified,commons:5cff387e47377295,commons:5cff387e47377295,bpg|venuvana,0.6281,-0.2121,in-bihar-bodhgaya-mucalinda
+q-known-061,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3980,0.6001,1,test,verified,commons:5cff387e47377295,commons:5cff387e47377295,bpg|venuvana,0.5355,-0.1376,in-bihar-bodhgaya-mucalinda
+q-known-062,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3346,0.5572,1,test,verified,commons:5cff387e47377295,commons:5cff387e47377295,bpg|venuvana,0.4621,-0.1275,in-bihar-bodhgaya-mucalinda
+q-known-063,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3890,0.6861,1,test,verified,commons:5cff387e47377295,commons:5cff387e47377295,bpg|venuvana,0.5183,-0.1292,in-bihar-bodhgaya-mucalinda
+q-known-064,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3455,0.5628,1,test,verified,commons:5cff387e47377295,commons:5cff387e47377295,bpg|venuvana,0.5223,-0.1769,in-bihar-bodhgaya-mucalinda
+q-known-065,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3088,0.2570,1,test,verified,commons:c9ecf15c6d1d0737,commons:c9ecf15c6d1d0737,renamed user expsittacine|rajgir - 016 the tank,0.4578,-0.1491,in-bihar-bodhgaya-mucalinda
+q-known-066,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2337,0.1642,1,test,verified,commons:c9ecf15c6d1d0737,commons:c9ecf15c6d1d0737,renamed user expsittacine|rajgir - 016 the tank,0.3966,-0.1629,in-bihar-bodhgaya-mucalinda
+q-known-067,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2426,0.1633,1,test,verified,commons:c9ecf15c6d1d0737,commons:c9ecf15c6d1d0737,renamed user expsittacine|rajgir - 016 the tank,0.4544,-0.2118,in-bihar-bodhgaya-mucalinda
+q-known-068,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.1955,0.1153,1,test,verified,commons:c9ecf15c6d1d0737,commons:c9ecf15c6d1d0737,renamed user expsittacine|rajgir - 016 the tank,0.3742,-0.1787,in-bihar-bodhgaya-mucalinda
+q-known-069,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2401,0.1902,1,test,verified,commons:c9ecf15c6d1d0737,commons:c9ecf15c6d1d0737,renamed user expsittacine|rajgir - 016 the tank,0.4614,-0.2213,in-bihar-bodhgaya-mucalinda
+q-known-070,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.2459,0.6402,1,test,verified,commons:e2030103a07f5362,commons:e2030103a07f5362,rohit14400|cyclopean wall of rajgir,0.4602,-0.2143,in-bihar-rajgir-vultures-peak
+q-known-071,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.2334,0.6967,1,test,verified,commons:e2030103a07f5362,commons:e2030103a07f5362,rohit14400|cyclopean wall of rajgir,0.3417,-0.1083,in-bihar-rajgir-vultures-peak
+q-known-072,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.2515,0.6066,1,test,verified,commons:e2030103a07f5362,commons:e2030103a07f5362,rohit14400|cyclopean wall of rajgir,0.3592,-0.1076,in-bihar-rajgir-vultures-peak
+q-known-073,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.2161,0.5764,1,test,verified,commons:e2030103a07f5362,commons:e2030103a07f5362,rohit14400|cyclopean wall of rajgir,0.3489,-0.1328,in-bihar-rajgir-vultures-peak
+q-known-074,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-cyclopean-wall,-0.0803,0.1354,1,test,verified,commons:ef9c4e14744aaa7d,commons:ef9c4e14744aaa7d,rohit14400|cyclopean wall of rajgir,-0.1191,0.0387,in-bihar-rajgir-cyclopean-wall
+q-known-075,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-cyclopean-wall,-0.1325,0.2055,1,test,verified,commons:ef9c4e14744aaa7d,commons:ef9c4e14744aaa7d,rohit14400|cyclopean wall of rajgir,-0.1926,0.0601,in-bihar-rajgir-cyclopean-wall
+q-known-076,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-cyclopean-wall,-0.0182,0.2976,1,test,verified,commons:ef9c4e14744aaa7d,commons:ef9c4e14744aaa7d,rohit14400|cyclopean wall of rajgir,-0.1495,0.1313,in-bihar-rajgir-cyclopean-wall
+q-known-077,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3738,0.9856,1,test,verified,commons:f73a783326574d2e,commons:f73a783326574d2e,"ivecos|cyclopian wall, rajgir.",0.4878,-0.1140,in-bihar-rajgir-vultures-peak
+q-known-078,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3813,0.8262,1,test,verified,commons:f73a783326574d2e,commons:f73a783326574d2e,"ivecos|cyclopian wall, rajgir.",0.5006,-0.1192,in-bihar-rajgir-vultures-peak
+q-known-079,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3965,0.9630,1,test,verified,commons:f73a783326574d2e,commons:f73a783326574d2e,"ivecos|cyclopian wall, rajgir.",0.5100,-0.1135,in-bihar-rajgir-vultures-peak
+q-known-080,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1780,0.7918,1,test,verified,commons:01ee16ed792e0aaa,commons:01ee16ed792e0aaa,"rohit14400|vishwa shanti stupa, rajgir",0.6007,-0.4227,in-bihar-bodhgaya-great-buddha
+q-known-081,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,-0.0212,0.3853,1,test,verified,commons:185a79dd0d47b577,commons:185a79dd0d47b577,"rohit14400|vishwa shanti stupa, rajgir",0.1548,-0.1759,in-bihar-rajgir-vultures-peak
+q-known-082,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2366,0.8967,1,test,verified,commons:1c589892579fe869,commons:1c589892579fe869,ekabhishek|shanti stupa at rajgir,0.5740,-0.3374,in-bihar-bodhgaya-great-buddha
+q-known-083,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,-0.0262,0.4034,1,test,verified,commons:20d19b7b78a9db81,commons:20d19b7b78a9db81,"rohit14400|vishwa shanti stupa, rajgir",0.1022,-0.1284,in-bihar-bodhgaya-great-buddha
+q-known-084,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1604,0.7265,1,test,verified,commons:4724ff3ea243fdaa,commons:4724ff3ea243fdaa,renamed user expsittacine|rajgir - 047 side view,0.4855,-0.3251,in-bihar-bodhgaya-great-buddha
+q-known-085,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2583,0.5232,1,test,verified,commons:48f796c457142eec,commons:48f796c457142eec,renamed user expsittacine|rajgir - 051 anjali,0.0441,0.2143,in-bihar-rajgir-vultures-peak
+q-known-086,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1768,0.7684,1,test,verified,commons:7db932e63658b1a7,commons:7db932e63658b1a7,"rohit14400|vishwa shanti stupa, rajgir",0.5993,-0.4225,in-bihar-bodhgaya-great-buddha
+q-known-087,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2162,0.8587,1,test,verified,commons:91d7e86d428b47f4,commons:91d7e86d428b47f4,satyendra8|vishwa shanti stupa,0.4979,-0.2817,in-bihar-bodhgaya-great-buddha
+q-known-088,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2116,0.7845,1,test,verified,commons:95267ae7f34c1a7a,commons:95267ae7f34c1a7a,satyendra8|vishwa shanti stupa,0.5468,-0.3352,in-bihar-bodhgaya-mahabodhi
+q-known-089,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2405,0.8177,1,test,verified,commons:a48e688857fb8fcc,commons:a48e688857fb8fcc,aryan paswan|vishwya shanti stup,0.6823,-0.4418,in-bihar-bodhgaya-great-buddha
+q-known-090,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1683,0.7485,1,test,verified,commons:bdc758faf2e0f81d,commons:bdc758faf2e0f81d,palmtrees2308|vishwa shanti stupa,0.6581,-0.4897,in-bihar-bodhgaya-great-buddha
+q-known-091,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1702,0.7337,1,test,verified,commons:cdc600e5a63af99c,commons:cdc600e5a63af99c,"rohit14400|vishwa shanti stupa, rajgir",0.5088,-0.3386,in-bihar-bodhgaya-great-buddha
+q-known-092,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2048,0.6594,1,test,verified,commons:f37a64362dcdbc6d,commons:f37a64362dcdbc6d,"kdhruv406|vishwa shanti stupa - rajgrih, rajgir bihar - india",0.5438,-0.3390,in-bihar-bodhgaya-great-buddha
+q-known-093,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.1016,0.7073,1,test,verified,commons:f40e334325dd106c,commons:f40e334325dd106c,guddu chauhan official|vishwa shanti stupa rajgir,0.4292,-0.3275,in-bihar-bodhgaya-great-buddha
+q-known-094,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-mahavihara,-0.1877,0.0274,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.3037,0.1160,in-bihar-nalanda-mahavihara
+q-known-095,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-mahavihara,-0.1715,0.0097,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2536,0.0821,in-bihar-nalanda-mahavihara
+q-known-096,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.1906,0.0628,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2806,0.0901,in-bihar-nalanda-monastery-01
+q-known-097,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.1169,0.1290,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2718,0.1549,in-bihar-nalanda-monastery-01
+q-known-098,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.0926,0.3197,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2343,0.1418,in-bihar-nalanda-monastery-01
+q-known-099,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-mahavihara,-0.1810,0.0510,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2869,0.1059,in-bihar-nalanda-mahavihara
+q-known-100,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.2002,0.0144,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.3183,0.1181,in-bihar-nalanda-monastery-01
+q-known-101,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.1245,0.1695,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2481,0.1236,in-bihar-nalanda-monastery-01
+q-known-102,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-mahavihara,-0.1872,0.0291,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.3470,0.1598,in-bihar-nalanda-mahavihara
+q-known-103,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,-0.1582,0.0357,1,test,verified,commons:2dd3d8f71006882d,commons:2dd3d8f71006882d,xploreindia stream|ruins - nalanda university,-0.2840,0.1258,in-bihar-nalanda-monastery-01
+q-known-104,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.1545,0.6039,1,test,verified,commons:1e47b9968b82ba68,commons:1e47b9968b82ba68,kdas1977|nalanda mahavihara unesco whs,-0.0010,0.1555,in-bihar-nalanda-monastery-01
+q-known-105,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2480,0.6932,1,test,verified,commons:1e47b9968b82ba68,commons:1e47b9968b82ba68,kdas1977|nalanda mahavihara unesco whs,0.1288,0.1192,in-bihar-rajgir-sonbhandar
+q-known-106,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2522,0.6848,1,test,verified,commons:1e47b9968b82ba68,commons:1e47b9968b82ba68,kdas1977|nalanda mahavihara unesco whs,0.0982,0.1540,in-bihar-rajgir-sonbhandar
+q-known-107,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.1750,0.5517,1,test,verified,commons:1e47b9968b82ba68,commons:1e47b9968b82ba68,kdas1977|nalanda mahavihara unesco whs,0.0935,0.0815,in-bihar-rajgir-sonbhandar
+q-known-108,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2067,0.6039,1,test,verified,commons:55839ca133fce1f3,commons:55839ca133fce1f3,wandering unicorn|nalanda 08 sariputta stupa,0.0090,0.1976,in-bihar-rajgir-sonbhandar
+q-known-109,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2908,0.6461,1,test,verified,commons:55839ca133fce1f3,commons:55839ca133fce1f3,wandering unicorn|nalanda 08 sariputta stupa,0.1466,0.1442,in-bihar-rajgir-sonbhandar
+q-known-110,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2088,0.4764,1,test,verified,commons:55839ca133fce1f3,commons:55839ca133fce1f3,wandering unicorn|nalanda 08 sariputta stupa,0.1095,0.0993,in-bihar-rajgir-sonbhandar
+q-known-111,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2997,0.6922,1,test,verified,commons:6fc1fd34fe8c157f,commons:6fc1fd34fe8c157f,anuragprabhakar2010|nalanda university,0.3184,-0.0187,in-bihar-rajgir-sonbhandar
+q-known-112,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.3097,0.8018,1,test,verified,commons:6fc1fd34fe8c157f,commons:6fc1fd34fe8c157f,anuragprabhakar2010|nalanda university,0.3286,-0.0189,in-bihar-rajgir-sonbhandar
+q-known-113,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.2721,0.7187,1,test,verified,commons:6fc1fd34fe8c157f,commons:6fc1fd34fe8c157f,anuragprabhakar2010|nalanda university,0.2755,-0.0035,in-bihar-rajgir-sonbhandar
+q-known-114,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0251,1.0174,1,test,verified,commons:3c7ac254716f9b2f,commons:3c7ac254716f9b2f,sumitsurai|monastery 1 - well - nalanda mahavihara,0.3817,-0.4068,in-bihar-rajgir-cyclopean-wall
+q-known-115,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0452,0.9206,1,test,verified,commons:3c7ac254716f9b2f,commons:3c7ac254716f9b2f,sumitsurai|monastery 1 - well - nalanda mahavihara,0.4743,-0.5195,in-bihar-rajgir-cyclopean-wall
+q-known-116,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0251,0.6289,1,test,verified,commons:564bb29720023c69,commons:564bb29720023c69,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.1482,0.1231,in-bihar-nalanda-mahavihara
+q-known-117,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0201,0.8159,1,test,verified,commons:59977e18e3966789,commons:59977e18e3966789,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.1243,0.1041,in-bihar-nalanda-mahavihara
+q-known-118,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1454,0.3707,1,test,verified,commons:6de8db713f796f02,commons:6de8db713f796f02,sumitsurai|monastery 1 - monks' cells - nalanda mahavihara,-0.0194,0.1648,in-bihar-nalanda-mahavihara
+q-known-119,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0602,0.6497,1,test,verified,commons:6e8e6aa38bdab615,commons:6e8e6aa38bdab615,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.2115,0.1513,in-bihar-nalanda-mahavihara
+q-known-120,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.0068,0.9707,1,test,verified,commons:c5b7195e0a4135d3,commons:c5b7195e0a4135d3,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.0390,0.0458,in-bihar-nalanda-mahavihara
+q-known-121,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1072,1.1708,1,test,verified,commons:d8533d5dfe84f07e,commons:d8533d5dfe84f07e,sumitsurai|monastery 1 - granary - nalanda mahavihara,0.1647,-0.0576,in-bihar-rajgir-vultures-peak
+q-known-122,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.1306,0.4159,1,test,verified,commons:d8a93aaef1233777,commons:d8a93aaef1233777,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.2190,0.0884,in-bihar-nalanda-mahavihara
+q-known-123,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,-0.0912,0.6244,1,test,verified,commons:f96a84b18f283492,commons:f96a84b18f283492,sumitsurai|monastery 1 - granary - nalanda mahavihara,-0.2918,0.2005,in-bihar-nalanda-mahavihara
+q-unk-001,unknown,in-bihar-bodhgaya-mucalinda,,-0.4658,0.0503,0,test,verified,commons:0113134fbb66ee3a,commons:0113134fbb66ee3a,"paramanu sarkar|tomb of sher shah suri, sasaram, bihar",-0.9488,0.4830,in-bihar-nalanda-mahavihara
+q-unk-002,unknown,in-bihar-rajgir-vultures-peak,,-0.0355,0.3263,0,test,verified,commons:089a21e19c1f83cb,commons:089a21e19c1f83cb,sumitsurai|barabar and nagarjuni caves,-0.2888,0.2533,in-bihar-nalanda-mahavihara
+q-unk-003,unknown,in-bihar-rajgir-vultures-peak,,-0.6324,0.1321,0,test,verified,commons:09fc2b24e2b12049,commons:09fc2b24e2b12049,aryan ghosh|golghar - britsh granary,-0.8548,0.2224,in-bihar-nalanda-mahavihara
+q-unk-004,unknown,in-bihar-nalanda-monastery-01,,-0.2317,0.1077,0,test,verified,commons:0c092e780d1127e7,commons:0c092e780d1127e7,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.5392,0.3075,in-bihar-nalanda-mahavihara
+q-unk-005,unknown,in-bihar-bodhgaya-mucalinda,,-0.4476,0.2987,0,test,verified,commons:0c0b537cf144c176,commons:0c0b537cf144c176,syed iqbal21|tomb of sher shah suri-reflection in water,-1.0047,0.5571,in-bihar-nalanda-mahavihara
+q-unk-006,unknown,in-bihar-nalanda-mahavihara,,-0.3762,0.1048,0,test,verified,commons:10b6222f1aab65a4,commons:10b6222f1aab65a4,"paramanu sarkar|tomb of sher shah suri, sasaram, bihar",-0.4646,0.0885,in-bihar-nalanda-mahavihara
+q-unk-007,unknown,in-bihar-nalanda-mahavihara,,-0.5110,0.1000,0,test,verified,commons:14310f9b70cec34d,commons:14310f9b70cec34d,garv0100|sher shah suri's - tomb,-0.7665,0.2555,in-bihar-nalanda-mahavihara
+q-unk-008,unknown,in-bihar-rajgir-venu-vana,,-0.0451,0.1786,0,test,verified,commons:1910e66a992b3ea5,commons:1910e66a992b3ea5,sumitsurai|barabar and nagarjuni caves,-0.2713,0.2262,in-bihar-nalanda-mahavihara
+q-unk-009,unknown,in-bihar-bodhgaya-mucalinda,,-0.2131,0.1025,0,test,verified,commons:1ca63e14066151a1,commons:1ca63e14066151a1,"paramanu sarkar|tomb of sher shah suri, sasaram, bihar",-0.4662,0.2530,in-bihar-nalanda-mahavihara
+q-unk-010,unknown,in-bihar-rajgir-cyclopean-wall,,-0.4769,0.0496,0,test,verified,commons:1cb8b6b19c3c9c91,commons:1cb8b6b19c3c9c91,"amitabha gupta|buddhist stupa at kesariya at champaran (east) district of bihar, india.",-0.8774,0.4005,in-bihar-nalanda-mahavihara
+q-unk-011,unknown,in-bihar-rajgir-venu-vana,,-0.2777,0.0756,0,test,verified,commons:230b47abaa9a9c43,commons:230b47abaa9a9c43,abhisal2408|20211020143640 img,-0.5033,0.2256,in-bihar-nalanda-mahavihara
+q-unk-012,unknown,in-bihar-rajgir-vultures-peak,,0.0766,0.3766,0,test,verified,commons:26db509504b065f6,commons:26db509504b065f6,sumitsurai|barabar and nagarjuni caves,-0.1170,0.1936,in-bihar-nalanda-mahavihara
+q-unk-013,unknown,in-bihar-nalanda-mahavihara,,0.0153,0.7186,0,test,verified,commons:38ed8d1ab9f577a7,commons:38ed8d1ab9f577a7,deepaksharma555|pathways surrounding the monastery,-0.0722,0.0874,in-bihar-nalanda-mahavihara
+q-unk-014,unknown,in-bihar-rajgir-cyclopean-wall,,-0.3051,0.1589,0,test,verified,commons:3a1183ecfd639c3a,commons:3a1183ecfd639c3a,"amitabha gupta|buddhist stupa at kesariya at champaran (east) district of bihar, india.",-0.7023,0.3972,in-bihar-nalanda-mahavihara
+q-unk-015,unknown,in-bihar-bodhgaya-mucalinda,,-0.4994,0.1575,0,test,verified,commons:3ef12ba1f43e06b9,commons:3ef12ba1f43e06b9,"dhruvbih|shershah suri tomb, sasaram, bihar, india",-1.0423,0.5429,in-bihar-nalanda-mahavihara
+q-unk-016,unknown,in-bihar-rajgir-shanti-stupa,,-0.0755,0.1347,0,test,verified,commons:3f2a760022c420d4,commons:3f2a760022c420d4,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",0.2033,-0.2789,in-bihar-nalanda-mahavihara
+q-unk-017,unknown,in-bihar-nalanda-monastery-01,,-0.1380,0.1545,0,test,verified,commons:49dcc4a3cdf94c24,commons:49dcc4a3cdf94c24,aryan ghosh|golghar where lovers meet.,-0.5158,0.3778,in-bihar-nalanda-mahavihara
+q-unk-018,unknown,in-bihar-bodhgaya-mucalinda,,-0.5526,0.2603,0,test,verified,commons:4a80cc939173a45e,commons:4a80cc939173a45e,rahulsinghxl|sher shah suri tomb sasaram,-1.1382,0.5856,in-bihar-nalanda-mahavihara
+q-unk-019,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.6372,0.0072,0,test,verified,commons:57c4e0d11ce1ba23,commons:57c4e0d11ce1ba23,"paramanu sarkar|tomb of sher shah suri, sasaram, bihar",-0.9288,0.2916,in-bihar-nalanda-mahavihara
+q-unk-020,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.4836,0.1178,0,test,verified,commons:587a0554820900b7,commons:587a0554820900b7,"abhishek.yadav1227|"" tomb of sher shah suri """,-0.9080,0.4243,in-bihar-nalanda-mahavihara
+q-unk-021,unknown,in-bihar-nalanda-mahavihara,,-0.0345,0.5582,0,test,verified,commons:5ab6dfca112356d5,commons:5ab6dfca112356d5,deepaksharma555|the pathways encircling the monastery,-0.2447,0.2102,in-bihar-nalanda-mahavihara
+q-unk-022,unknown,in-bihar-rajgir-shanti-stupa,,-0.2415,0.3919,0,test,verified,commons:5af14bbfe7d51b3d,commons:5af14bbfe7d51b3d,"sudeep pramanik|gol ghar, patna. bihar",-0.3339,0.0924,in-bihar-nalanda-mahavihara
+q-unk-023,unknown,in-bihar-rajgir-sonbhandar,,-0.1698,0.1437,0,test,verified,commons:5cd413b0263a5f98,commons:5cd413b0263a5f98,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.0666,-0.1032,in-bihar-nalanda-mahavihara
+q-unk-024,unknown,in-bihar-nalanda-mahavihara,,-0.0185,0.1274,0,test,verified,commons:5fe6f470e57eb293,commons:5fe6f470e57eb293,aryan ghosh|golghar and some writings.,0.0637,-0.0822,in-bihar-nalanda-mahavihara
+q-unk-025,unknown,in-bihar-nalanda-temple-03,,-0.0169,0.4526,0,test,verified,commons:645ea0810df6bf74,commons:645ea0810df6bf74,bpilgrim|kesariya,-0.3090,0.2921,in-bihar-nalanda-mahavihara
+q-unk-026,unknown,in-bihar-rajgir-vultures-peak,,-0.0690,0.0140,0,test,verified,commons:647fa93aadd14b2c,commons:647fa93aadd14b2c,sumitsurai|barabar and nagarjuni caves,-0.2802,0.2112,in-bihar-nalanda-mahavihara
+q-unk-027,unknown,in-bihar-rajgir-sonbhandar,,-0.0161,0.2279,0,test,verified,commons:6498cfdd0f6f338d,commons:6498cfdd0f6f338d,sumitsurai|barabar and nagarjuni caves,0.1341,-0.1501,in-bihar-nalanda-mahavihara
+q-unk-028,unknown,in-bihar-nalanda-mahavihara,,0.1627,0.3741,0,test,verified,commons:67551db341f1c6d2,commons:67551db341f1c6d2,garv0100|sher shah suri's - tomb,0.4451,-0.2825,in-bihar-nalanda-mahavihara
+q-unk-029,unknown,in-bihar-nalanda-monastery-01,,-0.2273,0.1505,0,test,verified,commons:6e68193a7e51a8f0,commons:6e68193a7e51a8f0,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.5577,0.3305,in-bihar-nalanda-mahavihara
+q-unk-030,unknown,in-bihar-nalanda-mahavihara,,-0.5920,0.0723,0,test,verified,commons:73f03e0523c1e1e7,commons:73f03e0523c1e1e7,aryan ghosh|golghar at sunset light. british patna.,-1.0302,0.4382,in-bihar-nalanda-mahavihara
+q-unk-031,unknown,in-bihar-nalanda-mahavihara,,-0.2780,0.1816,0,test,verified,commons:758df6866dc3fd3f,commons:758df6866dc3fd3f,"paramanu sarkar|tomb of sher shah suri, sasaram, bihar",-0.3489,0.0708,in-bihar-nalanda-mahavihara
+q-unk-032,unknown,in-bihar-nalanda-monastery-01,,-0.1953,0.1636,0,test,verified,commons:76e48d6efd8b51bb,commons:76e48d6efd8b51bb,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.5421,0.3468,in-bihar-nalanda-mahavihara
+q-unk-033,unknown,in-bihar-nalanda-monastery-01,,-0.1278,0.2878,0,test,verified,commons:7a9fb70732695334,commons:7a9fb70732695334,"amitabha gupta|premises of tomb or mausoleum of sher shah suri in sasaram, bihar, india",-0.1154,-0.0124,in-bihar-nalanda-mahavihara
+q-unk-034,unknown,in-bihar-rajgir-venu-vana,,0.0355,0.0917,0,test,verified,commons:7cad1bef1c0b6780,commons:7cad1bef1c0b6780,ronhjones|ganga dolphin bhagalpur,0.2570,-0.2215,in-bihar-nalanda-mahavihara
+q-unk-035,unknown,in-bihar-nalanda-mahavihara,,-0.0256,0.3613,0,test,verified,commons:7e14518eb0ea8078,commons:7e14518eb0ea8078,deepaksharma555|the baths,-0.3044,0.2788,in-bihar-nalanda-mahavihara
+q-unk-036,unknown,in-bihar-rajgir-cyclopean-wall,,-0.5515,0.0605,0,test,verified,commons:803613c3ac26b57a,commons:803613c3ac26b57a,"amitabha gupta|buddhist stupa at kesariya at champaran (east) district of bihar, india.",-0.7562,0.2048,in-bihar-nalanda-mahavihara
+q-unk-037,unknown,in-bihar-rajgir-cyclopean-wall,,-0.3370,0.0249,0,test,verified,commons:8199c25b5d30c476,commons:8199c25b5d30c476,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.5734,0.2364,in-bihar-nalanda-mahavihara
+q-unk-038,unknown,in-bihar-nalanda-temple-03,,-0.1015,0.5045,0,test,verified,commons:883d8e9e945b606f,commons:883d8e9e945b606f,"kanad sanyal|kesraiya stupa, east champaran, bihar",-0.5326,0.4311,in-bihar-nalanda-mahavihara
+q-unk-039,unknown,in-bihar-rajgir-venu-vana,,-0.3099,0.0001,0,test,verified,commons:8aa024802a58f6e7,commons:8aa024802a58f6e7,abhisal2408|20211020125229 img,-0.8422,0.5323,in-bihar-nalanda-mahavihara
+q-unk-040,unknown,in-bihar-nalanda-monastery-01,,-0.2634,0.2437,0,test,verified,commons:8b01e967a21577f9,commons:8b01e967a21577f9,abhisal2408|20211020140309 img,-0.5017,0.2383,in-bihar-nalanda-mahavihara
+q-unk-041,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.4744,0.2142,0,test,verified,commons:8b49cc555ee48ef9,commons:8b49cc555ee48ef9,vivek24122001|sher shah suri tomb,-1.0627,0.5883,in-bihar-nalanda-mahavihara
+q-unk-042,unknown,in-bihar-nalanda-temple-03,,-0.2329,0.2633,0,test,verified,commons:8b913b53d38b5da6,commons:8b913b53d38b5da6,monukr01|kesariya stupa -kesariya- east champaran- bihar,-0.4772,0.2443,in-bihar-nalanda-mahavihara
+q-unk-043,unknown,in-bihar-rajgir-sonbhandar,,-0.2558,0.1218,0,test,verified,commons:8eb158e2a1f2ae37,commons:8eb158e2a1f2ae37,"amitabha gupta|lomas rishi cave at barabar hills of jehanabad district in bihar, india",-0.2306,-0.0252,in-bihar-nalanda-mahavihara
+q-unk-044,unknown,in-bihar-nalanda-mahavihara,,-0.5968,0.0452,0,test,verified,commons:8fa6d8acea865f82,commons:8fa6d8acea865f82,garv0100|sher shah suri's - tomb,-0.9374,0.3406,in-bihar-nalanda-mahavihara
+q-unk-045,unknown,in-bihar-rajgir-cyclopean-wall,,-0.2456,0.0672,0,test,verified,commons:a18ea04ea05b437c,commons:a18ea04ea05b437c,"amitabha gupta|buddhist stupa at kesariya at champaran (east) district of bihar, india.",-0.6362,0.3906,in-bihar-nalanda-mahavihara
+q-unk-046,unknown,in-bihar-rajgir-cyclopean-wall,,-0.2929,0.2374,0,test,verified,commons:a1cb0e26505c68e4,commons:a1cb0e26505c68e4,ghosh ujjwal|golghar as seen from a local home.,-0.6208,0.3279,in-bihar-nalanda-mahavihara
+q-unk-047,unknown,in-bihar-rajgir-sonbhandar,,-0.3705,0.1148,0,test,verified,commons:a96e1b580f3bd6b2,commons:a96e1b580f3bd6b2,deepaksharma555|closer view of the stupas,-0.4603,0.0898,in-bihar-nalanda-mahavihara
+q-unk-048,unknown,in-bihar-nalanda-mahavihara,,-0.0442,0.4728,0,test,verified,commons:aba79a9ff862cf98,commons:aba79a9ff862cf98,deepaksharma555|pathways surrounding the monastery,-0.1593,0.1151,in-bihar-nalanda-mahavihara
+q-unk-049,unknown,in-bihar-nalanda-mahavihara,,-0.2202,0.0489,0,test,verified,commons:bc4560abf5c6fcd6,commons:bc4560abf5c6fcd6,rashmi alpana|golghar angle,-0.6023,0.3821,in-bihar-nalanda-mahavihara
+q-unk-050,unknown,in-bihar-nalanda-mahavihara,,-0.2340,0.0027,0,test,verified,commons:e7d382dc45e377c4,commons:e7d382dc45e377c4,alokprasad|pillars-vikramshila,-0.1589,-0.0751,in-bihar-nalanda-mahavihara
+q-unk-051,unknown,in-bihar-rajgir-cyclopean-wall,,-0.1029,0.2744,0,test,verified,commons:eee9b2a675be8e71,commons:eee9b2a675be8e71,sumitsurai|barabar and nagarjuni caves,-0.1881,0.0852,in-bihar-nalanda-mahavihara
+q-unk-052,unknown,in-bihar-rajgir-vultures-peak,,-0.1107,0.0983,0,test,verified,commons:f058ecf6566da632,commons:f058ecf6566da632,sumitsurai|barabar and nagarjuni caves,-0.2431,0.1324,in-bihar-nalanda-mahavihara
+q-unk-053,unknown,in-bihar-bodhgaya-mucalinda,,-0.4815,0.0007,0,test,verified,commons:fce85f0f8815c6e2,commons:fce85f0f8815c6e2,"aavindraa|golghar at bankipur, near patna, 1814",-0.2536,-0.2279,in-bihar-nalanda-mahavihara
+q-unk-054,unknown,in-bihar-nalanda-monastery-01,,-0.1031,0.4230,0,test,verified,commons:fcf406c9a091a120,commons:fcf406c9a091a120,spotplayerx|missing or damaged or unidentified sculptures at stupa,-0.2087,0.1056,in-bihar-nalanda-mahavihara
+q-unk-055,unknown,in-bihar-nalanda-mahavihara,,-0.1358,0.0977,0,test,verified,commons:ff180d1d89cb18d2,commons:ff180d1d89cb18d2,anuragkashyap15|railings of vikramshila,-0.2423,0.1065,in-bihar-nalanda-mahavihara
+q-unk-056,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4037,0.1863,0,test,verified,commons:066180ed3f77a962,commons:066180ed3f77a962,amarjitchaudhary|gupt kalin mandir bhitargaon,-0.6237,0.2200,in-bihar-nalanda-mahavihara
+q-unk-057,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3610,0.2425,0,test,verified,commons:066180ed3f77a962,commons:066180ed3f77a962,amarjitchaudhary|gupt kalin mandir bhitargaon,-0.5762,0.2151,in-bihar-nalanda-mahavihara
+q-unk-058,unknown,in-bihar-nalanda-monastery-01,,-0.4874,0.0584,0,test,verified,commons:7a1aabbdd23b024e,commons:7a1aabbdd23b024e,"sahusatyajeet|laxman temple, sirpur, chhattisgarh",-0.6339,0.1464,in-bihar-nalanda-mahavihara
+q-unk-059,unknown,in-bihar-rajgir-shanti-stupa,,-0.5482,0.0530,0,test,verified,commons:7a1aabbdd23b024e,commons:7a1aabbdd23b024e,"sahusatyajeet|laxman temple, sirpur, chhattisgarh",-0.6714,0.1232,in-bihar-nalanda-mahavihara
+q-unk-060,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5426,0.0985,0,test,verified,commons:8f353fd7c84c2055,commons:8f353fd7c84c2055,pratyk321|gupt kalin mandir bhitargaon (cropped),-0.7603,0.2176,in-bihar-nalanda-mahavihara
+q-unk-061,unknown,in-bihar-bodhgaya-mahabodhi,,-0.6161,0.0187,0,test,verified,commons:8f353fd7c84c2055,commons:8f353fd7c84c2055,pratyk321|gupt kalin mandir bhitargaon (cropped),-0.7659,0.1498,in-bihar-nalanda-mahavihara
+q-unk-062,unknown,in-bihar-nalanda-mahavihara,,-0.3122,0.1636,0,test,verified,commons:ac808746149db327,commons:ac808746149db327,"ms sarah welch|7th century reliefs on brick walls, lakshmana hindu temple, sirpur chhattisgarh india",-0.5066,0.1944,in-bihar-nalanda-mahavihara
+q-unk-063,unknown,in-bihar-nalanda-mahavihara,,-0.1211,0.0517,0,test,verified,commons:ac808746149db327,commons:ac808746149db327,"ms sarah welch|7th century reliefs on brick walls, lakshmana hindu temple, sirpur chhattisgarh india",-0.2295,0.1085,in-bihar-nalanda-mahavihara
+q-unk-064,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3455,0.1527,0,test,verified,commons:b012d61fccb77cdb,commons:b012d61fccb77cdb,"ms sarah welch|7th century reliefs on brick walls, lakshmana hindu temple, sirpur chhattisgarh india",-0.5459,0.2004,in-bihar-nalanda-mahavihara
+q-unk-065,unknown,in-bihar-nalanda-temple-03,,-0.2125,0.0146,0,test,verified,commons:be3306117f6d5d3c,commons:be3306117f6d5d3c,malaiya|bhitargaon details,-0.3876,0.1751,in-bihar-nalanda-mahavihara
+q-unk-066,unknown,in-bihar-nalanda-mahavihara,,-0.1202,0.4945,0,test,verified,commons:d18a7f38833f89ef,commons:d18a7f38833f89ef,"ms sarah welch|7th century reliefs on brick walls, lakshmana hindu temple, sirpur chhattisgarh india",-0.1418,0.0216,in-bihar-nalanda-mahavihara
+q-unk-067,unknown,in-bihar-nalanda-mahavihara,,-0.5415,0.2041,0,test,verified,commons:d54405d761d0a352,commons:d54405d761d0a352,rathourarv|ancient brick temple left view,-0.7087,0.1672,in-bihar-nalanda-mahavihara
+q-unk-068,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4705,0.1339,0,test,verified,commons:df746b36fe9e2524,commons:df746b36fe9e2524,jamuna prasad sharma|brick temple bhitargaon kanpur,-0.8629,0.3923,in-bihar-nalanda-mahavihara
+q-unk-069,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4427,0.1161,0,test,verified,commons:7e991dd1c6b236eb,commons:7e991dd1c6b236eb,"argenberg#ref_2|old bagan, myanmar, dhammayazika buddhist pagoda, golden shrines, cones, and buddha images",-0.6580,0.2153,in-bihar-nalanda-mahavihara
+q-unk-070,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4627,0.1761,0,test,verified,commons:7e991dd1c6b236eb,commons:7e991dd1c6b236eb,"argenberg#ref_2|old bagan, myanmar, dhammayazika buddhist pagoda, golden shrines, cones, and buddha images",-0.6326,0.1699,in-bihar-nalanda-mahavihara
+q-unk-071,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4222,0.1657,0,test,verified,commons:7e991dd1c6b236eb,commons:7e991dd1c6b236eb,"argenberg#ref_2|old bagan, myanmar, dhammayazika buddhist pagoda, golden shrines, cones, and buddha images",-0.6983,0.2760,in-bihar-nalanda-mahavihara
+q-unk-072,unknown,in-bihar-rajgir-shanti-stupa,,-0.1195,0.4662,0,test,verified,commons:921b1434d7723f2b,commons:921b1434d7723f2b,"argenberg#calib_04|old bagan, myanmar, dhammayazika pagoda fully gilded dome",-0.1892,0.0697,in-bihar-nalanda-mahavihara
+q-unk-073,unknown,in-bihar-rajgir-shanti-stupa,,-0.1703,0.3768,0,test,verified,commons:921b1434d7723f2b,commons:921b1434d7723f2b,"argenberg#calib_04|old bagan, myanmar, dhammayazika pagoda fully gilded dome",-0.2515,0.0812,in-bihar-nalanda-mahavihara
+q-unk-074,unknown,in-bihar-rajgir-vultures-peak,,-0.2245,0.0711,0,test,verified,commons:11008057d2c1c4ba,commons:11008057d2c1c4ba,nayana dasun|man made miracle in bc era,-0.1992,-0.0253,in-bihar-nalanda-mahavihara
+q-unk-075,unknown,in-bihar-rajgir-shanti-stupa,,-0.2202,0.0522,0,test,verified,commons:11008057d2c1c4ba,commons:11008057d2c1c4ba,nayana dasun|man made miracle in bc era,-0.1950,-0.0251,in-bihar-nalanda-mahavihara
+q-unk-076,unknown,in-bihar-rajgir-vultures-peak,,-0.2549,0.0030,0,test,verified,commons:11008057d2c1c4ba,commons:11008057d2c1c4ba,nayana dasun|man made miracle in bc era,-0.2868,0.0319,in-bihar-nalanda-mahavihara
+q-unk-077,unknown,in-bihar-rajgir-shanti-stupa,,-0.3109,0.0477,0,test,verified,commons:27696a64c6d33681,commons:27696a64c6d33681,tang2bar|wat thao saen pom,-0.3244,0.0135,in-bihar-nalanda-mahavihara
+q-unk-078,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.2705,0.0403,0,test,verified,commons:27696a64c6d33681,commons:27696a64c6d33681,tang2bar|wat thao saen pom,-0.1588,-0.1117,in-bihar-nalanda-mahavihara
+q-unk-079,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.2991,0.0184,0,test,verified,commons:27696a64c6d33681,commons:27696a64c6d33681,tang2bar|wat thao saen pom,-0.1991,-0.0999,in-bihar-nalanda-mahavihara
+q-unk-080,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.2341,0.1590,0,test,verified,commons:93282f619732d9eb,commons:93282f619732d9eb,deepak-nsk|a pair of ancient brick stupas near wat phutthaisawan in ayutthaya,-0.1300,-0.1040,in-bihar-nalanda-mahavihara
+q-unk-081,unknown,in-bihar-rajgir-sonbhandar,,-0.2777,0.0829,0,test,verified,commons:93282f619732d9eb,commons:93282f619732d9eb,deepak-nsk|a pair of ancient brick stupas near wat phutthaisawan in ayutthaya,-0.1725,-0.1052,in-bihar-nalanda-mahavihara
+q-unk-082,unknown,in-bihar-rajgir-venu-vana,,-0.0614,0.2449,0,test,verified,commons:a21e57302d0291d3,commons:a21e57302d0291d3,6d#ref_0|bamboo scaffolding,-0.2001,0.1386,in-bihar-nalanda-mahavihara
+q-unk-083,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.3732,0.0391,0,test,verified,commons:db02d5d51da42bef,commons:db02d5d51da42bef,harrieta171#ref_1|bangalore echafaudage,-0.4381,0.0649,in-bihar-nalanda-mahavihara
+q-unk-084,unknown,in-bihar-rajgir-venu-vana,,-0.6756,0.1113,0,test,verified,commons:1aea520013d15134,commons:1aea520013d15134,abderitestatos|bahnhofstrbassersdorf-20120925i,-0.9351,0.2595,in-bihar-nalanda-mahavihara
+q-unk-085,unknown,in-bihar-rajgir-venu-vana,,-0.6635,0.1154,0,test,verified,commons:1aea520013d15134,commons:1aea520013d15134,abderitestatos|bahnhofstrbassersdorf-20120925i,-0.9132,0.2497,in-bihar-nalanda-mahavihara
+q-unk-086,unknown,in-bihar-rajgir-shanti-stupa,,-0.5709,0.0533,0,test,verified,commons:567e79658b4a4a0f,commons:567e79658b4a4a0f,"kolforn|-2022-05-12 construction of a brick and flint house, northrepps, england",-0.7722,0.2013,in-bihar-nalanda-mahavihara
+q-unk-087,unknown,in-bihar-rajgir-cyclopean-wall,,-0.5563,0.0764,0,test,verified,commons:567e79658b4a4a0f,commons:567e79658b4a4a0f,"kolforn|-2022-05-12 construction of a brick and flint house, northrepps, england",-0.7896,0.2334,in-bihar-nalanda-mahavihara
+q-unk-088,unknown,in-bihar-nalanda-mahavihara,,-0.4030,0.1955,0,test,verified,commons:56d2fa45b9701123,commons:56d2fa45b9701123,"acabashi|broadwater farm primary school (the willow), redevelopment 89 - june",-0.8554,0.4524,in-bihar-nalanda-mahavihara
+q-unk-089,unknown,in-bihar-nalanda-mahavihara,,-0.4902,0.0255,0,test,verified,commons:56d2fa45b9701123,commons:56d2fa45b9701123,"acabashi|broadwater farm primary school (the willow), redevelopment 89 - june",-0.9616,0.4714,in-bihar-nalanda-mahavihara
+q-unk-090,unknown,in-bihar-nalanda-mahavihara,,-0.6434,0.0120,0,test,verified,commons:5e14dc559be986ba,commons:5e14dc559be986ba,"kolforn|-2022-06-21 construction of a brick and flint gable end with tumbled brickwork, northrepps, norfolk",-0.7932,0.1498,in-bihar-nalanda-mahavihara
+q-unk-091,unknown,in-bihar-bodhgaya-mahabodhi,,-0.1080,0.2174,0,test,verified,commons:6feace6d1c13b750,commons:6feace6d1c13b750,geographbot|st martin-in-the-fields undergoing restoration - geograph.org.uk,0.0839,-0.1919,in-bihar-nalanda-mahavihara
+q-unk-092,unknown,in-bihar-rajgir-venu-vana,,-0.6120,0.0900,0,test,verified,commons:e811bd3146131578,commons:e811bd3146131578,abderitestatos|dorfplbassersdorf-20120817i,-1.0442,0.4322,in-bihar-nalanda-mahavihara
+q-unk-093,unknown,in-bihar-rajgir-venu-vana,,-0.3113,0.2366,0,test,verified,commons:ef41ac2bb3034650,commons:ef41ac2bb3034650,myotus|scaffolding from the second floor senate chamber-01,-0.7324,0.4211,in-bihar-nalanda-mahavihara
+q-unk-094,unknown,in-bihar-nalanda-monastery-01,,-0.3576,0.2167,0,test,verified,commons:f5c893ab1c6581a8,commons:f5c893ab1c6581a8,"kolforn|-2022-06-21 construction of a brick and flint gable end with tumbled brickwork, northrepps, norfolk",-0.3840,0.0265,in-bihar-nalanda-mahavihara
+q-unk-095,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3598,0.0334,0,test,verified,commons:0e6b6e68d21957f2,commons:0e6b6e68d21957f2,fæ|dublin maritime festival,-0.2928,-0.0670,in-bihar-nalanda-mahavihara
+q-unk-096,unknown,in-bihar-rajgir-venu-vana,,-0.2316,0.1151,0,test,verified,commons:0e6b6e68d21957f2,commons:0e6b6e68d21957f2,fæ|dublin maritime festival,-0.1969,-0.0347,in-bihar-nalanda-mahavihara
+q-unk-097,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3080,0.0551,0,test,verified,commons:0e6b6e68d21957f2,commons:0e6b6e68d21957f2,fæ|dublin maritime festival,-0.2602,-0.0478,in-bihar-nalanda-mahavihara
+q-unk-098,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5469,0.1512,0,test,verified,commons:1b6a1f3739c670ca,commons:1b6a1f3739c670ca,file upload bot (magnus manske)|jubilee campus mmb i7 melton hall,-0.9529,0.4060,in-bihar-nalanda-mahavihara
+q-unk-099,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5742,0.0223,0,test,verified,commons:1b6a1f3739c670ca,commons:1b6a1f3739c670ca,file upload bot (magnus manske)|jubilee campus mmb i7 melton hall,-1.0097,0.4355,in-bihar-nalanda-mahavihara
+q-unk-100,unknown,in-bihar-nalanda-monastery-01,,-0.2647,0.1288,0,test,verified,commons:96f0ee3bdc0b68dc,commons:96f0ee3bdc0b68dc,file upload bot (magnus manske)|jubilee campus mmb i9 melton hall,-0.3301,0.0654,in-bihar-nalanda-mahavihara
+q-unk-101,unknown,in-bihar-nalanda-monastery-01,,-0.2983,0.1430,0,test,verified,commons:96f0ee3bdc0b68dc,commons:96f0ee3bdc0b68dc,file upload bot (magnus manske)|jubilee campus mmb i9 melton hall,-0.3369,0.0387,in-bihar-nalanda-mahavihara
+q-unk-102,unknown,in-bihar-rajgir-vultures-peak,,-0.5497,0.0133,0,test,verified,commons:b6d5e96dcada8fe8,commons:b6d5e96dcada8fe8,file upload bot (magnus manske)|jubilee campus mmb j1 melton hall,-1.3048,0.7551,in-bihar-nalanda-mahavihara
+q-unk-103,unknown,in-bihar-nalanda-monastery-01,,-0.5025,0.0122,0,test,verified,commons:b6d5e96dcada8fe8,commons:b6d5e96dcada8fe8,file upload bot (magnus manske)|jubilee campus mmb j1 melton hall,-1.1715,0.6690,in-bihar-nalanda-mahavihara
+q-unk-104,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5568,0.1248,0,test,verified,commons:dda4e1f2a5e95c00,commons:dda4e1f2a5e95c00,file upload bot (magnus manske)|jubilee campus mmb i5 melton hall,-0.9714,0.4146,in-bihar-nalanda-mahavihara
+q-unk-105,unknown,in-bihar-bodhgaya-mahabodhi,,-0.6088,0.0214,0,test,verified,commons:dda4e1f2a5e95c00,commons:dda4e1f2a5e95c00,file upload bot (magnus manske)|jubilee campus mmb i5 melton hall,-1.0615,0.4527,in-bihar-nalanda-mahavihara
+q-unk-106,unknown,in-bihar-rajgir-vultures-peak,,-0.4388,0.0097,0,test,verified,commons:e34baa81378c1089,commons:e34baa81378c1089,red panda bot|souq spices - flickr - gabby canonizado 02 (new account),-0.5446,0.1058,in-bihar-nalanda-mahavihara
+q-unk-107,unknown,in-bihar-rajgir-venu-vana,,-0.4514,0.0035,0,test,verified,commons:e34baa81378c1089,commons:e34baa81378c1089,red panda bot|souq spices - flickr - gabby canonizado 02 (new account),-0.5676,0.1162,in-bihar-nalanda-mahavihara
+q-unk-108,unknown,in-bihar-rajgir-vultures-peak,,-0.3051,0.1793,0,test,verified,commons:1246e224277018a8,commons:1246e224277018a8,indonesiagood|ficus benghalensis,-0.7363,0.4312,in-bihar-nalanda-mahavihara
+q-unk-109,unknown,in-bihar-rajgir-vultures-peak,,-0.1712,0.1998,0,test,verified,commons:12e0dfc8d97fa3b5,commons:12e0dfc8d97fa3b5,indonesiagood|ficus benghalensis,-0.4663,0.2951,in-bihar-nalanda-mahavihara
+q-unk-110,unknown,in-bihar-rajgir-vultures-peak,,-0.3026,0.1671,0,test,verified,commons:1496b68f70f8d846,commons:1496b68f70f8d846,indonesiagood|ficus benghalensis,-0.9527,0.6501,in-bihar-nalanda-mahavihara
+q-unk-111,unknown,in-bihar-rajgir-venu-vana,,-0.2420,0.2282,0,test,verified,commons:18976ba867097b0c,commons:18976ba867097b0c,juenkoom yee howp|jp 日本 japan tourism 京都 kyoto 嵐山竹林 arashiyama bamboo grove n sagano bamboo pathsagaogurayama tabuchiyamacho ukyo ward kyoto city june 2026 r12s,-0.6186,0.3766,in-bihar-nalanda-mahavihara
+q-unk-112,unknown,in-bihar-rajgir-venu-vana,,-0.0682,0.2609,0,test,verified,commons:1c751e55f5b3a47b,commons:1c751e55f5b3a47b,indonesiagood|ficus benghalensis,-0.3161,0.2479,in-bihar-nalanda-mahavihara
+q-unk-113,unknown,in-bihar-rajgir-vultures-peak,,-0.3645,0.1930,0,test,verified,commons:1f54273e6a77b777,commons:1f54273e6a77b777,indonesiagood|ficus benghalensis,-0.8561,0.4916,in-bihar-nalanda-mahavihara
+q-unk-114,unknown,in-bihar-rajgir-venu-vana,,-0.2282,0.0883,0,test,verified,commons:3166545ec096c05a,commons:3166545ec096c05a,indonesiagood|ficus benghalensis,-0.4195,0.1913,in-bihar-nalanda-mahavihara
+q-unk-115,unknown,in-bihar-rajgir-venu-vana,,-0.0838,0.1544,0,test,verified,commons:381f8c1e6486d2a8,commons:381f8c1e6486d2a8,mitchwandrew|arashiyama bamboo grove,-0.2024,0.1186,in-bihar-nalanda-mahavihara
+q-unk-116,unknown,in-bihar-rajgir-venu-vana,,-0.2303,0.3671,0,test,verified,commons:441f06f834b86c5a,commons:441f06f834b86c5a,indonesiagood|ficus benghalensis,-0.5425,0.3123,in-bihar-nalanda-mahavihara
+q-unk-117,unknown,in-bihar-rajgir-vultures-peak,,-0.4441,0.0757,0,test,verified,commons:492ef83924e342f7,commons:492ef83924e342f7,denniss|ficus religiosa bo,-0.9184,0.4744,in-bihar-nalanda-mahavihara
+q-unk-118,unknown,in-bihar-rajgir-venu-vana,,-0.3446,0.3124,0,test,verified,commons:4cd7e7ec9ca20545,commons:4cd7e7ec9ca20545,indonesiagood|ficus benghalensis,-0.6925,0.3479,in-bihar-nalanda-mahavihara
+q-unk-119,unknown,in-bihar-rajgir-vultures-peak,,-0.4704,0.0072,0,test,verified,commons:50505876e844509f,commons:50505876e844509f,liné1|ficus religiosa trunk 01 by line,-0.8467,0.3763,in-bihar-nalanda-mahavihara
+q-unk-120,unknown,in-bihar-rajgir-venu-vana,,-0.3909,0.0943,0,test,verified,commons:540152e4ec00f714,commons:540152e4ec00f714,indonesiagood|ficus benghalensis,-0.5763,0.1855,in-bihar-nalanda-mahavihara
+q-unk-121,unknown,in-bihar-rajgir-venu-vana,,-0.1929,0.2543,0,test,verified,commons:6c67f03b6b6a4d6c,commons:6c67f03b6b6a4d6c,adityamadhav83|banyan tree (ficus benghalensis) spotted near garida,-0.5483,0.3554,in-bihar-nalanda-mahavihara
+q-unk-122,unknown,in-bihar-rajgir-vultures-peak,,-0.0951,0.0149,0,test,verified,commons:7faa0003d5b7e032,commons:7faa0003d5b7e032,indonesiagood|ficus benghalensis,-0.2245,0.1294,in-bihar-nalanda-mahavihara
+q-unk-123,unknown,in-bihar-rajgir-venu-vana,,-0.3762,0.1963,0,test,verified,commons:8ded6ef86471a5d9,commons:8ded6ef86471a5d9,indonesiagood|ficus benghalensis,-0.5727,0.1964,in-bihar-nalanda-mahavihara
+q-unk-124,unknown,in-bihar-rajgir-venu-vana,,-0.1918,0.1332,0,test,verified,commons:a52163335fc00c1f,commons:a52163335fc00c1f,"argenberg|banyan tree, paliem, goa, india",-0.7531,0.5613,in-bihar-nalanda-mahavihara
+q-unk-125,unknown,in-bihar-rajgir-vultures-peak,,-0.3848,0.0055,0,test,verified,commons:b3555a06e7296939,commons:b3555a06e7296939,indonesiagood|ficus benghalensis,-1.0698,0.6849,in-bihar-nalanda-mahavihara
+q-unk-126,unknown,in-bihar-rajgir-venu-vana,,0.0582,0.3127,0,test,verified,commons:c2ca00bccc6427a6,commons:c2ca00bccc6427a6,juenkoom yee howp|jp 日本 japan tourism 京都 kyoto 嵐山竹林 arashiyama bamboo grove n sagano bamboo pathsagaogurayama tabuchiyamacho ukyo ward kyoto city june 2026 r12s,-0.2077,0.2658,in-bihar-nalanda-mahavihara
+q-unk-127,unknown,in-bihar-rajgir-vultures-peak,,-0.4229,0.0162,0,test,verified,commons:d660a27bee35c2a8,commons:d660a27bee35c2a8,indonesiagood|ficus benghalensis,-0.8933,0.4704,in-bihar-nalanda-mahavihara
+q-unk-128,unknown,in-bihar-rajgir-venu-vana,,-0.2535,0.0418,0,test,verified,commons:e31d38515fc970a2,commons:e31d38515fc970a2,indonesiagood|ficus benghalensis,-0.6081,0.3546,in-bihar-nalanda-mahavihara
+q-unk-129,unknown,in-bihar-rajgir-venu-vana,,0.0695,0.4060,0,test,verified,commons:e84b775ba1848f61,commons:e84b775ba1848f61,juenkoom yee howp|jp 日本 japan tourism 京都 kyoto 嵐山竹林 arashiyama bamboo grove n sagano bamboo pathsagaogurayama tabuchiyamacho ukyo ward kyoto city june 2026 r12s,0.0241,0.0454,in-bihar-nalanda-mahavihara
+q-unk-130,unknown,in-bihar-rajgir-vultures-peak,,-0.4121,0.0731,0,test,verified,commons:fbed7ed38454ce74,commons:fbed7ed38454ce74,indonesiagood|ficus benghalensis,-0.6411,0.2290,in-bihar-nalanda-mahavihara
+q-unk-131,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3053,0.2184,0,test,verified,commons:2aafb868c73d447b,commons:2aafb868c73d447b,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.5715,0.2662,in-bihar-nalanda-mahavihara
+q-unk-132,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3132,0.1567,0,test,verified,commons:2aafb868c73d447b,commons:2aafb868c73d447b,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.5395,0.2262,in-bihar-nalanda-mahavihara
+q-unk-133,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5201,0.0949,0,test,verified,commons:2aafb868c73d447b,commons:2aafb868c73d447b,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.7765,0.2565,in-bihar-nalanda-mahavihara
+q-unk-134,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5107,0.0188,0,test,verified,commons:2aafb868c73d447b,commons:2aafb868c73d447b,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.7380,0.2273,in-bihar-nalanda-mahavihara
+q-unk-135,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4085,0.1899,0,test,verified,commons:2aafb868c73d447b,commons:2aafb868c73d447b,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.6332,0.2247,in-bihar-nalanda-mahavihara
+q-unk-136,unknown,in-bihar-nalanda-monastery-01,,-0.3664,0.1032,0,test,verified,commons:9a3b2be27eda85af,commons:9a3b2be27eda85af,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.5676,0.2011,in-bihar-nalanda-mahavihara
+q-unk-137,unknown,in-bihar-nalanda-monastery-01,,-0.3719,0.1876,0,test,verified,commons:9a3b2be27eda85af,commons:9a3b2be27eda85af,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.6582,0.2863,in-bihar-nalanda-mahavihara
+q-unk-138,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4092,0.0056,0,test,verified,commons:9a3b2be27eda85af,commons:9a3b2be27eda85af,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.7031,0.2939,in-bihar-nalanda-mahavihara
+q-unk-139,unknown,in-bihar-nalanda-monastery-01,,-0.4880,0.0359,0,test,verified,commons:9a3b2be27eda85af,commons:9a3b2be27eda85af,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.8275,0.3395,in-bihar-nalanda-mahavihara
+q-unk-140,unknown,in-bihar-nalanda-monastery-01,,-0.3529,0.2083,0,test,verified,commons:dba455fa8178fdb5,commons:dba455fa8178fdb5,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.5603,0.2074,in-bihar-nalanda-mahavihara
+q-unk-141,unknown,in-bihar-nalanda-monastery-01,,-0.4490,0.1805,0,test,verified,commons:dba455fa8178fdb5,commons:dba455fa8178fdb5,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.7255,0.2766,in-bihar-nalanda-mahavihara
+q-unk-142,unknown,in-bihar-nalanda-monastery-01,,-0.3897,0.2324,0,test,verified,commons:dba455fa8178fdb5,commons:dba455fa8178fdb5,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.5865,0.1968,in-bihar-nalanda-mahavihara
+q-unk-143,unknown,in-bihar-nalanda-monastery-01,,-0.4114,0.1364,0,test,verified,commons:dba455fa8178fdb5,commons:dba455fa8178fdb5,"กสิณธร ราชโอรส|(2022) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,wat chadeiluang worawiharn",-0.6809,0.2695,in-bihar-nalanda-mahavihara
+q-unk-144,unknown,in-bihar-rajgir-vultures-peak,,-0.1888,0.0843,0,test,verified,commons:078afdf3dcb860e3,commons:078afdf3dcb860e3,yumeto|20250514 leshan giant buddha,-0.4636,0.2748,in-bihar-nalanda-mahavihara
+q-unk-145,unknown,in-bihar-bodhgaya-great-buddha,,-0.1382,0.3116,0,test,verified,commons:1a0a53ab819aa935,commons:1a0a53ab819aa935,file upload bot (magnus manske)|china - leshan 17 - giant buddha,-0.4610,0.3228,in-bihar-nalanda-mahavihara
+q-unk-146,unknown,in-bihar-rajgir-shanti-stupa,,-0.1720,0.0890,0,test,verified,commons:20af271c4757eaa5,commons:20af271c4757eaa5,gary lee todd|spring temple buddha,-0.4927,0.3207,in-bihar-nalanda-mahavihara
+q-unk-147,unknown,in-bihar-bodhgaya-great-buddha,,-0.1205,0.0094,0,test,verified,commons:2ec4f2ea223915f1,commons:2ec4f2ea223915f1,gary lee todd|spring temple buddha,-0.5188,0.3982,in-bihar-nalanda-mahavihara
+q-unk-148,unknown,in-bihar-bodhgaya-great-buddha,,-0.2745,0.2879,0,test,verified,commons:312211b9762dd1ff,commons:312211b9762dd1ff,kcx36|36139-leshan,-0.6086,0.3341,in-bihar-nalanda-mahavihara
+q-unk-149,unknown,in-bihar-bodhgaya-great-buddha,,0.1238,0.1541,0,test,verified,commons:3712abf18a61ddc4,commons:3712abf18a61ddc4,gary lee todd|spring temple buddha,-0.0868,0.2106,in-bihar-nalanda-mahavihara
+q-unk-150,unknown,in-bihar-rajgir-shanti-stupa,,-0.0087,0.1139,0,test,verified,commons:7308a421ea16fcae,commons:7308a421ea16fcae,gary lee todd|spring temple buddha,-0.5612,0.5524,in-bihar-nalanda-mahavihara
+q-unk-151,unknown,in-bihar-bodhgaya-great-buddha,,-0.0070,0.1800,0,test,verified,commons:861073903f5c177a,commons:861073903f5c177a,gary lee todd|spring temple buddha,-0.2784,0.2714,in-bihar-nalanda-mahavihara
+q-unk-152,unknown,in-bihar-rajgir-shanti-stupa,,0.0702,0.1033,0,test,verified,commons:89d24b8014e121ee,commons:89d24b8014e121ee,gary lee todd|spring temple buddha,-0.4320,0.5022,in-bihar-nalanda-mahavihara
+q-unk-153,unknown,in-bihar-rajgir-vultures-peak,,-0.0704,0.2654,0,test,verified,commons:9a1ad22dba745e7e,commons:9a1ad22dba745e7e,fæ|2010 chine,-0.3665,0.2961,in-bihar-nalanda-mahavihara
+q-unk-154,unknown,in-bihar-bodhgaya-great-buddha,,-0.1620,0.0912,0,test,verified,commons:ab3941a05e656c27,commons:ab3941a05e656c27,gary lee todd|spring temple buddha,-0.4016,0.2395,in-bihar-nalanda-mahavihara
+q-unk-155,unknown,in-bihar-bodhgaya-great-buddha,,-0.4715,0.0094,0,test,verified,commons:b53b8ec9524034a6,commons:b53b8ec9524034a6,kcx36|36275-leshan,-0.7881,0.3166,in-bihar-nalanda-mahavihara
+q-unk-156,unknown,in-bihar-bodhgaya-great-buddha,,-0.3051,0.1205,0,test,verified,commons:ce853629ef1e0d3b,commons:ce853629ef1e0d3b,file upload bot (magnus manske)|china - leshan 25 - giant buddha,-0.6846,0.3795,in-bihar-nalanda-mahavihara
+q-unk-157,unknown,in-bihar-bodhgaya-great-buddha,,-0.1311,0.1743,0,test,verified,commons:d18151cfc7eb390f,commons:d18151cfc7eb390f,file upload bot (magnus manske)|china - leshan,-0.1558,0.0247,in-bihar-nalanda-mahavihara
+q-unk-158,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3064,0.1089,0,test,verified,commons:0c210d3bc356048a,commons:0c210d3bc356048a,legatro|ajanta & ellora caves,-0.6202,0.3138,in-bihar-nalanda-mahavihara
+q-unk-159,unknown,in-bihar-nalanda-temple-03,,-0.2437,0.0251,0,test,verified,commons:0c210d3bc356048a,commons:0c210d3bc356048a,legatro|ajanta & ellora caves,-0.5939,0.3502,in-bihar-nalanda-mahavihara
+q-unk-160,unknown,in-bihar-rajgir-sonbhandar,,-0.3302,0.2791,0,test,verified,commons:ce20f55e6d6e3738,commons:ce20f55e6d6e3738,va photography|carved since ages,-0.5729,0.2427,in-bihar-nalanda-mahavihara
+q-unk-161,unknown,in-bihar-rajgir-sonbhandar,,-0.2755,0.3183,0,test,verified,commons:ce20f55e6d6e3738,commons:ce20f55e6d6e3738,va photography|carved since ages,-0.4441,0.1686,in-bihar-nalanda-mahavihara
+q-unk-162,unknown,in-bihar-rajgir-sonbhandar,,-0.3254,0.1282,0,test,verified,commons:ceafcc9947ca2204,commons:ceafcc9947ca2204,shyamal|badami cave 2 view,-0.3752,0.0498,in-bihar-nalanda-mahavihara
+q-unk-163,unknown,in-bihar-rajgir-sonbhandar,,-0.3284,0.0661,0,test,verified,commons:ceafcc9947ca2204,commons:ceafcc9947ca2204,shyamal|badami cave 2 view,-0.4587,0.1303,in-bihar-nalanda-mahavihara
+q-unk-164,unknown,in-bihar-rajgir-sonbhandar,,-0.3916,0.1764,0,test,verified,commons:d7dc876238253a69,commons:d7dc876238253a69,"jhuma datta|caves of ellora, maharashtra",-0.6521,0.2605,in-bihar-nalanda-mahavihara
+q-unk-165,unknown,in-bihar-rajgir-sonbhandar,,-0.2121,0.2464,0,test,verified,commons:d7dc876238253a69,commons:d7dc876238253a69,"jhuma datta|caves of ellora, maharashtra",-0.4592,0.2471,in-bihar-nalanda-mahavihara
+q-unk-166,unknown,in-bihar-rajgir-sonbhandar,,-0.0995,0.3590,0,test,verified,commons:db7f562b0f6c368e,commons:db7f562b0f6c368e,manavvyas14|@elloracaves,-0.2299,0.1304,in-bihar-nalanda-mahavihara
+q-unk-167,unknown,in-bihar-rajgir-sonbhandar,,-0.0850,0.2941,0,test,verified,commons:db7f562b0f6c368e,commons:db7f562b0f6c368e,manavvyas14|@elloracaves,-0.2087,0.1237,in-bihar-nalanda-mahavihara
+q-unk-168,unknown,in-bihar-rajgir-sonbhandar,,-0.2493,0.0103,0,test,verified,commons:ec2071e220d6219b,commons:ec2071e220d6219b,diksha jadhav|a seen of ajanta caves from it's stairs,-0.4545,0.2052,in-bihar-nalanda-mahavihara
+q-unk-169,unknown,in-bihar-rajgir-vultures-peak,,-0.3180,0.0024,0,test,verified,commons:ec2071e220d6219b,commons:ec2071e220d6219b,diksha jadhav|a seen of ajanta caves from it's stairs,-0.4914,0.1734,in-bihar-nalanda-mahavihara
+q-unk-170,unknown,in-bihar-rajgir-sonbhandar,,-0.2795,0.3582,0,test,verified,commons:f6e1544ff619028c,commons:f6e1544ff619028c,prof ranga sai|cave entrance ellora rock cut caves,-0.4306,0.1512,in-bihar-nalanda-mahavihara
+q-unk-171,unknown,in-bihar-nalanda-monastery-01,,-0.2627,0.1433,0,test,verified,commons:26610b489ce03258,commons:26610b489ce03258,indrajitdas|wlm@wb-door decorated with terracotta of two ancient temples of baidyapur,-0.3093,0.0467,in-bihar-nalanda-mahavihara
+q-unk-172,unknown,in-bihar-nalanda-monastery-01,,-0.1840,0.2630,0,test,verified,commons:26610b489ce03258,commons:26610b489ce03258,indrajitdas|wlm@wb-door decorated with terracotta of two ancient temples of baidyapur,-0.2776,0.0936,in-bihar-nalanda-mahavihara
+q-unk-173,unknown,in-bihar-nalanda-monastery-01,,-0.3282,0.0169,0,test,verified,commons:40537ed38b813f93,commons:40537ed38b813f93,indrajitdas|wlm@wb-door decorated with terracotta of two ancient temples of baidyapur,-0.3327,0.0046,in-bihar-nalanda-mahavihara
+q-unk-174,unknown,in-bihar-nalanda-monastery-01,,-0.2650,0.1667,0,test,verified,commons:40537ed38b813f93,commons:40537ed38b813f93,indrajitdas|wlm@wb-door decorated with terracotta of two ancient temples of baidyapur,-0.2176,-0.0475,in-bihar-nalanda-mahavihara
+q-unk-175,unknown,in-bihar-nalanda-monastery-01,,-0.3252,0.0816,0,test,verified,commons:7c369d746302c489,commons:7c369d746302c489,thesanjayrathod|kabutarkhana - champaner godhra - gujarat,-0.5020,0.1768,in-bihar-nalanda-mahavihara
+q-unk-176,unknown,in-bihar-nalanda-monastery-01,,-0.2725,0.1332,0,test,verified,commons:7c369d746302c489,commons:7c369d746302c489,thesanjayrathod|kabutarkhana - champaner godhra - gujarat,-0.2883,0.0158,in-bihar-nalanda-mahavihara
+q-unk-177,unknown,in-bihar-bodhgaya-mahabodhi,,-0.4613,0.1084,0,test,verified,commons:7f8dd20c42658217,commons:7f8dd20c42658217,satyadev hirani|kirti stambha,-1.0269,0.5656,in-bihar-nalanda-mahavihara
+q-unk-178,unknown,in-bihar-nalanda-temple-03,,-0.2903,0.0657,0,test,verified,commons:7f8dd20c42658217,commons:7f8dd20c42658217,satyadev hirani|kirti stambha,-0.8666,0.5763,in-bihar-nalanda-mahavihara
+q-unk-179,unknown,in-bihar-rajgir-cyclopean-wall,,-0.5223,0.0546,0,test,verified,commons:c35f75acb52b2f80,commons:c35f75acb52b2f80,satyadev hirani|kirti stambha,-0.7904,0.2681,in-bihar-nalanda-mahavihara
+q-unk-180,unknown,in-bihar-rajgir-cyclopean-wall,,-0.2124,0.2878,0,test,verified,commons:c35f75acb52b2f80,commons:c35f75acb52b2f80,satyadev hirani|kirti stambha,-0.4974,0.2850,in-bihar-nalanda-mahavihara
+q-unk-181,unknown,in-bihar-bodhgaya-mahabodhi,,-0.0936,0.4861,0,test,verified,commons:f04b31020d11415a,commons:f04b31020d11415a,azerbaijanman|kirti stambh,-0.0859,-0.0077,in-bihar-nalanda-mahavihara
+q-unk-182,unknown,in-bihar-bodhgaya-mahabodhi,,-0.1058,0.4726,0,test,verified,commons:f04b31020d11415a,commons:f04b31020d11415a,azerbaijanman|kirti stambh,-0.0714,-0.0344,in-bihar-nalanda-mahavihara
+q-unk-183,unknown,in-bihar-nalanda-temple-03,,-0.3575,0.2622,0,test,verified,commons:fdb8ac5a7613c803,commons:fdb8ac5a7613c803,nizil shah|kabutarkhana at champaner,-1.1207,0.7632,in-bihar-nalanda-mahavihara
+q-unk-184,unknown,in-bihar-nalanda-monastery-01,,-0.1396,0.1654,0,test,verified,commons:0273f6a20d315209,commons:0273f6a20d315209,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.2662,0.1267,in-bihar-nalanda-mahavihara
+q-unk-185,unknown,in-bihar-nalanda-monastery-01,,-0.1064,0.2479,0,test,verified,commons:0273f6a20d315209,commons:0273f6a20d315209,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.2035,0.0971,in-bihar-nalanda-mahavihara
+q-unk-186,unknown,in-bihar-nalanda-monastery-01,,-0.1419,0.2493,0,test,verified,commons:127f8e2066ea8a84,commons:127f8e2066ea8a84,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.1426,0.0007,in-bihar-nalanda-mahavihara
+q-unk-187,unknown,in-bihar-nalanda-monastery-01,,-0.1102,0.3498,0,test,verified,commons:127f8e2066ea8a84,commons:127f8e2066ea8a84,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.0909,-0.0193,in-bihar-nalanda-mahavihara
+q-unk-188,unknown,in-bihar-nalanda-monastery-01,,-0.2462,0.1830,0,test,verified,commons:2c30a1cc09653c34,commons:2c30a1cc09653c34,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.0937,-0.1524,in-bihar-nalanda-mahavihara
+q-unk-189,unknown,in-bihar-nalanda-monastery-01,,-0.2107,0.4129,0,test,verified,commons:2c30a1cc09653c34,commons:2c30a1cc09653c34,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.2167,0.0060,in-bihar-nalanda-mahavihara
+q-unk-190,unknown,in-bihar-nalanda-monastery-01,,-0.0128,0.6717,0,test,verified,commons:312f0d4bd531b42d,commons:312f0d4bd531b42d,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",0.2693,-0.2821,in-bihar-nalanda-mahavihara
+q-unk-191,unknown,in-bihar-nalanda-monastery-01,,-0.0844,0.4748,0,test,verified,commons:38a0a274a049500a,commons:38a0a274a049500a,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",0.0455,-0.1299,in-bihar-nalanda-mahavihara
+q-unk-192,unknown,in-bihar-nalanda-monastery-01,,-0.0490,0.7655,0,test,verified,commons:3e6552a1d75ac22d,commons:3e6552a1d75ac22d,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",0.0546,-0.1036,in-bihar-nalanda-mahavihara
+q-unk-193,unknown,in-bihar-rajgir-cyclopean-wall,,-0.4946,0.0760,0,test,verified,commons:76e4359e1b8c8e62,commons:76e4359e1b8c8e62,tagooty|ancient stupa south deur kothar mp jan24 a7c,-0.9931,0.4985,in-bihar-nalanda-mahavihara
+q-unk-194,unknown,in-bihar-nalanda-monastery-01,,-0.0123,0.4717,0,test,verified,commons:802f442ff30c5597,commons:802f442ff30c5597,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.0060,-0.0063,in-bihar-nalanda-mahavihara
+q-unk-195,unknown,in-bihar-rajgir-cyclopean-wall,,-0.1879,0.3298,0,test,verified,commons:b52ac49c92c59303,commons:b52ac49c92c59303,"ms sarah welch|2nd century bce to 8th century ce salihundam buddhist site, andhra pradesh",-0.2581,0.0702,in-bihar-nalanda-mahavihara
+q-unk-196,unknown,in-bihar-rajgir-vultures-peak,,-0.3813,0.1053,0,test,verified,commons:c9cb5f2e609b120f,commons:c9cb5f2e609b120f,"k.venkataramana|buddist stupa at salihondam, srikakulam",-0.5240,0.1427,in-bihar-nalanda-mahavihara
+q-cal-known-197,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.1278,0.6157,1,calib,verified,commons:22fcd1a91280feba,commons:22fcd1a91280feba,"rohit14400|mahabodhi temple complex (evening), bodhgaya",0.4462,-0.3184,in-bihar-nalanda-mahavihara
+q-cal-known-198,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0753,0.5433,1,calib,verified,commons:22fcd1a91280feba,commons:22fcd1a91280feba,"rohit14400|mahabodhi temple complex (evening), bodhgaya",0.2833,-0.2080,in-bihar-nalanda-mahavihara
+q-cal-known-199,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.0854,0.5587,1,calib,verified,commons:22fcd1a91280feba,commons:22fcd1a91280feba,"rohit14400|mahabodhi temple complex (evening), bodhgaya",0.3660,-0.2806,in-bihar-nalanda-mahavihara
+q-cal-known-200,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.4169,0.7304,1,calib,verified,commons:91d0377bd988dfca,commons:91d0377bd988dfca,tibet nation|mahabodhi temple with monks,0.5122,-0.0952,in-bihar-nalanda-mahavihara
+q-cal-known-201,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.3746,0.6930,1,calib,verified,commons:91d0377bd988dfca,commons:91d0377bd988dfca,tibet nation|mahabodhi temple with monks,0.4498,-0.0753,in-bihar-nalanda-mahavihara
+q-cal-known-202,known,in-bihar-bodhgaya-mahabodhi,in-bihar-bodhgaya-mahabodhi,0.3108,0.5457,1,calib,verified,commons:91d0377bd988dfca,commons:91d0377bd988dfca,tibet nation|mahabodhi temple with monks,0.3029,0.0079,in-bihar-nalanda-mahavihara
+q-cal-known-203,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.0864,0.1643,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.5154,-0.4290,in-bihar-nalanda-mahavihara
+q-cal-known-204,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.0193,0.0558,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.3782,-0.3588,in-bihar-nalanda-mahavihara
+q-cal-known-205,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,-0.0152,0.0439,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.3478,-0.3630,in-bihar-nalanda-mahavihara
+q-cal-known-206,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.2006,0.3406,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.4810,-0.2804,in-bihar-nalanda-mahavihara
+q-cal-known-207,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.0363,0.1262,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.4244,-0.3881,in-bihar-nalanda-mahavihara
+q-cal-known-208,known,in-bihar-bodhgaya-animesh-lochan,in-bihar-bodhgaya-animesh-lochan,0.0356,0.1037,1,calib,verified,commons:84a7551b44c03b76,commons:84a7551b44c03b76,"rohit14400|animesh lochan chaitya, mahabodhi temple complex, bodhgaya, india",0.4271,-0.3916,in-bihar-nalanda-mahavihara
+q-cal-known-209,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.4432,0.8878,1,calib,verified,commons:d296bbb821f6fab1,commons:d296bbb821f6fab1,корыгин андрей|mucalinda lake in bodh gaya,0.6519,-0.2087,in-bihar-nalanda-mahavihara
+q-cal-known-210,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.3695,0.7540,1,calib,verified,commons:d296bbb821f6fab1,commons:d296bbb821f6fab1,корыгин андрей|mucalinda lake in bodh gaya,0.6097,-0.2402,in-bihar-nalanda-mahavihara
+q-cal-known-211,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.5763,0.9849,1,calib,verified,commons:d7e792daaa2ca980,commons:d7e792daaa2ca980,sturm|in bodhgaya 0906 (51),0.6196,-0.0433,in-bihar-nalanda-mahavihara
+q-cal-known-212,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.5408,0.9588,1,calib,verified,commons:d7e792daaa2ca980,commons:d7e792daaa2ca980,sturm|in bodhgaya 0906 (51),0.6503,-0.1096,in-bihar-nalanda-mahavihara
+q-cal-known-213,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.4266,0.4896,1,calib,verified,commons:d9be4ab3e3a9a1f2,commons:d9be4ab3e3a9a1f2,"rohit14400|mucalinda lake, mahabodhi temple",0.7085,-0.2819,in-bihar-nalanda-mahavihara
+q-cal-known-214,known,in-bihar-bodhgaya-mucalinda,in-bihar-bodhgaya-mucalinda,0.3353,0.3785,1,calib,verified,commons:d9be4ab3e3a9a1f2,commons:d9be4ab3e3a9a1f2,"rohit14400|mucalinda lake, mahabodhi temple",0.5859,-0.2506,in-bihar-nalanda-mahavihara
+q-cal-known-215,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.5611,0.9164,1,calib,verified,commons:be762c2d5b9c2868,commons:be762c2d5b9c2868,panoramio upload bot|80 feet buddha statue. east view - panoramio,0.6372,-0.0760,in-bihar-nalanda-mahavihara
+q-cal-known-216,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.5234,0.9299,1,calib,verified,commons:be762c2d5b9c2868,commons:be762c2d5b9c2868,panoramio upload bot|80 feet buddha statue. east view - panoramio,0.6259,-0.1025,in-bihar-nalanda-mahavihara
+q-cal-known-217,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.5256,0.9452,1,calib,verified,commons:be762c2d5b9c2868,commons:be762c2d5b9c2868,panoramio upload bot|80 feet buddha statue. east view - panoramio,0.6315,-0.1059,in-bihar-nalanda-mahavihara
+q-cal-known-218,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.3463,0.8098,1,calib,verified,commons:d6958bc4b1ea1d63,commons:d6958bc4b1ea1d63,"wikirapra|80 ft gautam buddha, bodh gaya, bihar",0.2478,0.0985,in-bihar-nalanda-mahavihara
+q-cal-known-219,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.3073,0.8400,1,calib,verified,commons:d6958bc4b1ea1d63,commons:d6958bc4b1ea1d63,"wikirapra|80 ft gautam buddha, bodh gaya, bihar",0.2217,0.0855,in-bihar-nalanda-mahavihara
+q-cal-known-220,known,in-bihar-bodhgaya-great-buddha,in-bihar-bodhgaya-great-buddha,0.3303,0.8067,1,calib,verified,commons:d6958bc4b1ea1d63,commons:d6958bc4b1ea1d63,"wikirapra|80 ft gautam buddha, bodh gaya, bihar",0.2275,0.1028,in-bihar-nalanda-mahavihara
+q-cal-known-221,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.4114,1.1061,1,calib,verified,commons:3287be9d0566b6a1,commons:3287be9d0566b6a1,tevaprapas|mulagandhakuti in vulture peak,0.5455,-0.1341,in-bihar-nalanda-mahavihara
+q-cal-known-222,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.3456,0.8998,1,calib,verified,commons:3287be9d0566b6a1,commons:3287be9d0566b6a1,tevaprapas|mulagandhakuti in vulture peak,0.5539,-0.2082,in-bihar-nalanda-mahavihara
+q-cal-known-223,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.2902,0.7413,1,calib,verified,commons:a4c2650abe1c9505,commons:a4c2650abe1c9505,"ivecos|vultures peak,rajgir",0.1446,0.1455,in-bihar-nalanda-mahavihara
+q-cal-known-224,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.2839,0.6281,1,calib,verified,commons:a4c2650abe1c9505,commons:a4c2650abe1c9505,"ivecos|vultures peak,rajgir",0.2692,0.0147,in-bihar-nalanda-mahavihara
+q-cal-known-225,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.3453,0.7416,1,calib,verified,commons:bc8e48bf4c8901f1,commons:bc8e48bf4c8901f1,renamed user expsittacine|rajgir - 035 gijjhakuta from above,0.3509,-0.0055,in-bihar-nalanda-mahavihara
+q-cal-known-226,known,in-bihar-rajgir-vultures-peak,in-bihar-rajgir-vultures-peak,0.3140,0.6139,1,calib,verified,commons:bc8e48bf4c8901f1,commons:bc8e48bf4c8901f1,renamed user expsittacine|rajgir - 035 gijjhakuta from above,0.2850,0.0290,in-bihar-nalanda-mahavihara
+q-cal-known-227,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3511,0.5668,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.3401,0.0111,in-bihar-nalanda-mahavihara
+q-cal-known-228,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2821,0.4763,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.2204,0.0618,in-bihar-nalanda-mahavihara
+q-cal-known-229,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2572,0.4626,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.1912,0.0660,in-bihar-nalanda-mahavihara
+q-cal-known-230,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.3068,0.4309,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.3231,-0.0164,in-bihar-nalanda-mahavihara
+q-cal-known-231,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2784,0.4296,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.2817,-0.0034,in-bihar-nalanda-mahavihara
+q-cal-known-232,known,in-bihar-rajgir-venu-vana,in-bihar-rajgir-venu-vana,0.2979,0.4444,1,calib,verified,commons:48d2243d186334aa,commons:48d2243d186334aa,tevaprapas|venuvana,0.3495,-0.0516,in-bihar-nalanda-mahavihara
+q-cal-known-233,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3892,1.0725,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.3969,-0.0077,in-bihar-nalanda-mahavihara
+q-cal-known-234,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3868,0.9366,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.4706,-0.0838,in-bihar-nalanda-mahavihara
+q-cal-known-235,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3862,0.9812,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.3668,0.0194,in-bihar-nalanda-mahavihara
+q-cal-known-236,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3874,0.8553,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.3917,-0.0043,in-bihar-nalanda-mahavihara
+q-cal-known-237,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3782,1.0481,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.3715,0.0067,in-bihar-nalanda-mahavihara
+q-cal-known-238,known,in-bihar-rajgir-cyclopean-wall,in-bihar-rajgir-cyclopean-wall,0.3867,0.9751,1,calib,verified,commons:b26d60e312b6e4bb,commons:b26d60e312b6e4bb,renamed user expsittacine|rajgir - 002 old city walls,0.4438,-0.0571,in-bihar-nalanda-mahavihara
+q-cal-known-239,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2626,0.7189,1,calib,verified,commons:30bc2c6319a352e5,commons:30bc2c6319a352e5,vidisha~commonswiki|rajgir's famous monument,0.6331,-0.3705,in-bihar-nalanda-mahavihara
+q-cal-known-240,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2068,0.7552,1,calib,verified,commons:30bc2c6319a352e5,commons:30bc2c6319a352e5,vidisha~commonswiki|rajgir's famous monument,0.4369,-0.2301,in-bihar-nalanda-mahavihara
+q-cal-known-241,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.3084,0.9009,1,calib,verified,commons:602fe4fc3f47df9c,commons:602fe4fc3f47df9c,oliver gedin|rajgir,0.5171,-0.2087,in-bihar-nalanda-mahavihara
+q-cal-known-242,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2928,0.8736,1,calib,verified,commons:602fe4fc3f47df9c,commons:602fe4fc3f47df9c,oliver gedin|rajgir,0.5387,-0.2458,in-bihar-nalanda-mahavihara
+q-cal-known-243,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.3900,0.6588,1,calib,verified,commons:737131fa6bab32b7,commons:737131fa6bab32b7,renamed user expsittacine|rajgir - 050 teaching dhamma,0.2015,0.1885,in-bihar-nalanda-mahavihara
+q-cal-known-244,known,in-bihar-rajgir-shanti-stupa,in-bihar-rajgir-shanti-stupa,0.2586,0.9285,1,calib,verified,commons:a6d58d1efb285f3f,commons:a6d58d1efb285f3f,renamed user expsittacine|rajgir - 046 side view,0.7272,-0.4686,in-bihar-nalanda-mahavihara
+q-cal-known-245,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.2959,0.9536,1,calib,verified,commons:195e4010f73faae0,commons:195e4010f73faae0,sumitsurai|sone bhandar - rajgir,0.6303,-0.3344,in-bihar-nalanda-mahavihara
+q-cal-known-246,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3053,0.8818,1,calib,verified,commons:1ea799b9969a2044,commons:1ea799b9969a2044,sumitsurai|sone bhandar - rajgir,0.6264,-0.3212,in-bihar-nalanda-mahavihara
+q-cal-known-247,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3619,0.9801,1,calib,verified,commons:26ab60cc67514c19,commons:26ab60cc67514c19,sumitsurai|sone bhandar - rajgir,0.3933,-0.0314,in-bihar-nalanda-mahavihara
+q-cal-known-248,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.4504,0.9432,1,calib,verified,commons:29089be3acd3641e,commons:29089be3acd3641e,sumitsurai|sone bhandar - rajgir,0.4369,0.0134,in-bihar-nalanda-mahavihara
+q-cal-known-249,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.5787,1.1849,1,calib,verified,commons:5096784ac93e8327,commons:5096784ac93e8327,sumitsurai|sone bhandar - rajgir,0.8061,-0.2273,in-bihar-nalanda-mahavihara
+q-cal-known-250,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.6659,1.2383,1,calib,verified,commons:5fcf458068ad455d,commons:5fcf458068ad455d,sumitsurai|sone bhandar - rajgir,1.0832,-0.4173,in-bihar-nalanda-mahavihara
+q-cal-known-251,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3589,0.9494,1,calib,verified,commons:7adea297745e5f48,commons:7adea297745e5f48,sumitsurai|sone bhandar - rajgir,0.3763,-0.0174,in-bihar-nalanda-mahavihara
+q-cal-known-252,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3914,0.8044,1,calib,verified,commons:7f912890d4d0141c,commons:7f912890d4d0141c,sumitsurai|sone bhandar - rajgir,0.3049,0.0865,in-bihar-nalanda-mahavihara
+q-cal-known-253,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.4983,1.1654,1,calib,verified,commons:c22068dc02e67b1d,commons:c22068dc02e67b1d,sumitsurai|sone bhandar - rajgir,0.7098,-0.2115,in-bihar-nalanda-mahavihara
+q-cal-known-254,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3580,0.9139,1,calib,verified,commons:d3185ab533729798,commons:d3185ab533729798,sumitsurai|sone bhandar - rajgir,0.2880,0.0699,in-bihar-nalanda-mahavihara
+q-cal-known-255,known,in-bihar-rajgir-sonbhandar,in-bihar-rajgir-sonbhandar,0.3817,0.8256,1,calib,verified,commons:e12954842b7aa360,commons:e12954842b7aa360,sumitsurai|sone bhandar - rajgir,0.3063,0.0755,in-bihar-nalanda-mahavihara
+q-cal-known-256,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2560,0.9521,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.5304,-0.2744,in-bihar-nalanda-mahavihara
+q-cal-known-257,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2303,0.9007,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.4079,-0.1775,in-bihar-nalanda-mahavihara
+q-cal-known-258,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2250,0.9537,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.4188,-0.1938,in-bihar-nalanda-mahavihara
+q-cal-known-259,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2329,0.8799,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.4434,-0.2105,in-bihar-nalanda-mahavihara
+q-cal-known-260,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2651,0.9267,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.4481,-0.1831,in-bihar-nalanda-mahavihara
+q-cal-known-261,known,in-bihar-nalanda-mahavihara,in-bihar-nalanda-mahavihara,0.2313,0.9622,1,calib,verified,commons:31b39b06ea15d30f,commons:31b39b06ea15d30f,anishkumr198028|walls of nalanda university,0.3980,-0.1666,in-bihar-nalanda-mahavihara
+q-cal-known-262,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4941,0.9010,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.4045,0.0896,in-bihar-nalanda-mahavihara
+q-cal-known-263,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4774,0.8609,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.4475,0.0299,in-bihar-nalanda-mahavihara
+q-cal-known-264,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4551,0.7929,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.5294,-0.0743,in-bihar-nalanda-mahavihara
+q-cal-known-265,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4621,0.8352,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.5217,-0.0597,in-bihar-nalanda-mahavihara
+q-cal-known-266,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4818,0.8989,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.4125,0.0693,in-bihar-nalanda-mahavihara
+q-cal-known-267,known,in-bihar-nalanda-temple-03,in-bihar-nalanda-temple-03,0.4472,0.8362,1,calib,verified,commons:608b878cf94f07e2,commons:608b878cf94f07e2,wandering unicorn|nalanda 10 sariputta stupa,0.4786,-0.0314,in-bihar-nalanda-mahavihara
+q-cal-known-268,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1835,1.2647,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4030,-0.2195,in-bihar-nalanda-mahavihara
+q-cal-known-269,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1529,1.2684,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4186,-0.2657,in-bihar-nalanda-mahavihara
+q-cal-known-270,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1533,1.3542,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4430,-0.2897,in-bihar-nalanda-mahavihara
+q-cal-known-271,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1503,1.3469,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4064,-0.2562,in-bihar-nalanda-mahavihara
+q-cal-known-272,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1966,1.2867,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4204,-0.2238,in-bihar-nalanda-mahavihara
+q-cal-known-273,known,in-bihar-nalanda-monastery-01,in-bihar-nalanda-monastery-01,0.1811,1.2572,1,calib,verified,commons:a11a49b8c955ad45,commons:a11a49b8c955ad45,sumitsurai|monastery 1 -porch - nalanda mahavihara,0.4156,-0.2345,in-bihar-nalanda-mahavihara
+q-cal-unk-001,unknown,in-bihar-rajgir-vultures-peak,,-0.0585,0.2650,0,calib,verified,commons:0d580985c96c3d6e,commons:0d580985c96c3d6e,שומבלע|kesaria,-0.9759,0.9175,in-bihar-nalanda-mahavihara
+q-cal-unk-002,unknown,in-bihar-nalanda-temple-03,,0.0726,0.4838,0,calib,verified,commons:31fe908abd14081a,commons:31fe908abd14081a,spotplayerx|main stupa view from vikramshila excavated site road,-0.7434,0.8160,in-bihar-nalanda-mahavihara
+q-cal-unk-003,unknown,in-bihar-nalanda-monastery-01,,-0.3286,0.0839,0,calib,verified,commons:3a8fa61630e7625c,commons:3a8fa61630e7625c,renamed user expsittacine|bihar - fields,-1.3326,1.0040,in-bihar-nalanda-mahavihara
+q-cal-unk-004,unknown,in-bihar-bodhgaya-mucalinda,,-0.4550,0.2760,0,calib,verified,commons:5a79da00d3d445a4,commons:5a79da00d3d445a4,kunalrsinha|sasaram-tomb-of-sher-shah-suri,-1.1808,0.7257,in-bihar-nalanda-mahavihara
+q-cal-unk-005,unknown,in-bihar-rajgir-shanti-stupa,,-0.2550,0.1292,0,calib,verified,commons:6357daca78fe4eb1,commons:6357daca78fe4eb1,bhassingh|golghar patna,-0.7693,0.5143,in-bihar-nalanda-mahavihara
+q-cal-unk-006,unknown,in-bihar-nalanda-monastery-01,,-0.1818,0.2766,0,calib,verified,commons:8407883eaeb3705b,commons:8407883eaeb3705b,deepaksharma555|the way to underground chambers,-1.0685,0.8867,in-bihar-nalanda-mahavihara
+q-cal-unk-007,unknown,in-bihar-nalanda-mahavihara,,-0.0984,0.3971,0,calib,verified,commons:9bd8acf136901b75,commons:9bd8acf136901b75,deepaksharma555|the pathways,-0.6161,0.5177,in-bihar-nalanda-mahavihara
+q-cal-unk-008,unknown,in-bihar-nalanda-mahavihara,,-0.1552,0.2118,0,calib,verified,commons:af59104a319c8968,commons:af59104a319c8968,rashmi alpana|golghar - save 20180930,-0.7816,0.6264,in-bihar-nalanda-mahavihara
+q-cal-unk-009,unknown,in-bihar-rajgir-vultures-peak,,-0.3468,0.1326,0,calib,verified,commons:b202f1fb6f08a843,commons:b202f1fb6f08a843,sumitsurai|ancient ruins at kurisarai near kauwa dol hill,-1.2092,0.8623,in-bihar-nalanda-mahavihara
+q-cal-unk-010,unknown,in-bihar-nalanda-mahavihara,,-0.0503,0.2979,0,calib,verified,commons:b699a9294f650ddc,commons:b699a9294f650ddc,tahaquadri0786|ruin,-0.5070,0.4568,in-bihar-nalanda-mahavihara
+q-cal-unk-011,unknown,in-bihar-nalanda-mahavihara,,-0.0965,0.6829,0,calib,verified,commons:b6c8d7f112bc0a59,commons:b6c8d7f112bc0a59,deepaksharma555|south -west view of vikramasila monastery,-0.7251,0.6286,in-bihar-nalanda-mahavihara
+q-cal-unk-012,unknown,in-bihar-rajgir-vultures-peak,,-0.1304,0.2317,0,calib,verified,commons:b99afee8276ef8b5,commons:b99afee8276ef8b5,panoramio upload bot|aligator shaped - panoramio,-0.8620,0.7316,in-bihar-nalanda-mahavihara
+q-cal-unk-013,unknown,in-bihar-nalanda-mahavihara,,-0.1784,0.2703,0,calib,verified,commons:c3a636887aaf4164,commons:c3a636887aaf4164,jai anga|vikramshila mahavihara ruins,-0.8224,0.6440,in-bihar-nalanda-mahavihara
+q-cal-unk-014,unknown,in-bihar-nalanda-mahavihara,,-0.0868,0.2808,0,calib,verified,commons:cbcfcd960930c210,commons:cbcfcd960930c210,dreamingrajiv|pillared mandapa,-0.8018,0.7150,in-bihar-nalanda-mahavihara
+q-cal-unk-015,unknown,in-bihar-nalanda-mahavihara,,-0.2422,0.4862,0,calib,verified,commons:e968daa2be870795,commons:e968daa2be870795,spotplayerx|ruins of vikramshila university (broken pillars),-1.1710,0.9288,in-bihar-nalanda-mahavihara
+q-cal-unk-016,unknown,in-bihar-nalanda-monastery-01,,-0.3431,0.0226,0,calib,verified,commons:f2c0d98538fa00f4,commons:f2c0d98538fa00f4,deepaksharma555|close- up view of one of the stupa,-1.2084,0.8653,in-bihar-nalanda-mahavihara
+q-cal-unk-017,unknown,in-bihar-nalanda-mahavihara,,-0.5273,0.1599,0,calib,verified,commons:208eba41556eb3f2,commons:208eba41556eb3f2,ras67|laxman temple,-1.0703,0.5429,in-bihar-nalanda-mahavihara
+q-cal-unk-018,unknown,in-bihar-nalanda-mahavihara,,-0.4473,0.2612,0,calib,verified,commons:208eba41556eb3f2,commons:208eba41556eb3f2,ras67|laxman temple,-0.9400,0.4927,in-bihar-nalanda-mahavihara
+q-cal-unk-019,unknown,in-bihar-rajgir-vultures-peak,,-0.5976,0.0083,0,calib,verified,commons:509c8d73a530dc55,commons:509c8d73a530dc55,malaiya|bhitargaon front,-1.7368,1.1393,in-bihar-nalanda-mahavihara
+q-cal-unk-020,unknown,in-bihar-rajgir-vultures-peak,,-0.5684,0.0011,0,calib,verified,commons:509c8d73a530dc55,commons:509c8d73a530dc55,malaiya|bhitargaon front,-1.6498,1.0814,in-bihar-nalanda-mahavihara
+q-cal-unk-021,unknown,in-bihar-bodhgaya-mahabodhi,,-0.0327,0.4585,0,calib,verified,commons:70cb39820b2c7aa8,commons:70cb39820b2c7aa8,"speakingarch|brick temple, bhitargaon, kanpur, uttar pradesh, india circa 4th-5th century",-0.5198,0.4871,in-bihar-nalanda-mahavihara
+q-cal-unk-022,unknown,in-bihar-nalanda-temple-03,,-0.3507,0.0267,0,calib,verified,commons:d418baf66ae74f9f,commons:d418baf66ae74f9f,rathourarv|ancient brick temple right view,-0.8754,0.5247,in-bihar-nalanda-mahavihara
+q-cal-unk-023,unknown,in-bihar-nalanda-monastery-01,,-0.4240,0.1466,0,calib,verified,commons:2505cb3f10e63613,commons:2505cb3f10e63613,lee|jetawanastupa,-1.2254,0.8014,in-bihar-nalanda-mahavihara
+q-cal-unk-024,unknown,in-bihar-nalanda-monastery-01,,-0.3484,0.0717,0,calib,verified,commons:2505cb3f10e63613,commons:2505cb3f10e63613,lee|jetawanastupa,-0.7346,0.3863,in-bihar-nalanda-mahavihara
+q-cal-unk-025,unknown,in-bihar-rajgir-sonbhandar,,-0.3924,0.0572,0,calib,verified,commons:3ba82dfd7ac8cbc1,commons:3ba82dfd7ac8cbc1,obi2canibe|20160124 sri lanka 3758 crop polonnaruwa srgb,-1.2909,0.8985,in-bihar-nalanda-mahavihara
+q-cal-unk-026,unknown,in-bihar-rajgir-sonbhandar,,-0.3409,0.0352,0,calib,verified,commons:3ba82dfd7ac8cbc1,commons:3ba82dfd7ac8cbc1,obi2canibe|20160124 sri lanka 3758 crop polonnaruwa srgb,-1.1137,0.7728,in-bihar-nalanda-mahavihara
+q-cal-unk-027,unknown,in-bihar-nalanda-temple-03,,-0.0796,0.3505,0,calib,verified,commons:ffcfe50e58958627,commons:ffcfe50e58958627,tyler ser noche|dhammayangyi pagoda,-0.8854,0.8058,in-bihar-nalanda-mahavihara
+q-cal-unk-028,unknown,in-bihar-nalanda-temple-03,,-0.0753,0.3867,0,calib,verified,commons:ffcfe50e58958627,commons:ffcfe50e58958627,tyler ser noche|dhammayangyi pagoda,-0.7076,0.6323,in-bihar-nalanda-mahavihara
+q-cal-unk-029,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.3385,0.0007,0,calib,verified,commons:5039c9a1773d71ef,commons:5039c9a1773d71ef,jane023|tomb of abelard and heloise - under restoration,-1.3414,1.0029,in-bihar-nalanda-mahavihara
+q-cal-unk-030,unknown,in-bihar-nalanda-monastery-01,,-0.3495,0.0411,0,calib,verified,commons:5039c9a1773d71ef,commons:5039c9a1773d71ef,jane023|tomb of abelard and heloise - under restoration,-1.0741,0.7246,in-bihar-nalanda-mahavihara
+q-cal-unk-031,unknown,in-bihar-rajgir-venu-vana,,-0.7165,0.0997,0,calib,verified,commons:7f573c547190bdf1,commons:7f573c547190bdf1,"acabashi|broadwater farm primary school (the willow), redevelopment 93 - june",-1.4629,0.7464,in-bihar-nalanda-mahavihara
+q-cal-unk-032,unknown,in-bihar-rajgir-venu-vana,,-0.7948,0.0732,0,calib,verified,commons:8ffba7253f5a3a17,commons:8ffba7253f5a3a17,"kolforn|-2022-05-16 construction of a brick and flint house, northrepps, england",-1.3025,0.5078,in-bihar-nalanda-mahavihara
+q-cal-unk-033,unknown,in-bihar-rajgir-shanti-stupa,,-0.8388,0.0391,0,calib,verified,commons:bd501733b9b895e5,commons:bd501733b9b895e5,geographbot|the temple on black island - restoration - geograph.org.uk,-1.3250,0.4862,in-bihar-nalanda-mahavihara
+q-cal-unk-034,unknown,in-bihar-rajgir-shanti-stupa,,-0.5532,0.0177,0,calib,verified,commons:e10a42da52ac670e,commons:e10a42da52ac670e,myotus|scaffolding from the second floor senate chamber-02,-1.5614,1.0082,in-bihar-nalanda-mahavihara
+q-cal-unk-035,unknown,in-bihar-bodhgaya-mahabodhi,,-0.6223,0.0288,0,calib,verified,commons:8912225d9193e802,commons:8912225d9193e802,slick-o-bot|jubilee campus mmb i4 melton hall,-1.5997,0.9773,in-bihar-nalanda-mahavihara
+q-cal-unk-036,unknown,in-bihar-bodhgaya-mahabodhi,,-0.5539,0.0519,0,calib,verified,commons:8912225d9193e802,commons:8912225d9193e802,slick-o-bot|jubilee campus mmb i4 melton hall,-1.4523,0.8984,in-bihar-nalanda-mahavihara
+q-cal-unk-037,unknown,in-bihar-rajgir-venu-vana,,-0.5625,0.0213,0,calib,verified,commons:dd8844bed865eab3,commons:dd8844bed865eab3,file upload bot (magnus manske)|jubilee campus mmb j2 melton hall,-1.5822,1.0197,in-bihar-nalanda-mahavihara
+q-cal-unk-038,unknown,in-bihar-rajgir-venu-vana,,-0.5357,0.0542,0,calib,verified,commons:dd8844bed865eab3,commons:dd8844bed865eab3,file upload bot (magnus manske)|jubilee campus mmb j2 melton hall,-1.4552,0.9195,in-bihar-nalanda-mahavihara
+q-cal-unk-039,unknown,in-bihar-rajgir-venu-vana,,-0.5401,0.0703,0,calib,verified,commons:e664583d15b34ad3,commons:e664583d15b34ad3,geographbot|st. albans market - geograph.org.uk,-1.5034,0.9632,in-bihar-nalanda-mahavihara
+q-cal-unk-040,unknown,in-bihar-rajgir-venu-vana,,-0.4876,0.0954,0,calib,verified,commons:e664583d15b34ad3,commons:e664583d15b34ad3,geographbot|st. albans market - geograph.org.uk,-1.3778,0.8902,in-bihar-nalanda-mahavihara
+q-cal-unk-041,unknown,in-bihar-rajgir-venu-vana,,-0.1863,0.3990,0,calib,verified,commons:17fe47c6234fbdbc,commons:17fe47c6234fbdbc,"maplesyrupsushi|ficus religiosa tree located near the entrance of the rai bahadur kalyan singh charitable trust in amritsar, punjab, india, 8 april 2023",-1.0856,0.8993,in-bihar-nalanda-mahavihara
+q-cal-unk-042,unknown,in-bihar-rajgir-venu-vana,,-0.0936,0.4567,0,calib,verified,commons:17fe47c6234fbdbc,commons:17fe47c6234fbdbc,"maplesyrupsushi|ficus religiosa tree located near the entrance of the rai bahadur kalyan singh charitable trust in amritsar, punjab, india, 8 april 2023",-0.9048,0.8112,in-bihar-nalanda-mahavihara
+q-cal-unk-043,unknown,in-bihar-rajgir-vultures-peak,,-0.2919,0.0554,0,calib,verified,commons:71e78d66b8833c27,commons:71e78d66b8833c27,uvtarex|ficus benghalensis (banyan),-1.2251,0.9332,in-bihar-nalanda-mahavihara
+q-cal-unk-044,unknown,in-bihar-rajgir-vultures-peak,,-0.3143,0.0609,0,calib,verified,commons:71e78d66b8833c27,commons:71e78d66b8833c27,uvtarex|ficus benghalensis (banyan),-1.2444,0.9302,in-bihar-nalanda-mahavihara
+q-cal-unk-045,unknown,in-bihar-rajgir-vultures-peak,,-0.3396,0.0082,0,calib,verified,commons:ec12a2e29968947e,commons:ec12a2e29968947e,hearmeout1|ficus benghalensis,-1.3195,0.9800,in-bihar-nalanda-mahavihara
+q-cal-unk-046,unknown,in-bihar-rajgir-venu-vana,,-0.2401,0.0670,0,calib,verified,commons:ec12a2e29968947e,commons:ec12a2e29968947e,hearmeout1|ficus benghalensis,-1.1417,0.9016,in-bihar-nalanda-mahavihara
+q-cal-unk-047,unknown,in-bihar-nalanda-temple-03,,-0.3601,0.0867,0,calib,verified,commons:0809e901fcc7ce4c,commons:0809e901fcc7ce4c,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-1.1605,0.8004,in-bihar-nalanda-mahavihara
+q-cal-unk-048,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.3037,0.0237,0,calib,verified,commons:0809e901fcc7ce4c,commons:0809e901fcc7ce4c,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-0.9531,0.6494,in-bihar-nalanda-mahavihara
+q-cal-unk-049,unknown,in-bihar-nalanda-temple-03,,-0.5209,0.1398,0,calib,verified,commons:32f3241c3c7cb134,commons:32f3241c3c7cb134,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-1.3924,0.8715,in-bihar-nalanda-mahavihara
+q-cal-unk-050,unknown,in-bihar-nalanda-temple-03,,-0.3789,0.2087,0,calib,verified,commons:32f3241c3c7cb134,commons:32f3241c3c7cb134,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-0.9761,0.5972,in-bihar-nalanda-mahavihara
+q-cal-unk-051,unknown,in-bihar-nalanda-temple-03,,-0.4722,0.0755,0,calib,verified,commons:4036474c3bd67ce1,commons:4036474c3bd67ce1,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-1.2325,0.7602,in-bihar-nalanda-mahavihara
+q-cal-unk-052,unknown,in-bihar-nalanda-temple-03,,-0.3977,0.0535,0,calib,verified,commons:bded504dd729c618,commons:bded504dd729c618,กสิณธร ราชโอรส|(2020) วัดเจดีย์หลวงวรวิหาร อ.เมือง จ.เชียงใหม่,-1.1570,0.7593,in-bihar-nalanda-mahavihara
+q-cal-unk-053,unknown,in-bihar-rajgir-shanti-stupa,,0.0496,0.1033,0,calib,verified,commons:082987c5e782b46d,commons:082987c5e782b46d,"zgpdszz|spring temple buddha picturing vairocana, in lushan county, henan, china",-0.5952,0.6449,in-bihar-nalanda-mahavihara
+q-cal-unk-054,unknown,in-bihar-rajgir-shanti-stupa,,0.0048,0.0471,0,calib,verified,commons:082987c5e782b46d,commons:082987c5e782b46d,"zgpdszz|spring temple buddha picturing vairocana, in lushan county, henan, china",-0.5675,0.5723,in-bihar-nalanda-mahavihara
+q-cal-unk-055,unknown,in-bihar-rajgir-sonbhandar,,-0.2948,0.0257,0,calib,verified,commons:8e2d9193f68e7a53,commons:8e2d9193f68e7a53,kcx36|36240-leshan,-0.9695,0.6748,in-bihar-nalanda-mahavihara
+q-cal-unk-056,unknown,in-bihar-rajgir-sonbhandar,,-0.3225,0.1226,0,calib,verified,commons:8e2d9193f68e7a53,commons:8e2d9193f68e7a53,kcx36|36240-leshan,-0.9022,0.5797,in-bihar-nalanda-mahavihara
+q-cal-unk-057,unknown,in-bihar-bodhgaya-great-buddha,,-0.2089,0.3227,0,calib,verified,commons:98a263f27405d9a8,commons:98a263f27405d9a8,panoramio upload bot|2006 乐山大佛 - panoramio,-0.6305,0.4216,in-bihar-nalanda-mahavihara
+q-cal-unk-058,unknown,in-bihar-bodhgaya-mucalinda,,-0.0659,0.2371,0,calib,verified,commons:ca7f22112ef1fac3,commons:ca7f22112ef1fac3,hiob|around leshan giant buddha,-0.9313,0.8654,in-bihar-nalanda-mahavihara
+q-cal-unk-059,unknown,in-bihar-rajgir-sonbhandar,,-0.2087,0.4562,0,calib,verified,commons:620a1950b8116495,commons:620a1950b8116495,singjaya|beauty of ellora,-0.7595,0.5508,in-bihar-nalanda-mahavihara
+q-cal-unk-060,unknown,in-bihar-rajgir-sonbhandar,,-0.1567,0.4139,0,calib,verified,commons:620a1950b8116495,commons:620a1950b8116495,singjaya|beauty of ellora,-0.6312,0.4745,in-bihar-nalanda-mahavihara
+q-cal-unk-061,unknown,in-bihar-bodhgaya-mahabodhi,,-0.3930,0.0130,0,calib,verified,commons:aa547cef477e0cb1,commons:aa547cef477e0cb1,manavvyas14|@temples,-1.0225,0.6295,in-bihar-nalanda-mahavihara
+q-cal-unk-062,unknown,in-bihar-rajgir-sonbhandar,,-0.3311,0.1212,0,calib,verified,commons:aa547cef477e0cb1,commons:aa547cef477e0cb1,manavvyas14|@temples,-0.8870,0.5559,in-bihar-nalanda-mahavihara
+q-cal-unk-063,unknown,in-bihar-rajgir-sonbhandar,,0.0037,0.4593,0,calib,verified,commons:d606710f93d23e1a,commons:d606710f93d23e1a,vu2sga|buddha@ellora,-0.6276,0.6313,in-bihar-nalanda-mahavihara
+q-cal-unk-064,unknown,in-bihar-rajgir-sonbhandar,,-0.2560,0.1302,0,calib,verified,commons:ef5cdfb18b3cd5b3,commons:ef5cdfb18b3cd5b3,samroshkevinjayson|charming view of ellora caves,-0.7889,0.5329,in-bihar-nalanda-mahavihara
+q-cal-unk-065,unknown,in-bihar-nalanda-monastery-01,,-0.3718,0.0652,0,calib,verified,commons:1062679d059c05f2,commons:1062679d059c05f2,rupeshsarkar|chittor fort - chittorgarh - rajasthan,-1.2866,0.9148,in-bihar-nalanda-mahavihara
+q-cal-unk-066,unknown,in-bihar-nalanda-temple-03,,-0.3316,0.0920,0,calib,verified,commons:1062679d059c05f2,commons:1062679d059c05f2,rupeshsarkar|chittor fort - chittorgarh - rajasthan,-1.1345,0.8029,in-bihar-nalanda-mahavihara
+q-cal-unk-067,unknown,in-bihar-nalanda-temple-03,,-0.4440,0.1772,0,calib,verified,commons:575d8fdecd2b55a9,commons:575d8fdecd2b55a9,bhajishb|kabutarkhana pavilion,-1.4773,1.0332,in-bihar-nalanda-mahavihara
+q-cal-unk-068,unknown,in-bihar-nalanda-temple-03,,-0.3732,0.2655,0,calib,verified,commons:575d8fdecd2b55a9,commons:575d8fdecd2b55a9,bhajishb|kabutarkhana pavilion,-1.3472,0.9740,in-bihar-nalanda-mahavihara
+q-cal-unk-069,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.2739,0.1512,0,calib,verified,commons:9cac5dce2aa4f2a2,commons:9cac5dce2aa4f2a2,wandering unicorn|kirti stambh,-1.1533,0.8794,in-bihar-nalanda-mahavihara
+q-cal-unk-070,unknown,in-bihar-bodhgaya-animesh-lochan,,-0.3218,0.0445,0,calib,verified,commons:9cac5dce2aa4f2a2,commons:9cac5dce2aa4f2a2,wandering unicorn|kirti stambh,-1.0962,0.7745,in-bihar-nalanda-mahavihara
+q-cal-unk-071,unknown,in-bihar-rajgir-cyclopean-wall,,-0.3247,0.2463,0,calib,verified,commons:a855593ffea78e38,commons:a855593ffea78e38,tagooty|ancient stupa west deur kothar mp jan24 a7c,-0.9374,0.6127,in-bihar-nalanda-mahavihara
+q-cal-unk-072,unknown,in-bihar-rajgir-cyclopean-wall,,-0.4312,0.1061,0,calib,verified,commons:a855593ffea78e38,commons:a855593ffea78e38,tagooty|ancient stupa west deur kothar mp jan24 a7c,-0.9814,0.5501,in-bihar-nalanda-mahavihara
+q-cal-unk-073,unknown,in-bihar-rajgir-cyclopean-wall,,-0.4498,0.0467,0,calib,verified,commons:a855593ffea78e38,commons:a855593ffea78e38,tagooty|ancient stupa west deur kothar mp jan24 a7c,-1.0217,0.5719,in-bihar-nalanda-mahavihara
+q-cal-unk-074,unknown,in-bihar-rajgir-cyclopean-wall,,-0.4756,0.1339,0,calib,verified,commons:b6f4ce760e216737,commons:b6f4ce760e216737,tagooty|ancient stupa east deur kothar mp jan24 a7c,-1.1322,0.6566,in-bihar-nalanda-mahavihara
+q-cal-unk-075,unknown,in-bihar-rajgir-vultures-peak,,-0.4718,0.1322,0,calib,verified,commons:b6f4ce760e216737,commons:b6f4ce760e216737,tagooty|ancient stupa east deur kothar mp jan24 a7c,-1.0591,0.5874,in-bihar-nalanda-mahavihara
+q-cal-unk-076,unknown,in-bihar-rajgir-cyclopean-wall,,-0.5213,0.0225,0,calib,verified,commons:b6f4ce760e216737,commons:b6f4ce760e216737,tagooty|ancient stupa east deur kothar mp jan24 a7c,-1.1532,0.6319,in-bihar-nalanda-mahavihara

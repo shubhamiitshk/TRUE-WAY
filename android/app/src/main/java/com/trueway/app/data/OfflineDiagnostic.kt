@@ -2,6 +2,7 @@ package com.trueway.app.data
 
 import android.content.Context
 import com.trueway.app.vision.ReferenceStore
+import java.util.Locale
 
 /**
  * P0.5 Truly-Ready Offline Diagnostic Runner (blueprint v3.0 §3, §19.5, F015).
@@ -91,12 +92,32 @@ object OfflineDiagnostic {
             true // In JVM test environments where android assets are not present
         }
 
+        // The asset's variant and size are NOT hard-coded: the shipped encoder is
+        // whichever variant `ml/convert_encoder.py` measured as fastest, and it
+        // changes. Reporting a fixed "~12.0 MB INT8" was a false statement about
+        // a file whose identity is decided by measurement.
+        val visionAssetBytes = if (context != null) {
+            try {
+                context.assets.open("vision_encoder.tflite").use { it.available() }
+            } catch (_: Exception) {
+                0
+            }
+        } else {
+            0
+        }
+        val visionAssetMegabytes = if (visionAssetBytes > 0) {
+            String.format(Locale.US, "%.1f MB", visionAssetBytes / 1_000_000.0)
+        } else {
+            "unknown size"
+        }
+
         results += DiagnosticLayerResult(
             layerId = "vision_engine",
             title = "On-Device Vision Recognizer",
             status = DiagnosticStatus.PASSED,
             detail = if (visionAssetPresent) {
-                "vision_encoder.tflite bundled (~4.1 MB MobileCLIP-S0). Offline visual embedding enabled."
+                "vision_encoder.tflite bundled ($visionAssetMegabytes MobileCLIP-S0, the variant " +
+                    "measured fastest at build time). Offline visual embedding enabled."
             } else {
                 "Scanner fallback active: QR & manual search ready (vision asset optional in lightweight mode)."
             },

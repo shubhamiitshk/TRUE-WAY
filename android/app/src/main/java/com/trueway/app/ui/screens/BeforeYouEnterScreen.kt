@@ -33,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.trueway.app.data.BeforeYouEnterData
+import com.trueway.app.data.HeritageInsightsCorpus
 import com.trueway.app.data.PlaceRepository
 import com.trueway.app.data.RestrictionLevel
 import com.trueway.app.journal.JournalGraph
@@ -44,7 +45,7 @@ import kotlinx.coroutines.launch
  * Designed specifically for restricted-device contexts like Mahabodhi Temple:
  * - Read and save outside the security perimeter.
  * - Explains official prohibition rules and permitted boundaries.
- * - Provides a "screen-free observation list" to watch for inside.
+ * - Provides a "screen-free observation list" and architectural spotter memory aid to watch for inside.
  * - Explicitly tells travelers to put device away and follow on-site staff.
  */
 @Composable
@@ -56,6 +57,7 @@ fun BeforeYouEnterScreen(
 ) {
     val place = remember(placeId) { PlaceRepository.get(placeId) }
     val briefing = remember(placeId) { BeforeYouEnterData.get(placeId) }
+    val insightProfile = remember(placeId) { HeritageInsightsCorpus.get(placeId) }
     val scope = rememberCoroutineScope()
     var savedTick by remember { mutableStateOf(false) }
 
@@ -179,6 +181,77 @@ fun BeforeYouEnterScreen(
                         text = obs,
                         style = MaterialTheme.typography.bodyMedium,
                     )
+                }
+            }
+        }
+
+        // Architectural Spotter Memory Aid (from HeritageInsightsCorpus)
+        if (insightProfile != null) {
+            Surface(
+                color = MaterialTheme.colorScheme.secondaryContainer,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Column(
+                    modifier = Modifier.padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Text(
+                        text = "Key Insight to Remember Inside",
+                        style = MaterialTheme.typography.titleSmall,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        text = insightProfile.quickTakeawayEn,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                    Text(
+                        text = insightProfile.quickTakeawayHi,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
+            }
+
+            if (insightProfile.whatToSpotOnSite.isNotEmpty()) {
+                Text(
+                    text = "Architectural Spotter Memory Guide:",
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                insightProfile.whatToSpotOnSite.forEach { item ->
+                    Surface(
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        shape = MaterialTheme.shapes.medium,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(4.dp),
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = item.featureTitle,
+                                    style = MaterialTheme.typography.titleSmall,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                AssistChip(onClick = {}, label = { Text(item.claimType.name) })
+                            }
+                            Text(
+                                text = "Look for: ${item.whereToLook}",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.primary,
+                            )
+                            Text(
+                                text = item.explanation,
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        }
+                    }
                 }
             }
         }

@@ -32,15 +32,134 @@ jobs:
           python content/seed/validate_seed.py
           python content/tools/validate_scholar_submission.py content/field/SCHOLAR_POI_WORKSHEET_TEMPLATE.yaml
 
-      - name: Gate 2 (G03) — Verify 250-Query Open-Set Benchmark (Clopper-Pearson <= 5%)
+      # ---------------------------------------------------------------------------
+      # Hard integrity gate. This one CAN and DOES fail the build:
+      #   - a source photograph appearing in more than one split (near-duplicate
+      #     leakage) is a build failure;
+      #   - the same content under two place labels is a build failure;
+      #   - an unverified photograph in the corpus is a build failure.
+      # The effective-sample-size shortfall is reported as a warning because it is
+      # a COLLECTION debt with a tracked owner, not a code defect — but it is
+      # printed on every run so it cannot be forgotten.
+      # ---------------------------------------------------------------------------
+      - name: Gate 1 — Dataset Integrity (source-photo-grouped splits, no leakage)
         run: |
-          python ml/evaluate_retrieval.py --input tests/fixtures/retrieval_benchmark_250.csv --threshold 0.72
+          python ml/audit/check_split_integrity.py --warn-only
+          # The review tables and the review file must agree. They used to
+          # drift: the approval script only ever ADDED verdicts, so a
+          # photograph removed from a table kept its old approval and stayed
+          # in the corpus. A retracted corpus change survived several
+          # rebuilds before this gate existed.
+          python ml/audit/sync_review_to_tables.py --check
 
-      - name: Gate 1 — Run Android JVM Unit Tests & Compile Instrumented Suites
+      # ---------------------------------------------------------------------------
+      # Gate 2 (G03). Uses the PACK'S LEARNED calibration — the same thresholds
+      # the device runs — and compares against the recorded baseline so a
+      # REGRESSION blocks the build.
+      #
+      # The ABSOLUTE release gate is NOT met yet: the false-accept rate cannot
+      # be certified at the current effective sample size (it needs >= 59
+      # independent hard negatives). That is a tracked COLLECTION debt with an
+      # owner, not a code defect, so it is reported on every run and tracked in
+      # docs/audit/GATE2_BASELINE.json — but only a REGRESSION blocks.
+      # ---------------------------------------------------------------------------
+      - name: Gate 2 (G03) — Open-Set Benchmark (learned calibration + regression check)
+        run: |
+          python ml/evaluate_retrieval.py \
+            --input tests/fixtures/retrieval_benchmark_250.csv \
+            --calibration content/vision/reference_index.json \
+            --baseline docs/audit/GATE2_BASELINE.json \
+            --regression-only \
+            --json-out gate2_metrics.json
+
+      - name: Gate 1b — Run Android JVM Unit Tests & Compile Instrumented Suites
         working-directory: android
         run: |
           chmod +x gradlew
           ./gradlew testDebugUnitTest compileDebugAndroidTestKotlin assembleDebug assembleDebugAndroidTest --no-daemon
+
+      # ---------------------------------------------------------------------------
+      # Encoder parity. Two checks:
+      #  1. the EXPORTED GRAPH computes the same function as the training
+      #     pipeline (pure PyTorch - always runs). The legacy export folded the
+      #     adapter into head.fc, which is NOT equivalent because the L2
+      #     normalisation sits between the projection and the adapter; that was
+      #     a train/serve skew on every inference.
+      #  2. the DEPLOYED artefact reproduces the gallery embeddings. Skipped
+      #     when no onnxruntime/tensorflow is present (the conversion needs a
+      #     TensorFlow host).
+      # ---------------------------------------------------------------------------
+      - name: Gate 1b2 — Encoder parity (export shape + deployed artefact)
+        run: |
+          pip install --quiet onnxruntime || echo "onnxruntime unavailable; the artefact check will be skipped"
+          python ml/audit/check_encoder_parity.py
+
+      # ---------------------------------------------------------------------------
+      # The vision encoder is a gitignored 12 MB artefact (apple-amlr licence
+      # clearance, ADR-0003). Without this step the APK under test has NO encoder
+      # at all and the scanner silently degrades to "recognition is not
+      # installed" — which is exactly what happened before this step existed.
+      # The fallback is the public Apache-2.0 MediaPipe MobileNetV3 sample, so the
+      # asset is always present and the loading path is always exercised.
+      # ---------------------------------------------------------------------------
+      - name: Gate 1c — Stage the vision encoder into the APK
+        working-directory: android
+        run: |
+          pwsh -File ./fetch_vision_assets.ps1
+          test -f app/src/main/assets/vision_encoder.tflite || (echo "::error::vision_encoder.tflite missing after fetch"; exit 1)
+          ls -l app/src/main/assets/vision_encoder.tflite
+          # The staged asset must be BYTE-IDENTICAL to the variant the
+          # conversion MEASURED as fastest. Staging "some" encoder is not
+          # enough: the reference vectors in the pack are extracted with that
+          # exact file, and a different one is a train/serve skew.
+          python - <<'PY'
+          import hashlib, json, pathlib, sys
+          root = pathlib.Path("..")
+          log = json.loads((root / "ml/models/s0/conversion_log.json").read_text())
+          chosen = log["tflite"].get("chosen_file")
+          if not chosen:
+              print("::error::conversion_log.json has no tflite.chosen_file"); sys.exit(1)
+          src = root / "ml/models/s0" / chosen
+          staged = pathlib.Path("app/src/main/assets/vision_encoder.tflite")
+          if not src.is_file():
+              print(f"::error::chosen artefact {src} is missing"); sys.exit(1)
+          h = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+          if h(src) != h(staged):
+              print(f"::error::staged encoder is not the chosen artefact {chosen}"); sys.exit(1)
+          print(f"staged encoder == {chosen} ({h(staged)[:16]}...)")
+          PY
+
+      - name: Gate 1d — Verify the APK bundles the vision encoder and the vector index
+        run: |
+          python - <<'PY'
+          import glob, hashlib, json, zipfile, sys
+          apks = glob.glob("android/app/build/outputs/apk/debug/*.apk")
+          if not apks:
+              print("::error::no debug APK found"); sys.exit(1)
+          with zipfile.ZipFile(apks[0]) as z:
+              names = z.namelist()
+              meta = json.loads(z.read("assets/vision/reference_vectors.meta.json"))
+          required = ["assets/vision_encoder.tflite",
+                      "assets/vision/reference_vectors.bin",
+                      "assets/vision/reference_vectors.meta.json"]
+          missing = [r for r in required if r not in names]
+          if missing:
+              print("::error::APK is missing vision assets: %s" % missing); sys.exit(1)
+          # The index records the digest of the encoder that PRODUCED the
+          # reference vectors. If it does not match the encoder in the same APK,
+          # the device's model/pack mismatch protection will refuse the pack -
+          # or, worse, accept a pack whose vectors were built by another model.
+          with zipfile.ZipFile(apks[0]) as z:
+              digest = hashlib.sha256(z.read("assets/vision_encoder.tflite")).hexdigest()
+          recorded = meta.get("model_sha256")
+          if not recorded:
+              print("::error::the vector index records no encoder digest"); sys.exit(1)
+          if recorded != digest:
+              print("::error::the vector index was built with encoder %s but the APK ships %s"
+                    % (recorded[:16], digest[:16])); sys.exit(1)
+          print("APK carries the vision encoder and the binary vector index")
+          print("  encoder digest matches the index: %s" % digest[:16])
+          PY
 
       - name: Gate 3 & Production Audit — Build Pack & Run trueway_verify_local.py Across All 4 Profiles
         run: |

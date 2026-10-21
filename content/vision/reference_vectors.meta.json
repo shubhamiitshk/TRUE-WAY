@@ -1,103 +1,1353 @@
 {
-  "format": "TWVEC001",
+  "format": "TWVEC002",
   "model_id": "mobileclip-s0-v1",
-  "model_crc32": 2086045817,
+  "model_sha256": "158c8c496107ea04855135dfbea044aa6382f4e4e763ac12751a2d61266c087f",
+  "model_crc32": 2583110175,
   "dim": 512,
-  "prototypes": [
+  "storage": "float32",
+  "places": [
     {
       "place_id": "in-bihar-bodhgaya-mahabodhi",
       "parent_place_id": null,
       "viewpoint_tag": "shikhara-east-facade",
-      "distinguishing_hint": "55m pyramidal main temple spire and central courtyard"
-    },
-    {
-      "place_id": "in-bihar-bodhgaya-bodhi-tree",
-      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
-      "viewpoint_tag": "bodhi-tree-canopy",
-      "distinguishing_hint": "Sacred fig tree adjacent to the western wall of temple"
-    },
-    {
-      "place_id": "in-bihar-bodhgaya-vajrasana",
-      "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
-      "viewpoint_tag": "diamond-throne-slab",
-      "distinguishing_hint": "Polished sandstone slab marking the seat of enlightenment"
+      "distinguishing_hint": "55m pyramidal main temple spire and central courtyard",
+      "prototype_start": 0,
+      "prototype_count": 31,
+      "asset_ids": [
+        "in-bihar-bodhgaya-mahabodhi-259382fe5c",
+        "in-bihar-bodhgaya-mahabodhi-332bc883e3",
+        "in-bihar-bodhgaya-mahabodhi-52c8435e74",
+        "in-bihar-bodhgaya-mahabodhi-5777c92121",
+        "in-bihar-bodhgaya-mahabodhi-605e712817",
+        "in-bihar-bodhgaya-mahabodhi-695c065508",
+        "in-bihar-bodhgaya-mahabodhi-861f7f96cc",
+        "in-bihar-bodhgaya-mahabodhi-9359f45c59",
+        "in-bihar-bodhgaya-mahabodhi-94e41b5e07",
+        "in-bihar-bodhgaya-mahabodhi-9a1a67b889",
+        "in-bihar-bodhgaya-mahabodhi-9b12e3d1f7",
+        "in-bihar-bodhgaya-mahabodhi-a7ab02cd34",
+        "in-bihar-bodhgaya-mahabodhi-b81007828a",
+        "in-bihar-bodhgaya-mahabodhi-c2fc4d0828",
+        "in-bihar-bodhgaya-mahabodhi-cde26ec330",
+        "in-bihar-bodhgaya-mahabodhi-d5392d6789",
+        "in-bihar-bodhgaya-mahabodhi-da43bfd6d7",
+        "in-bihar-bodhgaya-mahabodhi-db9a6f78ca",
+        "in-bihar-bodhgaya-mahabodhi-e2de656b4c",
+        "in-bihar-bodhgaya-mahabodhi-ee0b3cf477",
+        "in-bihar-bodhgaya-mahabodhi-f0d15b5920",
+        "in-bihar-bodhgaya-mahabodhi-f3e424b906",
+        "in-bihar-bodhgaya-mahabodhi-f40c9ce298",
+        "in-bihar-bodhgaya-mahabodhi-fa62e0a197",
+        "in-bihar-bodhgaya-mahabodhi-fa99153c0e",
+        "in-bihar-bodhgaya-mahabodhi-fc5187244e",
+        "in-bihar-bodhgaya-mahabodhi-22fcd1a912",
+        "in-bihar-bodhgaya-mahabodhi-91d0377bd9",
+        "in-bihar-bodhgaya-mahabodhi-subcenter0",
+        "in-bihar-bodhgaya-mahabodhi-subcenter1",
+        "in-bihar-bodhgaya-mahabodhi-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-bodhgaya-animesh-lochan",
       "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
       "viewpoint_tag": "unblinking-gaze-stupa",
-      "distinguishing_hint": "Northeast brick chaitya where Buddha stood gazing at the Bodhi tree"
+      "distinguishing_hint": "Northeast brick chaitya where Buddha stood gazing at the Bodhi tree",
+      "prototype_start": 31,
+      "prototype_count": 11,
+      "asset_ids": [
+        "in-bihar-bodhgaya-animesh-lochan-202f85cb1d",
+        "in-bihar-bodhgaya-animesh-lochan-2ce663c82d",
+        "in-bihar-bodhgaya-animesh-lochan-3d8da5cd53",
+        "in-bihar-bodhgaya-animesh-lochan-497033525f",
+        "in-bihar-bodhgaya-animesh-lochan-5ed9c7b10b",
+        "in-bihar-bodhgaya-animesh-lochan-b31b09bcf5",
+        "in-bihar-bodhgaya-animesh-lochan-e1c3bf7399",
+        "in-bihar-bodhgaya-animesh-lochan-84a7551b44",
+        "in-bihar-bodhgaya-animesh-lochan-subcenter0",
+        "in-bihar-bodhgaya-animesh-lochan-subcenter1",
+        "in-bihar-bodhgaya-animesh-lochan-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-bodhgaya-mucalinda",
       "parent_place_id": "in-bihar-bodhgaya-mahabodhi",
       "viewpoint_tag": "serpent-lake-pavilion",
-      "distinguishing_hint": "Rectangular tank with central snake king statue sheltering Buddha"
+      "distinguishing_hint": "Rectangular tank with central snake king statue sheltering Buddha",
+      "prototype_start": 42,
+      "prototype_count": 12,
+      "asset_ids": [
+        "in-bihar-bodhgaya-mucalinda-0c51305ddb",
+        "in-bihar-bodhgaya-mucalinda-108b0139a1",
+        "in-bihar-bodhgaya-mucalinda-3d53d6e5f1",
+        "in-bihar-bodhgaya-mucalinda-7e084d2bf5",
+        "in-bihar-bodhgaya-mucalinda-95cb967fe3",
+        "in-bihar-bodhgaya-mucalinda-ee54224979",
+        "in-bihar-bodhgaya-mucalinda-d296bbb821",
+        "in-bihar-bodhgaya-mucalinda-d7e792daaa",
+        "in-bihar-bodhgaya-mucalinda-d9be4ab3e3",
+        "in-bihar-bodhgaya-mucalinda-subcenter0",
+        "in-bihar-bodhgaya-mucalinda-subcenter1",
+        "in-bihar-bodhgaya-mucalinda-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-bodhgaya-great-buddha",
       "parent_place_id": null,
       "viewpoint_tag": "daibutsu-colossal-statue",
-      "distinguishing_hint": "25-meter seated sandstone Buddha unveiled in 1989"
+      "distinguishing_hint": "25-meter seated sandstone Buddha unveiled in 1989",
+      "prototype_start": 54,
+      "prototype_count": 9,
+      "asset_ids": [
+        "in-bihar-bodhgaya-great-buddha-0fe11aea75",
+        "in-bihar-bodhgaya-great-buddha-23dba603f0",
+        "in-bihar-bodhgaya-great-buddha-3d88081255",
+        "in-bihar-bodhgaya-great-buddha-9243f89de6",
+        "in-bihar-bodhgaya-great-buddha-be762c2d5b",
+        "in-bihar-bodhgaya-great-buddha-d6958bc4b1",
+        "in-bihar-bodhgaya-great-buddha-subcenter0",
+        "in-bihar-bodhgaya-great-buddha-subcenter1",
+        "in-bihar-bodhgaya-great-buddha-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-rajgir-vultures-peak",
       "parent_place_id": null,
       "viewpoint_tag": "peak-platform-shrine",
-      "distinguishing_hint": "Natural rock precipice with ancient brick stupa remains"
+      "distinguishing_hint": "Natural rock precipice with ancient brick stupa remains",
+      "prototype_start": 63,
+      "prototype_count": 18,
+      "asset_ids": [
+        "in-bihar-rajgir-vultures-peak-061fcd93da",
+        "in-bihar-rajgir-vultures-peak-0ba90e82c4",
+        "in-bihar-rajgir-vultures-peak-1e83ed6a8e",
+        "in-bihar-rajgir-vultures-peak-740fabb492",
+        "in-bihar-rajgir-vultures-peak-9908b3d9b2",
+        "in-bihar-rajgir-vultures-peak-9dd192361b",
+        "in-bihar-rajgir-vultures-peak-c3d8a26630",
+        "in-bihar-rajgir-vultures-peak-e00388d715",
+        "in-bihar-rajgir-vultures-peak-e36821c463",
+        "in-bihar-rajgir-vultures-peak-e8d5eb0f72",
+        "in-bihar-rajgir-vultures-peak-f8f0b846d6",
+        "in-bihar-rajgir-vultures-peak-ff8328e67c",
+        "in-bihar-rajgir-vultures-peak-3287be9d05",
+        "in-bihar-rajgir-vultures-peak-a4c2650abe",
+        "in-bihar-rajgir-vultures-peak-bc8e48bf4c",
+        "in-bihar-rajgir-vultures-peak-subcenter0",
+        "in-bihar-rajgir-vultures-peak-subcenter1",
+        "in-bihar-rajgir-vultures-peak-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-rajgir-venu-vana",
       "parent_place_id": null,
       "viewpoint_tag": "bamboo-grove-lake",
-      "distinguishing_hint": "Bamboo park and historical bathing tank"
+      "distinguishing_hint": "Bamboo park and historical bathing tank",
+      "prototype_start": 81,
+      "prototype_count": 7,
+      "asset_ids": [
+        "in-bihar-rajgir-venu-vana-270d1b9f85",
+        "in-bihar-rajgir-venu-vana-8e8950d319",
+        "in-bihar-rajgir-venu-vana-b6f8ef90f8",
+        "in-bihar-rajgir-venu-vana-48d2243d18",
+        "in-bihar-rajgir-venu-vana-subcenter0",
+        "in-bihar-rajgir-venu-vana-subcenter1",
+        "in-bihar-rajgir-venu-vana-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-rajgir-cyclopean-wall",
       "parent_place_id": null,
       "viewpoint_tag": "unmortared-stone-rampart",
-      "distinguishing_hint": "Ancient 40km undressed massive stone fortification"
+      "distinguishing_hint": "Ancient 40km undressed massive stone fortification",
+      "prototype_start": 88,
+      "prototype_count": 8,
+      "asset_ids": [
+        "in-bihar-rajgir-cyclopean-wall-5d0b1cd5ab",
+        "in-bihar-rajgir-cyclopean-wall-6439824df8",
+        "in-bihar-rajgir-cyclopean-wall-d4ead6dce8",
+        "in-bihar-rajgir-cyclopean-wall-f8bf053c29",
+        "in-bihar-rajgir-cyclopean-wall-b26d60e312",
+        "in-bihar-rajgir-cyclopean-wall-subcenter0",
+        "in-bihar-rajgir-cyclopean-wall-subcenter1",
+        "in-bihar-rajgir-cyclopean-wall-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-rajgir-shanti-stupa",
       "parent_place_id": null,
       "viewpoint_tag": "white-peace-pagoda",
-      "distinguishing_hint": "Modern white dome pagoda on Ratnagiri hill with golden Buddha statues"
+      "distinguishing_hint": "Modern white dome pagoda on Ratnagiri hill with golden Buddha statues",
+      "prototype_start": 96,
+      "prototype_count": 15,
+      "asset_ids": [
+        "in-bihar-rajgir-shanti-stupa-11a6743ae6",
+        "in-bihar-rajgir-shanti-stupa-465c8b1bfe",
+        "in-bihar-rajgir-shanti-stupa-586cef05ec",
+        "in-bihar-rajgir-shanti-stupa-714e278eb9",
+        "in-bihar-rajgir-shanti-stupa-90d12a4214",
+        "in-bihar-rajgir-shanti-stupa-b3f2f86c4d",
+        "in-bihar-rajgir-shanti-stupa-b63b6d3318",
+        "in-bihar-rajgir-shanti-stupa-fa17efc705",
+        "in-bihar-rajgir-shanti-stupa-30bc2c6319",
+        "in-bihar-rajgir-shanti-stupa-602fe4fc3f",
+        "in-bihar-rajgir-shanti-stupa-737131fa6b",
+        "in-bihar-rajgir-shanti-stupa-a6d58d1efb",
+        "in-bihar-rajgir-shanti-stupa-subcenter0",
+        "in-bihar-rajgir-shanti-stupa-subcenter1",
+        "in-bihar-rajgir-shanti-stupa-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-rajgir-sonbhandar",
       "parent_place_id": null,
       "viewpoint_tag": "rock-cut-chamber-facade",
-      "distinguishing_hint": "Ancient twin rock-cut chambers with polished interiors"
+      "distinguishing_hint": "Ancient twin rock-cut chambers with polished interiors",
+      "prototype_start": 111,
+      "prototype_count": 29,
+      "asset_ids": [
+        "in-bihar-rajgir-sonbhandar-061104cd81",
+        "in-bihar-rajgir-sonbhandar-0af8acff76",
+        "in-bihar-rajgir-sonbhandar-103636cf77",
+        "in-bihar-rajgir-sonbhandar-1f6a6d7213",
+        "in-bihar-rajgir-sonbhandar-2792e76697",
+        "in-bihar-rajgir-sonbhandar-67a4d80568",
+        "in-bihar-rajgir-sonbhandar-8fc68d4e7b",
+        "in-bihar-rajgir-sonbhandar-a06ad601af",
+        "in-bihar-rajgir-sonbhandar-abcedd238e",
+        "in-bihar-rajgir-sonbhandar-b01e729d0d",
+        "in-bihar-rajgir-sonbhandar-b5ad38f079",
+        "in-bihar-rajgir-sonbhandar-ba979f7387",
+        "in-bihar-rajgir-sonbhandar-c7d24a4124",
+        "in-bihar-rajgir-sonbhandar-dab87867ef",
+        "in-bihar-rajgir-sonbhandar-e8bde74c3e",
+        "in-bihar-rajgir-sonbhandar-195e4010f7",
+        "in-bihar-rajgir-sonbhandar-1ea799b996",
+        "in-bihar-rajgir-sonbhandar-26ab60cc67",
+        "in-bihar-rajgir-sonbhandar-29089be3ac",
+        "in-bihar-rajgir-sonbhandar-5096784ac9",
+        "in-bihar-rajgir-sonbhandar-5fcf458068",
+        "in-bihar-rajgir-sonbhandar-7adea29774",
+        "in-bihar-rajgir-sonbhandar-7f912890d4",
+        "in-bihar-rajgir-sonbhandar-c22068dc02",
+        "in-bihar-rajgir-sonbhandar-d3185ab533",
+        "in-bihar-rajgir-sonbhandar-e12954842b",
+        "in-bihar-rajgir-sonbhandar-subcenter0",
+        "in-bihar-rajgir-sonbhandar-subcenter1",
+        "in-bihar-rajgir-sonbhandar-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-nalanda-mahavihara",
       "parent_place_id": null,
       "viewpoint_tag": "archaeological-corridor",
-      "distinguishing_hint": "Red brick monastic university complex spanning 14 hectares"
+      "distinguishing_hint": "Red brick monastic university complex spanning 14 hectares",
+      "prototype_start": 140,
+      "prototype_count": 31,
+      "asset_ids": [
+        "in-bihar-nalanda-mahavihara-03b2acb0f0",
+        "in-bihar-nalanda-mahavihara-0d3bfffb00",
+        "in-bihar-nalanda-mahavihara-1307d38526",
+        "in-bihar-nalanda-mahavihara-1b7e9a4af6",
+        "in-bihar-nalanda-mahavihara-25fa0cae60",
+        "in-bihar-nalanda-mahavihara-2767b6db8e",
+        "in-bihar-nalanda-mahavihara-28bb6acc05",
+        "in-bihar-nalanda-mahavihara-366880d943",
+        "in-bihar-nalanda-mahavihara-410a38369c",
+        "in-bihar-nalanda-mahavihara-4452e4fcdf",
+        "in-bihar-nalanda-mahavihara-57b494c71c",
+        "in-bihar-nalanda-mahavihara-68023690ed",
+        "in-bihar-nalanda-mahavihara-74071568f9",
+        "in-bihar-nalanda-mahavihara-8f99d8928a",
+        "in-bihar-nalanda-mahavihara-925ee2bb56",
+        "in-bihar-nalanda-mahavihara-9298bb5fd0",
+        "in-bihar-nalanda-mahavihara-9f10800493",
+        "in-bihar-nalanda-mahavihara-a557ab1569",
+        "in-bihar-nalanda-mahavihara-ba6c576590",
+        "in-bihar-nalanda-mahavihara-bb970f7e46",
+        "in-bihar-nalanda-mahavihara-bff3995ba0",
+        "in-bihar-nalanda-mahavihara-c9eeec669b",
+        "in-bihar-nalanda-mahavihara-cbf66e72af",
+        "in-bihar-nalanda-mahavihara-d04a373b16",
+        "in-bihar-nalanda-mahavihara-ddac56e52e",
+        "in-bihar-nalanda-mahavihara-f364152a8c",
+        "in-bihar-nalanda-mahavihara-ffc3a60da9",
+        "in-bihar-nalanda-mahavihara-31b39b06ea",
+        "in-bihar-nalanda-mahavihara-subcenter0",
+        "in-bihar-nalanda-mahavihara-subcenter1",
+        "in-bihar-nalanda-mahavihara-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-nalanda-temple-03",
       "parent_place_id": "in-bihar-nalanda-mahavihara",
       "viewpoint_tag": "towering-stupa-corner-facets",
-      "distinguishing_hint": "Imposing multi-layered stupa with surviving stucco figures"
+      "distinguishing_hint": "Imposing multi-layered stupa with surviving stucco figures",
+      "prototype_start": 171,
+      "prototype_count": 8,
+      "asset_ids": [
+        "in-bihar-nalanda-temple-03-e9bd5e8dac",
+        "in-bihar-nalanda-temple-03-ebd2e01c62",
+        "in-bihar-nalanda-temple-03-fbf11c4a20",
+        "in-bihar-nalanda-temple-03-fe41c2a0bb",
+        "in-bihar-nalanda-temple-03-608b878cf9",
+        "in-bihar-nalanda-temple-03-subcenter0",
+        "in-bihar-nalanda-temple-03-subcenter1",
+        "in-bihar-nalanda-temple-03-subcenter2"
+      ]
     },
     {
       "place_id": "in-bihar-nalanda-monastery-01",
       "parent_place_id": "in-bihar-nalanda-mahavihara",
       "viewpoint_tag": "central-courtyard-cells",
-      "distinguishing_hint": "Double-story quadrangle with monastic cells and central chaitya"
-    },
-    {
-      "place_id": "in-bihar-nalanda-museum",
-      "parent_place_id": null,
-      "viewpoint_tag": "museum-entrance-portico",
-      "distinguishing_hint": "Archaeological repository housing Pala-period bronzes and sculptures"
+      "distinguishing_hint": "Double-story quadrangle with monastic cells and central chaitya",
+      "prototype_start": 179,
+      "prototype_count": 22,
+      "asset_ids": [
+        "in-bihar-nalanda-monastery-01-11bdbe0a8d",
+        "in-bihar-nalanda-monastery-01-23744341cd",
+        "in-bihar-nalanda-monastery-01-27b038bec3",
+        "in-bihar-nalanda-monastery-01-330454a8c0",
+        "in-bihar-nalanda-monastery-01-5e08e2881f",
+        "in-bihar-nalanda-monastery-01-780745df11",
+        "in-bihar-nalanda-monastery-01-8e57c205cb",
+        "in-bihar-nalanda-monastery-01-9baceee478",
+        "in-bihar-nalanda-monastery-01-a6d377421a",
+        "in-bihar-nalanda-monastery-01-aa060c6e4e",
+        "in-bihar-nalanda-monastery-01-acef2fe87b",
+        "in-bihar-nalanda-monastery-01-ad41b5340f",
+        "in-bihar-nalanda-monastery-01-b2a251d5ef",
+        "in-bihar-nalanda-monastery-01-b74794dd8b",
+        "in-bihar-nalanda-monastery-01-c0bd00de36",
+        "in-bihar-nalanda-monastery-01-ccb41c66b2",
+        "in-bihar-nalanda-monastery-01-f1547f9cac",
+        "in-bihar-nalanda-monastery-01-ff39e81c61",
+        "in-bihar-nalanda-monastery-01-a11a49b8c9",
+        "in-bihar-nalanda-monastery-01-subcenter0",
+        "in-bihar-nalanda-monastery-01-subcenter1",
+        "in-bihar-nalanda-monastery-01-subcenter2"
+      ]
     }
   ],
-  "negative_labels": [
-    "modern-brick-wall",
-    "unrelated-tourist-crowd",
-    "monastery-garden-tree"
-  ]
+  "negatives": [
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:007c7566",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:02aa26ce",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:0fa2d5ac",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:11da7e0c",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:156bbdb8",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:19d231a3",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:2046abf4",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:220dcc02",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:2cf36f0b",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:2f4674e5",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:435d8a98",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:48b111b1",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:48b661c2",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:4958e4db",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:4b53c46a",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:513f3439",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:5481843b",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:573399a0",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:5a088820",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:5fe144c5",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:662889de",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:7150e8b4",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:7696229c",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:7c8f9ff4",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:7ed9b8dc",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:7f37fe11",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:8da92a73",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:946c741c",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:98ebfd80",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:9970d5fe",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:a06feba8",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:a2edcf71",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:a497e2b8",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:abee55c2",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b10ac625",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b8097350",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:ba3659ed",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:c242ed35",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:c51d0938",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:d3e991f5",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:d5e6a204",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:e7998ba2",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:eda432ef",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:f55fe747",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:0d580985",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:31fe908a",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:3a8fa616",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:5a79da00",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:6357daca",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:8407883e",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:9bd8acf1",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:af59104a",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b202f1fb",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b699a929",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b6c8d7f1",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:b99afee8",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:c3a63688",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:cbcfcd96",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:e968daa2",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:f2c0d985",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-out-of-pack-bihar-lookalike:centroid",
+      "category": "neg-out-of-pack-bihar-lookalike"
+    },
+    {
+      "label": "neg-generic-indian-temple:0232e206",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:2a07fac0",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:41de20a6",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:5cbf8828",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:6ec74672",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:77fc470a",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:87514a12",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:8dde6766",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:ba0c7806",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:be402f06",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:d2f2c029",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:208eba41",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:509c8d73",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:70cb3982",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:d418baf6",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-generic-indian-temple:centroid",
+      "category": "neg-generic-indian-temple"
+    },
+    {
+      "label": "neg-se-asian-stupa:48df40a0",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:59d8e507",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:0045d13b",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:169d7da9",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:cd10eee1",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:f1ce1603",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:2505cb3f",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:3ba82dfd",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:ffcfe50e",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-se-asian-stupa:centroid",
+      "category": "neg-se-asian-stupa"
+    },
+    {
+      "label": "neg-ordinary-brick-ruins:509874bf",
+      "category": "neg-ordinary-brick-ruins"
+    },
+    {
+      "label": "neg-ordinary-brick-ruins:centroid",
+      "category": "neg-ordinary-brick-ruins"
+    },
+    {
+      "label": "neg-construction-scaffolding:027e6e86",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:0ef1e7a2",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:2ce280b7",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:309d4e86",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:508dfebd",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:5e413384",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:7315f2ba",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:8c45e737",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:979f4318",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:c1b814fc",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:cb4d2ef4",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:f7e98609",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:fc04e249",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:5039c9a1",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:7f573c54",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:8ffba725",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:bd501733",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:e10a42da",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-construction-scaffolding:centroid",
+      "category": "neg-construction-scaffolding"
+    },
+    {
+      "label": "neg-modern-commercial-shop:0662986b",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:0aa1c23d",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:0e691658",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:77354e91",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:bc503555",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:e1046b52",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:8912225d",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:dd8844be",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:e664583d",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-modern-commercial-shop:centroid",
+      "category": "neg-modern-commercial-shop"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:25f9ada9",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:29deae18",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:3564d2b3",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:48748264",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:93bfa4fb",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:9fb71fd8",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:a0261a22",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:17fe47c6",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:71e78d66",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:ec12a2e2",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-natural-foliage-landscape:centroid",
+      "category": "neg-natural-foliage-landscape"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:01ff8bc8",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:2c5dae52",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:2dee03c8",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:83f137fa",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:abae476a",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:b1fd88c9",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:cc94ef16",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:cca6d1d0",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:db331f65",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:e0092e47",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:f60c3786",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:fed54ebc",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-crowds-tourist-occlusion:centroid",
+      "category": "neg-crowds-tourist-occlusion"
+    },
+    {
+      "label": "neg-white-golden-dome:19148040",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:272c7288",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:49338d4f",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:53f6cefa",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:7456992e",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:758158cf",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:8e116a8b",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:cf017f99",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:0809e901",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:32f3241c",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:4036474c",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:bded504d",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-white-golden-dome:centroid",
+      "category": "neg-white-golden-dome"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:18c054a4",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:2962d5b8",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:29a0562f",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:52bcac92",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:6b220e04",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:8524980e",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:89fce44a",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:945b9f8c",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:adbfea00",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:b4d69aa1",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:b7ea3104",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:bee98def",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:e1607de0",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:e3edbf9d",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:ff6ed237",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:082987c5",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:8e2d9193",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:98a263f2",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:ca7f2211",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-colossal-seated-buddha:centroid",
+      "category": "neg-colossal-seated-buddha"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:0aec4cec",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:2055ed89",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:2cbb2bab",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:447ab096",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:4ac1d89d",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:9198fd55",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:a444e7c3",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:a81fc6cf",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:b4fb1601",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:f0eb9422",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:f1619355",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:f969af22",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:feff3e9d",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:620a1950",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:aa547cef",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:d606710f",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:ef5cdfb1",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-rock-cut-cave-complex:centroid",
+      "category": "neg-rock-cut-cave-complex"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:2f8142ef",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:38bc64ef",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:51e07c19",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:711bc0fa",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:96debba8",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:a6302ea7",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:b98f3b2a",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:ba4dc9c7",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:d8262962",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:f90dc52b",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:1062679d",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:575d8fde",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:9cac5dce",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-stepped-brick-temple-tower:centroid",
+      "category": "neg-stepped-brick-temple-tower"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:00d35d94",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:00e34421",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:0edb1a26",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:24105c89",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:2abc79cb",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:338a94ea",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:3dc7b917",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:498b87e1",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:4a06d764",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:513691ce",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:5b34226a",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:5b4ab354",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:5f7628e1",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:68281290",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:6cd2e44b",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:6e12dc35",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:713186ac",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:764e8985",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:77974914",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:78dde743",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:9045efe7",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:90a735a9",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:932b30c5",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:a3b6af75",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:ab820cc3",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:bd071740",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:c2b980d2",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:c58aed48",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:d23be103",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:d4e0a62c",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:db1021f7",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:dc9c6875",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:e4b87d42",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:ea3c45ab",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:ec35a157",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:f46669ac",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:fb6adba4",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:a855593f",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:b6f4ce76",
+      "category": "neg-ancient-brick-stupa-mound"
+    },
+    {
+      "label": "neg-ancient-brick-stupa-mound:centroid",
+      "category": "neg-ancient-brick-stupa-mound"
+    }
+  ],
+  "calibration": {
+    "accept_threshold": 0.0,
+    "relative_threshold": 0.01,
+    "hard_negative_margin": 0.0,
+    "sibling_margin": 0.0,
+    "min_margin": 0.0,
+    "top_k_mean": 2,
+    "related_margin": 0.0,
+    "csls_k": 10,
+    "parents": {
+      "in-bihar-bodhgaya-mahabodhi": "",
+      "in-bihar-bodhgaya-bodhi-tree": "in-bihar-bodhgaya-mahabodhi",
+      "in-bihar-bodhgaya-vajrasana": "in-bihar-bodhgaya-mahabodhi",
+      "in-bihar-bodhgaya-animesh-lochan": "in-bihar-bodhgaya-mahabodhi",
+      "in-bihar-bodhgaya-mucalinda": "in-bihar-bodhgaya-mahabodhi",
+      "in-bihar-bodhgaya-great-buddha": "",
+      "in-bihar-rajgir-vultures-peak": "",
+      "in-bihar-rajgir-venu-vana": "",
+      "in-bihar-rajgir-cyclopean-wall": "",
+      "in-bihar-rajgir-shanti-stupa": "",
+      "in-bihar-rajgir-sonbhandar": "",
+      "in-bihar-nalanda-mahavihara": "",
+      "in-bihar-nalanda-temple-03": "in-bihar-nalanda-mahavihara",
+      "in-bihar-nalanda-monastery-01": "in-bihar-nalanda-mahavihara",
+      "in-bihar-nalanda-museum": "in-bihar-nalanda-mahavihara"
+    }
+  },
+  "local_scale": {
+    "k": 10,
+    "count": 448,
+    "present": true
+  }
 }

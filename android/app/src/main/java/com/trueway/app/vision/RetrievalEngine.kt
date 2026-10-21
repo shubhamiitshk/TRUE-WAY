@@ -110,17 +110,34 @@ object RetrievalEngine {
      * Calibrated gate. [acceptThreshold] and [minMargin] come from the
      * held-out calibration split; failing either yields an explicit
      * abstention, never a forced identity (§3 principle 2).
+     *
+     * When [relativeThreshold] is supplied the gate additionally requires the
+     * winner to beat the strongest competitor — the second-best place or the
+     * best hard negative, whichever is closer — by that margin. The RELATIVE
+     * score is the primary gate because an absolute cosine moves with the
+     * encoder, the quantisation, the input resolution and the number of
+     * prototypes, while a relative score does not
+     * (Miller et al., ECCV 2024, arXiv:2403.16528).
      */
     fun decide(
         scores: List<PlaceScore>,
         acceptThreshold: Double,
         minMargin: Double,
+        relativeThreshold: Double = Double.NaN,
+        maxNegativeScore: Double = -1.0,
     ): RankDecision {
         if (scores.isEmpty()) return RankDecision.Uncertain(UnknownReason.NO_CANDIDATES, emptyList())
         val best = scores[0]
         val alternatives = scores.drop(1).take(2)
         if (best.score < acceptThreshold) {
             return RankDecision.Uncertain(UnknownReason.LOW_SCORE, listOf(best) + alternatives)
+        }
+        if (!relativeThreshold.isNaN()) {
+            val competitor = maxOf(alternatives.firstOrNull()?.score ?: -1.0, maxNegativeScore)
+            val relative = best.score - competitor
+            if (relative < relativeThreshold) {
+                return RankDecision.Uncertain(UnknownReason.AMBIGUOUS_LOOKALIKES, listOf(best) + alternatives)
+            }
         }
         if (best.margin < minMargin) {
             return RankDecision.Uncertain(UnknownReason.AMBIGUOUS_LOOKALIKES, listOf(best) + alternatives)

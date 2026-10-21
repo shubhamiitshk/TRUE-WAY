@@ -75,6 +75,12 @@ fun ExploreScreen(
         if (selectedCategory == "All") allResults
         else allResults.filter { it.category == selectedCategory }
     }
+    val insightHits = remember(debouncedQuery.value) {
+        com.trueway.app.data.HeritageInsightsCorpus.searchCircuitInsights(debouncedQuery.value)
+    }
+    val signboardHits = remember(debouncedQuery.value) {
+        com.trueway.app.data.SignboardGlossary.search(debouncedQuery.value)
+    }
 
     Column(
         modifier = modifier
@@ -196,7 +202,12 @@ fun ExploreScreen(
             // F005 / F008 Offline Nearby Places Section
             NearbyPlacesSection(onOpenPlace = onOpenPlace)
 
-        } else if (filteredResults.isEmpty()) {
+            HorizontalDivider()
+
+            // P1B F103 Offline Signboard & ASI Plaque Decoder
+            SignboardDecoderSection(onOpenPlace = onOpenPlace)
+
+        } else if (filteredResults.isEmpty() && insightHits.isEmpty() && signboardHits.isEmpty()) {
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -221,22 +232,73 @@ fun ExploreScreen(
                 }
             }
         } else {
-            // Results with enhanced cards
-            Text(
-                text = "${filteredResults.size} result${if (filteredResults.size == 1) "" else "s"}",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            filteredResults.forEach { place ->
-                PlaceResultCard(
-                    place = place,
-                    onClick = {
-                        if (!recentSearches.contains(place.canonicalName)) {
-                            recentSearches = (listOf(place.canonicalName) + recentSearches).take(5)
-                        }
-                        onOpenPlace(place.placeId)
-                    },
+            if (filteredResults.isNotEmpty()) {
+                Text(
+                    text = "${filteredResults.size} place${if (filteredResults.size == 1) "" else "s"}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+                filteredResults.forEach { place ->
+                    PlaceResultCard(
+                        place = place,
+                        onClick = {
+                            if (!recentSearches.contains(place.canonicalName)) {
+                                recentSearches = (listOf(place.canonicalName) + recentSearches).take(5)
+                            }
+                            onOpenPlace(place.placeId)
+                        },
+                    )
+                }
+            }
+            if (insightHits.isNotEmpty()) {
+                Text(
+                    text = "Offline Heritage Insights & Q&A Matches (${insightHits.size})",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                insightHits.forEach { hit ->
+                    Surface(
+                        color = MaterialTheme.colorScheme.surface,
+                        tonalElevation = 2.dp,
+                        shape = MaterialTheme.shapes.small,
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = { onOpenPlace(hit.placeId) },
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(12.dp),
+                            verticalArrangement = Arrangement.spacedBy(4.dp),
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = hit.placeName,
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
+                                AssistChip(onClick = { onOpenPlace(hit.placeId) }, label = { Text(hit.claimType.name) })
+                            }
+                            Text(hit.matchTitle, style = MaterialTheme.typography.titleSmall)
+                            Text(
+                                text = hit.matchSummary,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                }
+            }
+            if (signboardHits.isNotEmpty()) {
+                Text(
+                    text = "On-Site Signboard & ASI Plaque Decoder Matches (${signboardHits.size})",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                signboardHits.forEach { term ->
+                    SignboardTermCard(term = term, onOpenPlace = onOpenPlace)
+                }
             }
         }
 
@@ -246,13 +308,14 @@ fun ExploreScreen(
     }
 }
 
-// Enhanced result card with more context
+// Enhanced result card with more context and offline insight preview
 @Composable
 private fun PlaceResultCard(
     place: com.trueway.app.data.Place,
     onClick: () -> Unit,
 ) {
     val primaryAlias = place.aliases.firstOrNull { it != place.canonicalName } ?: ""
+    val insight = remember(place.placeId) { com.trueway.app.data.HeritageInsightsCorpus.get(place.placeId) }
     
     androidx.compose.material3.Card(
         onClick = onClick,
@@ -272,7 +335,7 @@ private fun PlaceResultCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Column {
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = place.canonicalName,
                         style = MaterialTheme.typography.titleSmall,
@@ -297,6 +360,13 @@ private fun PlaceResultCard(
                         modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
                     )
                 }
+            }
+            if (insight != null) {
+                Text(
+                    text = insight.quickTakeawayEn,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
             }
             // Visitor mode indicator
             if (place.visitorMode.isNotBlank()) {
@@ -533,3 +603,105 @@ private fun EssentialsStrip(modifier: Modifier = Modifier) {
         }
     }
 }
+
+/**
+ * P1B F103 — Offline On-Site Signboard & ASI Plaque Decoder section.
+ * Allows travellers without internet to decode Hindi/Devanagari visitor boards and
+ * architectural terms seen on ASI monument plaques, with explicit epigraphy boundaries.
+ */
+@Composable
+private fun SignboardDecoderSection(
+    onOpenPlace: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var selectedCat by remember { mutableStateOf(com.trueway.app.data.SignboardCategory.VISITOR_SIGNAGE) }
+    val entries = remember(selectedCat) { com.trueway.app.data.SignboardGlossary.byCategory(selectedCat) }
+
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Text(
+            text = "On-Site Signboard & ASI Plaque Decoder (F103)",
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Text(
+            text = com.trueway.app.data.SignboardGlossary.EPIGRAPHY_BOUNDARY_NOTICE,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            com.trueway.app.data.SignboardCategory.entries.forEach { cat ->
+                FilterChip(
+                    selected = selectedCat == cat,
+                    onClick = { selectedCat = cat },
+                    label = { Text(cat.label) },
+                )
+            }
+        }
+        entries.forEach { term ->
+            SignboardTermCard(term = term, onOpenPlace = onOpenPlace)
+        }
+    }
+}
+
+@Composable
+private fun SignboardTermCard(
+    term: com.trueway.app.data.SignboardTermEntry,
+    onOpenPlace: (String) -> Unit,
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        shape = MaterialTheme.shapes.small,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = term.scriptDevanagari,
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.weight(1f),
+                )
+                AssistChip(onClick = {}, label = { Text(term.claimType.name) })
+            }
+            Text(
+                text = "${term.englishTitle} (${term.transliteration})",
+                style = MaterialTheme.typography.labelMedium,
+            )
+            Text(
+                text = term.meaningEn,
+                style = MaterialTheme.typography.bodySmall,
+            )
+            Text(
+                text = term.meaningHi,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            if (term.whereSeenPlaceIds.isNotEmpty()) {
+                val firstPlaceId = term.whereSeenPlaceIds.first()
+                val firstPlaceName = remember(firstPlaceId) {
+                    PlaceRepository.get(firstPlaceId)?.canonicalName ?: firstPlaceId
+                }
+                androidx.compose.material3.TextButton(
+                    onClick = { onOpenPlace(firstPlaceId) },
+                ) {
+                    Text("Seen at: $firstPlaceName →")
+                }
+            }
+        }
+    }
+}
+

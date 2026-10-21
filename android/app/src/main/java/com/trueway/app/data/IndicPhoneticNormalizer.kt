@@ -27,6 +27,10 @@ object IndicPhoneticNormalizer {
     private val devanagariRegex = Regex("[\\u0900-\\u097f]")
     private val trailingVowelRegex = Regex("[aeiou]+$")
     private val duplicateCharRegex = Regex("(.)\\1+")
+    private val whitespaceRegex = Regex("\\s+")
+    private val swarnaPrefixRegex = Regex("^swarna")
+    private val suvarnaPrefixRegex = Regex("^suvarna")
+    private val gijjhaPrefixRegex = Regex("^gijjha")
 
     fun toSkeleton(input: String): String {
         if (input.isBlank()) return ""
@@ -37,15 +41,15 @@ object IndicPhoneticNormalizer {
         }
         val cleaned = nonWordRegex.replace(lowered, " ")
         val tokens = mutableListOf<String>()
-        for (rawTok in cleaned.split(Regex("\\s+")).filter { it.isNotEmpty() }) {
+        for (rawTok in cleaned.split(whitespaceRegex).filter { it.isNotEmpty() }) {
             if (devanagariRegex.containsMatchIn(rawTok)) {
                 tokens.add(rawTok)
                 continue
             }
             var tok = rawTok
-                .replace(Regex("^swarna"), "son")
-                .replace(Regex("^suvarna"), "son")
-                .replace(Regex("^gijjha"), "griddha")
+                .replace(swarnaPrefixRegex, "son")
+                .replace(suvarnaPrefixRegex, "son")
+                .replace(gijjhaPrefixRegex, "griddha")
             for ((src, dst) in rules) {
                 tok = tok.replace(src, dst)
             }

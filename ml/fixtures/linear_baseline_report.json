@@ -1,0 +1,45 @@
+{
+  "note": "Baselines evaluated on the SAME held-out test split with the SAME relative-score decision rule. See arXiv:2609.04381.",
+  "thresholds": {
+    "relative_threshold": 0.01,
+    "accept_threshold": 0.0,
+    "hard_negative_margin": 0.0
+  },
+  "centroid_raw": {
+    "top1": 99,
+    "top1_total": 123,
+    "top3": 120,
+    "coverage": 92,
+    "coverage_total": 123,
+    "false_accepts": 11,
+    "false_accepts_total": 196,
+    "far_cp95_effective_n": 0.11924,
+    "effective_n_unknown": 149,
+    "effective_n_known": 75
+  },
+  "centroid_adapted": {
+    "top1": 102,
+    "top1_total": 123,
+    "top3": 120,
+    "coverage": 98,
+    "coverage_total": 123,
+    "false_accepts": 9,
+    "false_accepts_total": 196,
+    "far_cp95_effective_n": 0.103035,
+    "effective_n_unknown": 149,
+    "effective_n_known": 75
+  },
+  "logistic": {
+    "top1": 92,
+    "top1_total": 123,
+    "top3": 120,
+    "coverage": 0,
+    "coverage_total": 123,
+    "false_accepts": 192,
+    "false_accepts_total": 196,
+    "far_cp95_effective_n": 1.0,
+    "effective_n_unknown": 149,
+    "effective_n_known": 75,
+    "note": "logit margin threshold is on a different scale than the cosine relative score; the FAR figure is indicative only"
+  }
+}

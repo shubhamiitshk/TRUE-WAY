@@ -34,9 +34,18 @@ venv/
 # ML weights + conversion workdirs — fetched/built on demand, never committed
 # (rights review required before any weight ships in-app, ADR-0003)
 ml/models/
+ml/dataset/*
+!ml/dataset/dataset_manifest.json
+!ml/dataset/verification_review.json
+!ml/dataset/candidates_manifest.json
 *.onnx
 *.tflite
 calibration_image_sample_data_*.npy
+
+# Derived caches and CI artefacts (regenerable)
+ml/fixtures/embeddings_bihar.csv
+ml/models/s0/extracted_embeddings_512.npz
+gate2_metrics.json
 
 # Node (tooling, if introduced)
 node_modules/

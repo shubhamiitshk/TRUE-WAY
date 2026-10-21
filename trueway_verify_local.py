@@ -33,22 +33,22 @@ MEDIA_IMAGE = {'.png', '.jpg', '.jpeg', '.webp', '.avif', '.heic'}
 PROFILES = {
     'p0-core': {
         'description': 'Offline packs, trusted sources, search, QR, journal, security',
-        'must_pass': ['jvm_tests', 'apk', 'offline_pack_components', 'audio_player_source'],
+        'must_pass': ['jvm_tests', 'apk', 'offline_pack_components', 'audio_player_source', 'vision_index'],
         'can_review': ['offline_audio_assets', 'then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key'],
     },
     'p1a-audio': {
         'description': 'Real audio assets, language mapping, verified pack resolution, playback',
-        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'audio_player_source'],
+        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'audio_player_source', 'vision_index'],
         'can_review': ['then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key'],
     },
     'p1a-archive': {
         'description': 'Three actual image pairs, verified rights, offline rendering',
-        'must_pass': ['jvm_tests', 'apk', 'then_now_images', 'rights_registry'],
+        'must_pass': ['jvm_tests', 'apk', 'then_now_images', 'rights_registry', 'vision_index'],
         'can_review': ['offline_audio_assets', 'synthetic_fixture', 'demo_signing_key'],
     },
     'production': {
         'description': 'All features advertised for that release, device acceptance, signing',
-        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'then_now_images', 'offline_pack_components', 'audio_player_source', 'rights_registry'],
+        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'then_now_images', 'offline_pack_components', 'audio_player_source', 'rights_registry', 'vision_index'],
         'can_review': ['synthetic_fixture', 'demo_signing_key'],
     },
 }
@@ -302,6 +302,62 @@ def inspect(root, profile=None):
         checks['synthetic_fixture'] = status('INFO', f'{len(rows)} CSV data rows ({fixture.name}); Gate 2 statistical benchmark fixture', columns=list(rows[0].keys()) if rows else [])
     else:
         checks['synthetic_fixture'] = status('UNVERIFIED', 'Benchmark scores fixture not found')
+
+    # --- Vision index: the artefact the scanner actually reads ---
+    # The CSV fixture above only proves a file exists. These checks verify the
+    # SHIPPED vector index: that its header agrees with its metadata, that the
+    # calibration is complete, that the gallery really holds one or more
+    # references per place, and that the encoder is bound to the pack.
+    vision_bin = root / 'content/vision/reference_vectors.bin'
+    vision_meta = root / 'content/vision/reference_vectors.meta.json'
+    if vision_bin.is_file() and vision_meta.is_file():
+        import json as _json
+        import struct as _struct
+        try:
+            meta = _json.loads(vision_meta.read_text(encoding='utf-8'))
+            raw = vision_bin.read_bytes()
+            magic = raw[:8].decode('ascii', 'replace')
+            if magic == 'TWVEC002':
+                (_m, _v, _crc, dim, num_pos, num_neg, num_places, flags, _res) = _struct.unpack('<8sIIIIIIII', raw[:40])
+                # flags bit 1 = the CSLS local-scale section: one float32 per
+                # gallery vector (the place references first, then the bank).
+                scale_count = 0
+                if flags & 2:
+                    scale_count = int((meta.get('local_scale') or {}).get('count', 0))
+                expected_bytes = 40 + (num_pos + num_neg) * dim * 4 + scale_count * 4
+                places = meta.get('places', [])
+                protos = sum(int(p.get('prototype_count', 0)) for p in places)
+                cal = meta.get('calibration', {}) or {}
+                complete = all(k in cal for k in ('accept_threshold', 'relative_threshold',
+                                                   'hard_negative_margin', 'sibling_margin',
+                                                   'min_margin', 'top_k_mean'))
+                problems = []
+                if len(raw) != expected_bytes:
+                    problems.append(f'body size {len(raw)} != expected {expected_bytes}')
+                if flags & 2 and scale_count != num_pos + num_neg:
+                    problems.append(f'local scale holds {scale_count} values for '
+                                    f'{num_pos + num_neg} gallery vectors')
+                if protos != num_pos:
+                    problems.append(f'metadata prototypes {protos} != header {num_pos}')
+                if len(places) != num_places:
+                    problems.append(f'metadata places {len(places)} != header {num_places}')
+                if len(meta.get('negatives', [])) != num_neg:
+                    problems.append(f'metadata negatives != header {num_neg}')
+                if not complete:
+                    problems.append('calibration is incomplete - the scanner must refuse to name places')
+                if not meta.get('model_sha256'):
+                    problems.append('no encoder digest - the pack is not bound to an encoder')
+                if problems:
+                    checks['vision_index'] = status('FAIL', '; '.join(problems))
+                else:
+                    checks['vision_index'] = status('PASS',
+                        f'TWVEC002 float32 index: {num_places} places, {num_pos} reference vectors, '
+                        f'{num_neg} negatives, dim={dim}, calibration complete, encoder bound '
+                        f'({meta.get("model_sha256", "")[:12]}…)')
+        except Exception as e:
+            checks['vision_index'] = status('FAIL', f'vision index unreadable: {e}')
+    else:
+        checks['vision_index'] = status('UNVERIFIED', 'content/vision/reference_vectors.bin(.meta.json) not found')
 
     # --- Demo key ---
     demo = root/'keys/demo_ed25519.pem'
