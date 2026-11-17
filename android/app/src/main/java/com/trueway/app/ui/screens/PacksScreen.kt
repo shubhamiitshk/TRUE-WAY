@@ -42,6 +42,8 @@ import com.trueway.app.data.PackChangelog
 import com.trueway.app.pack.PackImportResultLabels
 import com.trueway.app.pack.PackInstallResult
 import com.trueway.app.pack.PackImporter
+import com.trueway.app.pack.PackDownloader
+import com.trueway.app.pack.PackPublisherTrust
 import com.trueway.app.pack.PrefsActivePackStore
 import com.trueway.app.touchpoint.OtaPartners
 import com.trueway.app.touchpoint.PackNames
@@ -77,6 +79,16 @@ fun PacksScreen(
     val lastRedemption = remember(activeTick) {
         PrefsOtaEntitlementStore(context).lastRedemption()
     }
+    val entitledMissing = remember(activeTick) {
+        val entitlements = PrefsOtaEntitlementStore(context).unlockedPackIds()
+        entitlements.filterNot { packId ->
+            val dir = File(packsDir, packId)
+            dir.isDirectory && dir.list()?.isNotEmpty() == true
+        }
+    }
+    var downloadState by remember { mutableStateOf<PackDownloader.Result?>(null) }
+    var downloading by remember { mutableStateOf(false) }
+    var downloadProgress by remember { mutableStateOf<PackDownloader.Progress?>(null) }
 
     val picker = rememberLauncherForActivityResult(
         ActivityResultContracts.OpenDocument(),
@@ -96,7 +108,7 @@ fun PacksScreen(
                     // Trust: load pinned publisher keys from assets. In release
                     // builds, only these keys are trusted. In debug builds,
                     // demo-signed packs are also accepted (always labelled as demo).
-                    val trust = loadPublisherTrust(context)
+                    val trust = PackPublisherTrust.load(context)
                     PackImporter.onBeforePackDirectorySwap = { packDir ->
                         com.trueway.app.data.PlaceRepository.evictPackDirectory(packDir)
                         com.trueway.app.pack.PackMediaResolver(context).evictPackCache(packDir)
@@ -159,6 +171,78 @@ fun PacksScreen(
                         Text(
                             "${PackNames.displayName(redemption.packId)} Unlocked & Ready Offline",
                             style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                }
+            }
+        }
+
+        // Entitled-but-not-installed packs (e.g. OTA voucher scanned for an
+        // expansion corridor): one tap downloads, verifies and activates.
+        for (packId in entitledMissing) {
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                shape = MaterialTheme.shapes.medium,
+                color = MaterialTheme.colorScheme.secondaryContainer,
+            ) {
+                Column(
+                    modifier = Modifier.padding(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Text(
+                        "🎁 ${PackNames.displayName(packId)} unlocked by your voucher — not yet on device",
+                        style = MaterialTheme.typography.titleSmall,
+                    )
+                    downloadProgress?.let { dp ->
+                        if (downloading) {
+                            Text(
+                                "Downloading… ${dp.fetchedComponents}/${dp.totalComponents} components (${dp.bytesDownloaded / 1024} KB)",
+                                style = MaterialTheme.typography.bodySmall,
+                            )
+                        }
+                    }
+                    OutlinedButton(
+                        onClick = {
+                            downloading = true
+                            downloadProgress = null
+                            downloadState = null
+                            PackImporter.onBeforePackDirectorySwap = { packDir ->
+                                com.trueway.app.data.PlaceRepository.evictPackDirectory(packDir)
+                                com.trueway.app.pack.PackMediaResolver(context).evictPackCache(packDir)
+                            }
+                            scope.launch {
+                                val result = PackDownloader.downloadAndInstall(
+                                    context = context,
+                                    packId = packId,
+                                    version = PackDownloader.ENTITLED_PACK_VERSION,
+                                    allowDemo = BuildConfig.DEBUG,
+                                    onProgress = { downloadProgress = it },
+                                )
+                                downloading = false
+                                downloadState = result
+                                if (result is PackDownloader.Result.Active) {
+                                    com.trueway.app.data.PlaceRepository.initForPackDir(context)
+                                    activeTick++
+                                }
+                            }
+                        },
+                        enabled = !downloading,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(if (downloading) "Downloading…" else "Download now (Wi-Fi recommended)")
+                    }
+                    downloadState?.let { res ->
+                        Text(
+                            when (res) {
+                                is PackDownloader.Result.Active -> "✅ ${PackNames.displayName(packId)} installed and ready offline"
+                                is PackDownloader.Result.Failed -> "Download failed (${res.stage}): ${res.detail}"
+                            },
+                            style = MaterialTheme.typography.bodySmall,
+                            color = if (res is PackDownloader.Result.Active) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.error
+                            },
                         )
                     }
                 }
@@ -366,31 +450,8 @@ private fun StatusRow(label: String, modifier: Modifier = Modifier) {
 }
 
 /**
- * Loads pinned publisher Ed25519 public keys from assets/publisher_keys.json.
- * Returns an empty map if the file is missing or malformed — in that case,
- * only demo-signed packs will be accepted (debug builds only).
+ * Publisher trust is loaded via `PackPublisherTrust.load(context)` (shared with
+ * the in-app pack downloader). The old private helper lived here; it was
+ * extracted to `pack/PackPublisherTrust.kt` unchanged.
  */
-private fun loadPublisherTrust(context: android.content.Context): Map<String, ByteArray> {
-    return try {
-        val json = context.assets.open("publisher_keys.json").bufferedReader().use { it.readText() }
-        val obj = org.json.JSONObject(json)
-        val keys = obj.optJSONArray("keys") ?: return emptyMap()
-        val trust = mutableMapOf<String, ByteArray>()
-        for (i in 0 until keys.length()) {
-            val entry = keys.optJSONObject(i) ?: continue
-            val keyId = entry.optString("key_id").takeIf { it.isNotBlank() } ?: continue
-            val pubB64 = entry.optString("pubkey_b64").takeIf { it.isNotBlank() } ?: continue
-            val pub = try {
-                android.util.Base64.decode(pubB64, android.util.Base64.DEFAULT)
-            } catch (_: Exception) {
-                continue
-            }
-            if (pub.size == 32) {
-                trust[keyId] = pub
-            }
-        }
-        trust
-    } catch (_: Exception) {
-        emptyMap()
-    }
-}
+

@@ -42,6 +42,7 @@ import com.trueway.app.R
 import com.trueway.app.data.PlaceRepository
 import com.trueway.app.pack.PackImporter
 import com.trueway.app.pack.PackVerifyResult
+import com.trueway.app.pack.PackDownloader
 import com.trueway.app.pack.PrefsActivePackStore
 import com.trueway.app.touchpoint.OtaVoucherParser
 import com.trueway.app.touchpoint.OtaVoucherReject
@@ -370,7 +371,7 @@ private fun QrOutcomeCard(
                                 // set the entitled pack active, then let the caller navigate.
                                 val store = PrefsOtaEntitlementStore(context)
                                 OtaVoucherRedeemer.redeem(payload, store)
-                                PrefsActivePackStore(context).setActive(payload.packId, ENTITLED_PACK_VERSION)
+                                PrefsActivePackStore(context).setActive(payload.packId, PackDownloader.ENTITLED_PACK_VERSION)
                                 onVoucherRedeemed(payload.packId)
                             },
                             modifier = Modifier.fillMaxWidth(),
@@ -434,6 +435,6 @@ private fun QrOutcomeCard(
     }
 }
 
+
 // Keep the analyzer import referenced for lint stability across build types.
-// Pack version activated when an OTA voucher entitles a pack (matches dist/*.twpkg builds).
-private const val ENTITLED_PACK_VERSION = "2026.11.1"
+
