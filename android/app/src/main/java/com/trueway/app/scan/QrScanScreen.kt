@@ -40,32 +40,60 @@ import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 import com.trueway.app.R
 import com.trueway.app.data.PlaceRepository
+import com.trueway.app.pack.PackImporter
+import com.trueway.app.pack.PackVerifyResult
+import com.trueway.app.pack.PrefsActivePackStore
+import com.trueway.app.touchpoint.OtaVoucherParser
+import com.trueway.app.touchpoint.OtaVoucherReject
+import com.trueway.app.touchpoint.OtaVoucherResult
+import com.trueway.app.touchpoint.OtaVoucherRedeemer
+import com.trueway.app.touchpoint.OtaVoucherVerifier
 import com.trueway.app.touchpoint.TouchpointParser
 import com.trueway.app.touchpoint.TouchpointReject
 import com.trueway.app.touchpoint.TouchpointResult
 import com.trueway.app.touchpoint.TouchpointVerifier
+import java.io.File
 
 /**
- * Signed site-code scanner (blueprint §11, F014; TOUCH-033…036).
- * ML Kit reads QR codes; ONLY `tw://place/v1/…` payloads and TrueWay JSON
- * envelopes are parsed — URLs and WiFi tags are ignored and never launched.
- * A valid signature authenticates the payload's publisher, NOT the plate's
- * physical placement: the verified card always shows human label + plate
- * serial with a report-mismatch route (TOUCH-036).
+ * Represents the outcome of scanning a QR code.
+ * Can be either a touchpoint result or an OTA voucher result.
+ */
+sealed interface ScanOutcome {
+    data class Touchpoint(val result: TouchpointResult) : ScanOutcome
+    data class OtaVoucher(val result: OtaVoucherResult) : ScanOutcome
+    data class UnknownFormat(val rawText: String) : ScanOutcome
+}
+
+/**
+ * Signed site-code and OTA voucher scanner (blueprint §11, F014; TOUCH-033…036).
+ * ML Kit reads QR codes; ONLY `tw://place/v1/…` touchpoint payloads,
+ * `trueway://voucher/v1/…` OTA vouchers, and TrueWay JSON envelopes are parsed —
+ * URLs and WiFi tags are ignored and never launched.
+ *
+ * - Touchpoint: verifies Ed25519 signature against touchpoint trust store,
+ *   resolves place_id against installed corpus.
+ * - OTA Voucher: verifies Ed25519 signature against OTA partner trust store,
+ *   unlocks the specified pack (Viator, Klook, MakeMyTrip, etc.).
+ *
+ * Both paths work 100% offline (no network requests).
  */
 @Composable
 fun QrScanScreen(
     onOpenPlace: (String) -> Unit,
     onSearchInstead: () -> Unit,
     onBack: () -> Unit,
+    onVoucherRedeemed: (String) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
-    var outcome by remember { mutableStateOf<TouchpointResult?>(null) }
+    var outcome by remember { mutableStateOf<ScanOutcome?>(null) }
 
-    val trust = remember {
+    val touchpointTrust = remember {
         TouchpointVerifier.loadTrustStore(context)
+    }
+    val otaPartnerTrust = remember {
+        OtaVoucherVerifier.loadPartnerTrustStore(context)
     }
     val previewView = remember {
         PreviewView(context).apply { scaleType = PreviewView.ScaleType.FILL_CENTER }
@@ -113,12 +141,7 @@ fun QrScanScreen(
                     .addOnSuccessListener { codes ->
                         val raw = codes.firstOrNull()?.rawValue
                         if (raw != null && outcome == null) {
-                            val parts = TouchpointParser.parseQrText(raw)
-                            outcome = if (parts == null) {
-                                TouchpointResult.Invalid(TouchpointReject.NOT_A_TOUCHPOINT)
-                            } else {
-                                TouchpointVerifier.verify(parts.first, parts.second, trust)
-                            }
+                            outcome = processScannedCode(raw, touchpointTrust, otaPartnerTrust)
                         }
                     }
                     .addOnCompleteListener { proxy.close() }
@@ -154,9 +177,43 @@ fun QrScanScreen(
                 onSearchInstead = onSearchInstead,
                 onBack = onBack,
                 onRescan = { outcome = null },
+                onVoucherRedeemed = onVoucherRedeemed,
             )
         }
     }
+}
+
+/**
+ * Processes a scanned QR code and routes it to the appropriate verifier.
+ * Detects whether the code is a touchpoint or an OTA voucher based on the prefix.
+ */
+private fun processScannedCode(
+    raw: String,
+    touchpointTrust: List<com.trueway.app.touchpoint.TrustedIssuer>,
+    otaPartnerTrust: List<com.trueway.app.touchpoint.OtaPartnerKey>,
+): ScanOutcome {
+    val trimmed = raw.trim()
+
+    // Check for touchpoint scheme
+    if (trimmed.startsWith("tw://place/v1/") || trimmed.startsWith("{")) {
+        val parts = TouchpointParser.parseQrText(trimmed)
+        if (parts != null) {
+            val result = TouchpointVerifier.verify(parts.first, parts.second, touchpointTrust)
+            return ScanOutcome.Touchpoint(result)
+        }
+    }
+
+    // Check for OTA voucher scheme
+    if (trimmed.startsWith("trueway://voucher/v1/") || trimmed.startsWith("{")) {
+        val parts = OtaVoucherParser.parseQrText(trimmed)
+        if (parts != null) {
+            val result = OtaVoucherVerifier.verify(parts.first, parts.second, otaPartnerTrust)
+            return ScanOutcome.OtaVoucher(result)
+        }
+    }
+
+    // Unknown format - not a touchpoint or OTA voucher
+    return ScanOutcome.UnknownFormat(raw)
 }
 
 @Composable
@@ -188,82 +245,177 @@ private fun QrHintOverlay(modifier: Modifier = Modifier) {
 
 @Composable
 private fun QrOutcomeCard(
-    outcome: TouchpointResult,
+    outcome: ScanOutcome,
     onOpenPlace: (String) -> Unit,
     onSearchInstead: () -> Unit,
     onBack: () -> Unit,
     onRescan: () -> Unit,
+    onVoucherRedeemed: (String) -> Unit = {},
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
     ) {
         when (outcome) {
-            is TouchpointResult.Valid -> {
-                val place = PlaceRepository.get(outcome.payload.placeId)
-                Text(
-                    stringResource(R.string.qr_verified_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    textAlign = TextAlign.Center,
-                )
-                Text(
-                    stringResource(R.string.qr_verified_body, outcome.payload.issuerId),
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Center,
-                )
-                if (place != null) {
-                    Text(place.canonicalName, style = MaterialTheme.typography.titleLarge)
-                }
-                outcome.payload.humanLabel?.let {
-                    Text(it, style = MaterialTheme.typography.bodyMedium)
-                }
-                outcome.payload.siteSerial?.let {
-                    Text(
-                        stringResource(R.string.qr_serial, it),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Text(
-                    stringResource(R.string.qr_mismatch),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                )
-                if (place != null) {
-                    Button(
-                        onClick = { onOpenPlace(place.placeId) },
-                        modifier = Modifier.fillMaxWidth(),
-                    ) { Text(stringResource(R.string.scan_view_card)) }
+            is ScanOutcome.Touchpoint -> {
+                when (val tpResult = outcome.result) {
+                    is TouchpointResult.Valid -> {
+                        val place = PlaceRepository.get(tpResult.payload.placeId)
+                        Text(
+                            stringResource(R.string.qr_verified_title),
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            stringResource(R.string.qr_verified_body, tpResult.payload.issuerId),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        if (place != null) {
+                            Text(place.canonicalName, style = MaterialTheme.typography.titleLarge)
+                        }
+                        tpResult.payload.humanLabel?.let {
+                            Text(it, style = MaterialTheme.typography.bodyMedium)
+                        }
+                        tpResult.payload.siteSerial?.let {
+                            Text(
+                                stringResource(R.string.qr_serial, it),
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        Text(
+                            stringResource(R.string.qr_mismatch),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center,
+                        )
+                        if (place != null) {
+                            Button(
+                                onClick = { onOpenPlace(place.placeId) },
+                                modifier = Modifier.fillMaxWidth(),
+                            ) { Text(stringResource(R.string.scan_view_card)) }
+                        }
+                    }
+                    is TouchpointResult.ValidUnknownPlace -> {
+                        Text(
+                            stringResource(R.string.qr_unknown_place_title),
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            stringResource(R.string.qr_unknown_place_body, tpResult.payload.packId),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                    is TouchpointResult.Invalid -> {
+                        Text(
+                            stringResource(R.string.qr_unverified_title),
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            if (tpResult.reason == TouchpointReject.EXPIRED) {
+                                stringResource(R.string.qr_expired_body)
+                            } else {
+                                stringResource(R.string.qr_unverified_body)
+                            },
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
                 }
             }
-            is TouchpointResult.ValidUnknownPlace -> {
-                Text(
-                    stringResource(R.string.qr_unknown_place_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    textAlign = TextAlign.Center,
-                )
-                Text(
-                    stringResource(R.string.qr_unknown_place_body, outcome.payload.packId),
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Center,
-                )
+            is ScanOutcome.OtaVoucher -> {
+                when (val voucherResult = outcome.result) {
+                    is OtaVoucherResult.Valid -> {
+                        val payload = voucherResult.payload
+                        Text(
+                            "OTA Voucher Redeemed!",
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Voucher ID: ${payload.voucherId}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Partner: ${payload.otaPartner.replaceFirstChar { it.uppercase() }}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Pack: ${payload.packId}",
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        if (payload.expiresAt != null) {
+                            Text(
+                                "Valid until: ${payload.expiresAt}",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                        Button(
+                            onClick = {
+                                // Redeem the voucher and activate the pack
+                                OtaVoucherRedeemer.redeem(payload)
+                                onVoucherRedeemed(payload.packId)
+                            },
+                            modifier = Modifier.fillMaxWidth(),
+                        ) { Text("Activate Pack") }
+                    }
+                    is OtaVoucherResult.AlreadyRedeemed -> {
+                        Text(
+                            "Voucher Already Redeemed",
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "This voucher has already been activated on this device.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            "Voucher ID: ${outcome.result.payload.voucherId}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    is OtaVoucherResult.Invalid -> {
+                        Text(
+                            "Invalid OTA Voucher",
+                            style = MaterialTheme.typography.headlineSmall,
+                            textAlign = TextAlign.Center,
+                        )
+                        Text(
+                            when (voucherResult.reason) {
+                                OtaVoucherReject.EXPIRED -> "This voucher has expired."
+                                OtaVoucherReject.UNKNOWN_PARTNER -> "Unknown OTA partner."
+                                OtaVoucherReject.BAD_SIGNATURE -> "Invalid voucher signature."
+                                OtaVoucherReject.UNKNOWN_PACK -> "Pack not available."
+                                else -> "This voucher could not be verified."
+                            },
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                    }
+                }
             }
-            is TouchpointResult.Invalid -> {
+            is ScanOutcome.UnknownFormat -> {
                 Text(
-                    stringResource(R.string.qr_unverified_title),
+                    "Unrecognized QR Code",
                     style = MaterialTheme.typography.headlineSmall,
                     textAlign = TextAlign.Center,
                 )
                 Text(
-                    if (outcome.reason == TouchpointReject.EXPIRED) {
-                        stringResource(R.string.qr_expired_body)
-                    } else {
-                        stringResource(R.string.qr_unverified_body)
-                    },
+                    "This QR code is not a TrueWay touchpoint or OTA voucher.",
                     style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Center,
                 )

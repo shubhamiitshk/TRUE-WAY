@@ -1,0 +1,19 @@
+{
+  "partners": [
+    {
+      "partner_id": "viator",
+      "key_id": "viator-prod-2026",
+      "pubkey_b64u": "vNkTamSSPO9PcyGehnWIdGfzBHh5HOCVRxCy5ZpmwS4"
+    },
+    {
+      "partner_id": "klook",
+      "key_id": "klook-prod-2026",
+      "pubkey_b64u": "rTcZ75-TzR0JJO2E0KE6cmaex0Glq0bJS_4pkTEMMGk"
+    },
+    {
+      "partner_id": "makemytrip",
+      "key_id": "mmt-prod-2026",
+      "pubkey_b64u": "2iY9xTKSTehLtymsGbKkeR7mvFtfTAqEDhHPSmP-w-w"
+    }
+  ]
+}

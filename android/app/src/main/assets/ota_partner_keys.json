@@ -1,0 +1,35 @@
+{
+  "partners": [
+    {
+      "partner_id": "viator",
+      "key_id": "viator-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_VIATOR_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    },
+    {
+      "partner_id": "klook",
+      "key_id": "klook-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_KLOOK_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    },
+    {
+      "partner_id": "makemytrip",
+      "key_id": "mmt-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_MMT_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    },
+    {
+      "partner_id": "easyonemytip",
+      "key_id": "emt-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_EMT_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    },
+    {
+      "partner_id": "tripcom",
+      "key_id": "tripcom-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_TRIPCOM_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    },
+    {
+      "partner_id": "booking",
+      "key_id": "booking-prod-2026",
+      "pubkey_b64u": "PLACEHOLDER_BOOKING_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP"
+    }
+  ],
+  "_comment": "Placeholder trust store for OTA partners. Replace PLACEHOLDER_*_PUBKEY_WILL_BE_ADDED_AFTER_PARTNER_SETUP with actual 32-byte Ed25519 public keys (base64url encoded) after partner setup. Each partner's public key will be provided during the partnership onboarding process."
+}
