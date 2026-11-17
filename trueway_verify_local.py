@@ -34,21 +34,21 @@ PROFILES = {
     'p0-core': {
         'description': 'Offline packs, trusted sources, search, QR, journal, security',
         'must_pass': ['jvm_tests', 'apk', 'offline_pack_components', 'audio_player_source', 'vision_index'],
-        'can_review': ['offline_audio_assets', 'then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key'],
+        'can_review': ['offline_audio_assets', 'then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key', 'ota_partner_keys'],
     },
     'p1a-audio': {
         'description': 'Real audio assets, language mapping, verified pack resolution, playback',
         'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'audio_player_source', 'vision_index'],
-        'can_review': ['then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key'],
+        'can_review': ['then_now_images', 'rights_registry', 'synthetic_fixture', 'demo_signing_key', 'ota_partner_keys'],
     },
     'p1a-archive': {
         'description': 'Three actual image pairs, verified rights, offline rendering',
         'must_pass': ['jvm_tests', 'apk', 'then_now_images', 'rights_registry', 'vision_index'],
-        'can_review': ['offline_audio_assets', 'synthetic_fixture', 'demo_signing_key'],
+        'can_review': ['offline_audio_assets', 'synthetic_fixture', 'demo_signing_key', 'ota_partner_keys'],
     },
     'production': {
         'description': 'All features advertised for that release, device acceptance, signing',
-        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'then_now_images', 'offline_pack_components', 'audio_player_source', 'rights_registry', 'vision_index'],
+        'must_pass': ['jvm_tests', 'apk', 'offline_audio_assets', 'then_now_images', 'offline_pack_components', 'audio_player_source', 'rights_registry', 'vision_index', 'ota_partner_keys'],
         'can_review': ['synthetic_fixture', 'demo_signing_key'],
     },
 }
@@ -363,6 +363,31 @@ def inspect(root, profile=None):
     demo = root/'keys/demo_ed25519.pem'
     checks['demo_signing_key'] = status('REVIEW' if demo.exists() else 'INFO',
         'Demo private key present. Check it is never trusted for production.' if demo.exists() else 'No demo key at the reported path; production trust not established.')
+
+    # --- OTA partner keys (production release blocker) ---
+    ota_keys = root / 'android' / 'app' / 'src' / 'main' / 'assets' / 'ota_partner_keys.json'
+    try:
+        if not ota_keys.is_file():
+            checks['ota_partner_keys'] = status(
+                'BLOCKED',
+                'OTA partner key store missing — OTA voucher redemption cannot work in a release.')
+        else:
+            raw_keys = ota_keys.read_text(encoding='utf-8')
+            partner_count = raw_keys.count('"partner_id"')
+            if 'PLACEHOLDER' in raw_keys or partner_count == 0:
+                checks['ota_partner_keys'] = status(
+                    'BLOCKED',
+                    'OTA partner key store contains placeholder keys — OTA voucher redemption will '
+                    'reject ALL partner vouchers (fail-closed). Install real partner Ed25519 public '
+                    'keys in android/app/src/main/assets/ota_partner_keys.json before any release.',
+                    partner_count=partner_count)
+            else:
+                checks['ota_partner_keys'] = status(
+                    'PASS',
+                    f'OTA partner trust store: {partner_count} partner key(s) installed',
+                    partner_count=partner_count)
+    except Exception as e:
+        checks['ota_partner_keys'] = status('BLOCKED', f'OTA partner key store unreadable: {e}')
 
     # --- Profile-specific evaluation ---
     if profile and profile in PROFILES:
