@@ -84,7 +84,7 @@ class OtaEntitlementStoreTest {
         assertEquals("unknown-partner", OtaPartners.displayName("unknown-partner"))
         assertEquals("Bihar Buddhist Circuit", PackNames.displayName("in-bihar-buddhist-circuit"))
         assertEquals("India Golden Triangle", PackNames.displayName("in-golden-triangle"))
-        assertEquals("World Icons Tier 1", PackNames.displayName("world-icons-tier1"))
+        assertEquals("World Icons Tier 1", PackNames.displayName("global-icons-tier1"))
         assertEquals("some-pack", PackNames.displayName("some-pack"))
         assertNull(null)
     }

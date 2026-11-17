@@ -26,8 +26,14 @@ object PackDownloader {
     private const val CONNECT_TIMEOUT_MS = 10_000
     private const val READ_TIMEOUT_MS = 30_000
 
-    /** Pack version an OTA entitlement unlocks (matches the dist pack builds). */
-    const val ENTITLED_PACK_VERSION = "2026.11.1"
+    /**
+     * Pack version an OTA entitlement unlocks. The CDN catalog (pack-builder/catalog.json)
+     * registers the flat dist pack archives (release_version 2026.10.1); the 2026.11.1 rebuilds are nested in
+     * same-named directories and are NOT served yet. Bump to 2026.11.1 once they are
+     * flattened + re-registered in the catalog. GT/global-icons packs are also
+     * unverified content until the candidate corpora pass human review.
+     */
+    const val ENTITLED_PACK_VERSION = "2026.10.1"
 
     /** Default distribution origin. Swap for staging by setting [TRUEWAY_BASE_URL]. */
     const val TRUEWAY_BASE_URL = "https://trueway.travel"

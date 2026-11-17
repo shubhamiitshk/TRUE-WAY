@@ -139,7 +139,7 @@ object PackNames {
     fun displayName(packId: String): String = when (packId.lowercase()) {
         "in-bihar-buddhist-circuit" -> "Bihar Buddhist Circuit"
         "in-golden-triangle" -> "India Golden Triangle"
-        "world-icons-tier1" -> "World Icons Tier 1"
+        "global-icons-tier1" -> "World Icons Tier 1"
         else -> packId
     }
 }
