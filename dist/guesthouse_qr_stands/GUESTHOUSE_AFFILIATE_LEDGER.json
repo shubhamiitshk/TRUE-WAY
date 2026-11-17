@@ -1,0 +1,87 @@
+{
+  "program": "TrueWay Bodh Gaya Guesthouse Affiliate Network",
+  "standard_split": "70% TrueWay / 30% Partner",
+  "payout_schedule": "Bi-weekly via UPI / Bank Transfer",
+  "partners": [
+    {
+      "id": "BG-01",
+      "name": "Root Institute for Wisdom Culture",
+      "code": "ROOT30",
+      "contact_type": "Monastery Retreat Center",
+      "payout_rate": "30%",
+      "manager": "Reception Desk"
+    },
+    {
+      "id": "BG-02",
+      "name": "The Royal Residency",
+      "code": "ROYAL30",
+      "contact_type": "Heritage Hotel",
+      "payout_rate": "30%",
+      "manager": "Concierge"
+    },
+    {
+      "id": "BG-03",
+      "name": "Zostel Bodh Gaya",
+      "code": "ZOSTEL30",
+      "contact_type": "Backpacker Hostel",
+      "payout_rate": "30%",
+      "manager": "Community Lead"
+    },
+    {
+      "id": "BG-04",
+      "name": "Buddha Garden Guest House",
+      "code": "BGARDEN30",
+      "contact_type": "Boutique Lodge",
+      "payout_rate": "30%",
+      "manager": "Front Desk"
+    },
+    {
+      "id": "BG-05",
+      "name": "Hotel Tathagata International",
+      "code": "TATHAGATA30",
+      "contact_type": "Pilgrim Hotel",
+      "payout_rate": "30%",
+      "manager": "Operations"
+    },
+    {
+      "id": "BG-06",
+      "name": "Maya Heritage Hotel",
+      "code": "MAYA30",
+      "contact_type": "Premium Hotel",
+      "payout_rate": "30%",
+      "manager": "Guest Relations"
+    },
+    {
+      "id": "BG-07",
+      "name": "Bodhgaya Regency Hotel",
+      "code": "REGENCY30",
+      "contact_type": "Commercial Hotel",
+      "payout_rate": "30%",
+      "manager": "Front Desk"
+    },
+    {
+      "id": "BG-08",
+      "name": "Oaks Bodhgaya",
+      "code": "OAKS30",
+      "contact_type": "International Hotel",
+      "payout_rate": "30%",
+      "manager": "Travel Desk"
+    },
+    {
+      "id": "BG-09",
+      "name": "Niranjana Hotel & Retreat",
+      "code": "NIRANJANA30",
+      "contact_type": "Riverside Retreat",
+      "payout_rate": "30%",
+      "manager": "Reception"
+    },
+    {
+      "id": "BG-10",
+      "name": "Welcome Guest House",
+      "code": "WELCOME30",
+      "contact_type": "Budget Guesthouse",
+      "payout_rate": "30%",
+      "manager": "Host"
+    }
+  ]
+}
