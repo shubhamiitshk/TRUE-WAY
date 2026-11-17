@@ -308,33 +308,29 @@ object OtaVoucherVerifier {
 }
 
 /**
- * Redeems an OTA voucher and activates the specified pack.
- * This is called after successful voucher verification.
+ * Redeems an OTA voucher and records the pack entitlement.
+ *
+ * Redemptions persist in the provided [OtaEntitlementStore] (SharedPreferences
+ * in production, in-memory in tests), so double-redemption is refused even
+ * after process death. The actual pack activation pointer is managed via
+ * `PrefsActivePackStore` by the caller (or the Packs screen).
  */
 object OtaVoucherRedeemer {
     /**
-     * Track redeemed vouchers to prevent double-redemption.
-     * In production, this would be backed by Room database.
+     * Redeem a voucher and return the outcome.
+     * Valid when the voucher is redeemed (or already redeemed on this device);
+     * the caller decides how to activate the entitled pack.
      */
-    private val redeemedVouchers = mutableSetOf<String>()
-
-    fun isRedeemed(voucherId: String): Boolean {
-        return redeemedVouchers.contains(voucherId)
-    }
-
-    fun markRedeemed(voucherId: String) {
-        redeemedVouchers.add(voucherId)
-    }
-
-    /**
-     * Redeem a voucher and return the pack ID to activate.
-     * The actual pack activation would be done by the caller using PackImporter.
-     */
-    fun redeem(voucher: OtaVoucherPayload): OtaVoucherResult {
-        if (isRedeemed(voucher.voucherId)) {
-            return OtaVoucherResult.AlreadyRedeemed(voucher)
+    fun redeem(voucher: OtaVoucherPayload, store: OtaEntitlementStore): OtaVoucherResult {
+        val ok = store.redeem(
+            voucherId = voucher.voucherId,
+            packId = voucher.packId,
+            otaPartner = voucher.otaPartner,
+        )
+        return if (ok) {
+            OtaVoucherResult.Valid(voucher)
+        } else {
+            OtaVoucherResult.AlreadyRedeemed(voucher)
         }
-        markRedeemed(voucher.voucherId)
-        return OtaVoucherResult.Valid(voucher)
     }
 }

@@ -43,6 +43,9 @@ import com.trueway.app.pack.PackImportResultLabels
 import com.trueway.app.pack.PackInstallResult
 import com.trueway.app.pack.PackImporter
 import com.trueway.app.pack.PrefsActivePackStore
+import com.trueway.app.touchpoint.OtaPartners
+import com.trueway.app.touchpoint.PackNames
+import com.trueway.app.touchpoint.PrefsOtaEntitlementStore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -70,6 +73,9 @@ fun PacksScreen(
     val activeStore = remember { PrefsActivePackStore(context) }
     val activeVersion = remember(activeTick) {
         activeStore.getActive("in-bihar-buddhist-circuit")
+    }
+    val lastRedemption = remember(activeTick) {
+        PrefsOtaEntitlementStore(context).lastRedemption()
     }
 
     val picker = rememberLauncherForActivityResult(
@@ -132,6 +138,32 @@ fun PacksScreen(
             text = stringResource(R.string.packs_title),
             style = MaterialTheme.typography.headlineSmall,
         )
+
+        lastRedemption?.let { redemption ->
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                shape = MaterialTheme.shapes.medium,
+                color = MaterialTheme.colorScheme.primaryContainer,
+            ) {
+                Row(
+                    modifier = Modifier.padding(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    Text("✅", style = MaterialTheme.typography.headlineSmall)
+                    Column {
+                        Text(
+                            "${OtaPartners.displayName(redemption.otaPartner)} Voucher Redeemed:",
+                            style = MaterialTheme.typography.titleSmall,
+                        )
+                        Text(
+                            "${PackNames.displayName(redemption.packId)} Unlocked & Ready Offline",
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                }
+            }
+        }
 
         Icon(
             imageVector = Icons.Outlined.CloudDownload,

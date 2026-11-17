@@ -48,6 +48,7 @@ import com.trueway.app.touchpoint.OtaVoucherReject
 import com.trueway.app.touchpoint.OtaVoucherResult
 import com.trueway.app.touchpoint.OtaVoucherRedeemer
 import com.trueway.app.touchpoint.OtaVoucherVerifier
+import com.trueway.app.touchpoint.PrefsOtaEntitlementStore
 import com.trueway.app.touchpoint.TouchpointParser
 import com.trueway.app.touchpoint.TouchpointReject
 import com.trueway.app.touchpoint.TouchpointResult
@@ -253,6 +254,7 @@ private fun QrOutcomeCard(
     onVoucherRedeemed: (String) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -364,8 +366,11 @@ private fun QrOutcomeCard(
                         }
                         Button(
                             onClick = {
-                                // Redeem the voucher and activate the pack
-                                OtaVoucherRedeemer.redeem(payload)
+                                // Persist the redemption + entitlement (survives process death),
+                                // set the entitled pack active, then let the caller navigate.
+                                val store = PrefsOtaEntitlementStore(context)
+                                OtaVoucherRedeemer.redeem(payload, store)
+                                PrefsActivePackStore(context).setActive(payload.packId, ENTITLED_PACK_VERSION)
                                 onVoucherRedeemed(payload.packId)
                             },
                             modifier = Modifier.fillMaxWidth(),
@@ -430,3 +435,5 @@ private fun QrOutcomeCard(
 }
 
 // Keep the analyzer import referenced for lint stability across build types.
+// Pack version activated when an OTA voucher entitles a pack (matches dist/*.twpkg builds).
+private const val ENTITLED_PACK_VERSION = "2026.11.1"
