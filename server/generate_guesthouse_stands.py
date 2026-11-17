@@ -2,15 +2,47 @@
 
 Seeds initial Bodh Gaya partner guesthouses and generates personalized,
 print-ready HTML cards ready for acrylic stands at hotel check-in desks.
+
+The QR codes are REAL (segno) and encode:
+  $TRUEWAY_AFF_BASE_URL?aff=<AFFILIATE_ID>&src=standee
+(default base: https://trueway.travel/dl)
+
+IMPORTANT — DO NOT PRINT until:
+1. The base domain is registered and resolves to a landing page that redirects
+   Android -> Play Store and iPhone -> App Store, forwarding the aff/src params
+   (or set TRUEWAY_AFF_BASE_URL to your live URL when regenerating).
+2. The Play Store listing exists (or adjust the base URL accordingly).
+3. You have replaced the placeholder phone/UPI details with real ones.
+The generated stand will scan to a dead link otherwise.
 """
 from __future__ import annotations
 
+import io
 import json
+import os
 from pathlib import Path
+
+import segno
+
 from affiliates import Affiliate, AffiliateManager
 
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / "content" / "field" / "stands"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+AFF_BASE_URL = os.environ.get("TRUEWAY_AFF_BASE_URL", "https://trueway.travel/dl")
+
+
+def affiliate_url(affiliate_id: str) -> str:
+    sep = "&" if "?" in AFF_BASE_URL else "?"
+    return f"{AFF_BASE_URL}{sep}aff={affiliate_id}&src=standee"
+
+
+def qr_svg(url: str, scale: int = 6) -> str:
+    """Generate a REAL, scannable QR code as inline SVG."""
+    qr = segno.make(url, error="m")
+    buf = io.BytesIO()
+    qr.save(buf, kind="svg", scale=scale, dark="#1C2331", light="#FFFFFF", border=1)
+    return buf.getvalue().decode("utf-8")
 
 TOP_GUESTHOUSES = [
     {
@@ -187,6 +219,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       font-size: 12.5px;
     }}
     .feature-card strong {{ color: var(--terracotta); display: block; margin-bottom: 2px; }}
+    .qr-code svg {{ display: block; width: 100%; height: 100%; }}
     .staff-footer {{
       border-top: 1px dashed var(--border);
       padding-top: 14px;
@@ -217,24 +250,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         Scan on Hotel Wi-Fi to Download
       </div>
       <div class="qr-code">
-        <!-- SVG QR Mock with embedded Partner Affiliate ID -->
-        <svg viewBox="0 0 120 120" width="142" height="142">
-          <rect width="120" height="120" fill="#FFFFFF"/>
-          <rect x="8" y="8" width="32" height="32" fill="none" stroke="#1C2331" stroke-width="6"/>
-          <rect x="18" y="18" width="12" height="12" fill="#1C2331"/>
-          <rect x="80" y="8" width="32" height="32" fill="none" stroke="#1C2331" stroke-width="6"/>
-          <rect x="90" y="18" width="12" height="12" fill="#1C2331"/>
-          <rect x="8" y="80" width="32" height="32" fill="none" stroke="#1C2331" stroke-width="6"/>
-          <rect x="18" y="90" width="12" height="12" fill="#1C2331"/>
-          <rect x="48" y="48" width="24" height="24" fill="#B84A27"/>
-          <text x="60" y="64" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">TW</text>
-          <rect x="14" y="52" width="18" height="8" fill="#1C2331"/>
-          <rect x="82" y="52" width="24" height="8" fill="#1C2331"/>
-          <rect x="52" y="84" width="16" height="8" fill="#1C2331"/>
-          <rect x="80" y="80" width="12" height="12" fill="#1C2331"/>
-          <rect x="98" y="92" width="14" height="18" fill="#1C2331"/>
-          <rect x="76" y="102" width="14" height="8" fill="#1C2331"/>
-        </svg>
+        <!-- REAL QR CODE (segno) encoding: {affiliate_url} -->
+        {qr_svg}
       </div>
       <div style="font-size: 12px; color: #E2E8F0;">
         Works 100% in <b>Airplane Mode</b> · Zero Roaming Fees · Audio in English &amp; हिन्दी
@@ -287,10 +304,13 @@ def generate_all():
         mgr.register_affiliate(aff)
         
         # Render HTML
+        affiliate_url_value = affiliate_url(gh["id"])
         html_content = HTML_TEMPLATE.format(
             hotel_name=gh["name"],
             affiliate_id=gh["id"],
-            rev_share=int(gh["rate"] * 100)
+            rev_share=int(gh["rate"] * 100),
+            affiliate_url=affiliate_url_value,
+            qr_svg=qr_svg(affiliate_url_value),
         )
         file_path = OUTPUT_DIR / f"{gh['id'].lower()}_standee.html"
         file_path.write_text(html_content, encoding="utf-8")
