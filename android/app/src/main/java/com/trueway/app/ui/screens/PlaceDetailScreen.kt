@@ -112,6 +112,16 @@ fun PlaceDetailScreen(
     val thenAndNow = remember(placeId) { ThenAndNowCorpus.get(placeId) }
     val passportStamp = remember(placeId) { HeritagePassportCorpus.get(placeId) }
 
+    // Lifecycle cleanup for audio player when leaving PlaceDetailScreen
+    DisposableEffect(placeId) {
+        onDispose {
+            val audioController = AudioStoryController.get(context)
+            if (audioController.state.value is AudioPlaybackState.Playing) {
+                audioController.pause()
+            }
+        }
+    }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -119,7 +129,10 @@ fun PlaceDetailScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        TextButton(onClick = onBack) { Text("← Back") }
+        TextButton(onClick = {
+            AudioStoryController.get(context).stopAndRelease()
+            onBack()
+        }) { Text("← Back") }
 
         if (place == null) {
             Text(
@@ -338,23 +351,41 @@ private fun AudioStorySection(story: com.trueway.app.data.AudioStory) {
         story.audioAssetPath
     }
 
-    // Resolve the active regional pack ID from PrefsActivePackStore
+    // Resolve active regional pack directories from PrefsActivePackStore
     val activeStore = remember(context) { PrefsActivePackStore(context) }
-    val activePackId = remember(activeStore) {
-        activeStore.allActive().keys.firstOrNull() ?: "in-bihar-buddhist-circuit"
-    }
-    val activePackDir = remember(context, activeStore, activePackId) {
+    val activePackDirs = remember(context, activeStore) {
         val root = File(context.filesDir, "packs")
-        val activeVersion = activeStore.getActive(activePackId)
-        val dir = if (activeVersion != null) File(File(root, activePackId), activeVersion) else File(root, activePackId)
-        if (dir.exists()) dir else null
+        val allActive = activeStore.allActive().ifEmpty {
+            activeStore.getActive("in-bihar-buddhist-circuit")?.let { mapOf("in-bihar-buddhist-circuit" to it) } ?: emptyMap()
+        }
+        allActive.mapNotNull { (pid, ver) ->
+            val dir = File(File(root, pid), ver)
+            if (dir.exists()) dir else null
+        }
     }
 
-    // Resolve media whenever story, language, or active pack changes
-    LaunchedEffect(story.placeId, selectedLanguage, activePackDir) {
-        var media = mediaResolver.resolve(currentAssetPath, activePackDir)
-        if (media is ResolvedMedia.Rejected && selectedLanguage == "hi") {
-            media = mediaResolver.resolve(story.audioAssetPath, activePackDir)
+    // Resolve media whenever story, language, or active packs change
+    LaunchedEffect(story.placeId, selectedLanguage, activePackDirs) {
+        var media: ResolvedMedia = ResolvedMedia.Rejected(currentAssetPath, com.trueway.app.pack.RejectionReason.ASSET_NOT_FOUND)
+        for (packDir in activePackDirs) {
+            val candidate = mediaResolver.resolve(currentAssetPath, packDir)
+            if (candidate is ResolvedMedia.VerifiedPackFile || candidate is ResolvedMedia.BundledApkAsset) {
+                media = candidate
+                break
+            }
+            if (selectedLanguage == "hi") {
+                val fallbackCandidate = mediaResolver.resolve(story.audioAssetPath, packDir)
+                if (fallbackCandidate is ResolvedMedia.VerifiedPackFile || fallbackCandidate is ResolvedMedia.BundledApkAsset) {
+                    media = fallbackCandidate
+                    break
+                }
+            }
+        }
+        if (media is ResolvedMedia.Rejected && activePackDirs.isEmpty()) {
+            media = mediaResolver.resolve(currentAssetPath, null)
+            if (media is ResolvedMedia.Rejected && selectedLanguage == "hi") {
+                media = mediaResolver.resolve(story.audioAssetPath, null)
+            }
         }
         resolvedMedia = media
         when (media) {
@@ -372,6 +403,15 @@ private fun AudioStorySection(story: com.trueway.app.data.AudioStory) {
                 isMediaLoaded = false
                 mediaStatusNotice = "Audio file '$currentAssetPath' not yet bundled in offline package (${media.reason})."
                 resolvedSourceDesc = null
+            }
+        }
+    }
+
+    // Pause audio playback if composable leaves composition
+    DisposableEffect(story.placeId) {
+        onDispose {
+            if (isPlayingThis) {
+                audioController.pause()
             }
         }
     }
@@ -686,11 +726,26 @@ private fun ArchivalImageDisplay(
         try {
             val root = File(context.filesDir, "packs")
             val activeStore = PrefsActivePackStore(context)
-            val activePackId = activeStore.allActive().keys.firstOrNull() ?: "in-bihar-buddhist-circuit"
-            val activeVersion = activeStore.getActive(activePackId)
-            val activePackDir = if (activeVersion != null) File(File(root, activePackId), activeVersion) else File(root, activePackId)
+            val activePackDirs = activeStore.allActive().ifEmpty {
+                activeStore.getActive("in-bihar-buddhist-circuit")?.let { mapOf("in-bihar-buddhist-circuit" to it) } ?: emptyMap()
+            }.mapNotNull { (pid, ver) ->
+                val dir = File(File(root, pid), ver)
+                if (dir.exists()) dir else null
+            }
 
-            when (val media = resolver.resolve(assetPath, activePackDir.takeIf { it.exists() })) {
+            var media: ResolvedMedia = ResolvedMedia.Rejected(assetPath, com.trueway.app.pack.RejectionReason.ASSET_NOT_FOUND)
+            for (dir in activePackDirs) {
+                val candidate = resolver.resolve(assetPath, dir)
+                if (candidate is ResolvedMedia.VerifiedPackFile || candidate is ResolvedMedia.BundledApkAsset) {
+                    media = candidate
+                    break
+                }
+            }
+            if (media is ResolvedMedia.Rejected && activePackDirs.isEmpty()) {
+                media = resolver.resolve(assetPath, null)
+            }
+
+            when (media) {
                 is ResolvedMedia.VerifiedPackFile -> {
                     android.graphics.BitmapFactory.decodeFile(media.file.absolutePath)
                 }

@@ -1,69 +1,144 @@
-"""TrueWay distribution stub — blueprint §20.1/§20.5 (Days 11-12 scaffold).
+"""TrueWay pack distribution server & regional catalog — blueprint §20.1, §20.5.
 
 No inference here: metadata + immutable bytes + opt-in feedback queues.
-Pack bytes must come from pack-builder; the server never invents content.
+Pack bytes come from pack-builder / dist archives; the server never invents content.
 """
-from fastapi import FastAPI, HTTPException
+from __future__ import annotations
+
+import json
+import mimetypes
+import sys
+from pathlib import Path
+from typing import Optional
+
+from fastapi import FastAPI, HTTPException, Response
 from pydantic import BaseModel, Field
 
-app = FastAPI(title="TrueWay pack distribution (stub)")
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "pack-builder"))
 
-PACK_ID = "in-bihar-buddhist-circuit"
-LATEST = "2026.10.1"
+try:
+    from regional_catalog import RegionalPackCatalog, default_catalog
+except ImportError:
+    default_catalog = None
+
+app = FastAPI(title="TrueWay pack distribution & regional catalog")
 
 
 class Feedback(BaseModel):
     # Bounded so the opt-in feedback endpoints are not an unbounded write
     # surface. These are UNAUTHENTICATED stubs: wire auth + rate limiting +
     # persistence policy (§13.5) before storing anything server-side.
-    place_id: str | None = Field(default=None, max_length=128)
+    place_id: Optional[str] = Field(default=None, max_length=128)
     text: str = Field(default="", max_length=2000)
-    contact: str | None = Field(default=None, max_length=256)
+    contact: Optional[str] = Field(default=None, max_length=256)
+
+
+def _get_catalog() -> RegionalPackCatalog:
+    if default_catalog is not None:
+        return default_catalog
+    return RegionalPackCatalog()
 
 
 @app.get("/v1/regions")
 def regions(lang: str = "en"):
-    return {"regions": [{"pack_id": PACK_ID, "lang": lang,
-                         "title": "Bihar Buddhist Circuit (demonstrator)"}]}
+    catalog = _get_catalog()
+    pack_list = catalog.list_regions(lang=lang)
+    return {"regions": pack_list}
 
 
 @app.get("/v1/regions/{pack_id}/releases/latest")
 def latest(pack_id: str):
-    if pack_id != PACK_ID:
-        raise HTTPException(404, "unknown region pack")
-    return {"pack_id": pack_id, "release_version": LATEST,
-            "schema_version": 3, "place_count": 15,
-            "content_locales": ["en", "hi"]}
+    catalog = _get_catalog()
+    rel = catalog.get_latest_release(pack_id)
+    if not rel:
+        raise HTTPException(404, f"unknown region pack: {pack_id}")
+    return rel
 
 
 @app.get("/v1/packs/{pack_id}/{version}/manifest.cjson")
 def manifest(pack_id: str, version: str):
-    if (pack_id, version) != (PACK_ID, LATEST):
-        raise HTTPException(404, "no such release")
-    return {"notice": "serve the byte-identical manifest.cjson from the built .twpkg"}
+    catalog = _get_catalog()
+    pack = catalog.get(pack_id)
+    if not pack:
+        raise HTTPException(404, f"unknown region pack: {pack_id}")
+    if version != pack.release_version:
+        raise HTTPException(404, f"release version {version} not found for pack {pack_id}")
+
+    # Serve the byte-identical manifest.cjson from the built .twpkg when present
+    manifest_bytes = catalog.read_manifest(pack_id, version)
+    if manifest_bytes:
+        return Response(content=manifest_bytes, media_type="application/json")
+
+    return {
+        "notice": "serve the byte-identical manifest.cjson from the built .twpkg",
+        "pack_id": pack_id,
+        "release_version": version,
+    }
 
 
-# §20.5 component byte-serving (the 7th endpoint). Allowlisted component names
-# only — the stub never touches the filesystem, and an unknown or traversal-y
-# name is a flat 404 (no path is ever joined to disk here).
-_PACK_COMPONENTS = {
-    "content/places.sqlite", "ATTRIBUTIONS.json", "LICENSES.json",
-    "CHANGELOG.md", "manifest.ed25519",
+# §20.5 component byte-serving allowlist
+_ALLOWED_COMPONENTS_PREFIXES = (
+    "content/",
+    "audio/",
+    "images/",
+    "vision/",
+    "translations/",
+    "maps/",
+)
+_ALLOWED_EXACT_COMPONENTS = {
+    "ATTRIBUTIONS.json",
+    "LICENSES.json",
+    "CHANGELOG.md",
+    "manifest.ed25519",
+    "manifest.cjson",
 }
+
+
+def _is_safe_component(component: str) -> bool:
+    norm = component.replace("\\", "/").lstrip("/")
+    parts = norm.split("/")
+    if ".." in parts:
+        return False
+    if norm in _ALLOWED_EXACT_COMPONENTS:
+        return True
+    return any(norm.startswith(pfx) for pfx in _ALLOWED_COMPONENTS_PREFIXES)
 
 
 @app.get("/v1/packs/{pack_id}/{version}/{component:path}")
 def component(pack_id: str, version: str, component: str):
-    if (pack_id, version) != (PACK_ID, LATEST):
-        raise HTTPException(404, "no such release")
-    if component not in _PACK_COMPONENTS:
-        raise HTTPException(404, "unknown component")
-    return {"notice": f"serve byte-identical {component} from the built .twpkg",
-            "component": component}
+    catalog = _get_catalog()
+    pack = catalog.get(pack_id)
+    if not pack:
+        raise HTTPException(404, f"unknown region pack: {pack_id}")
+    if version != pack.release_version:
+        raise HTTPException(404, f"release version {version} not found for pack {pack_id}")
+
+    if not _is_safe_component(component):
+        raise HTTPException(404, f"unknown or disallowed component: {component}")
+
+    # Serve byte-identical component from the built .twpkg when available
+    comp_bytes = catalog.read_component(pack_id, version, component)
+    if comp_bytes is not None:
+        mime, _ = mimetypes.guess_type(component)
+        return Response(content=comp_bytes, media_type=mime or "application/octet-stream")
+
+    return {
+        "notice": f"serve byte-identical {component} from the built .twpkg",
+        "pack_id": pack_id,
+        "release_version": version,
+        "component": component,
+    }
 
 
 @app.get("/v1/keys/publishers")
 def publishers():
+    trust_file = ROOT / "tests" / "fixtures" / "qr" / "trust_store.json"
+    if trust_file.is_file():
+        try:
+            return json.loads(trust_file.read_text(encoding="utf-8"))
+        except Exception:
+            pass
     return {"notice": "signed trust-store response only; pin key IDs in-app (§9.3)"}
 
 

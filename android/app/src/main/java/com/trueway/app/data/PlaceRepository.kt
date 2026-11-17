@@ -24,28 +24,46 @@ object PlaceRepository {
         sharedSqlRunner.evictPackDirectory(packDir)
     }
 
-    /** Switch to the active pack's DB if present, else the bundled corpus. */
+    /** Switch to the active pack's DB if present, else the bundled corpus. Supports multi-pack aggregation. */
     fun initForPackDir(context: Context) {
         val store = PrefsActivePackStore(context)
-        val version = store.getActive("in-bihar-buddhist-circuit")
-        val db = version?.let { File(File(context.filesDir, "packs/in-bihar-buddhist-circuit"), "$it/content/places.sqlite") }
-            // Packs written by the importer land at packs/<id>/<version>/…;
-            // accept both that layout and the builder's content/places.sqlite.
-            ?.let { direct ->
-                if (direct.exists()) direct
-                else File(
-                    File(context.filesDir, "packs/in-bihar-buddhist-circuit"), "$version",
-                ).walkTopDown().firstOrNull { f -> f.isFile && f.name == "places.sqlite" }
+        val activePacks = store.allActive()
+        val packsDir = File(context.filesDir, "packs")
+        val packSources = mutableListOf<PlaceDataSource>()
+        for ((packId, version) in activePacks) {
+            val dir = File(File(packsDir, packId), version)
+            val db = File(dir, "content/places.sqlite").takeIf { it.exists() }
+                ?: dir.walkTopDown().firstOrNull { f -> f.isFile && f.name == "places.sqlite" }
+            if (db != null && db.exists()) {
+                packSources.add(SqlitePackSource(db, sharedSqlRunner))
             }
-        source = if (db != null && db.exists()) {
-            SqlitePackSource(db, sharedSqlRunner)
-        } else {
-            DemoCorpusSource()
+        }
+        if (packSources.isEmpty()) {
+            val version = store.getActive("in-bihar-buddhist-circuit")
+            val db = version?.let { File(File(packsDir, "in-bihar-buddhist-circuit"), "$it/content/places.sqlite") }
+                ?.let { direct ->
+                    if (direct.exists()) direct
+                    else File(
+                        File(packsDir, "in-bihar-buddhist-circuit"), "$version",
+                    ).walkTopDown().firstOrNull { f -> f.isFile && f.name == "places.sqlite" }
+                }
+            if (db != null && db.exists()) {
+                packSources.add(SqlitePackSource(db, sharedSqlRunner))
+            }
+        }
+        source = when {
+            packSources.size == 1 -> packSources[0]
+            packSources.size > 1 -> CompositePlaceDataSource(packSources)
+            else -> DemoCorpusSource()
         }
     }
 
     fun currentSourceName(): String =
-        (source as? SqlitePackSource)?.let { "pack" } ?: "demo"
+        when (source) {
+            is SqlitePackSource -> "pack"
+            is CompositePlaceDataSource -> "multi-pack"
+            else -> "demo"
+        }
 
     fun get(placeId: String): Place? = source.get(placeId)
 

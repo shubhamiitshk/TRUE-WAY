@@ -315,3 +315,24 @@ class SqlitePackSource(
         }
     }
 }
+
+/**
+ * Composite data source aggregating places across multiple active regional packs.
+ */
+class CompositePlaceDataSource(
+    private val sources: List<PlaceDataSource>,
+) : PlaceDataSource {
+    override fun get(placeId: String): Place? =
+        sources.firstNotNullOfOrNull { it.get(placeId) }
+
+    override fun all(): List<Place> =
+        sources.flatMap { it.all() }.distinctBy { it.placeId }
+
+    override fun search(rawQuery: String, limit: Int): List<Place> =
+        sources.flatMap { it.search(rawQuery, limit) }.distinctBy { it.placeId }.take(limit.coerceAtLeast(1))
+
+    override fun nearby(latitude: Double, longitude: Double, maxRadiusMeters: Double): List<NearbyPlace> =
+        sources.flatMap { it.nearby(latitude, longitude, maxRadiusMeters) }
+            .distinctBy { it.place.placeId }
+            .sortedBy { it.distanceMeters }
+}

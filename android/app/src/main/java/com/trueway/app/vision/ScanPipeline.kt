@@ -82,10 +82,17 @@ fun runScanBlocking(
         store.getActive("in-bihar-buddhist-circuit")?.let { mapOf("in-bihar-buddhist-circuit" to it) } ?: emptyMap()
     }
     val packsDir = File(appContext.filesDir, "packs")
-    val activePackDir = activePacks.entries.firstOrNull()?.let { (pid, ver) ->
-        File(File(packsDir, pid), ver)
+    var loaded: LoadedVectorIndex? = null
+    var activePackId: String? = null
+    for ((pid, ver) in activePacks) {
+        val dir = File(File(packsDir, pid), ver)
+        val candidate = ReferenceStore.loadBinaryIfPresent(dir)
+        if (candidate != null) {
+            loaded = candidate
+            activePackId = pid
+            break
+        }
     }
-    val loaded = ReferenceStore.loadBinaryIfPresent(activePackDir)
     val jsonIndex = if (loaded == null) ReferenceStore.load(appContext) else null
 
     if (loaded == null && jsonIndex is ReferenceIndex.Empty) return ScanOutcome.NoIndex
@@ -108,7 +115,7 @@ fun runScanBlocking(
         val outcome = loaded.index.evaluate(embedding, policy, prior, distances)
         val provenance = ScanProvenance(
             modelId = loaded.meta.modelId ?: "mobileclip-s0",
-            packId = activePacks.keys.firstOrNull(),
+            packId = activePackId ?: activePacks.keys.firstOrNull(),
             evidenceKind = EvidenceKind.VISION_RANKING,
             evidenceSource = DeviceLocationProvider.evidenceLabel(prior),
             calibrationSource = policy.source,
@@ -130,7 +137,7 @@ fun runScanBlocking(
         decision,
         ScanProvenance(
             modelId = index.modelId,
-            packId = activePacks.keys.firstOrNull(),
+            packId = activePackId ?: (index as? ReferenceIndex.Ready)?.packId ?: activePacks.keys.firstOrNull(),
             evidenceKind = EvidenceKind.VISION_RANKING,
             calibrationSource = "pack-json",
         ),

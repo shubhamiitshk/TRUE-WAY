@@ -220,6 +220,10 @@ object PackImporter {
             return PackInstallResult.Rejected(verified.reason, verified.detail)
         }
         val summary = (verified as PackVerifyResult.Ok).summary
+        val currentActiveVersion = minSafeVersion ?: activeStore.getActive(summary.packId)
+        if (currentActiveVersion != null && compareVersions(summary.releaseVersion, currentActiveVersion) < 0) {
+            return PackInstallResult.Rejected(PackReject.DOWNGRADE, "${summary.releaseVersion} < $currentActiveVersion")
+        }
         val target = File(File(packsDir, summary.packId), summary.releaseVersion)
         val staging = File(packsDir, ".staging-${summary.packId}-${summary.releaseVersion}")
         try {

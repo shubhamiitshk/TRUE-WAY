@@ -1,6 +1,6 @@
 {
-  "snapshot_at": "2026-10-09",
-  "note": "Source registry behind source_id in seed_demo.sql. Rights pointers are editorial tracking, not legal advice; counsel confirms before beta (blueprint §16).",
+  "snapshot_at": "2026-10-15",
+  "note": "Source registry behind source_id across regional seed files (seed_demo.sql, seed_golden_triangle.sql, seed_global_icons.sql). Rights pointers are editorial tracking, not legal advice; counsel confirms before beta (blueprint §16).",
   "sources": [
     {
       "source_id": "src-unesco-1056",
@@ -37,6 +37,213 @@
       "rights_id": "rights-cc0",
       "accessed_at": "2026-10-09",
       "covers": ["candidate IDs, approximate coordinates; accuracy NOT assumed, editorial check required"]
+    },
+    {
+      "source_id": "src-unesco-252",
+      "title": "Taj Mahal — World Heritage Inscription & Advisory Body Evaluation",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/252",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Taj Mahal inscription", "universal value", "chronology"]
+    },
+    {
+      "source_id": "src-unesco-233",
+      "title": "Qutb Minar and its Monuments, Delhi — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/233",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Qutub Minar inscription", "Delhi sultanate architecture"]
+    },
+    {
+      "source_id": "src-unesco-1054",
+      "title": "Red Fort Complex — World Heritage Inscription & Evaluation",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1054",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Red Fort inscription", "Mughal palatial design"]
+    },
+    {
+      "source_id": "src-unesco-251",
+      "title": "Agra Fort — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/251",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Agra Fort inscription", "Mughal fortification"]
+    },
+    {
+      "source_id": "src-unesco-255",
+      "title": "Fatehpur Sikri — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/255",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Fatehpur Sikri inscription", "Akbar urbanism"]
+    },
+    {
+      "source_id": "src-unesco-232",
+      "title": "Humayun's Tomb, Delhi — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/232",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Humayun Tomb inscription", "Mughal garden tomb prototype"]
+    },
+    {
+      "source_id": "src-unesco-247",
+      "title": "Hill Forts of Rajasthan (Amer Fort) — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/247",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Amer Fort inscription", "Rajput hill fortification"]
+    },
+    {
+      "source_id": "src-asi-agra-circle",
+      "title": "Monuments of Agra: Taj Mahal, Agra Fort, Fatehpur Sikri Monograph",
+      "publisher": "Archaeological Survey of India (ASI)",
+      "url": "https://asi.nic.in/circle-agra/",
+      "rights_id": "rights-asi-official-doc",
+      "accessed_at": "2026-10-15",
+      "covers": ["ASI Agra monument records", "excavation reports", "court declarations"]
+    },
+    {
+      "source_id": "src-asi-delhi-circle",
+      "title": "Monuments of Delhi: Qutb Minar, Red Fort, Humayun's Tomb",
+      "publisher": "Archaeological Survey of India (ASI)",
+      "url": "https://asi.nic.in/circle-delhi/",
+      "rights_id": "rights-asi-official-doc",
+      "accessed_at": "2026-10-15",
+      "covers": ["ASI Delhi monument records", "Brahmi inscriptions", "chronology"]
+    },
+    {
+      "source_id": "src-rajasthan-tourism-jaipur",
+      "title": "Jaipur Monuments: Hawa Mahal and City Palace Official Archive",
+      "publisher": "Department of Tourism, Government of Rajasthan",
+      "url": "https://www.tourism.rajasthan.gov.in/jaipur.html",
+      "rights_id": "rights-gov-open",
+      "accessed_at": "2026-10-15",
+      "covers": ["Hawa Mahal architecture", "City Palace collections", "Gangajali"]
+    },
+    {
+      "source_id": "src-koch-taj",
+      "title": "The Complete Taj Mahal and the Riverfront Gardens of Agra",
+      "publisher": "Ebba Koch, Thames & Hudson",
+      "url": "https://www.thamesandhudson.com/the-complete-taj-mahal",
+      "rights_id": "rights-academic-cite",
+      "accessed_at": "2026-10-15",
+      "covers": ["Charbagh geometry", "pietra dura analysis", "architectural history"]
+    },
+    {
+      "source_id": "src-unesco-600",
+      "title": "Paris, Banks of the Seine (Eiffel Tower) — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/600",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Eiffel Tower inscription", "universal civil engineering heritage"]
+    },
+    {
+      "source_id": "src-unesco-91",
+      "title": "Historic Centre of Rome (Colosseum) — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/91",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Colosseum inscription", "Roman classical engineering"]
+    },
+    {
+      "source_id": "src-unesco-86",
+      "title": "Memphis and its Necropolis: Pyramid Fields from Giza to Dahshur",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/86",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Pyramids of Giza inscription", "Old Kingdom necropolis"]
+    },
+    {
+      "source_id": "src-unesco-668",
+      "title": "Angkor (Angkor Wat) — World Heritage Inscription & State of Conservation",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/668",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Angkor Wat inscription", "Khmer empire heritage"]
+    },
+    {
+      "source_id": "src-unesco-274",
+      "title": "Historic Sanctuary of Machu Picchu — World Heritage Inscription",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/274",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Machu Picchu inscription", "Inca Andean architecture"]
+    },
+    {
+      "source_id": "src-unesco-307",
+      "title": "Statue of Liberty — World Heritage Inscription & Advisory Evaluation",
+      "publisher": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/307",
+      "rights_id": "rights-unesco-text-fairuse",
+      "accessed_at": "2026-10-15",
+      "covers": ["Statue of Liberty inscription", "colossal sculpture engineering"]
+    },
+    {
+      "source_id": "src-sete-eiffel",
+      "title": "Tour Eiffel: Histoire, Architecture et Chiffres Clés",
+      "publisher": "Société d'Exploitation de la Tour Eiffel (SETE)",
+      "url": "https://www.toureiffel.paris/fr/le-monument/histoire",
+      "rights_id": "rights-sete-official",
+      "accessed_at": "2026-10-15",
+      "covers": ["Eiffel Tower technical specs", "puddle iron rivets", "history"]
+    },
+    {
+      "source_id": "src-parco-colosseo",
+      "title": "Il Colosseo: Guida Archeologica e Storica",
+      "publisher": "Parco Archeologico del Colosseo, Ministero della Cultura",
+      "url": "https://colosseo.it/area/colosseo/",
+      "rights_id": "rights-parco-official",
+      "accessed_at": "2026-10-15",
+      "covers": ["Colosseum archaeological research", "hypogeum", "orders"]
+    },
+    {
+      "source_id": "src-egypt-moa",
+      "title": "Giza Plateau Archaeological Survey and Conservation Reports",
+      "publisher": "Egyptian Ministry of Tourism and Antiquities",
+      "url": "https://egymonuments.gov.eg/archaeological-sites/giza-plateau/",
+      "rights_id": "rights-egypt-gov",
+      "accessed_at": "2026-10-15",
+      "covers": ["Khufu pyramid excavation", "workers barracks", "alignment"]
+    },
+    {
+      "source_id": "src-apsara-angkor",
+      "title": "Angkor Wat Architectural Documentation and Epigraphy",
+      "publisher": "APSARA National Authority of Cambodia",
+      "url": "https://apsaraauthority.gov.kh/",
+      "rights_id": "rights-apsara-official",
+      "accessed_at": "2026-10-15",
+      "covers": ["Angkor Wat epigraphy", "cosmology", "bas-reliefs"]
+    },
+    {
+      "source_id": "src-sernanp-peru",
+      "title": "Santuario Histórico de Machu Picchu — Plan Maestro",
+      "publisher": "SERNANP / Ministerio de Cultura del Perú",
+      "url": "https://www.gob.pe/sernanp",
+      "rights_id": "rights-peru-gov",
+      "accessed_at": "2026-10-15",
+      "covers": ["Machu Picchu master plan", "Inca masonry", "conservation"]
+    },
+    {
+      "source_id": "src-nps-liberty",
+      "title": "Statue of Liberty National Monument: History & Culture",
+      "publisher": "US National Park Service",
+      "url": "https://www.nps.gov/stli/learn/historyculture/index.htm",
+      "rights_id": "rights-us-nps-public-domain",
+      "accessed_at": "2026-10-15",
+      "covers": ["Statue of Liberty history", "emancipation symbols", "Bartholdi"]
     }
   ]
 }

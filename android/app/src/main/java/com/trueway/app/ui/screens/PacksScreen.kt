@@ -100,7 +100,7 @@ fun PacksScreen(
                         packsDir = packsDir,
                         trust = trust,
                         allowDemo = BuildConfig.DEBUG,
-                        minSafeVersion = activeStore.getActive("in-bihar-buddhist-circuit"),
+                        minSafeVersion = null, // Auto-resolved per-pack in installPackage
                         activeStore = activeStore,
                     )
                     tmp.delete()

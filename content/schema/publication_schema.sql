@@ -90,6 +90,17 @@ CREATE TABLE operational_notices (
   expires_at TEXT
 );
 
+CREATE TABLE IF NOT EXISTS spotter_items (
+  spotter_id TEXT PRIMARY KEY,
+  place_id TEXT NOT NULL REFERENCES places(place_id),
+  feature_title TEXT NOT NULL,
+  where_to_look TEXT NOT NULL,
+  explanation TEXT NOT NULL,
+  claim_type TEXT NOT NULL CHECK(claim_type IN
+    ('DOCUMENTED','INTERPRETATION','TRADITION','CONTESTED')),
+  source_id TEXT REFERENCES sources(source_id)
+);
+
 CREATE TABLE touchpoints (
   touchpoint_id TEXT PRIMARY KEY,
   place_id TEXT NOT NULL REFERENCES places(place_id),
@@ -129,6 +140,7 @@ CREATE INDEX idx_alias_place ON place_aliases(place_id);
 CREATE INDEX idx_claim_place_locale ON claims(place_id, locale, editorial_state);
 CREATE INDEX idx_asset_place ON assets(place_id);
 CREATE INDEX idx_notice_place ON operational_notices(place_id);
+CREATE INDEX IF NOT EXISTS idx_spotter_place ON spotter_items(place_id);
 
 -- Index built from PUBLISHED and REVIEWED content at pack-compilation time.
 CREATE VIRTUAL TABLE place_search USING fts5(
