@@ -126,6 +126,11 @@ fun TrueWayApp() {
                     onOpenPlace = { id -> navController.navigate(Routes.place(id)) },
                     onSearchInstead = { navController.navigate(Routes.EXPLORE) },
                     onBack = { navController.popBackStack() },
+                    onVoucherRedeemed = { packId ->
+                        navController.navigate(Routes.PACKS) {
+                            popUpTo(Routes.QR) { inclusive = true }
+                        }
+                    },
                 )
             }
             composable(Routes.SAVED) { SavedScreen() }
